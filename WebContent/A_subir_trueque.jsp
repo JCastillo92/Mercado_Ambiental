@@ -61,7 +61,7 @@ if (error != null && error.equals("true")){
       </div>
       <div class="modal-body">
         <!-- -------------------------------------------------------------------------- -->
-        <form action="*************SEVLET******************" method="post">
+        <form action="ingresoMoneda" method="post">
   <div class="form-group">
   
   <!-- PONER LO DEL BRYA AQUI -->
@@ -72,7 +72,7 @@ if (error != null && error.equals("true")){
   
   </div>
    <div class="modal-footer">
-        <input type="submit" name="btnIngresar" class="btn btn-primary" role="button" value="INGRESAR">
+        <input type="submit" name="btnRegistar"  class="btn btn-primary" role="button" value="Guardar">
       </div>
 </form>
         <!-- ----------------------------------------------------------------- -->
@@ -86,7 +86,6 @@ if (error != null && error.equals("true")){
 <div class="col-md-4">
 <br>
 <!-- //////////////////////////////////////MI PARTE AQUI ABAJO INGRESO DE FOTOS/////////////////// -->
-<!-- /////////////////////////////////////////////////////////////////////////////// -->
 
     <div class="thumbnail">
        <img src="imagenes/paso2.png" alt="PASO2"  style="width:175px;height:150px;border:0" class="img-thumbnail">
