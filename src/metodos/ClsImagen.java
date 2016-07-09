@@ -110,14 +110,56 @@ public class ClsImagen {
 		}
 	}
 	
+
+	
+//*******************************************************************************************************
+	public boolean insertarimagen_puja(String path, int id){
+	
+			//System.out.println("Ya Entro "+path);
+			boolean t = false;
+			//ClsConexion obj = new ClsConexion();
+			try {
+			File file = new File(path);
+			FileInputStream fis = new FileInputStream(file);
+			//PreparedStatement ps = obj.getConexion().prepareStatement("insert into tb_usuario (nombre_im,img) values (?,?) where id_us="+cedula);
+			//insert into tb_imagenes ("id_producto_fk,tipo,nombre_img,imagen_bit) values(?,?,?,?)"
+			String nombrearchivo = file.getName();
+			nombrearchivo = nombrearchivo.substring(nombrearchivo.length() -4, nombrearchivo.length());
+			if (nombrearchivo.equals(".jpg")){
+			PreparedStatement ps = obj.getConexion().prepareStatement("insert into tb_imagenes (id_producto_fk,tipo,nombre_img,imagen_bit) values(?,?,?,?)" );
+			//PreparedStatement ps = obj.getConexion().prepareStatement("update tb_usuario set nombre_im = ?, img = ?" );
+			ps.setInt(1, id);
+			ps.setInt(2, 2);
+			ps.setString(3, file.getName());
+			ps.setBinaryStream(4, fis, (int)file.length());
+			System.out.println(ps);
+			ps.executeUpdate();
+			ps.close();
+			fis.close();
+			t = true;
+			}else{
+			fis.close();
+			System.out.println("archivo incorrecto");
+			}
+				
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			return t;
+		}
+	
+//*******************************************************************************************************
 	public boolean insertarimagen_trueque(String path){
-		
+
 		boolean t = false;
 		try {
 			File file = new File(path);
-			System.out.println("Ya Entro "+path);
+			//System.out.println("Ya Entro "+path);
+
 			FileInputStream fis = new FileInputStream(file);
 			String nombrearchivo = file.getName();
+			System.out.println("---------------"+nombrearchivo);
 			nombrearchivo = nombrearchivo.substring(nombrearchivo.length() -4, nombrearchivo.length());
 			if (nombrearchivo.equals(".jpg") && (saber_id_nuevo_producto_trueque()>0)){
 				PreparedStatement ps = obj.getConexion().prepareStatement("insert into tb_imagenes (id_producto_fk,tipo,nombre_img,imagen_bit) values(?,?,?,?)" );
@@ -147,6 +189,7 @@ public class ClsImagen {
 	}
 	
 	public boolean recuperarimagen(String prod, String place, String tipo_imagen){
+
 		boolean t=false;
 		int cuentame=0;
 		System.out.println("Llego");

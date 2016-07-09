@@ -40,6 +40,8 @@ public class Prueba_imagen extends HttpServlet {
 		// TODO Auto-generated method stub
 		String pathimg;
 		pathimg = request.getParameter("btnarchivo");
+		
+		System.out.println("----------"+pathimg);
 		ClsImagen obj = new ClsImagen();
 		obj.insertarimagen(pathimg);
 		response.sendRedirect("pruebaimagen.jsp");

@@ -52,6 +52,7 @@ public class Imagen extends HttpServlet {
 			response.setContentType("image/jpeg");
 			OutputStream o = response.getOutputStream();
 			o.write(hh);
+
 		}
 		
 		
