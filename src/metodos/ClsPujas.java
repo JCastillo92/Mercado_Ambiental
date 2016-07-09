@@ -10,12 +10,13 @@ public class ClsPujas {
 	
 	public String Ver_Pujas(){
 	String pujas="<div class=list-group>";
-	System.out.println(pujas);
+	//System.out.println(pujas);
 	
 
 	ResultSet rs=null;
 	
-	String sql="Select id_prod_pj, titulo from tb_pujas where estado='true';";
+	String sql="Select id_prod_pj, titulo from tb_pujas where estado=1;";
+	System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
 	while(rs.next()){
@@ -23,7 +24,7 @@ public class ClsPujas {
 			+ "<span class=glyphicon glyphicon glyphicon-education aria-hidden=true>"
 			+ "</span></span>";
 	pujas+=rs.getString(2)+"</a></h3>";
-	System.out.println(rs.getString(2));
+	//System.out.println(rs.getString(2));
 	//System.out.println(pujas);
 	}
 	
@@ -38,6 +39,7 @@ public class ClsPujas {
 	
 	
 	
+	//********************************************************************************************************
 	
 	
 	public String Descripcion(String id){
@@ -171,7 +173,7 @@ public class ClsPujas {
 	ResultSet rs=null;
 	
 	String sql="Select id_moneda from tb_monedas where descripcion="+"'"+moneda+"';";
-	//System.out.println(sql);
+	System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
 	while(rs.next()){
@@ -187,16 +189,100 @@ public class ClsPujas {
 	}
 	
 //********************************************************************************************************
-	public void Ingresar_Puja(String nombre, String descripcion, int cantidad, int moneda, int valor, int categorias ){
+public int Categoria_id(String categoria){
+		  
+		int id=0;
 		
-	String sql="INSERT INTO tb_pujas (titulo,descripcion,cantidad,moneda,valor_minimo,fk_categorias,'true') values ('"+nombre+"','"+descripcion+"',"+cantidad+","+moneda+","+valor+","+categorias+",'true');";
-	System.out.println(sql);
+		ResultSet rs=null;
+		
+		String sql="Select id_cat from tb_categorias where descripcion="+"'"+categoria+"';";
+		System.out.println(sql);
+		try{
+		rs=con.Consulta(sql);
+		while(rs.next()){
+		id=rs.getInt(1);
+		}
+		
+		}
+		catch(Exception e){
+		System.out.print(e.getMessage());	
+		}
+			
+		return id;
+		}
+		
+//********************************************************************************************************
+	public void Ingresar_Puja(String nombre, String descripcion, int cantidad, int moneda, double val, int categorias){
+		
+	String sql="INSERT INTO tb_pujas (titulo,descripcion,cantidad,moneda,valor_minimo,fk_categoria,principal, estado) values ('"+nombre+"','"+descripcion+"',"+cantidad+","+moneda+","+val+","+categorias+",'false',"+1+");";
+	System.out.println("****************"+sql);
 	try {
 	con.Ejecutar(sql);
 	} catch (Exception e) {
 	// TODO: handle exception
 	e.printStackTrace();
 	}
+	
+	
+	}
+//********************************************************************************************************
+	public void Eiminar_Puja(int id){
+		
+	String sql="delete from tb_pujas where id_prod_pj="+id+";";
+	//System.out.println("****************"+sql);
+	try {
+	con.Ejecutar(sql);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+	
+	
+	}
+	
+//********************************************************************************************************
+	public void Eiminar_Imagen_Puja(int id){
+		
+	String sql="delete from tb_imagenes where id_producto_fk="+id+" "
+			+ "and tipo=2;";
+	//System.out.println("****************"+sql);
+	try {
+	con.Ejecutar(sql);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+	
+	
+	}
+//********************************************************************************************************
+	public int Obtener_ID (String nombre, String descripcion, int cantidad, int moneda, double val, int categorias){
+	int id =0;
+	ResultSet rs=null;
+	
+	String sql="Select id_prod_pj from tb_pujas where "
+			+ "titulo='"+nombre+"' "
+			+ "and descripcion='"+descripcion+"' "
+			+ "and cantidad="+cantidad+" "
+			+ "and moneda="+moneda+" "
+			+ "and valor_minimo="+val+" "
+			+ "and fk_categoria= "+categorias+";";
+	
+	System.out.println(sql);
+	
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	id=rs.getInt(1);
+	}
+	
+	}
+	catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	
+	
+	return id;
 	}
 	
 }

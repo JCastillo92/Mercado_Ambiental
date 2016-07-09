@@ -46,11 +46,11 @@ public class Imagen extends HttpServlet {
 		// -- MANDAR A BUSCAR IMAGENES
 		cuentaimagenes = obj.getContador();
 		if (Integer.parseInt(lugar) <= cuentaimagenes) {
-			obj.recuperarimagen(productoselect,lugar);
-			hh = (byte[])obj.getImgBytes2();
-			response.setContentType("image/jpeg");
-			OutputStream o = response.getOutputStream();
-			o.write(hh);
+		obj.recuperarimagen(productoselect,lugar);
+		hh = (byte[])obj.getImgBytes2();
+		response.setContentType("image/jpeg");
+		OutputStream o = response.getOutputStream();
+		o.write(hh);
 		}
 		
 		
