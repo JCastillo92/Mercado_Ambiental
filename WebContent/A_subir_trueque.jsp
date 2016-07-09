@@ -65,6 +65,7 @@ if (error != null && error.equals("true")){
   <div class="form-group">
   
   <!-- PONER LO DEL BRYA AQUI -->
+  
   <!-- //////////////////////////////////////PARTE DEL BRYAN INGRESO DEL ARTICULO O PRODUCTO/////////////////// -->
   
   
