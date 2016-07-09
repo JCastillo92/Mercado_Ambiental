@@ -83,7 +83,7 @@ public class ClsImagen {
 		int a=-1;
 		int toma=0;
 		//sql=select id_producto_tr from tb_trueque order by id_producto_tr desc limit 1;
-		String sql="select id_producto_tr from tb_trueque order by id_producto_tr desc limit 1;";
+		String sql="select id_producto_tr from tb_trueque,tb_imagenes where tipo=1 and  id_producto_tr=id_producto_fk order by id_producto_tr desc limit 1;";
 		ClsConexion con=new ClsConexion();
 		ResultSet rs=null;
 		try{
@@ -100,7 +100,7 @@ public class ClsImagen {
 	}
 	public void falla_ingreso_imagenes_trueque(){
 		//id que ingrese las imagenes pero no se cargaron todas
-		String sentencia="delete from tb_imagenes where id_producto_fk="+saber_id_nuevo_producto_trueque();
+		String sentencia="delete from tb_imagenes where id_producto_fk="+saber_id_nuevo_producto_trueque()+" and tipo=1";
 		try {
 			ClsConexion con = new datos.ClsConexion();
 			con.Ejecutar(sentencia);
@@ -151,10 +151,12 @@ public class ClsImagen {
 	
 //*******************************************************************************************************
 	public boolean insertarimagen_trueque(String path){
+
 		boolean t = false;
 		try {
 			File file = new File(path);
 			//System.out.println("Ya Entro "+path);
+
 			FileInputStream fis = new FileInputStream(file);
 			String nombrearchivo = file.getName();
 			System.out.println("---------------"+nombrearchivo);

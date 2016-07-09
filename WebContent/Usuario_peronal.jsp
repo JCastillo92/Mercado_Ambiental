@@ -9,6 +9,18 @@
 </head>
 <body>
 <%
+HttpSession sessionok = request.getSession();
+Cls_General obj2= new Cls_General();
+int perf;
+double ag,lz,tel,inte,tot;
+if(sessionok.getAttribute("log")==null){
+	perf = 0;
+	response.sendRedirect("index.jsp");
+}else{
+	perf = (Integer)sessionok.getAttribute("log");
+
+}
+
 String error;
 error = request.getParameter("dato");
 if (error != null){
@@ -24,6 +36,12 @@ if (error != null){
 
 <div id="wrap">
 <div class="container-fluid">
+
+<%
+String menu;
+menu = obj2.desplegarmenus(perf);
+out.print(menu);
+%>
 
 <div class="row">
 <div class="col-md-3">

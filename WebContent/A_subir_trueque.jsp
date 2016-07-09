@@ -1,7 +1,8 @@
 <%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%ClsPujas trueque = new ClsPujas(); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -33,7 +34,7 @@ if (error != null && error.equals("true")){
 <div id="wrap">
 <div class="container-fluid">
 <div class="row">
-<center><h2><span class="label label-default">INGRESO DE UN PRODUCTO PARA EL TRUEQUE</span></h2></center>
+<center><h2><span title="Aqu&iacute; se procede a ingresar el producto para el trueque, se debe respetar los pasos para el ingreso del mismo" class="label label-default">INGRESO DE UN PRODUCTO PARA EL TRUEQUE</span></h2></center>
 
 <div class="col-md-2">
 <!-- NO PONER NADA AQUI -->
@@ -61,7 +62,7 @@ if (error != null && error.equals("true")){
       </div>
       <div class="modal-body">
         <!-- -------------------------------------------------------------------------- -->
-        <form action="ingresoMoneda" method="post">
+        <form action="Ingreso_Trueque" method="post">
   <div class="form-group">
   
   <!-- PONER LO DEL BRYA AQUI -->
@@ -72,19 +73,21 @@ if (error != null && error.equals("true")){
 
 <tr>
 <td> <span class="input-group-addon" id="basic-addon1">Nombre del Producto: </span>
-  <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required></td>
+  <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" style="text-transform:uppercase" required></td>
 </tr>
+</table>
 
+<center>
+<table>
 <tr>
-<td> <span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
-  <input type="text" class="form-control" name="txtOferta" placeholder="ejem. Michael" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required>
-<!-- 
-
-AQUI CLSADMIN
--->
+<td><span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
+ <%out.print(trueque.Moneda()); %>
   </td>
-</tr></table>
-<hr>
+  <td><span class="input-group-addon" id="basic-addon1">cantidad </span>
+  <input type="number" class="form-control" name="txtCantidad"  placeholder="ejem. 20" aria-describedby="basic-addon1" title="ingrese solo numeros" style="text-transform:uppercase" required></td>
+</tr>
+</table>
+<center></center>
 
   <!-- //////////////////////////////////////PARTE DEL BRYAN INGRESO DEL ARTICULO O PRODUCTO/////////////////// -->
   </div>

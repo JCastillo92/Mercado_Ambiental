@@ -34,6 +34,7 @@ public class Sr_A_ingresa_trueque extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pathimg1,pathimg2,pathimg3,pathimg4;
 		pathimg1 = request.getParameter("img0");
+		System.out.println(pathimg1);
 		pathimg2 = request.getParameter("img1");
 		pathimg3 = request.getParameter("img2");
 		pathimg4 = request.getParameter("img3");
