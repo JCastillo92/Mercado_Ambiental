@@ -25,7 +25,7 @@ if(perf !=2){
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Administrador</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 </head>
 <body background="imagenes/fondo3.PNG" >
@@ -55,7 +55,7 @@ out.print(menu);
   <h3>
   <a href="admin.jsp?id=2" class="list-group-item">
   <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
-  PUJAS
+  AGREGAR PUJAS
   </a>
   </h3>	
   
@@ -79,13 +79,15 @@ out.print(menu);
   CONTROL DE USUARIOS
   </a>
   </h3>
+  
+  
 
 </div>
 
 </div>
 
 
-<div class="col-md-10" >
+<div class="col-md-9" >
 
 
 <div class="embed-responsive embed-responsive-16by9">
@@ -96,6 +98,9 @@ if (id.equals("0")){
 }
 if (id.equals("1")){
 %><iframe class="embed-responsive-item" src="AgregarMoneda.jsp"></iframe><%
+}
+if (id.equals("2")){
+%><iframe class="embed-responsive-item" src="Crear_Puja.jsp"></iframe><%
 }
 if (id.equals("3")){
 %><iframe class="embed-responsive-item" src="AgregarMoneda.jsp"></iframe><%
@@ -116,6 +121,10 @@ if (id.equals("6")){
 
 </div>
 </div> 
+
+<div class="col-md-1" >
+
+</div>
 
 
 </div>
