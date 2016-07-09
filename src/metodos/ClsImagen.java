@@ -100,7 +100,7 @@ public class ClsImagen {
 	}
 	public void falla_ingreso_imagenes_trueque(){
 		//id que ingrese las imagenes pero no se cargaron todas
-		String sentencia="delete from tb_imagenes where id_producto_fk="+saber_id_nuevo_producto_trueque();
+		String sentencia="delete from tb_imagenes where id_producto_fk="+saber_id_nuevo_producto_trueque()+" and tipo=1";
 		try {
 			ClsConexion con = new datos.ClsConexion();
 			con.Ejecutar(sentencia);
@@ -111,10 +111,11 @@ public class ClsImagen {
 	}
 	
 	public boolean insertarimagen_trueque(String path){
-		System.out.println("Ya Entro "+path);
+		
 		boolean t = false;
 		try {
 			File file = new File(path);
+			System.out.println("Ya Entro "+path);
 			FileInputStream fis = new FileInputStream(file);
 			String nombrearchivo = file.getName();
 			nombrearchivo = nombrearchivo.substring(nombrearchivo.length() -4, nombrearchivo.length());
