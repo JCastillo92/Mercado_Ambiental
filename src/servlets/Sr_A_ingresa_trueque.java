@@ -48,7 +48,7 @@ public class Sr_A_ingresa_trueque extends HttpServlet {
 		} catch (Exception e) {
 			t1=false;t2=false;t3=false;t4=false;
 		}
-		//PROBANDO GIT
+		
 		if(t1==true && t2==true && t3==true && t4==true){
 			response.sendRedirect("A_subir_trueque.jsp?msg=true");
 		}else{
