@@ -1,7 +1,8 @@
 <%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%ClsPujas trueque = new ClsPujas(); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -76,14 +77,13 @@ if (error != null && error.equals("true")){
 </tr>
 
 <tr>
-<td> <span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
-  <input type="text" class="form-control" name="txtOferta" placeholder="Las monedas" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required>
-<!-- 
+<td><span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
+ <%out.print(trueque.Moneda()); %>
+  </td><td><span class="input-group-addon" id="basic-addon1">cantidad </span>
+  <input type="text" class="form-control" name="txtCantidad" placeholder="ejem. 20" aria-describedby="basic-addon1" title="ingrese solo numeros" style="text-transform:uppercase" required></td>
+</tr>
 
-AQUI CLSADMIN
--->
-  </td>
-</tr></table>
+</table>
 <hr>
 
   <!-- //////////////////////////////////////PARTE DEL BRYAN INGRESO DEL ARTICULO O PRODUCTO/////////////////// -->
