@@ -33,7 +33,7 @@ if (error != null && error.equals("true")){
 <div id="wrap">
 <div class="container-fluid">
 <div class="row">
-<center><h2><span class="label label-default">INGRESO DE UN PRODUCTO PARA EL TRUEQUE</span></h2></center>
+<center><h2><span title="Aqu&iacute; se procede a ingresar el producto para el trueque, se debe respetar los pasos para el ingreso del mismo" class="label label-default">INGRESO DE UN PRODUCTO PARA EL TRUEQUE</span></h2></center>
 
 <div class="col-md-2">
 <!-- NO PONER NADA AQUI -->

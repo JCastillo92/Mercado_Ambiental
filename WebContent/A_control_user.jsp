@@ -34,7 +34,7 @@ if (error != null && error.equals("true")){
 <div class="container-fluid">
 <div class="container">
 <center><br>
-<h3><span class="label label-default">CONTROL DE USUARIOS (MODO BLOQUEO)</span></h3>
+<h3><span title="Aqu&iacute; se procede a enviar a los usuarios a la ventana de registro, por ende no podr&aacute;n lograr ingresar de nuevo, hasta que se realice los cambio" class="label label-default">CONTROL DE USUARIOS (MODO BLOQUEO)</span></h3>
 <br></center>
 
 <%
