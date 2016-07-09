@@ -58,25 +58,42 @@ if (error != null){
   	<input type="text" class="form-control" name="valor" required>
 	</div>
 	
-	<div class="form-group">
-    <h4><label for="exampleInputFile">Seleccione la Primera Imagen</label></h4>
-    <input type="file" name="exampleInputFile1" required>
-  	</div>
-	
-	<div class="form-group">
-    <h4><label for="exampleInputFile">Seleccione la Segunda Imagen</label></h4>
-    <input type="file" name="exampleInputFile2" required>
-  	</div>
-	
-	<div class="form-group">
-    <h4><label for="exampleInputFile">Seleccione la Tercera Imagen</label></h4>
-    <input type="file" name="exampleInputFile3" required>
-  	</div>
-  	
-  	<div class="form-group">
-    <h4><label for="exampleInputFile">Seleccione la Cuarta Imagen</label></h4>
-    <input type="file" name="exampleInputFile4" required>
-  	</div>
+  <div class="form-group">
+    <center>
+    <!--     ///////////////////  1 ////////////////////////////////       -->
+     <div class="fileupload fileupload-new">
+    <span class="btn btn-primary btn-file">FOTO 1 (.jpg)<span class="fileupload-new"></span>
+     <input title="Foto 1 obligatoria" type="file" id="inputfoto" accept="image/jpeg" name="img0" required>
+    </span>
+    <span class="fileupload-preview"></span>
+  </div>
+  <br>
+      <!--     ///////////////////  2 ////////////////////////////////       -->
+     <div class="fileupload fileupload-new">
+    <span class="btn btn-primary btn-file">FOTO 2 (.jpg)<span class="fileupload-new"></span>
+     <input title="Foto 2 obligatoria" type="file" id="inputfoto" accept="image/jpeg" name="img1" required>
+    </span>
+    <span class="fileupload-preview"></span>
+  </div>
+  <br>
+  <!--     ///////////////////  3 ////////////////////////////////       -->
+     <div class="fileupload fileupload-new">
+    <span class="btn btn-primary btn-file">FOTO 3 (.jpg)<span class="fileupload-new"></span>
+    <input title="Foto 3 obligatoria" type="file" id="inputfoto" accept="image/jpeg" name="img2" required>
+    </span>
+    <span class="fileupload-preview"></span>
+  </div>
+  <br>
+  <!--     ///////////////////  4 ////////////////////////////////       -->
+     <div class="fileupload fileupload-new">
+    <span class="btn btn-primary btn-file">FOTO 4 (.jpg)<span class="fileupload-new"></span>
+    <input title="Foto 4 obligatoria" type="file" id="inputfoto" accept="image/jpeg" name="img3" required>
+    </span>
+    <span class="fileupload-preview"></span>
+  </div>
+  <br>
+  </center>
+  </div>
   	
   	<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"> Crear Puja</span></button>
 	</form>
