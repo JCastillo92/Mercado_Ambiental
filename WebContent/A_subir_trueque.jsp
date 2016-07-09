@@ -122,7 +122,7 @@ if (error != null && error.equals("true")){
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2><span class="label label-default" id="gridSystemModalLabel">Ingresar 4* fotos formato .jpg</span></h2>
+        <h2><span title="El ingreso de las 4 im&aacute;genes es obligatorio" class="label label-default" id="gridSystemModalLabel">Ingresar 4* fotos formato .jpg</span></h2>
       </div>
       <div class="modal-body">
         <!-- -------------------------------------------------------------------------- -->
