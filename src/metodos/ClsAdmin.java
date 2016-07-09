@@ -148,10 +148,10 @@ public boolean elimina_moneda(int id){
 	}//fin boolean control_user
 	
 	//******************************************************************************************************************************************
-		public boolean agregarTrueque(String descripcion ,int cantidad,int moneda ,boolean estado,String titulo ){
+		public boolean agregarTrueque(String descripcion ,int cantidad,int moneda,String titulo ,int estado ){
 			boolean t=false;
 			datos.ClsConexion obj = new datos.ClsConexion();
-			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,estado,titulo) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+estado+"','"+titulo+"');";
+			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,estado) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"','"+estado+"');";
 			System.out.println(sql);
 			try {
 				obj.Ejecutar(sql);
@@ -166,6 +166,7 @@ public boolean elimina_moneda(int id){
 		//******************************************************************************************************************************************
 
 		public String Moneda(){
+
 			String moneda="<select class=form-control name=moneda>"
 			+ "<option> </option>";
 		  
@@ -178,6 +179,7 @@ public boolean elimina_moneda(int id){
 			rs=obj.Consulta(sql);
 			while(rs.next()){
 			moneda+="<option>"+rs.getString(1)+"</option>";
+			
 			}
 			
 			}
