@@ -9,7 +9,18 @@ public class Cls_General {
 	
 	String nombre;
 	int log;
+	int perfil;
 	
+	public int getPerfil() {
+		return perfil;
+	}
+
+
+	public void setPerfil(int perfil) {
+		this.perfil = perfil;
+	}
+
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -46,14 +57,31 @@ public class Cls_General {
 		
 		
 		if(perfil != 0){
-			t=true;
+			String sql = "select nombre_pag, url from tb_paginas, tb_pagper where id_pagina = fk_id_pag and fk_id_perfil ="+perfil;
+			ClsConexion obj = new ClsConexion();
+			ResultSet rs = null;
+			
+			try {
+				rs=obj.Consulta(sql);
+				while(rs.next()){
+					
+					menu += "<li><a href=\""+rs.getString(2)+"\"><span class=\"glyphicon glyphicon-th-list\" aria-hidden=\"true\"></span>"+rs.getString(1)+"</a></li>";
+					
+					t=true;
+					
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 		}
+
 		
 		//menu +="<p class=\"navbar-text\">Logueado como <%= usuariorec %></p>";
 		if(t){
+			/*
 			menu += "<li><a href=\"puja.jsp\"><span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>Puja</a></li>";
 			menu += "<li><a href=\"descripcion.jsp\"><span class=\"glyphicon glyphicon-tasks\" aria-hidden=\"true\"></span>Trueque</a></li>";
-			menu += "<li><a href=\"Usuario_peronal.jsp\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>Mi Perfil</a></li>";
+			menu += "<li><a href=\"Usuario_peronal.jsp\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>Mi Perfil</a></li>";*/
 			menu += "<li><a href=\"cerrando\"><span class=\"glyphicon glyphicon-off\" aria-hidden=\"true\"></span>Cerrar Sesion</a></li>";
 		}else{
 			
@@ -62,7 +90,8 @@ public class Cls_General {
 	      			"<input type=\"text\" class=\"form-control\" name=\"txtuser\" placeholder=\"Usuario\"></div>"+
 	      			"<div class=\"form-group\">"+
 	      			"<input type=\"password\" class=\"form-control\" name=\"txtpassword\" placeholder=\"Password\"></div>"+
-	      			"<button type=\"submit\" class=\"btn btn-default\">Login</button></form>";
+	      			"<button type=\"submit\" class=\"btn btn-default\">Login</button></form>"+
+	      			"<li><a href=\"registro.jsp\"><span class=\"glyphicon glyphicon-check\" aria-hidden=\"true\"></span>Registrar</a></li>";;
 		}
 		
 		menu +="</ul></div></div></nav>";
@@ -84,7 +113,9 @@ public class Cls_General {
 				
 				login_us2= rs.getString(1);
 				nombre2 = rs.getString(2);
-				setLog(1);
+				perfil2 = rs.getInt(8);
+				setLog(perfil2);
+				setPerfil(perfil2);
 				setNombre(nombre2);
 				t=true;
 			}
