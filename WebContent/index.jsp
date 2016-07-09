@@ -102,21 +102,21 @@ out.print(menu);
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagenes/z1.jpg" alt="..."  style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/baldor1.jpg" alt="..."  style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/baldor2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z3.jpg" alt="..."  style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/baldor3.jpg" alt="..."  style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
@@ -165,21 +165,21 @@ SABER MÁS
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagenes/z1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/balon1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/balon2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z5.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/balon3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
@@ -229,21 +229,21 @@ SABER MÁS
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagenes/z1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/portalaptop1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/portalaptop2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/portalaptop3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
@@ -291,21 +291,21 @@ SABER MÁS
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagenes/z1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/psp1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/psp2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/psp3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
@@ -354,21 +354,21 @@ SABER MÁS
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagenes/z1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/guitarra1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
    <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/guitarra2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
    <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/guitarra3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
@@ -416,21 +416,21 @@ SABER MÁS
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagenes/z1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/laptop1.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/laptop2.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>
     </div>
     
     <div class="item">
-    <img src="imagenes/z3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagenes/laptop3.jpg" alt="..." style="width:175px;height:150px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     <center><h6><font color="white">Caption Text</font></h6></center>

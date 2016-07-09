@@ -65,7 +65,7 @@ if (error != null && error.equals("true")){
         <form action="Ingreso_Trueque" method="post">
   <div class="form-group">
   
-  <!-- PONER LO DEL BRYA AQUI -->
+  <!-- PONER LO DEL BRYAN AQUI -->
   <table class="table table-hover"><tr>
 <td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n del producto: </span>
   <textarea id="txtArea" rows="10" cols="80" name="txtArea" aria-describedby="basic-addon1"  placeholder="ejem. Balon de la FIFA # 5" style="text-transform:uppercase" required></textarea></td>
@@ -81,7 +81,9 @@ if (error != null && error.equals("true")){
 <table>
 <tr>
 <td><span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
- <%out.print(trueque.Moneda()); %>
+ <%out.print(trueque.Moneda()); %> </td>
+
+ 
   </td>
   <td><span class="input-group-addon" id="basic-addon1">cantidad </span>
   <input type="number" class="form-control" name="txtCantidad"  placeholder="ejem. 20" aria-describedby="basic-addon1" title="ingrese solo numeros" style="text-transform:uppercase" required></td>

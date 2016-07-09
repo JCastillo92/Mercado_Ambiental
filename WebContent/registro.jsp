@@ -163,6 +163,7 @@ if (error != null){%>
 <center>
 <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Registarse">
 <a href="index.jsp">Cancelar</a>
+
 </center>
 </div>
 
