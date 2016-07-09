@@ -6,12 +6,13 @@ import datos.ClsConexion;
 
 public class ClsPujas {
 
+	ClsConexion con=new ClsConexion();
 	
 	public String Ver_Pujas(){
 	String pujas="<div class=list-group>";
 	System.out.println(pujas);
 	
-	ClsConexion con=new ClsConexion();
+
 	ResultSet rs=null;
 	
 	String sql="Select id_prod_pj, titulo from tb_pujas where estado='true';";
@@ -42,7 +43,7 @@ public class ClsPujas {
 	public String Descripcion(String id){
 	String descripcion="";
 		
-	ClsConexion con=new ClsConexion();
+
 	ResultSet rs=null;
 	
 	String sql="Select descripcion from tb_pujas where id_prod_pj="+id+";";
@@ -64,51 +65,138 @@ public class ClsPujas {
 	
 	
 	public String Moneda(String id){
-		String descripcion="";
-			
-		ClsConexion con=new ClsConexion();
-		ResultSet rs=null;
-		
-		String sql="Select tb_monedas.descripcion from tb_pujas, tb_monedas where moneda=id_moneda and "
-		+ "id_prod_pj="+id+";";
-		System.out.println(sql);
-		try{
-		rs=con.Consulta(sql);
-		while(rs.next()){
-		descripcion=rs.getString(1);
-		}
-		
-		}
-		catch(Exception e){
-		System.out.print(e.getMessage());	
-		}
+	String descripcion="";
+
+	ResultSet rs=null;
+	
+	String sql="Select tb_monedas.descripcion from tb_pujas, tb_monedas where moneda=id_moneda and "
+	+ "id_prod_pj="+id+";";
+	//System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	descripcion=rs.getString(1);
+	}
+	
+	}
+	catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
 
 			
-		return descripcion;
-		}
+	return descripcion;
+	}
 	
 	
 	public String Valor(String id){
-		String descripcion="";
-			
-		ClsConexion con=new ClsConexion();
+	String descripcion="";
+		
+
+	ResultSet rs=null;
+	
+	String sql="Select valor_minimo from tb_pujas where id_prod_pj="+id+";";
+	//System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	descripcion=rs.getString(1);
+	}
+	
+	}
+	catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+
+		
+	return descripcion;
+	}
+	
+	
+	
+//********************************************************************************************************
+
+	public String Moneda(){
+	String moneda="<select class=form-control name=moneda>"
+	+ "<option> </option>";
+  
+
+	ResultSet rs=null;
+	
+	String sql="Select descripcion from tb_monedas;";
+	//System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	moneda+="<option>"+rs.getString(1)+"</option>";
+	}
+	
+	}
+	catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	moneda+="</select required>";
+		
+	return moneda;
+	}
+//********************************************************************************************************
+	public String cmbCategorias(){
+		String moneda="<select class=form-control name=categorias>"
+		+ "<option> </option>";
+	  
+
 		ResultSet rs=null;
 		
-		String sql="Select valor_minimo from tb_pujas where id_prod_pj="+id+";";
-		System.out.println(sql);
+		String sql="Select descripcion from tb_categorias;";
+		//System.out.println(sql);
 		try{
 		rs=con.Consulta(sql);
 		while(rs.next()){
-		descripcion=rs.getString(1);
+		moneda+="<option>"+rs.getString(1)+"</option>";
 		}
 		
 		}
 		catch(Exception e){
 		System.out.print(e.getMessage());	
 		}
-
+		moneda+="</select required>";
 			
-		return descripcion;
+		return moneda;
 		}
+	
+//********************************************************************************************************
+	public int Moneda_id(String moneda){
+  
+	int id=0;
+	
+	ResultSet rs=null;
+	
+	String sql="Select id_moneda from tb_monedas where descripcion="+"'"+moneda+"';";
+	//System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	id=rs.getInt(1);
+	}
+	
+	}
+	catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+		
+	return id;
+	}
+	
+//********************************************************************************************************
+	public void Ingresar_Puja(String nombre, String descripcion, int cantidad, int moneda, int valor, int categorias ){
+		
+	String sql="INSERT INTO tb_pujas (titulo,descripcion,cantidad,moneda,valor_minimo,fk_categorias,'true') values ('"+nombre+"','"+descripcion+"',"+cantidad+","+moneda+","+valor+","+categorias+",'true');";
+	System.out.println(sql);
+	try {
+	con.Ejecutar(sql);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+	}
 	
 }
