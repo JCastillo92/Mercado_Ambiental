@@ -83,7 +83,7 @@ public class ClsImagen {
 		int a=-1;
 		int toma=0;
 		//sql=select id_producto_tr from tb_trueque order by id_producto_tr desc limit 1;
-		String sql="select id_producto_tr from tb_trueque order by id_producto_tr desc limit 1;";
+		String sql="select id_producto_tr from tb_trueque,tb_imagenes where tipo=1 and  id_producto_tr=id_producto_fk order by id_producto_tr desc limit 1;";
 		ClsConexion con=new ClsConexion();
 		ResultSet rs=null;
 		try{
