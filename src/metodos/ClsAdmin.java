@@ -146,4 +146,75 @@ public boolean elimina_moneda(int id){
 		
 		return t;
 	}//fin boolean control_user
+	
+	//******************************************************************************************************************************************
+		public boolean agregarTrueque(String descripcion ,int cantidad,int moneda ,boolean estado,String titulo ){
+			boolean t=false;
+			datos.ClsConexion obj = new datos.ClsConexion();
+			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,estado,titulo) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+estado+"','"+titulo+"');";
+			System.out.println(sql);
+			try {
+				obj.Ejecutar(sql);
+				t=true;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			return t;
+		}
+		
+		//******************************************************************************************************************************************
+
+		public String Moneda(){
+			String moneda="<select class=form-control name=moneda>"
+			+ "<option> </option>";
+		  
+			datos.ClsConexion obj = new datos.ClsConexion();
+			ResultSet rs=null;
+			
+			String sql="Select descripcion from tb_monedas;";
+			System.out.println(sql);
+			try{
+			rs=obj.Consulta(sql);
+			while(rs.next()){
+			moneda+="<option>"+rs.getString(1)+"</option>";
+			}
+			
+			}
+			catch(Exception e){
+			System.out.print(e.getMessage());	
+			}
+			moneda+="</select>";
+				
+			return moneda;
+			}
+		
+		//*****************************************************************************************************+
+		
+		public int Moneda_id(String moneda){
+			  
+			int id=0;
+			datos.ClsConexion obj = new datos.ClsConexion();
+
+			
+			ResultSet rs=null;
+			
+			String sql="Select id_moneda from tb_monedas where descripcion="+"'"+moneda+"';";
+			System.out.println(sql);
+			try{
+			rs=obj.Consulta(sql);
+			while(rs.next()){
+			id=rs.getInt(1);
+			}
+			
+			}
+			catch(Exception e){
+			System.out.print(e.getMessage());	
+			}
+				
+			return id;
+			}
+			
+		
+		
 }//FIN TODO

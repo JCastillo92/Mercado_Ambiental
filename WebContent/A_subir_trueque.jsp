@@ -77,7 +77,7 @@ if (error != null && error.equals("true")){
 
 <tr>
 <td> <span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
-  <input type="text" class="form-control" name="txtOferta" placeholder="ejem. Michael" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required>
+  <input type="text" class="form-control" name="txtOferta" placeholder="Las monedas" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required>
 <!-- 
 
 AQUI CLSADMIN
