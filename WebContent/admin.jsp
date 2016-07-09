@@ -1,10 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 
 <%
-String id = request.getParameter("id");
+String id = "1";
+
+HttpSession sessionok = request.getSession();
+Cls_General obj= new Cls_General();
+int perf;
+double ag,lz,tel,inte,tot;
+if(sessionok.getAttribute("log")==null){
+	perf = 0; 
+	
+}else{
+	perf = (Integer)sessionok.getAttribute("log");
+}
+if(perf !=2){
+	response.sendRedirect("index.jsp?error=No tiene privilegios para acceder a esa pagina");
+}
+
 %>
 
 <html>
@@ -17,66 +32,11 @@ String id = request.getParameter("id");
 
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
-
-<nav class="navbar navbar-default">
- 
-    <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-	<a href="index.jsp"><img src="imagenes/ups.png" align="left" alt="Logo" style="max-width:100%;height:auto"></a>
-    
-    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-    <span class="sr-only">Toggle navigation</span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    </button>
-    
-    
-    
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-    
-    <li><a href="index.jsp">
-  	<span class="glyphicon glyphicon glyphicon-home" aria-hidden="true"> Home</span>
-	</a></li>
-    
-    <li><a href="#">
- 	<span class="glyphicon glyphicon glyphicon-earphone" aria-hidden="true"> Contactos</span>
-	</a></li>
-    
-   	<li><a href="#">
-	<span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> Nosotros</span>
-	</a></li>
-	 
-	<li><a href="#">
- 	<span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> Trabaja con Nosotros</span>
-	</a></li>
-	
-	<li><a href="#">
- 	<span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"> Información</span>
-	</a></li>
-    
-    </ul>
-    
-   	<ul class="nav navbar-nav navbar-right">
-                  
-    <form class="navbar-form navbar-rigth" role="search">
-    <div class="form-group">
-    <input type="text" class="form-control" placeholder="Usuario">
-    <input type="text" class="form-control" placeholder="Contraseña">
-    </div>
-    <button type="submit" class="btn btn-info">Iniciar Sesión</button>
-    </form>          
-                  
-    </ul>
-   
-    </div><!-- /.navbar-collapse -->
-  	</div><!-- /.container-fluid -->
-</nav>
+<%
+String menu;
+menu = obj.desplegarmenus(perf);
+out.print(menu);
+%>
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
 

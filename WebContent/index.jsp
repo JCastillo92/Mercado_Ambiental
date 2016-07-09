@@ -11,11 +11,10 @@ Cls_General obj= new Cls_General();
 int perf;
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
-	perf = 0;
+	perf = 0; 
 	
 }else{
 	perf = (Integer)sessionok.getAttribute("log");
-
 }
 
 %>
