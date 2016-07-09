@@ -91,24 +91,31 @@ out.print(puja.Ver_Pujas());
     <li data-target="carrusel-1" data-slide-to="0" class="active"></li>
     <li data-target="carrusel-1" data-slide-to="1"></li>
     <li data-target="carrusel-1" data-slide-to="2"></li>
+    <li data-target="carrusel-1" data-slide-to="3"></li>
     </ol>
  
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagen?prod=<%=id%>&place=<%=1%>" alt="..."  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagen?prod=<%=id%>&place=<%=1%>&i_tipo=<%=2%>" alt="..."  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     </div>
     
     <div class="item">
-    <img src="imagen?prod=<%=id%>&place=<%=2%>" alt="..." style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagen?prod=<%=id%>&place=<%=2%>&i_tipo=<%=2%>" alt="..." style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     </div>
     
     <div class="item">
-    <img src="imagen?prod=<%=id%>&place=<%=3%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <img src="imagen?prod=<%=id%>&place=<%=3%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <div class="carousel-caption">
+    </div>
+    </div>
+    
+    <div class="item">
+    <img src="imagen?prod=<%=id%>&place=<%=4%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     </div>

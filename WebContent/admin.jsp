@@ -102,7 +102,7 @@ String id = request.getParameter("id");
   <h3>
   <a href="admin.jsp?id=3" class="list-group-item">
   <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
-  INVENTARIO
+  ADMINISTRAR PUJAS
   </a>
   </h3>
   
@@ -143,7 +143,7 @@ if (id.equals("2")){
 %><iframe class="embed-responsive-item" src="Crear_Puja.jsp"></iframe><%
 }
 if (id.equals("3")){
-%><iframe class="embed-responsive-item" src="AgregarMoneda.jsp"></iframe><%
+%><iframe class="embed-responsive-item" src="Administar_Pujas.jsp"></iframe><%
 }
 if (id.equals("4")){
 %><iframe class="embed-responsive-item" src="A_accept_delete.jsp"></iframe><%

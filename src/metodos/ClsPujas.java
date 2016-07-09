@@ -284,5 +284,92 @@ public int Categoria_id(String categoria){
 	
 	return id;
 	}
+
+//********************************************************************************************************
 	
+	public String Todas_Pujas(){
+		
+		String pujas="<table class=table table-condensed>";
+		pujas+="<tr style=color:#456789;font-size:150%;>";
+		pujas+="<th> SELECIONAR NUEVA PUJA </th>";
+		pujas+="<th> PUJA </th>";
+		pujas+="<th> CANTIDAD </th>";
+		pujas+="<th> MONEDA </th>";
+		pujas+="<th> VALOR ACTUAL </th>";
+		pujas+="</tr>";
+		
+		//System.out.println(pujas);
+
+		ResultSet rs=null;
+		
+		String sql="select id_prod_pj, tb_pujas.titulo, tb_pujas.cantidad, tb_monedas.descripcion, tb_pujas.valor_minimo from tb_pujas, tb_monedas where tb_pujas.moneda=tb_monedas.id_moneda;;";
+		System.out.println(sql);
+		try{
+		rs=con.Consulta(sql);
+		while(rs.next()){
+		
+			
+		pujas+="<tr style=color:#456789;font-size:100%;>";
+		pujas+="<td><A HREF=Administar_Pujas.jsp?dato="+rs.getString(1)+">HACER PUJA PRINCIPAL</A></td>";
+		pujas+="<td>"+rs.getString(2)+"</td>";
+		pujas+="<td>"+rs.getString(3)+"</td>";
+		pujas+="<td>"+rs.getString(4)+"</td>";
+		pujas+="<td>"+rs.getString(5)+"</td>";
+		pujas+="</tr>";
+		}
+		
+		}
+		catch(Exception e){
+		System.out.print(e.getMessage());	
+		}
+		pujas+="</table>";
+			
+		//System.out.println(pujas);
+		return pujas;
+	}
+	
+//********************************************************************************************************
+public int Puja_Pricipal(){
+		  
+		int id=0;
+		
+		ResultSet rs=null;
+		
+		String sql="Select id_prod_pj from tb_pujas where principal='TRUE';";
+		System.out.println(sql);
+		try{
+		rs=con.Consulta(sql);
+		while(rs.next()){
+		id=rs.getInt(1);
+		}
+		
+		}
+		catch(Exception e){
+		System.out.print(e.getMessage());	
+		}
+			
+		return id;
+		}
+
+//********************************************************************************************************
+public void Hacer_Principal(String id){
+
+	String sql="update tb_pujas set principal='FALSE' where principal='TRUE';";
+	try {
+	con.Ejecutar(sql);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+
+	String sql1="update tb_pujas set principal='TRUE' where id_prod_pj="+id+";";
+	try {
+	con.Ejecutar(sql1);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+}
+
+
 }
