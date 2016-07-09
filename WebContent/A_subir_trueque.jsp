@@ -75,16 +75,19 @@ if (error != null && error.equals("true")){
 <td> <span class="input-group-addon" id="basic-addon1">Nombre del Producto: </span>
   <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required></td>
 </tr>
+</table>
 
+<center>
+<table>
 <tr>
 <td><span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
  <%out.print(trueque.Moneda()); %>
-  </td><td><span class="input-group-addon" id="basic-addon1">cantidad </span>
+  </td>
+  <td><span class="input-group-addon" id="basic-addon1">cantidad </span>
   <input type="text" class="form-control" name="txtCantidad" placeholder="ejem. 20" aria-describedby="basic-addon1" title="ingrese solo numeros" style="text-transform:uppercase" required></td>
 </tr>
-
 </table>
-<hr>
+<center></center>
 
   <!-- //////////////////////////////////////PARTE DEL BRYAN INGRESO DEL ARTICULO O PRODUCTO/////////////////// -->
   </div>
