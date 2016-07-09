@@ -62,7 +62,7 @@ if (error != null && error.equals("true")){
       </div>
       <div class="modal-body">
         <!-- -------------------------------------------------------------------------- -->
-        <form action="ingresoMoneda" method="post">
+        <form action="Ingreso_Trueque" method="post">
   <div class="form-group">
   
   <!-- PONER LO DEL BRYA AQUI -->
@@ -73,7 +73,7 @@ if (error != null && error.equals("true")){
 
 <tr>
 <td> <span class="input-group-addon" id="basic-addon1">Nombre del Producto: </span>
-  <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required></td>
+  <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" style="text-transform:uppercase" required></td>
 </tr>
 </table>
 
@@ -84,7 +84,7 @@ if (error != null && error.equals("true")){
  <%out.print(trueque.Moneda()); %>
   </td>
   <td><span class="input-group-addon" id="basic-addon1">cantidad </span>
-  <input type="text" class="form-control" name="txtCantidad" placeholder="ejem. 20" aria-describedby="basic-addon1" title="ingrese solo numeros" style="text-transform:uppercase" required></td>
+  <input type="number" class="form-control" name="txtCantidad"  placeholder="ejem. 20" aria-describedby="basic-addon1" title="ingrese solo numeros" style="text-transform:uppercase" required></td>
 </tr>
 </table>
 <center></center>
