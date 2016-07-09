@@ -10,12 +10,7 @@
 <body background="imagenes/fondo3.PNG" >
 
 <!--Encabezado**************************************************************************************-->
-<%
-String hola="jairo";
-%>
-<h3>pene</h3>
 <!--Encabezado**************************************************************************************-->
-<h2>yo ingreso SOLO en la linea 14</h2>
 <nav class="navbar navbar-default">
  
     <div class="container-fluid">
