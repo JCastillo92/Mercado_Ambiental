@@ -37,20 +37,22 @@ public class Imagen extends HttpServlet {
 		byte hh[] = null ;
 		
 		//CODIGO PARA DESPLEGAR LAS IMAGENES DE UN PRODUCTO
-		String productoselect, lugar;
+		String productoselect, lugar, tipo;
 		int cuentaimagenes;
 		productoselect = request.getParameter("prod");
 		lugar = request.getParameter("place");
+		tipo = request.getParameter("i_tipo");
 		obj.contador(productoselect);
 		
 		// -- MANDAR A BUSCAR IMAGENES
 		cuentaimagenes = obj.getContador();
 		if (Integer.parseInt(lugar) <= cuentaimagenes) {
-		obj.recuperarimagen(productoselect,lugar);
-		hh = (byte[])obj.getImgBytes2();
-		response.setContentType("image/jpeg");
-		OutputStream o = response.getOutputStream();
-		o.write(hh);
+			obj.recuperarimagen(productoselect,lugar,tipo);
+			hh = (byte[])obj.getImgBytes2();
+			response.setContentType("image/jpeg");
+			OutputStream o = response.getOutputStream();
+			o.write(hh);
+
 		}
 		
 		

@@ -45,7 +45,7 @@ out.print(menu);
 
 <div class="row">
 <%=lugardelaimagen%>
-<img id="zoom_01" src="imagen?prod=<%=id%>&place=<%=lugardelaimagen%>" width="250px" height="250px" alt="..." class="img-thumbnail center-block">
+<img id="zoom_01" src="imagen?prod=<%=id%>&place=<%=lugardelaimagen%>&i_tipo=1" width="250px" height="250px" alt="..." class="img-thumbnail center-block">
 </div>
 
 <br>
@@ -53,19 +53,19 @@ out.print(menu);
 <div class="row">
 
 	<div class="col-md-3">
-		<a href="descripcion.jsp?id=<%=id%>&lug=1"><img src="imagen?prod=<%=id%>&place=1" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
+		<a href="descripcion.jsp?id=<%=id%>&lug=1"><img src="imagen?prod=<%=id%>&place=1&i_tipo=1" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
 	</div>
 	
 	<div class="col-md-3">
-		<a href="descripcion.jsp?id=<%=id%>&lug=2"><img src="imagen?prod=<%=id%>&place=2" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
+		<a href="descripcion.jsp?id=<%=id%>&lug=2"><img src="imagen?prod=<%=id%>&place=2&i_tipo=1" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
 	</div>
 	
 	<div class="col-md-3">
-		<a href="descripcion.jsp?id=<%=id%>&lug=3"><img src="imagen?prod=<%=id%>&place=3" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
+		<a href="descripcion.jsp?id=<%=id%>&lug=3"><img src="imagen?prod=<%=id%>&place=3&i_tipo=1" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
 	</div>
 	
 	<div class="col-md-3">
-		<a href="descripcion.jsp?id=<%=id%>&lug=4"><img src="imagen?prod=<%=id%>&place=4" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
+		<a href="descripcion.jsp?id=<%=id%>&lug=4"><img src="imagen?prod=<%=id%>&place=4&i_tipo=1" class="img-circle center-block" width="50%" height="50%" alt="No hay imagen"></a>
 	</div>
 
 </div>

@@ -188,9 +188,8 @@ public class ClsImagen {
 		return t;
 	}
 	
-	//*******************************************************************************************************
+	public boolean recuperarimagen(String prod, String place, String tipo_imagen){
 
-	public boolean recuperarimagen(String prod, String place){
 		boolean t=false;
 		int cuentame=0;
 		System.out.println("Llego");
@@ -200,7 +199,7 @@ public class ClsImagen {
 		
 		byte[] imgBytes3;
 		//sql = "Select * from tb_imagenes where id_imagenes=1";
-		sql = "Select * from tb_imagenes where id_producto_fk="+prod;
+		sql = "Select * from tb_imagenes where id_producto_fk="+prod+" and tipo="+tipo_imagen;
 		
 		try {
 			rs = obj.Consulta(sql);
