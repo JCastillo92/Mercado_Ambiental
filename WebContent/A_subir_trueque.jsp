@@ -65,11 +65,27 @@ if (error != null && error.equals("true")){
   <div class="form-group">
   
   <!-- PONER LO DEL BRYA AQUI -->
+  <table class="table table-hover"><tr>
+<td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n del producto: </span>
+  <textarea id="txtArea" rows="10" cols="80" name="txtArea" aria-describedby="basic-addon1"  placeholder="ejem. Balon de la FIFA # 5" style="text-transform:uppercase" required></textarea></td>
+</tr>
+
+<tr>
+<td> <span class="input-group-addon" id="basic-addon1">Nombre del Producto: </span>
+  <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required></td>
+</tr>
+
+<tr>
+<td> <span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
+  <input type="text" class="form-control" name="txtOferta" placeholder="ejem. Michael" aria-describedby="basic-addon1" title="ingrese solo letras" style="text-transform:uppercase" required>
+<!-- 
+
+AQUI CLSADMIN
+-->
+  </td>
+</tr></table>
+<hr>
   <!-- //////////////////////////////////////PARTE DEL BRYAN INGRESO DEL ARTICULO O PRODUCTO/////////////////// -->
-  
-  
-  
-  
   </div>
    <div class="modal-footer">
         <input type="submit" name="btnRegistar"  class="btn btn-primary" role="button" value="Guardar">
