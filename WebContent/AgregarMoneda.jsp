@@ -46,10 +46,6 @@ if (error != null && error.equals("true")){
 </center> 
 
 <form action="ingresoMoneda" method="post">
-
-<br>
-<br>
-
 <div class="row">
 <div class="col-md-2">
 </div>
