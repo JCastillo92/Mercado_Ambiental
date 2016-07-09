@@ -16,7 +16,7 @@ public class ClsImagen {
 	public int getContador() {
 		return contador;
 	}
-
+	//PROBANDO GIT
 	public void setContador(int contador) {
 		this.contador = contador;
 	}
