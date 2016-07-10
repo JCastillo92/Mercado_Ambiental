@@ -16,7 +16,7 @@ x
  -->
 
 <%
-String id = "1";
+String id = request.getParameter("id");
 
 HttpSession sessionok = request.getSession();
 Cls_General obj= new Cls_General();
@@ -28,9 +28,10 @@ if(sessionok.getAttribute("log")==null){
 }else{
 	perf = (Integer)sessionok.getAttribute("log");
 }
-if(perf !=2){
-	response.sendRedirect("index.jsp?error=No tiene privilegios para acceder a esa pagina");
-}
+
+//if(perf !=2){
+//	response.sendRedirect("index.jsp?error=No tiene privilegios para acceder a esa pagina");
+//}
 
 %>
 
