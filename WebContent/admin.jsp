@@ -1,7 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- holi holixxxxxxxxxxxx
 
+x
+x
+x
+x
+x
+x  P P R  O  B  A  N D  O
+x
+x
+x
+x
+ -->
 
 <%
 String id = "1";
