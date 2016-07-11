@@ -101,16 +101,14 @@ public class Cls_General {
 	
 	public boolean ComprobarLoguin(String usuario, String clave){
 		boolean t = false;
-		System.out.println("Llego");
 		ClsConexion obj = new ClsConexion();
 		ResultSet rs=null;
 		String sql,nombre2,login_us2,direccion2;int perfil2=0 ,cedula = 0;
 		byte[] imgBytes3;
-		sql = "Select * from tb_usuarios where id_usuario='"+usuario+"' and clave='"+clave+"'";
+		sql = "Select * from tb_usuarios where id_usuario='"+usuario+"' and clave='"+clave+"';";
 		try {
 			rs = obj.Consulta(sql);
 			while(rs.next()){
-				
 				login_us2= rs.getString(1);
 				nombre2 = rs.getString(2);
 				perfil2 = rs.getInt(8);
