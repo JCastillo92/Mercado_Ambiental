@@ -12,7 +12,7 @@ public class ClsAdmin {
 	public boolean agregarmoneda(String descripcion){
 		boolean t=false;
 		datos.ClsConexion obj = new datos.ClsConexion();
-		String sql="INSERT INTO tb_monedas (descripcion) values ('"+descripcion.toUpperCase()+"');";
+		String sql="insert into tb_monedas (descripcion) values ('"+descripcion.toUpperCase()+"');";
 		System.out.println(sql);
 		try {
 			obj.Ejecutar(sql);
@@ -50,9 +50,9 @@ public boolean elimina_moneda(int id){
 		con.Ejecutar(sentencia);
 		hh=true;
 	} catch (Exception e) {
-		// TODO: handle exception
 		e.getMessage();
 	}
+	
 	return hh;
 }
 	//******************************************************************************************************************************************
@@ -80,7 +80,6 @@ public boolean elimina_moneda(int id){
 	}//fin lista add remove usuarios
 	
 public boolean accept_user(String recibo_dato_aceptar){
-		
 		boolean t=false;
 		//update tb_activos_usuarios set estado='TRUE' where id_fk_usuario='12345';
 		ClsConexion obj=new ClsConexion();
@@ -177,7 +176,6 @@ public boolean accept_user(String recibo_dato_aceptar){
 	       }
 	}
 	
-////////////////////////////////////
 	public boolean delete_user(String recibo_dato_eliminar){
 		boolean t=false;
 		//1) delete from tb_activos_usuarios where id_fk_usuario='1111';
@@ -192,7 +190,6 @@ public boolean accept_user(String recibo_dato_aceptar){
 			t=true;
 		} catch (Exception e) {
 			t=false;
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
@@ -229,7 +226,6 @@ public boolean accept_user(String recibo_dato_aceptar){
 			t=true;
 		} catch (Exception e) {
 			t=false;
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		
@@ -268,26 +264,20 @@ public boolean accept_user(String recibo_dato_aceptar){
 			rs=obj.Consulta(sql);
 			while(rs.next()){
 			moneda+="<option>"+rs.getString(1)+"</option>";
-			
 			}
-			
-			}
-			catch(Exception e){
+			rs.close();
+			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
 			moneda+="</select>";
-				
 			return moneda;
 			}
 		
 		//*****************************************************************************************************+
 		
 		public int Moneda_id(String moneda){
-			  
 			int id=0;
 			datos.ClsConexion obj = new datos.ClsConexion();
-
-			
 			ResultSet rs=null;
 			
 			String sql="Select id_moneda from tb_monedas where descripcion="+"'"+moneda+"';";
@@ -297,15 +287,10 @@ public boolean accept_user(String recibo_dato_aceptar){
 			while(rs.next()){
 			id=rs.getInt(1);
 			}
-			
-			}
-			catch(Exception e){
+			rs.close();
+			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
-				
 			return id;
 			}
-			
-		
-		
 }//FIN TODO
