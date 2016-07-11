@@ -78,7 +78,7 @@ if (error != null){%>
 <tr>
 
 <td> <span class="input-group-addon" id="basic-addon1">Cédula* </span>
-  <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723450365" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
+  <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
 </tr>
 
 <tr>
