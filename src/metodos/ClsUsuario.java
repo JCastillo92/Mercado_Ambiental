@@ -74,7 +74,6 @@ public class ClsUsuario {
 			delivery.deliver(4,cedula);
 			t=true;
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return t;
@@ -106,7 +105,6 @@ public class ClsUsuario {
 		try {
 			obj.Ejecutar(sql);
 		} catch (Exception e) {
-			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}//FIN VOID
