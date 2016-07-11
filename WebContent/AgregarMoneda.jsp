@@ -61,7 +61,6 @@ if (error != null && error.equals("true")){
 <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Registar Moneda">
 <a href="index.jsp">Cancelar</a></center>
 </form>
-<br>
 </div>
 
 <div class="col-md-2">
