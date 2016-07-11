@@ -67,7 +67,7 @@ public class ClsUsuario {
 		boolean t=false;
 		datos.ClsConexion obj = new datos.ClsConexion();
 		ClsAdmin delivery=new ClsAdmin();
-		String sql="INSERT INTO tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
+		String sql="insert tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
 		System.out.println(sql);
 		try {
 			obj.Ejecutar(sql);
@@ -94,6 +94,7 @@ public class ClsUsuario {
 							+ " <span class=\"input-group-addon\" id=\"basic-addon1\"> Teléfono:</span>"
 							+ "  <input type=\"number\" class=\"form-control\" name=\"txtTelefono\" pattern=\"[0-9]{7-10}\" value=\""+rs.getString(2)+"\" aria-describedby=\"basic-addon1\" required>";
 			}
+			rs.close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
@@ -129,6 +130,7 @@ public String consula_usuario_personal(String ci_usuario){
 			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(6)+"</span>Domicilio</li>"
 			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(7)+"</span>Telefono</li></ul>";
 			}
+			rs.close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
