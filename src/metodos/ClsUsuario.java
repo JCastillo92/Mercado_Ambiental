@@ -66,12 +66,8 @@ public class ClsUsuario {
 	public boolean agregarusuario(String cedula,String nombre,String apellido,String clave ,String correo,String direccion, String telefono, int perfil){
 		boolean t=false;
 		datos.ClsConexion obj = new datos.ClsConexion();
-<<<<<<< HEAD
-		String sql="INSERT INTO tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
-=======
 		ClsAdmin delivery=new ClsAdmin();
-		String sql="INSERT INTO tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"','"+clave+"');";
->>>>>>> 4f196e54b19cf0b3704aba88fc2ea6d9c917f01d
+		String sql="INSERT INTO tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
 		System.out.println(sql);
 		try {
 			obj.Ejecutar(sql);
