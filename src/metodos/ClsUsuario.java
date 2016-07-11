@@ -66,10 +66,12 @@ public class ClsUsuario {
 	public boolean agregarusuario(String cedula,String nombre,String apellido,String correo ,String direccion,String telefono, String clave){
 		boolean t=false;
 		datos.ClsConexion obj = new datos.ClsConexion();
+		ClsAdmin delivery=new ClsAdmin();
 		String sql="INSERT INTO tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"','"+clave+"');";
 		System.out.println(sql);
 		try {
 			obj.Ejecutar(sql);
+			delivery.deliver(4,cedula);
 			t=true;
 		} catch (Exception e) {
 			// TODO: handle exception
