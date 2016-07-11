@@ -112,7 +112,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			}
 		switch (CodOperation) {
 		case 1://accept
-			LibraryPredeterminated="Hola, "+GetRecipientNick+".\n Luego de haber confirmado tus datos "
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber confirmado tus datos "
 					+ "te damos la más cordial bievenida a nuestro portal de intercambio, usamos dos "
 					+ "tipos de modalidad que son trueque y puja, en las cuales tendrás varias opciones "
 					+ "de productos a seleccionar y por medio de la página podras saber más del mismo.\n\n\n\n "
@@ -120,7 +120,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 					+ "en las instalaciones que posee el Club Ecológico UPS.\n\n\n";
 			break;
 		case 2://deny
-			LibraryPredeterminated="Hola, "+GetRecipientNick+".\n Luego de haber revisado tus datos, "
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber revisado tus datos, "
 					+ "hemos encontrado algunas inconsistencias en los mismos.\n\n Necesitamos que seas "
 					+ "estudiante de la Universidad Politécnica Salesiana y por ende que te registres con " 
 					+ "tu cuenta de estudiante o docente. Los datos adicionales deben ser correctos y coherentes "
@@ -130,17 +130,16 @@ public boolean accept_user(String recibo_dato_aceptar){
 					+ "Hasta Pronto";
 			break;
 		case 3://block
-			LibraryPredeterminated="Hola, "+GetRecipientNick+".\n Hemos detectado actividad inusual en el "
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Hemos detectado actividad inusual en el "
 					+ "manejo de tu cuenta, por lo que hemos procedido a inactivarla momentaneamente, "
 					+ "necesitamos que te acerques a nuestras instalaciones del Club Ecológico UPS para activar tu "
 					+ "cuenta, lamentamos los inconvenientes que esto te pueda causar.\n\n\nTe esperamos, hasta pronto.";
 			break;
 		case 4://registered welcome
-			LibraryPredeterminated="Hola, "+GetRecipientNick+".\n Gracias por registrarte en nuestro portal "
-					+ "TRUEQUE ECOLÓGICO, necesitamos validar tus datos, por el momento no podrás acceder al portal "
-					+ "dentro de las siguientes 24hrs.\n\n\n Luego recibirás un mensaje de confirmación "
-					+ "y podrás empezar a utilizar la página.\n\n\n Tu solicitud se está procesando "
-					+ "estaremos en contacto, adiós.";
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Gracias por registrarte en nuestro portal "
+					+ "TRUEQUE ECOLÓGICO, necesitamos validar tus datos, por el momento no podrás acceder al portal. "
+					+ "\nDentro de las siguientes 24hrs recibirás un mensaje de confirmación "
+					+ "y podrás empezar a utilizar la página.\n\n\n Tu solicitud se está siendo procesada adiós.";
 			break;
 		default:
 			
