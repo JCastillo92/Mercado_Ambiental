@@ -40,17 +40,19 @@ if (error != null && error.equals("true")){
 
 <div id="wrap">
 <div class="container-fluid">
-
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
 <center>
 <h3><span class="label label-default">AGREGAR MONEDA</span></h3>
 </center> 
 
 <form action="ingresoMoneda" method="post">
-<div class="row">
-<div class="col-md-2">
-</div>
 
-<div class="col-md-8">
+
+
+
 <table class="table table-hover"><tr>
 <td> <span class="input-group-addon" id="basic-addon1">Descripción de la moneda * </span>
   <input type="text" class="form-control"name="txtMoneda"  placeholder="ejem. Botellas Plasticas" aria-describedby="basic-addon1"  style="text-transform:uppercase" required></td>
@@ -62,12 +64,8 @@ if (error != null && error.equals("true")){
 <a href="index.jsp">Cancelar</a></center>
 </form>
 </div>
-
 <div class="col-md-2">
 </div>
-
-</div>
-
 <div class="container">
 
 <left><br>
@@ -79,7 +77,6 @@ if (error != null && error.equals("true")){
  %>
 </div>
 
-<br>
 
 </div><!--Container -->
 </div><!--Wrap-->
