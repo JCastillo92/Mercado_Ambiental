@@ -47,7 +47,7 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		cedula="1718900188";//AQUI DEBO OBTENER LA CEDULA DEL USUARIO
 		direccion = request.getParameter("txtDireccion");
 		telefono=request.getParameter("txtTelefono");
-		clave = request.getParameter("txtClave");
+		clave = request.getParameter("txtClave1");
 		clave2 = request.getParameter("txtClave2");
 		
 		boolean contaseñas=false;
