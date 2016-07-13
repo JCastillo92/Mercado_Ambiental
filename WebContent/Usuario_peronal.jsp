@@ -8,6 +8,7 @@
 <title>Uusario personal</title>
 </head>
 <body>
+
 <%
 HttpSession sessionok = request.getSession();
 Cls_General obj2= new Cls_General();
