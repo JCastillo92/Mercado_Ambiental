@@ -10,21 +10,17 @@ public class Cls_General {
 	String nombre;
 	int log;
 	int perfil;
-	
+	String cedula;
 	public int getPerfil() {
 		return perfil;
 	}
-
-
 	public void setPerfil(int perfil) {
 		this.perfil = perfil;
 	}
 
-
 	public String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -37,7 +33,13 @@ public class Cls_General {
 	public void setLog(int log) {
 		this.log = log;
 	}
-
+	
+	public String getCedula(){
+		return cedula;
+	}
+	public void setCedula(String cedula){
+		this.cedula=cedula;
+	}
 
 	public String desplegarmenus(int perfil){
 		
@@ -115,6 +117,7 @@ public class Cls_General {
 				setLog(perfil2);
 				setPerfil(perfil2);
 				setNombre(nombre2);
+				setCedula(login_us2);
 				t=true;
 			}
 		} catch (Exception e) {

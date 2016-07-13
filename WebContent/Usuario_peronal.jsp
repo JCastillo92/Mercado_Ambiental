@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,17 +9,19 @@
 <title>Uusario personal</title>
 </head>
 <body>
+
 <%
 HttpSession sessionok = request.getSession();
 Cls_General obj2= new Cls_General();
 int perf;
+String ced="";
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
 	response.sendRedirect("index.jsp");
 }else{
-	perf = (Integer)sessionok.getAttribute("log");
-
+	perf=(Integer)sessionok.getAttribute("log");
+	ced=(String)sessionok.getAttribute("cedula");
 }
 
 String error;
@@ -55,14 +58,13 @@ out.print(menu);
 </div>
 
 <div class="col-md-10">
-
-<h1 class="text-center">Datos Personales del Usuario</h1>
+<center><h1><span class="label label-default">DATOS PERSONALES DEL USUARIO</span></h1></center>
 
 <!-- ----------------------------------------------------------------------------------------------- -->
 <%
 String print_user_data;
 ClsUsuario obj=new ClsUsuario();
-print_user_data=obj.consula_usuario_personal("1718900188");
+print_user_data=obj.consula_usuario_personal(ced);
 out.print(print_user_data);
 %>
 
