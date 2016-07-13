@@ -46,8 +46,7 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		Cls_validacione_password objpasss=new Cls_validacione_password(); 
 		
 		HttpSession sessionok = request.getSession();
-		cedula = (String)sessionok.getAttribute("cedula"); //id_paciente
-		System.out.println(cedula);
+		cedula = (String)sessionok.getAttribute("cedula"); //cedula del logueado
 		direccion = request.getParameter("txtDireccion");
 		telefono=request.getParameter("txtTelefono");
 		clave = request.getParameter("txtClave");
