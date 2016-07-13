@@ -8,7 +8,7 @@
 <title>Registro de Moneda</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 </head>
-<body background="imagenes/fondo3.PNG">
+<body>
 
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
