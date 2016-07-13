@@ -79,8 +79,8 @@ public class ClsUsuario {
 		return t;
 	}
 	
-	public String devuelvo_para_actualizar(String ci){
-		String sql="select direccion,celular from tb_usuarios where id_usuario='"+ci+"'";
+	public String devuelvo_para_actualizar(String cedula){
+		String sql="select direccion,celular from tb_usuarios where id_usuario='"+cedula+"'";
 		ClsConexion con =new ClsConexion();
 		ResultSet rs=null;
 		String codigo_jsp="";

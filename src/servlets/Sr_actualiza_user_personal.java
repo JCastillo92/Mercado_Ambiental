@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import metodos.ClsUsuario;
 import metodos.Cls_validacione_password;
@@ -44,7 +45,9 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		ClsUsuario obj=new ClsUsuario();
 		Cls_validacione_password objpasss=new Cls_validacione_password(); 
 		
-		cedula="1718900188";//AQUI DEBO OBTENER LA CEDULA DEL USUARIO
+		HttpSession sessionok = request.getSession();
+		cedula = (String)sessionok.getAttribute("cedula"); //id_paciente
+		System.out.println(cedula);
 		direccion = request.getParameter("txtDireccion");
 		telefono=request.getParameter("txtTelefono");
 		clave = request.getParameter("txtClave");

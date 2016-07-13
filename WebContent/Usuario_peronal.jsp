@@ -12,13 +12,14 @@
 HttpSession sessionok = request.getSession();
 Cls_General obj2= new Cls_General();
 int perf;
+String ced="";
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
 	response.sendRedirect("index.jsp");
 }else{
-	perf = (Integer)sessionok.getAttribute("log");
-
+	perf=(Integer)sessionok.getAttribute("log");
+	ced=(String)sessionok.getAttribute("cedula");
 }
 
 String error;
@@ -62,7 +63,7 @@ out.print(menu);
 <%
 String print_user_data;
 ClsUsuario obj=new ClsUsuario();
-print_user_data=obj.consula_usuario_personal("1718900188");
+print_user_data=obj.consula_usuario_personal(ced);
 out.print(print_user_data);
 %>
 
