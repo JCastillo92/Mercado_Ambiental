@@ -122,12 +122,13 @@ public String consula_usuario_personal(String ci_usuario){
 			while(rs.next()){
 			codigo_jsp+="<div class=\"col-md-6\"><h3><span class=\"label label-default\">Bienvenid@:</span></h3>"
 			+ "<h2><span class=\"label label-info\">"+rs.getString(2)+"</span></h2></div><div class=\"col-md-6\"><h3><span class=\"label label-default\">Apellido:</span></h3>"
-			+ "<h2><span class=\"label label-info\">"+rs.getString(3)+"</span></h2></div></div><div class=\"col-md-1\"></div></div><div class=\"row\"><div class=\"col-md-1\"></div>"
+			+ "<h2><span class=\"label label-info\">"+rs.getString(3)+"</span></h2></div><div class=\"col-md-1\"></div><div class=\"row\"><div class=\"col-md-1\"></div>"
 			+ "<div class=\"col-md-10\"><ul class=\"list-group\">"
 			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(1)+"</span>Cedula</li>"
 			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(5)+"</span>Correo</li>"
 			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(6)+"</span>Domicilio</li>"
-			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(7)+"</span>Telefono</li></ul>";
+			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(7)+"</span>Telefono</li></ul>"
+					+ "</div></div>";
 			}
 			rs.close();
 			con.getConexion().close();
