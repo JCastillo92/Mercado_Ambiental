@@ -49,6 +49,7 @@ public class logueame extends HttpServlet {
 			HttpSession sesionok = request.getSession();
 			sesionok.setAttribute("log", obj.getLog());
 			sesionok.setAttribute("nom", obj.getNombre());
+			sesionok.setAttribute("cedula", obj.getCedula());
 			response.sendRedirect("index.jsp");
 		}else{
 			
