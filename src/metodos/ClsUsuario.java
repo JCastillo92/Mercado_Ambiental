@@ -94,6 +94,7 @@ public class ClsUsuario {
 							+ "  <input type=\"number\" class=\"form-control\" name=\"txtTelefono\" pattern=\"[0-9]{7-10}\" value=\""+rs.getString(2)+"\" aria-describedby=\"basic-addon1\" required>";
 			}
 			rs.close();
+			con.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
@@ -129,8 +130,9 @@ public String consula_usuario_personal(String ci_usuario){
 			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(7)+"</span>Telefono</li></ul>";
 			}
 			rs.close();
+			con.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+			System.out.print(e.getMessage());
 			}
 		return codigo_jsp;
 	}//fin public string consula_usuario_personal

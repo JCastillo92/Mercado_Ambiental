@@ -34,8 +34,10 @@ public String consulta_monedas(){
 			rs=con.Consulta(sql);
 			while(rs.next()){
 				acumulada+="<tr><td>"+rs.getString(2)+"</td><td><a class=\"btn btn-primary\" href=\"Se_elimina_moneda?dato="+rs.getInt(1)+"\" role=\"button\">Eliminar</a></td></tr>";
-}
+			}
 			acumulada+="</tbody></table>";
+			rs.close();
+			con.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
@@ -49,6 +51,7 @@ public boolean elimina_moneda(int id){
 		ClsConexion con = new datos.ClsConexion();
 		con.Ejecutar(sentencia);
 		hh=true;
+		con.getConexion().close();
 	} catch (Exception e) {
 		e.getMessage();
 	}
@@ -73,6 +76,7 @@ public boolean elimina_moneda(int id){
 			}
 			acum_jsp+="</tbody></table>";
 			rs.close();
+			con.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
@@ -106,6 +110,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 				GetRecipientDestination=resultSet.getString(5);
 			}
 			resultSet.close();
+			con.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
@@ -210,6 +215,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			}
 			acum_jsp+="</tbody></table>";
 			rs.close();
+			con.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}

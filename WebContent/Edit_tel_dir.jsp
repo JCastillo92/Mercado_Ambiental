@@ -51,7 +51,7 @@ if (error != null){
 
 <%
 ClsUsuario obj1= new ClsUsuario();
-String aa=obj1.devuelvo_para_actualizar(ced);//AQUI MANDO LA CEDULA a la clase para cargar
+String aa=obj1.devuelvo_para_actualizar(ced);
 out.print(aa);
 %>
   <div>

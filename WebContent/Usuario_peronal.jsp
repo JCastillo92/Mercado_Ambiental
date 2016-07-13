@@ -58,8 +58,7 @@ out.print(menu);
 </div>
 
 <div class="col-md-10">
-
-<h1 class="text-center">Datos Personales del Usuario</h1>
+<center><h1><span class="label label-default">DATOS PERSONALES DEL USUARIO</span></h1></center>
 
 <!-- ----------------------------------------------------------------------------------------------- -->
 <%
