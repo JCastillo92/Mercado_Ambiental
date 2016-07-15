@@ -84,7 +84,7 @@ public class Cls_General {
 			menu += "<li><a href=\"puja.jsp\"><span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>Puja</a></li>";
 			menu += "<li><a href=\"descripcion.jsp\"><span class=\"glyphicon glyphicon-tasks\" aria-hidden=\"true\"></span>Trueque</a></li>";
 			menu += "<li><a href=\"Usuario_peronal.jsp\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>Mi Perfil</a></li>";*/
-			menu += "<li><a href=\"cerrando\"><span class=\"glyphicon glyphicon-off\" aria-hidden=\"true\"></span>Cerrar Sesion</a></li>";
+			menu += "<li><a href=\"cerrando\"><span class=\"glyphicon glyphicon-off\" aria-hidden=\"true\"></span> Cerrar Sesi&oacute;n</a></li>";
 		}else{
 			
 	      	menu +="<form class=\"navbar-form navbar-left\" role=\"search\" action=\"logueame\">"+

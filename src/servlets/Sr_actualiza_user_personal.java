@@ -59,9 +59,9 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		System.out.println(contaseñas);
 		if(cedula != null  && direccion != null && telefono != null &&  contaseñas==true ){
 			obj.actualuza_el_usuario(direccion,telefono,clave,cedula);
-			response.sendRedirect("Usuario_peronal.jsp?dato=Datos Ingresados Correctamente");
+			response.sendRedirect("Usuario_peronal.jsp?dato=true");
 			}else{
-			response.sendRedirect("Edit_tel_dir.jsp?dato=Error verifique que los datos no sean vacios o que el password coincida");
+			response.sendRedirect("Edit_tel_dir.jsp?dato=false");
 			}
 		
 	}
