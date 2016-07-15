@@ -41,7 +41,7 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String cedula,direccion,clave,clave2,telefono ;
+		String cedula,direccion,clave,clave2,telefono,clave_antigua,clave_nueva ;
 		ClsUsuario obj=new ClsUsuario();
 		Cls_validacione_password objpasss=new Cls_validacione_password(); 
 		
@@ -51,18 +51,23 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		telefono=request.getParameter("txtTelefono");
 		clave = request.getParameter("txtClave1");
 		clave2 = request.getParameter("txtClave2");
+		clave_antigua = request.getParameter("txtClave");
+		clave_nueva=obj.Clave(cedula);
 		
 		boolean contaseñas=false;
 		contaseñas=objpasss.check_password(clave, clave2);
 		
-		
 		System.out.println(contaseñas);
-		if(cedula != null  && direccion != null && telefono != null &&  contaseñas==true ){
+		
+		System.out.println(clave_antigua +" es igual "+obj.Clave(cedula));
+		
+		if(clave_antigua==clave_nueva){
+			if( direccion != null && telefono != null &&  contaseñas==true ){
 			obj.actualuza_el_usuario(direccion,telefono,clave,cedula);
-			response.sendRedirect("Usuario_peronal.jsp?dato=Datos Ingresados Correctamente");
+			response.sendRedirect("index.jsp?dato=Datos Ingresados Correctamente");
 			}else{
 			response.sendRedirect("Edit_tel_dir.jsp?dato=Error verifique que los datos no sean vacios o que el password coincida");
 			}
-		
+		}
 	}
 }//fin

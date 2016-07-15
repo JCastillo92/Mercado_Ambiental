@@ -138,5 +138,21 @@ public String consula_usuario_personal(String ci_usuario){
 		return codigo_jsp;
 	}//fin public string consula_usuario_personal
 
+public String Clave(String ci_usuario){
+	String clave="";
+	ClsConexion con =new ClsConexion();
+	ResultSet rs=null;
+	String sql="Select clave from tb_usuarios where id_usuario='"+ci_usuario+"';";
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	clave=rs.getString(1);
+	}
+	rs.close();
+	}catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	return clave;
+	}
 	
 }
