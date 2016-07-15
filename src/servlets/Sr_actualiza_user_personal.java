@@ -64,11 +64,7 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		if(clave_antigua==clave_nueva){
 			if( direccion != null && telefono != null &&  contaseñas==true ){
 			obj.actualuza_el_usuario(direccion,telefono,clave,cedula);
-
-			response.sendRedirect("index.jsp?dato=Datos Ingresados Correctamente");
-
 			response.sendRedirect("Usuario_peronal.jsp?dato=true");
-
 			}else{
 			response.sendRedirect("Edit_tel_dir.jsp?dato=false");
 			}
