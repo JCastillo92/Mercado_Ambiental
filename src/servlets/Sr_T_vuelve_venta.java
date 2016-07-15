@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metodos.Cls_Trueque;
+
 /**
  * Servlet implementation class Sr_T_vuelve_venta
  */
@@ -38,6 +40,8 @@ public class Sr_T_vuelve_venta extends HttpServlet {
 		String titulo_producto_trueque=request.getParameter("dato2");
 		String cedula_comprador_prod_trueque=request.getParameter("dato2B");
 		System.out.println("================"+titulo_producto_trueque+"   "+cedula_comprador_prod_trueque);
+		Cls_Trueque obj=new Cls_Trueque();
+		obj.venta_no_completada_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque);
 	}
 
 }

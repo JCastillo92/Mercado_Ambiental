@@ -29,4 +29,22 @@ public class Cls_Trueque {
 			}
 		return acum_jsp;
 	}//fin lista add remove usuarios
+	public void confirma_venta_trueque(){
+		//aqui debo pasar de estado 2 a 3
+		
+	}
+	public void venta_no_completada_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
+		//regreso al producto al estado uno y elimino la cedula de quien lo queria comprar
+		//update tb_trueque set estado=1, comprador=null where titulo='NOKIA LUMIA 820' and comprador='1704475084';
+		ClsConexion obj=new ClsConexion();
+		Cls_mailing mailto= new Cls_mailing();
+		String sql="update tb_trueque set estado=1, comprador=null where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"';";
+		try {
+			obj.Ejecutar(sql);
+			//case 5 enviar un mensaje de que el interesado NO quiere concluir la venta
+			mailto.deliver(5,cedula_comprador_prod_trueque);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
