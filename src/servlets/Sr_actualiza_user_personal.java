@@ -68,7 +68,11 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 					System.out.println("2nueva: "+clave_nueva +" es igual "+"2antigua: "+clave_antigua);
 					
 			obj.actualuza_el_usuario(direccion,telefono,clave,cedula);
+
 			response.sendRedirect("Edit_tel_dir.jsp?dato=true");
+
+
+			response.sendRedirect("Usuario_peronal.jsp?dato=true");
 
 			}else{
 			response.sendRedirect("Edit_tel_dir.jsp?dato=false");
