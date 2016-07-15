@@ -24,19 +24,28 @@ if(sessionok.getAttribute("log")==null){
 </head>
 <body>
 
+<!-- MENSAJE DEL SERVLET -->
 <%
 String error;
 error = request.getParameter("dato");
-if (error != null){
+if (error != null && error.equals("true")){
 %>
+	<div class="alert alert-success" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>ESTADO</strong>.<%=" Proceso realizado con exito"%>
+	</div>
+<%
+}if(error != null && error.equals("false")){
+	%>
 	<div class="alert alert-danger" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Estado</strong>.<%=" "+error%>
+	  <strong>ESTADO</strong>.<%=" Se ha producido un error, por favor actualizar la p&aacute;gina y vuelva a intentar, verifique que los datos no sean vacios o que el password coincida"%>
 	</div>
 <%
 }
-
 %>
+<!--FIN MENSAJE DEL SERVLET -->
+
 <div id="wrap">
 <div class="container-fluid">
 <div class="row">
