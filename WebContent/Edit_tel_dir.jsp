@@ -69,7 +69,7 @@ out.print(aa);
   </div>
   
 <span class="input-group-addon" id="basic-addon1"> Clave Antigua: </span>
-  <input type="password" class="form-control" name="txtClave" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+  <input type="password" class="form-control" name="txtClaveN" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 <span class="input-group-addon" id="basic-addon1"> Nueva Clave: </span>
   <input type="password" class="form-control" name="txtClave1" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>

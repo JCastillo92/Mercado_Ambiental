@@ -51,27 +51,28 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		telefono=request.getParameter("txtTelefono");
 		clave = request.getParameter("txtClave1");
 		clave2 = request.getParameter("txtClave2");
-		clave_antigua = request.getParameter("txtClave");
-		clave_nueva=obj.Clave(cedula);
+		clave_nueva = request.getParameter("txtClaveN");
+		clave_antigua=obj.Clave(cedula);
 		
 		boolean contaseñas=false;
 		contaseñas=objpasss.check_password(clave, clave2);
 		
 		System.out.println(contaseñas);
 		
-		System.out.println(clave_antigua +" es igual "+obj.Clave(cedula));
+		System.out.println("nueva: "+clave_nueva +" es igual "+"antigua: "+clave_antigua);
 		
-		if(clave_antigua==clave_nueva){
-			if( direccion != null && telefono != null &&  contaseñas==true ){
+		System.out.println(clave+" es igual "+clave2);
+		
+			
+				if(clave_nueva==clave_antigua){
+					System.out.println("2nueva: "+clave_nueva +" es igual "+"2antigua: "+clave_antigua);
+					
 			obj.actualuza_el_usuario(direccion,telefono,clave,cedula);
-
-			response.sendRedirect("index.jsp?dato=Datos Ingresados Correctamente");
-
-			response.sendRedirect("Usuario_peronal.jsp?dato=true");
+			response.sendRedirect("Edit_tel_dir.jsp?dato=true");
 
 			}else{
 			response.sendRedirect("Edit_tel_dir.jsp?dato=false");
 			}
-		}
+		
 	}
 }//fin
