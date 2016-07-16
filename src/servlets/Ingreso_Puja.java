@@ -46,6 +46,7 @@ public class Ingreso_Puja extends HttpServlet {
 		
 		String nombre, moneda, descripcion, cantidad, valor, categorias;
 		String pathimg1,pathimg2,pathimg3,pathimg4;
+		String año, mes, dia, hora, minuto;
 		boolean t1=false,t2=false,t3=false,t4=false;
 		double val = 0;
 		int can = 0;
@@ -64,6 +65,11 @@ public class Ingreso_Puja extends HttpServlet {
 		valor=request.getParameter("valor");
 		categorias=request.getParameter("categorias");
 		
+		año = request.getParameter("año");
+		mes = request.getParameter("mes");
+		dia = request.getParameter("dia");
+		hora = request.getParameter("hora");
+		minuto = request.getParameter("minuto");
 		
 				
 		
@@ -95,6 +101,7 @@ public class Ingreso_Puja extends HttpServlet {
 		int id;
 		puja.Ingresar_Puja(nombre, descripcion, can, mon, val, cat);
 		id=puja.Obtener_ID(nombre, descripcion, can, mon, val, cat);
+		puja.Ingresar_Tiempo(id, dia, mes, año, hora, minuto);
 		
 		try {
 		t1=obj.insertarimagen_puja(pathimg1, id);
@@ -114,6 +121,7 @@ public class Ingreso_Puja extends HttpServlet {
 		System.out.println("BORRAR DATOS");
 		puja.Eiminar_Puja(id);
 		puja.Eiminar_Imagen_Puja(id);
+		puja.Eliminar_Tiempo(id);
 		}
 		
 		
