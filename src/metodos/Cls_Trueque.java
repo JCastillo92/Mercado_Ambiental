@@ -19,7 +19,7 @@ public class Cls_Trueque {
 				//rs.getString(7) es la cedula DEL COMPRADOR (el que ya puso comprar pero aun no se realiza la venta)
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getInt(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td>"
 						+ "<td><a class=\"btn btn-primary\" href=\"Sr_T_confirma_venta?datoA="+rs.getString(7)+"&datoB="+rs.getString(1)+"\" role=\"button\">Vendido</a></td>"
-						+ "<td><a class=\"btn btn-primary\" href=\"Sr_T_vuelve_venta?dato2="+rs.getString(7)+"&dato2B="+rs.getString(1)+"\" role=\"button\">No se ha vendido</a></td></tr>";
+						+ "<td><a class=\"btn btn-warning\" href=\"Sr_T_vuelve_venta?dato2="+rs.getString(7)+"&dato2B="+rs.getString(1)+"\" role=\"button\">No se ha vendido</a></td></tr>";
 			}
 			acum_jsp+="</tbody></table>";
 			rs.close();
@@ -34,6 +34,7 @@ public class Cls_Trueque {
 		Cls_mailing mailto= new Cls_mailing();
 		mailto.deliver(6,cedula_comprador_prod_trueque);
 		
+		
 	}
 	public void venta_no_completada_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//regreso al producto al estado uno y elimino la cedula de quien lo queria comprar
@@ -45,6 +46,7 @@ public class Cls_Trueque {
 			obj.Ejecutar(sql);
 			//case 5 enviar un mensaje de que el interesado NO quiere concluir la venta
 			mailto.deliver(5,cedula_comprador_prod_trueque);
+			obj.getConexion().close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
