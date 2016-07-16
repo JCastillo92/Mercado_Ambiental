@@ -12,33 +12,33 @@ public class Cls_General {
 	int perfil;
 	String cedula;
 	public int getPerfil() {
-		return perfil;
+	return perfil;
 	}
 	public void setPerfil(int perfil) {
-		this.perfil = perfil;
+	this.perfil = perfil;
 	}
 
 	public String getNombre() {
-		return nombre;
+	return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	this.nombre = nombre;
 	}
 
 	public int getLog() {
-		return log;
+	return log;
 	}
 
 	public void setLog(int log) {
-		this.log = log;
+	this.log = log;
 	}
 	
 	public String getCedula(){
-		return cedula;
+	return cedula;
 	}
 	public void setCedula(String cedula){
-		this.cedula=cedula;
+	this.cedula=cedula;
 	}
 
 	public String desplegarmenus(int perfil){
