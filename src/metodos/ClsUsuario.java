@@ -100,9 +100,19 @@ public class ClsUsuario {
 			}
 		return codigo_jsp;
 	}
-	public void actualuza_el_usuario(String dir,String tel, String p1,String ci){
+	public void actualuza_el_usuario(String dir,String tel,String ci){
 		ClsConexion obj=new ClsConexion();
-		String sql="update tb_usuarios set direccion='"+dir.toUpperCase()+"', celular='"+tel+"', clave='"+p1+"' where id_usuario='"+ci+"';";
+		String sql="update tb_usuarios set direccion='"+dir.toUpperCase()+"', celular='"+tel+"'where id_usuario='"+ci+"';";
+		try {
+			obj.Ejecutar(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}//FIN VOID
+	
+	public void actualuza_clave( String p1,String ci){
+		ClsConexion obj=new ClsConexion();
+		String sql="update tb_usuarios set  clave='"+p1+"' where id_usuario='"+ci+"';";
 		try {
 			obj.Ejecutar(sql);
 		} catch (Exception e) {
