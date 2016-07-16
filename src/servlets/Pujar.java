@@ -7,19 +7,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import metodos.*;
+import metodos.ClsPujas;
 
 /**
- * Servlet implementation class Ingreso_Trueque
+ * Servlet implementation class Pujar
  */
-@WebServlet("/Ingreso_Trueque")
-public class Ingreso_Trueque extends HttpServlet {
+@WebServlet("/Pujar")
+public class Pujar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Ingreso_Trueque() {
+    public Pujar() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -37,33 +37,21 @@ public class Ingreso_Trueque extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-ClsAdmin trueque = new ClsAdmin();
+		doGet(request, response);
 		
-		String descripcion, titulo, moneda; int cantidad,estado; 
+		ClsPujas obj = new ClsPujas();
+		String puja = request.getParameter("oferta");
+		//obj.Valor(id);
 		
-		titulo = request.getParameter("txtProducto");
-		descripcion = request.getParameter("txtArea");
-		moneda = (request.getParameter("moneda"));
-		cantidad=Integer.parseInt(request.getParameter("txtCantidad"));
-		estado=1;
-		
-		
-		
-		
-		System.out.println(titulo+" "+descripcion+" "+moneda+" "+cantidad+" "+estado);
-		
-		if(descripcion != null  && titulo != null && moneda != null &&  cantidad!= 0 ){
-			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado)){
-				
-		response.sendRedirect("A_subir_trueque.jsp?dato=Datos Ingresados Correctamente");
-		
-		
-		}else{
-		response.sendRedirect("A_subir_trueque.jsp?dato=Error verifique que todos los datos hayan sido llenados o escogidos correctamente");
+		int oferta;
+		try{
+		oferta=Integer.parseInt(puja);	
 		}
-	
-	
-	}
+		catch(Exception e){
+		response.sendRedirect("puja.jsp?dato=Error ingrese un valor correcto en el campo Ofertar Valor");
+		}
+		
+		
 	}
 
 }

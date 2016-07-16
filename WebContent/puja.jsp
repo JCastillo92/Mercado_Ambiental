@@ -2,22 +2,47 @@
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
+
+<%
+String error;
+error = request.getParameter("dato");
+if (error != null){
+%>
+<div class="alert alert-success" role="alert">
+<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<strong>Estado</strong>.<%=" "+error%>
+</div>
+<%}%>
+
 <%
 HttpSession sessionok = request.getSession();
 Cls_General obj= new Cls_General();
+ClsTiempo tiempo = new ClsTiempo();
+
 int perf;
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
-	perf = 0;
-	response.sendRedirect("index.jsp");
+perf = 0;
+response.sendRedirect("index.jsp");
 }else{
-	perf = (Integer)sessionok.getAttribute("log");
-
+perf = (Integer)sessionok.getAttribute("log");
 }
 
-String id;
+String id; 
+String dia;
+String mes;
+String año; 
+String hora;
+String minutos;
+String dato;
 id = request.getParameter("id");
 
+dia=tiempo.Dia(id);
+mes=tiempo.Mes(id);
+año=tiempo.año(id);
+hora=tiempo.hora(id);
+minutos=tiempo.minutos(id);
+dato=mes+"/"+dia+"/"+año+" "+hora+":"+minutos;
 %>
 
 <html>
@@ -25,6 +50,36 @@ id = request.getParameter("id");
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
+
+<script>
+
+var dato1 = '<%=dato%>'
+
+	function cdtd() {
+	//var xmas = new Date("December 25, 2017 00:01:00");
+	var xmas = new Date(dato1);
+	var now = new Date();
+	var timeDiff = xmas.getTime() - now.getTime();
+	if (timeDiff <= 0) {
+    clearTimeout(timer);
+	document.write("Puja Terminada");
+	// Run any code needed for countdown completion here
+    }
+	var seconds = Math.floor(timeDiff / 1000);
+	var minutes = Math.floor(seconds / 60);
+	var hours = Math.floor(minutes / 60);
+	var days = Math.floor(hours / 24);
+	hours %= 24;
+    minutes %= 60;
+    seconds %= 60;
+	document.getElementById("daysBox").innerHTML = days;
+	document.getElementById("hoursBox").innerHTML = hours;
+	document.getElementById("minsBox").innerHTML = minutes;
+	document.getElementById("secsBox").innerHTML = seconds;
+	var timer = setTimeout('cdtd()',1000);
+}
+</script>
+
 </head>
 <body background="imagenes/fondo3.PNG" >
 
@@ -71,12 +126,33 @@ out.print(puja.Ver_Pujas());
 
 <div class="col-md-6">
 
+
+<center>
+<h1>
+<span class="label label-success"> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> TERMINA EN:</span> 
+</span>
+</h1>
+</center>
+
+
+
+
+
+
 <center>
 
 <h1>
-<span class="label label-success"> 
-<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> LA PUJA DEL MOMENTO</span> 
-</span>
+
+<span class="label label-info" id="daysBox"></span> Días 
+<span class="label label-info" id="hoursBox"> </span> Horas
+<span class="label label-info" id="minsBox">  </span>min.
+<span class="label label-info" id="secsBox"></span> seg.
+
+<script>cdtd();</script>
+
+ 
+
 </h1>
 </center>
 
@@ -132,17 +208,28 @@ out.print(puja.Ver_Pujas());
     <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
     
-      <center><h5><font color="white"><%out.print(puja.Descripcion(id));%></font></h5></center>
+    <center><h5><font color="white"><%out.print(puja.Descripcion(id));%></font></h5></center>
 
 </div>
 
 
 <div class="col-md-3">
+
+<center>
+<h1>
+<span class="label label-info"> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> INFORMACIÓN</span> 
+</span>
+</h1>
+</center>
 <br>
 <br>
 <br>
 <br>
 
+
+
+<form action="Pujar" method="post">
 
 <table class="table table-condensed">
 
@@ -152,21 +239,32 @@ out.print(puja.Ver_Pujas());
 <td><span class="label label-success"> TIPO DE MONEDA </span></td>
 <td><span class="label label-success"> <%out.print(puja.Moneda(id)); %> </span></td>
 
-
 </tr>
-
+<tr>
+<td></td>
+<td></td>
+</tr>
 
 <tr style="color:#456789;font-size:150%;">
 <td><span class="label label-info"> OFERTA ATUAL </span></td>
-<td><span class="label label-info">  <%out.print(puja.Valor(id)); %> </span></td>
+<td> <input type="text" class="form-control" name="valor" value=<%out.print(puja.Valor(id)); %>> </td>
 </tr>
 
+
+<tr>
+<td></td>
+<td></td>
+</tr>
 
 <tr style="color:#456789;font-size:150%;">
-<td><span class="label label-success"> FECHA LIMITE </span></td>
-<td><span class="label label-success"> CARGAR FECHA LIMITE </span></td>
+<td><span class="label label-success"> OFERTAR VALOR </span></td>
+<td> <input type="text" class="form-control" name="oferta" required> </td>
 </tr>
+
 </table>
+
+<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">PUJAR</span></button>
+</form>
 
 </div>
 

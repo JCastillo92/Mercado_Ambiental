@@ -40,35 +40,17 @@ if (error != null && error.equals("true")){
 <!-- NO PONER NADA AQUI -->
 </div>
 
-<div class="col-md-4">
-<br>
-<!-- /////////////////////////////////////////////////////////////////////////////// -->
-    <div class="thumbnail">
-       <img src="imagenes/paso1.png" alt="PASO1"  style="width:175px;height:150px;border:0" class="img-thumbnail">
-      <div class="caption">
-      <center>
-       <h3>PASO - 1</h3>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal1">SUBIR DATOS DEL PRODUCTO</button>
-        </center>
-      </div>
-    </div>
+<div class="col-md-8">
+<form action="Sr_A_ingresa_trueque" method="post">
 
-<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
+<center>
+<br>
         <h2><span class="label label-default" id="gridSystemModalLabel">Ingresar los datos y moneda del producto</span></h2>
-      </div>
-      <div class="modal-body">
-        <!-- -------------------------------------------------------------------------- -->
-        <form action="Ingreso_Trueque" method="post">
-  <div class="form-group">
-  
   <!-- PONER LO DEL BRYAN AQUI -->
   <table class="table table-hover"><tr>
 <td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n del producto: </span>
-  <textarea id="txtArea" rows="10" cols="80" name="txtArea" aria-describedby="basic-addon1"  placeholder="ejem. Balon de la FIFA # 5" style="text-transform:uppercase" required></textarea></td>
+  <center><textarea id="txtArea" rows="10" cols="80" name="txtArea" aria-describedby="basic-addon1"  placeholder="ejem. Balon de la FIFA # 5" style="text-transform:uppercase" required></textarea></center></td>
 </tr>
 
 <tr>
@@ -77,60 +59,19 @@ if (error != null && error.equals("true")){
 </tr>
 </table>
 
-<center>
 <table>
 <tr>
 <td><span class="input-group-addon" id="basic-addon1">Ofertado por: </span>
  <%out.print(trueque.Moneda()); %> </td>
-
- 
-  </td>
   <td><span class="input-group-addon" id="basic-addon1">cantidad </span>
   <input type="number" class="form-control" name="txtCantidad"  placeholder="ejem. 20" aria-describedby="basic-addon1" title="ingrese solo numeros" style="text-transform:uppercase" required></td>
 </tr>
 </table>
-<center></center>
 
   <!-- //////////////////////////////////////PARTE DEL BRYAN INGRESO DEL ARTICULO O PRODUCTO/////////////////// -->
-  </div>
-   <div class="modal-footer">
-        <input type="submit" name="btnRegistar"  class="btn btn-primary" role="button" value="Guardar">
-      </div>
-</form>
-        <!-- ----------------------------------------------------------------- -->
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- /////////////////////////////////////////////////////////////////////////// -->
-
-</div>
-<div class="col-md-4">
-<br>
 <!-- //////////////////////////////////////MI PARTE AQUI ABAJO INGRESO DE FOTOS/////////////////// -->
-
-    <div class="thumbnail">
-       <img src="imagenes/paso2.png" alt="PASO2"  style="width:175px;height:150px;border:0" class="img-thumbnail">
-      <div class="caption">
-      <center>
-       <h3>PASO - 2</h3>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal2">SUBIR FOTOS DEL PRODUCTO</button>
-        </center>
-      </div>
-    </div>
-
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<br>
         <h2><span title="El ingreso de las 4 im&aacute;genes es obligatorio" class="label label-default" id="gridSystemModalLabel">Ingresar 4* fotos formato .jpg</span></h2>
-      </div>
-      <div class="modal-body">
-        <!-- -------------------------------------------------------------------------- -->
-        <form action="Sr_A_ingresa_trueque" method="post">
-  <div class="form-group">
-    <center>
     <!--     ///////////////////  1 ////////////////////////////////       -->
      <div class="fileupload fileupload-new">
     <span class="btn btn-primary btn-file">FOTO 1 (.jpg)<span class="fileupload-new"></span>
@@ -163,20 +104,13 @@ if (error != null && error.equals("true")){
     <span class="fileupload-preview"></span>
   </div>
   <br>
-  </center>
-  </div>
   
-   <div class="modal-footer">
-        <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="AGREGAR FOTOS">
-      </div>
+        <input type="submit" name="btnRegistar" class="btn btn-success" role="button" value="AGREGAR TRUEQUE">
+        </center>
+        
 </form>
-        <!-- ----------------------------------------------------------------- -->
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- /////////////////////////////////////////////////////////////////////////// -->
 </div>
+<!-- ------------------------------------ -->
 <div class="col-md-2">
 <!-- NO PONER NADA AQUI -->
 </div>

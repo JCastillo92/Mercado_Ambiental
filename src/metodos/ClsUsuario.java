@@ -65,13 +65,29 @@ public class ClsUsuario {
 
 	public boolean agregarusuario(String cedula,String nombre,String apellido,String clave ,String correo,String direccion, String telefono, int perfil){
 		boolean t=false;
-		datos.ClsConexion obj = new datos.ClsConexion();
-		ClsAdmin delivery=new ClsAdmin();
-		String sql="insert tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
+		ClsConexion obj = new ClsConexion();
+		Cls_mailing mailto=new Cls_mailing();
+		String sql="insert INTO tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
 		System.out.println(sql);
 		try {
 			obj.Ejecutar(sql);
-			delivery.deliver(4,cedula);
+			mailto.deliver(4,cedula);
+			t=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return t;
+	}
+	
+	public boolean agregarusuario_activo(String cedula,boolean estado){
+		boolean t=false;
+		ClsConexion obj = new ClsConexion();
+		Cls_mailing mailto=new Cls_mailing();
+		String sql="insert INTO tb_activos_usuarios (id_fk_usuario,estado) values ('"+cedula+"',"+estado+");";
+		System.out.println(sql);
+		try {
+			obj.Ejecutar(sql);
+			mailto.deliver(4,cedula);
 			t=true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -100,9 +116,19 @@ public class ClsUsuario {
 			}
 		return codigo_jsp;
 	}
-	public void actualuza_el_usuario(String dir,String tel, String p1,String ci){
+	public void actualuza_el_usuario(String dir,String tel,String ci){
 		ClsConexion obj=new ClsConexion();
-		String sql="update tb_usuarios set direccion='"+dir.toUpperCase()+"', celular='"+tel+"', clave='"+p1+"' where id_usuario='"+ci+"';";
+		String sql="update tb_usuarios set direccion='"+dir.toUpperCase()+"', celular='"+tel+"'where id_usuario='"+ci+"';";
+		try {
+			obj.Ejecutar(sql);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}//FIN VOID
+	
+	public void actualuza_clave( String p1,String ci){
+		ClsConexion obj=new ClsConexion();
+		String sql="update tb_usuarios set  clave='"+p1+"' where id_usuario='"+ci+"';";
 		try {
 			obj.Ejecutar(sql);
 		} catch (Exception e) {
@@ -149,6 +175,7 @@ public String Clave(String ci_usuario){
 	clave=rs.getString(1);
 	}
 	rs.close();
+	con.getConexion().close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}

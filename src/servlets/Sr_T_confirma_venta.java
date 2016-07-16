@@ -1,29 +1,23 @@
 package servlets;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
-
-import metodos.ClsUsuario;
-import metodos.Cls_validacione_password;
 
 /**
- * Servlet implementation class Sr_actualiza_user_personal
+ * Servlet implementation class Sr_T_confirma_venta
  */
-@WebServlet("/Sr_actualiza_user_personal")
-public class Sr_actualiza_user_personal extends HttpServlet {
+@WebServlet("/Sr_T_confirma_venta")
+public class Sr_T_confirma_venta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sr_actualiza_user_personal() {
+    public Sr_T_confirma_venta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,26 +36,10 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String cedula,direccion,telefono ;
-		ClsUsuario obj=new ClsUsuario();
+		String titulo_producto_trueque=request.getParameter("datoA");
+		String cedula_comprador_prod_trueque=request.getParameter("datoB");
+		System.out.println("================"+titulo_producto_trueque+"   "+cedula_comprador_prod_trueque);
 		
-		HttpSession sessionok = request.getSession();
-		cedula = (String)sessionok.getAttribute("cedula"); //cedula del logueado
-		direccion = request.getParameter("txtDireccion");
-		telefono=request.getParameter("txtTelefono");
-		
-		if(direccion != null  && telefono!= null){
-		obj.actualuza_el_usuario(direccion, telefono, cedula);
-		response.sendRedirect("Edit_tel_dir.jsp?dato=true");
-		}else{
-			response.sendRedirect("Edit_tel_dir.jsp?dato=false");		
-		}
-	
-	
-				
-			
-				///////////////////////////////////////////////////////////
-			
-		
-	}}//fin
+	}
 
+}
