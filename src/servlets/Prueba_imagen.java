@@ -41,9 +41,18 @@ public class Prueba_imagen extends HttpServlet {
 		String pathimg;
 		pathimg = request.getParameter("btnarchivo");
 		
-		System.out.println("----------"+pathimg);
+		//NUEVAS LINEAS
+		String path_verdadero_imagen="";
+		try {
+			path_verdadero_imagen = request.getParameter("path_imagen");
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		//FIN NUEVAS LINEAS
+		
+		System.out.println("----------"+path_verdadero_imagen);
 		ClsImagen obj = new ClsImagen();
-		obj.insertarimagen(pathimg);
+		obj.insertarimagen(path_verdadero_imagen);
 		response.sendRedirect("pruebaimagen.jsp");
 	}
 

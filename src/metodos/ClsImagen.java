@@ -214,8 +214,7 @@ public class ClsImagen {
 					setImgBytes2(imgBytes3);
 					System.out.println(imgBytes3);
 					t=true;
-				}
-				
+				}	
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
