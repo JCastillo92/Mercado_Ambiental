@@ -42,7 +42,7 @@ public class Ingreso extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String cedula,nombre,apellido,correo; String direccion,clave,clave2,telefono ; int perfil;
+		String cedula,nombre,apellido,correo; String direccion,clave,clave2,telefono ; int perfil; boolean estado;
 		ClsUsuario obj = new ClsUsuario();
 		
 		Cls_validacione_password objpasss=new Cls_validacione_password();
@@ -57,6 +57,7 @@ public class Ingreso extends HttpServlet {
 		clave = request.getParameter("txtClave");
 		clave2 = request.getParameter("txtClave2");
 		perfil=1;
+		estado= false;
 		
 		boolean contaseñas=false;
 		contaseñas=objpasss.check_password(clave, clave2);
@@ -66,6 +67,7 @@ public class Ingreso extends HttpServlet {
 		if(nombre != null && cedula != null  && direccion != null  && apellido != null && correo != null && telefono != null &&  contaseñas==true ){
 			 
 			if(obj.agregarusuario(cedula,nombre,apellido,clave,correo,direccion,telefono,perfil)){
+				obj.agregarusuario_activo(cedula, estado);
 				response.sendRedirect("index.jsp?error=Datos Ingresados Correctamente");
 			}else{
 				response.sendRedirect("index.jsp?error=Datos Ingresados Equivocos");

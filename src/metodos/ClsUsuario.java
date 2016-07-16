@@ -67,7 +67,23 @@ public class ClsUsuario {
 		boolean t=false;
 		ClsConexion obj = new ClsConexion();
 		Cls_mailing mailto=new Cls_mailing();
-		String sql="insert tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
+		String sql="insert INTO tb_usuarios (id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil) values ('"+cedula+"','"+nombre.toUpperCase()+"','"+apellido.toUpperCase()+"','"+clave+"','"+correo+"','"+direccion.toUpperCase()+"','"+telefono+"',"+perfil+");";
+		System.out.println(sql);
+		try {
+			obj.Ejecutar(sql);
+			mailto.deliver(4,cedula);
+			t=true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return t;
+	}
+	
+	public boolean agregarusuario_activo(String cedula,boolean estado){
+		boolean t=false;
+		ClsConexion obj = new ClsConexion();
+		Cls_mailing mailto=new Cls_mailing();
+		String sql="insert INTO tb_activos_usuarios (id_fk_usuario,estado) values ('"+cedula+"',"+estado+");";
 		System.out.println(sql);
 		try {
 			obj.Ejecutar(sql);
