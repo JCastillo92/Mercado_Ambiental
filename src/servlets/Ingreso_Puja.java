@@ -52,11 +52,11 @@ public class Ingreso_Puja extends HttpServlet {
 		int can = 0;
 		boolean a=true;
 		
-		pathimg1 = request.getParameter("img0");
+		pathimg1 = request.getParameter("path_imagen1");
 		System.out.println("------------------------------"+pathimg1);
-		pathimg2 = request.getParameter("img1");
-		pathimg3 = request.getParameter("img2");
-		pathimg4 = request.getParameter("img3");
+		pathimg2 = request.getParameter("path_imagen2");
+		pathimg3 = request.getParameter("path_imagen3");
+		pathimg4 = request.getParameter("path_imagen4");
 		
 		nombre = request.getParameter("nombre");
 		descripcion = request.getParameter("descripcion");

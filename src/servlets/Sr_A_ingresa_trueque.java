@@ -54,11 +54,11 @@ ClsAdmin trueque = new ClsAdmin();
 	Cls_Trueque ver_id=new Cls_Trueque();
 	saber_id_ingreso_trueque=ver_id.saber_id_nuevo_producto_trueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado);
 	
-	pathimg1 = request.getParameter("img0");
+	pathimg1 = request.getParameter("path_imagen1");
 	System.out.println(pathimg1);
-	pathimg2 = request.getParameter("img1");
-	pathimg3 = request.getParameter("img2");
-	pathimg4 = request.getParameter("img3");
+	pathimg2 = request.getParameter("path_imagen2");
+	pathimg3 = request.getParameter("path_imagen3");
+	pathimg4 = request.getParameter("path_imagen4");
 	
 	
 	ClsImagen obj = new ClsImagen();
