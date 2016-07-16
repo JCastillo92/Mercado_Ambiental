@@ -6,7 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import metodos.ClsAdmin;
 import metodos.ClsImagen;
+import metodos.Cls_Trueque;
 /**
  * Servlet implementation class Sr_A_ingresa_trueque
  */
@@ -32,36 +35,58 @@ public class Sr_A_ingresa_trueque extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String pathimg1,pathimg2,pathimg3,pathimg4;
-		pathimg1 = request.getParameter("img0");
-		System.out.println(pathimg1);
-		pathimg2 = request.getParameter("img1");
-		pathimg3 = request.getParameter("img2");
-		pathimg4 = request.getParameter("img3");
+ClsAdmin trueque = new ClsAdmin();
 		
-		ClsImagen obj = new ClsImagen();
-		boolean t1=false,t2=false,t3=false,t4=false;
-		try {
-			t1=obj.insertarimagen_trueque(pathimg1);
-			t2=obj.insertarimagen_trueque(pathimg2);
-			t3=obj.insertarimagen_trueque(pathimg3);
-			t4=obj.insertarimagen_trueque(pathimg4);
-		} catch (Exception e) {
-			t1=false;t2=false;t3=false;t4=false;
-		}
+		String descripcion, titulo, moneda; int cantidad,estado; 
 		
-		if(t1==true && t2==true && t3==true && t4==true){
-			response.sendRedirect("A_subir_trueque.jsp?msg=true");
-		}else{
-			ClsImagen delete_img=new ClsImagen();
-			//aqui elimino las imagenes de la base en caso de que exista un
-			//error de ingreso en alguna de las 4 imagenes
-			//entonces vuelve a quedar en "cero" la base
-			delete_img.falla_ingreso_imagenes_trueque();
-			//aqui debo eliminar lo que ingresa el Bryan
+		titulo = request.getParameter("txtProducto");
+		descripcion = request.getParameter("txtArea");
+		moneda = (request.getParameter("moneda"));
+		cantidad=Integer.parseInt(request.getParameter("txtCantidad"));
+		estado=1;
+		System.out.println(titulo+" "+descripcion+" "+moneda+" "+cantidad+" "+estado);
+		
+		if(descripcion != null  && titulo != null && moneda != null &&  cantidad!= 0 ){
+			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado)){
+///////////////////////I M A G E N S ////////////////////////////
+	String pathimg1,pathimg2,pathimg3,pathimg4;
+	int saber_id_ingreso_trueque=0;
+	Cls_Trueque ver_id=new Cls_Trueque();
+	saber_id_ingreso_trueque=ver_id.saber_id_nuevo_producto_trueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado);
+	
+	pathimg1 = request.getParameter("img0");
+	System.out.println(pathimg1);
+	pathimg2 = request.getParameter("img1");
+	pathimg3 = request.getParameter("img2");
+	pathimg4 = request.getParameter("img3");
+	
+	
+	ClsImagen obj = new ClsImagen();
+	boolean t1=false,t2=false,t3=false,t4=false;
+	try {
+		t1=obj.insertarimagen_trueque(pathimg1,1,saber_id_ingreso_trueque);//el ,1 significa tipo=1=trueque
+		t2=obj.insertarimagen_trueque(pathimg2,1,saber_id_ingreso_trueque);//el ,1 significa tipo=1=trueque
+		t3=obj.insertarimagen_trueque(pathimg3,1,saber_id_ingreso_trueque);//el ,1 significa tipo=1=trueque
+		t4=obj.insertarimagen_trueque(pathimg4,1,saber_id_ingreso_trueque);//el ,1 significa tipo=1=trueque
+	} catch (Exception e) {
+		t1=false;t2=false;t3=false;t4=false;
+	}
+	
+	if(t1==true && t2==true && t3==true && t4==true){
+		response.sendRedirect("A_subir_trueque.jsp?msg=true");
+	}else{
+		//aqui elimino las imagenes de la base en caso de que exista un
+		//error de ingreso en alguna de las 4 imagenes
+		//entonces vuelve a quedar en "cero" la base
+		//aqui debo eliminar lo que ingresa el Bryan
+		response.sendRedirect("A_subir_trueque.jsp?msg=false");
+	}//fin else jairo
+		}else{//fin if de ingreso del bryan
 			response.sendRedirect("A_subir_trueque.jsp?msg=false");
 		}
-		
+	}else{
+		response.sendRedirect("A_subir_trueque.jsp?msg=false");
 	}
-
-}
+		
+		
+	}}
