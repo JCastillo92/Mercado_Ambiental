@@ -36,8 +36,11 @@ public class Sr_T_confirma_venta extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String titulo_producto_trueque=request.getParameter("datoA");
-		String cedula_comprador_prod_trueque=request.getParameter("datoB");
+		String titulo_producto_trueque=request.getParameter("datoA");//titulo producto
+		String cedula_comprador_prod_trueque=request.getParameter("datoB");//cedula del comprador
+		String descripcion_prod_vendido=request.getParameter("datoC");// descripcion producto
+		
+		
 		System.out.println("================"+titulo_producto_trueque+"   "+cedula_comprador_prod_trueque);
 		
 	}

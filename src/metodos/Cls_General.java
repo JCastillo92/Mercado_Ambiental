@@ -105,11 +105,13 @@ public class Cls_General {
 		boolean t = false;
 		ClsConexion obj = new ClsConexion();
 		ResultSet rs=null;
-		String sql,nombre2,login_us2,direccion2;int perfil2=0 ,cedula = 0;
+		String sql,sql2,nombre2,login_us2,direccion2;int perfil2=0 ,cedula = 0;
 		byte[] imgBytes3;
 		sql = "Select * from tb_usuarios where id_usuario='"+usuario+"' and clave='"+clave+"';";
+		sql2="Select tb_usuarios.id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil,tb_activos_usuarios.estado from tb_usuarios,tb_activos_usuarios where tb_usuarios.id_usuario='"+usuario+"' and tb_usuarios.clave='"+clave+"' and tb_usuarios.id_usuario=tb_activos_usuarios.id_fk_usuario and tb_activos_usuarios.estado=true"+
+				" group by tb_usuarios.id_usuario,nombre,apellido,clave,correo,direccion,celular,perfil,tb_activos_usuarios.estado;";
 		try {
-			rs = obj.Consulta(sql);
+			rs = obj.Consulta(sql2);
 			while(rs.next()){
 				login_us2= rs.getString(1);
 				nombre2 = rs.getString(2);
