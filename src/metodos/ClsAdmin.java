@@ -89,6 +89,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			obj.Ejecutar(sql);
 			t=true;
 			mailto.deliver(1,recibo_dato_aceptar);
+			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
@@ -111,6 +112,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			obj.Ejecutar(sql1);
 			obj.Ejecutar(sql2);
 			t=true;
+			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
@@ -149,6 +151,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			obj.Ejecutar(sql1);
 			mailto.deliver(3,id);
 			t=true;
+			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
@@ -160,14 +163,14 @@ public boolean accept_user(String recibo_dato_aceptar){
 	//******************************************************************************************************************************************
 		public boolean agregarTrueque(String descripcion ,int cantidad,int moneda,String titulo ,int estado ){
 			boolean t=false;
-			datos.ClsConexion obj = new datos.ClsConexion();
+			ClsConexion obj = new ClsConexion();
 			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,estado) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"','"+estado+"');";
 			System.out.println(sql);
 			try {
 				obj.Ejecutar(sql);
 				t=true;
+				obj.getConexion().close();
 			} catch (Exception e) {
-				// TODO: handle exception
 				e.printStackTrace();
 			}
 			return t;
@@ -191,6 +194,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			moneda+="<option>"+rs.getString(1)+"</option>";
 			}
 			rs.close();
+			obj.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
@@ -213,6 +217,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			id=rs.getInt(1);
 			}
 			rs.close();
+			obj.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}

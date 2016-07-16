@@ -46,24 +46,14 @@ ClsAdmin trueque = new ClsAdmin();
 		moneda = (request.getParameter("moneda"));
 		cantidad=Integer.parseInt(request.getParameter("txtCantidad"));
 		estado=1;
-		
-		
-		
-		
 		System.out.println(titulo+" "+descripcion+" "+moneda+" "+cantidad+" "+estado);
 		
 		if(descripcion != null  && titulo != null && moneda != null &&  cantidad!= 0 ){
 			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado)){
-				
 		response.sendRedirect("A_subir_trueque.jsp?dato=true");
-		
-		
 		}else{
 		response.sendRedirect("A_subir_trueque.jsp?dato=false");
 		}
-	
-	
 	}
 	}
-
 }
