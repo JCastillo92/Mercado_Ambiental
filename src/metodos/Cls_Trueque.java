@@ -18,7 +18,7 @@ public class Cls_Trueque {
 			while(rs.next()){
 				//rs.getString(7) es la cedula DEL COMPRADOR (el que ya puso comprar pero aun no se realiza la venta)
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getInt(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td>"
-						+ "<td><a class=\"btn btn-primary\" href=\"Sr_T_confirma_venta?datoA="+rs.getString(7)+"&datoB="+rs.getString(1)+"\" role=\"button\">Vendido</a></td>"
+						+ "<td><a class=\"btn btn-success\" href=\"Sr_T_confirma_venta?datoA="+rs.getString(7)+"&datoB="+rs.getString(1)+"\" role=\"button\">Vendido</a></td>"
 						+ "<td><a class=\"btn btn-warning\" href=\"Sr_T_vuelve_venta?dato2="+rs.getString(7)+"&dato2B="+rs.getString(1)+"\" role=\"button\">No se ha vendido</a></td></tr>";
 			}
 			acum_jsp+="</tbody></table>";

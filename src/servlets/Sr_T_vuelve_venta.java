@@ -41,6 +41,7 @@ public class Sr_T_vuelve_venta extends HttpServlet {
 		String cedula_comprador_prod_trueque=request.getParameter("dato2B");
 		Cls_Trueque obj=new Cls_Trueque();
 		obj.venta_no_completada_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque);
+		response.sendRedirect("Trueque_x_vender.jsp?dato=true");
 	}
 
 }
