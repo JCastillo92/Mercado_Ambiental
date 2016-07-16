@@ -52,7 +52,7 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		
 		if(direccion != null  && telefono!= null){
 		obj.actualuza_el_usuario(direccion, telefono, cedula);
-		response.sendRedirect("Edit_tel_dir.jsp?dato=true");
+		response.sendRedirect("Usuario_peronal.jsp?dato=true");
 		}else{
 			response.sendRedirect("Edit_tel_dir.jsp?dato=false");		
 		}
