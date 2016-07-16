@@ -4,14 +4,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
 import datos.ClsConexion;
 
 public class ClsImagen {
 	
 	byte[] imgBytes2;
 	int tipo,producto,contador;
-	ClsConexion obj = new ClsConexion();
 	
 	public int getContador() {
 		return contador;
@@ -47,7 +45,7 @@ public class ClsImagen {
 	public boolean insertarimagen(String path){
 		System.out.println("Ya Entro "+path);
 		boolean t = false;
-		//ClsConexion obj = new ClsConexion();
+		ClsConexion obj = new ClsConexion();
 		try {
 			File file = new File(path);
 			FileInputStream fis = new FileInputStream(file);
@@ -90,8 +88,6 @@ public class ClsImagen {
 		rs=con.Consulta(sql);
 		while(rs.next()){
 			toma=rs.getInt(1);
-			rs.close();
-			con.getConexion().close();
 		}
 		}catch(Exception e){
 			a=-1;
@@ -120,7 +116,7 @@ public class ClsImagen {
 	
 			//System.out.println("Ya Entro "+path);
 			boolean t = false;
-			//ClsConexion obj = new ClsConexion();
+			ClsConexion obj = new ClsConexion();
 			try {
 			File file = new File(path);
 			FileInputStream fis = new FileInputStream(file);
@@ -154,20 +150,18 @@ public class ClsImagen {
 	
 //*******************************************************************************************************
 	public boolean insertarimagen_trueque(String path){
-
 		boolean t = false;
 		try {
 			File file = new File(path);
 			//System.out.println("Ya Entro "+path);
-
+			ClsConexion obj = new ClsConexion();
 			FileInputStream fis = new FileInputStream(file);
 			String nombrearchivo = file.getName();
 			System.out.println("---------------"+nombrearchivo);
 			nombrearchivo = nombrearchivo.substring(nombrearchivo.length() -4, nombrearchivo.length());
-			if (nombrearchivo.equals(".jpg") && (saber_id_nuevo_producto_trueque()>0)){
+			if (nombrearchivo.equals(".jpg")){
 				PreparedStatement ps = obj.getConexion().prepareStatement("insert into tb_imagenes (id_producto_fk,tipo,nombre_img,imagen_bit) values(?,?,?,?)" );
 				ps.setInt(1, saber_id_nuevo_producto_trueque());//id_producto_tr
-				System.out.println(".................."+saber_id_nuevo_producto_trueque());
 				ps.setInt(2, 1);//tipo trueque=1 puja=2
 				ps.setString(3, file.getName());
 				ps.setBinaryStream(4, fis, (int)file.length());
@@ -176,7 +170,6 @@ public class ClsImagen {
 				ps.executeUpdate();
 				ps.close();
 				fis.close();
-				
 				t = true;
 			}else{
 				t=false;
@@ -197,7 +190,7 @@ public class ClsImagen {
 		boolean t=false;
 		int cuentame=0;
 		System.out.println("Llego");
-		//ClsConexion obj = new ClsConexion();
+		ClsConexion obj = new ClsConexion();
 		ResultSet rs=null;
 		String sql,nombre2,login_us2,direccion2;int tipo=-1 ,producto = -1;
 		
@@ -233,7 +226,7 @@ public class ClsImagen {
 	public void contador(String prod){
 		System.out.println("Producto "+prod);
 		System.out.println("Entro a contador");
-		//ClsConexion obj = new ClsConexion();
+		ClsConexion obj = new ClsConexion();
 		ResultSet rs=null;
 		String sql,nombre2,login_us2,direccion2;int tipo=-1 ,producto = -1;
 		contador=0;

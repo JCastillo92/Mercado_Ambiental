@@ -1,6 +1,8 @@
 package metodos;
 
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import datos.ClsConexion;
 
@@ -162,14 +164,15 @@ public boolean accept_user(String recibo_dato_aceptar){
 	
 	//******************************************************************************************************************************************
 		public boolean agregarTrueque(String descripcion ,int cantidad,int moneda,String titulo ,int estado ){
+			Date date = new Date();
+	        SimpleDateFormat fecha_sys = new SimpleDateFormat("yyyy-MM-dd");
 			boolean t=false;
 			ClsConexion obj = new ClsConexion();
-			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,estado) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"','"+estado+"');";
+			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,estado,fecha_trueque) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"','"+estado+"','"+fecha_sys.format(date)+"');";
 			System.out.println(sql);
 			try {
 				obj.Ejecutar(sql);
 				t=true;
-				obj.getConexion().close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

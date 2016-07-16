@@ -57,29 +57,5 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		boolean contaseñas=false;
 		contaseñas=objpasss.check_password(clave, clave2);
 		
-		System.out.println(contaseñas);
-		
-		System.out.println("nueva: "+clave_nueva +" es igual "+"antigua: "+clave_antigua);
-		
-		System.out.println(clave+" es igual "+clave2);
-		
-			
-			if(clave_nueva==clave_antigua){
-					System.out.println("2nueva: "+clave_nueva +" es igual "+"2antigua: "+clave_antigua);
-					
-
-			if(clave != null  && clave2 != null&& clave_nueva != null){
-				obj.actualuza_clave(clave, cedula);
-			}
-
-			obj.actualuza_el_usuario(direccion,telefono,cedula);
-
-
-			response.sendRedirect("Usuario_peronal.jsp?dato=true");
-
-			}else{
-			response.sendRedirect("Edit_tel_dir.jsp?dato=false");
-			}
-		
 	}
 }//fin
