@@ -53,7 +53,7 @@ public class logueame extends HttpServlet {
 			response.sendRedirect("index.jsp");
 		}else{
 			
-			response.sendRedirect("index.jsp?error=Usuario o clave incorrectos");
+			response.sendRedirect("index.jsp?error=Usuario o clave incorrectos / Usuario inactivo");
 			/*<jsp:forward page="index.jsp">
 			<jsp:param value="Usuario o clave incorrectos" name="error"/>
 			</jsp:forward>*/

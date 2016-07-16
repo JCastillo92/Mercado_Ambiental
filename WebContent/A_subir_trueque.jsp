@@ -72,6 +72,7 @@ if (error != null && error.equals("true")){
 <!-- //////////////////////////////////////MI PARTE AQUI ABAJO INGRESO DE FOTOS/////////////////// -->
 <br>
         <h2><span title="El ingreso de las 4 im&aacute;genes es obligatorio" class="label label-default" id="gridSystemModalLabel">Ingresar 4* fotos formato .jpg</span></h2>
+        <br>
     <!--     ///////////////////  1 ////////////////////////////////       -->
      <div class="fileupload fileupload-new">
     <span class="btn btn-primary btn-file">FOTO 1 (.jpg)<span class="fileupload-new"></span>
@@ -112,7 +113,7 @@ if (error != null && error.equals("true")){
   		
         <input type="submit" name="btnRegistar" class="btn btn-success" onclick="detectarnav();" role="button" value="AGREGAR TRUEQUE">
         </center>
-        
+        <br>
 </form>
 </div>
 <!-- ------------------------------------ -->
