@@ -42,7 +42,7 @@ public class Sr_T_vuelve_venta extends HttpServlet {
 		System.out.println("---------------------"+titulo_producto_trueque+cedula_comprador_prod_trueque);
 		Cls_Trueque obj=new Cls_Trueque();
 		if(obj.venta_no_completada_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque)){
-			response.sendRedirect("Trueque_x_vender.jsp?dato=true");	
+			response.sendRedirect("Trueque_x_vender.jsp?dato=true");
 		}else{
 			response.sendRedirect("Trueque_x_vender.jsp?dato=false");
 		}

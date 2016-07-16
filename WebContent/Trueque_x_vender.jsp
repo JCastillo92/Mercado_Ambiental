@@ -12,7 +12,7 @@
 <!-- MENSAJE DEL SERVLET -->
 <%
 String error;
-error = request.getParameter("msg");
+error = request.getParameter("dato");
 if (error != null && error.equals("true")){
 %>
 	<div class="alert alert-success" role="alert">

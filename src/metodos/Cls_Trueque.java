@@ -46,7 +46,7 @@ public class Cls_Trueque {
 		try {
 			obj.Ejecutar(sql);
 			//case 5 enviar un mensaje de que el interesado NO quiere concluir la venta
-			//mailto.deliver(5,cedula_comprador_prod_trueque);
+			mailto.deliver(5,cedula_comprador_prod_trueque);
 			t=true;
 			obj.getConexion().close();
 		} catch (Exception e) {
