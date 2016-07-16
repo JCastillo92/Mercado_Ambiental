@@ -21,7 +21,7 @@ public class Cls_mailing {
 			System.out.print(e.getMessage());	
 			}
 		switch (CodOperation) {
-		case 1://accept
+		case 1://accept the request of the user already registered
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber confirmado tus datos "
 					+ "te damos la más cordial bievenida a nuestro portal de intercambio, usamos dos "
 					+ "tipos de modalidad que son trueque y puja, en las cuales tendrás varias opciones "
@@ -29,7 +29,7 @@ public class Cls_mailing {
 					+ "Las transacciones se las realizará en las instalaciones de la Universidad Politécnica Salesiana, "
 					+ "en las instalaciones que posee el Club Ecológico UPS.\n\n\n";
 			break;
-		case 2://deny
+		case 2://deny user request for some reason
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber revisado tus datos, "
 					+ "hemos encontrado algunas inconsistencias en los mismos.\n\n Necesitamos que seas "
 					+ "estudiante de la Universidad Politécnica Salesiana y por ende que te registres con " 
@@ -45,7 +45,7 @@ public class Cls_mailing {
 					+ "necesitamos que te acerques a nuestras instalaciones del Club Ecológico UPS para activar tu "
 					+ "cuenta, lamentamos los inconvenientes que esto te pueda causar.\n\n\nTe esperamos, hasta pronto.";
 			break;
-		case 4://registered welcome
+		case 4://new user registered welcome
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Grácias por registrarte en nuestro portal "
 					+ "TRUEQUE ECOLÓGICO, necesitamos validar tus datos, por el momento no podrás acceder al portal. "
 					+ "\nDentro de las siguientes 24hrs recibirás un mensaje de confirmación "
