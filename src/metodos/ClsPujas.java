@@ -169,7 +169,7 @@ public int Categoria_id(String categoria){
 //********************************************************************************************************
 	public void Eiminar_Puja(int id){
 	String sql="delete from tb_pujas where id_prod_pj="+id+";";
-	//System.out.println("****************"+sql);
+	System.out.println("****************"+sql);
 	try {
 	con.Ejecutar(sql);
 	}catch (Exception e) {
@@ -276,5 +276,29 @@ public void Hacer_Principal(String id){
 	} catch (Exception e) {
 	e.printStackTrace();
 	}
-}//fin Hacer_Principal
+}
+//********************************************************************************************************
+	public void Ingresar_Tiempo(int id, String dia, String mes, String año, String hora, String minutos){
+		
+	String sql="INSERT INTO tb_tiempo (id_puja,dia,mes,año,hora,minutos) values ("+id+",'"+dia+"','"+mes+"','"+año+"','"+hora+"','"+minutos+"');";
+	System.out.println(":::::::::::::::::::::::::::::::"+sql);
+	try {
+	con.Ejecutar(sql);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+	}
+//********************************************************************************************************
+	public void Eliminar_Tiempo(int id){
+	String sql="delete from tb_tiempo where id_puja="+id;
+	System.out.println("****************"+sql);
+	try {
+	con.Ejecutar(sql);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+	}
 }//fin de TODA LA LASE
+

@@ -58,6 +58,27 @@ if (error != null){
   	<input type="text" class="form-control" name="valor" required>
 	</div>
 	
+	<table class="table table-inverse">
+	<tr>
+	<th>Año Límite</th>
+	<th>Mes Límite</th>
+	<th>Día Límite</th>
+	<th>Hora Límite</th>
+	<th>Minuto Límiteyy</th>
+	</tr>
+	
+	<tr>
+	<td><input type="text" class="form-control" name="año" required></td>
+	<td><input type="text" class="form-control" name="mes" required></td>
+	<td><input type="text" class="form-control" name="dia" required></td>
+	<td><input type="text" class="form-control" name="hora" required></td>
+	<td><input type="text" class="form-control" name="minuto" required></td>
+	</tr>
+  
+	</table>
+	
+	<br>
+	
   <div class="form-group">
     <center>
     <!--     ///////////////////  1 ////////////////////////////////       -->

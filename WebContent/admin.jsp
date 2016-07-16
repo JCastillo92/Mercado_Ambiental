@@ -67,6 +67,13 @@ out.print(menu);
   </h3>
   
   <h3>
+  <a href="admin.jsp?id=6" class="list-group-item">
+  <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
+  AGREGAR TRUEQUE
+  </a>
+  </h3>	
+  
+  <h3>
   <a href="admin.jsp?id=4" class="list-group-item">
   <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
   ACEPTAR / RECHAZAR DE USUARIOS
@@ -112,7 +119,7 @@ if (id.equals("5")){
 %><iframe class="embed-responsive-item" src="A_control_user.jsp"></iframe><%
 }
 if (id.equals("6")){
-%><iframe class="embed-responsive-item" src="AgregarMoneda.jsp"></iframe><%
+%><iframe class="embed-responsive-item" src="A_subir_trueque.jsp"></iframe><%
 }
 %>
 
