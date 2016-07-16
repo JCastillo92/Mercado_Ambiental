@@ -1,9 +1,6 @@
 package metodos;
-//para enviar emails aqui abajo
 import javax.mail.internet.*;
-
 import datos.ClsConexion;
-
 import javax.mail.*;
 import java.sql.ResultSet;
 import java.util.*;
@@ -60,6 +57,13 @@ public class Cls_mailing {
 					+ "\nDebido a este hemos republicado el anuncio en el sistema,  "
 					+ "puedes volverlo a comprar si en verdad estás interesado.\n "
 					+ "Grácias por tu comprenión, hasta pronto.";
+			break;
+		case 6://product succesfully sold
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n TRUEQUE ECOLÓGICO te saluda.\n Queremos agradecerte por "
+					+ "ayudar al medio ambiente recolectando cosas reciclables. "
+					+ "\nGrácias por tu intercambio, sigue revisando nuestra página, tenemos muchos artículos  "
+					+ "que te pueden interesar.\n "
+					+ "Hasta pronto.";
 			break;
 		default:
 			

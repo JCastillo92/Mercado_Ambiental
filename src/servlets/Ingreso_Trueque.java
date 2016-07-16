@@ -55,11 +55,11 @@ ClsAdmin trueque = new ClsAdmin();
 		if(descripcion != null  && titulo != null && moneda != null &&  cantidad!= 0 ){
 			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado)){
 				
-		response.sendRedirect("A_subir_trueque.jsp?dato=Datos Ingresados Correctamente");
+		response.sendRedirect("A_subir_trueque.jsp?dato=true");
 		
 		
 		}else{
-		response.sendRedirect("A_subir_trueque.jsp?dato=Error verifique que todos los datos hayan sido llenados o escogidos correctamente");
+		response.sendRedirect("A_subir_trueque.jsp?dato=false");
 		}
 	
 	

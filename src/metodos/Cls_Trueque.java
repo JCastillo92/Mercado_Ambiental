@@ -29,8 +29,10 @@ public class Cls_Trueque {
 			}
 		return acum_jsp;
 	}//fin lista add remove usuarios
-	public void confirma_venta_trueque(){
+	public void confirma_venta_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//aqui debo pasar de estado 2 a 3
+		Cls_mailing mailto= new Cls_mailing();
+		mailto.deliver(6,cedula_comprador_prod_trueque);
 		
 	}
 	public void venta_no_completada_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
