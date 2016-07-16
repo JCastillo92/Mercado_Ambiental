@@ -23,20 +23,26 @@ if(sessionok.getAttribute("log")==null){
 	perf=(Integer)sessionok.getAttribute("log");
 	ced=(String)sessionok.getAttribute("cedula");
 }
-
+//<!--FIN MENSAJE DEL SERVLET -->
 String error;
-error = request.getParameter("dato");
-if (error != null){
+error = request.getParameter("msg");
+if (error != null && error.equals("true")){
 %>
 	<div class="alert alert-success" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Estado</strong>.<%=" "+error%>
+	  <strong>ESTADO</strong>.<%=" Proceso realizado con exito"%>
+	</div>
+<%
+}if(error != null && error.equals("false")){
+	%>
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>ESTADO</strong>.<%=" Se ha producido un error, por favor actualize y vuelva a intentar"%>
 	</div>
 <%
 }
-
 %>
-
+<!--FIN MENSAJE DEL SERVLET -->
 <div id="wrap">
 <div class="container-fluid">
 
