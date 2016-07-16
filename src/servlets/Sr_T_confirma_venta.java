@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import metodos.*;
-
 /**
- * Servlet implementation class Ingreso_Trueque
+ * Servlet implementation class Sr_T_confirma_venta
  */
-@WebServlet("/Ingreso_Trueque")
-public class Ingreso_Trueque extends HttpServlet {
+@WebServlet("/Sr_T_confirma_venta")
+public class Sr_T_confirma_venta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Ingreso_Trueque() {
+    public Sr_T_confirma_venta() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +27,7 @@ public class Ingreso_Trueque extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		this.doPost(request, response);
 	}
 
 	/**
@@ -37,23 +35,11 @@ public class Ingreso_Trueque extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-ClsAdmin trueque = new ClsAdmin();
 		
-		String descripcion, titulo, moneda; int cantidad,estado; 
+		String titulo_producto_trueque=request.getParameter("datoA");
+		String cedula_comprador_prod_trueque=request.getParameter("datoB");
+		System.out.println("================"+titulo_producto_trueque+"   "+cedula_comprador_prod_trueque);
 		
-		titulo = request.getParameter("txtProducto");
-		descripcion = request.getParameter("txtArea");
-		moneda = (request.getParameter("moneda"));
-		cantidad=Integer.parseInt(request.getParameter("txtCantidad"));
-		estado=1;
-		System.out.println(titulo+" "+descripcion+" "+moneda+" "+cantidad+" "+estado);
-		
-		if(descripcion != null  && titulo != null && moneda != null &&  cantidad!= 0 ){
-			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado)){
-		response.sendRedirect("A_subir_trueque.jsp?dato=true");
-		}else{
-		response.sendRedirect("A_subir_trueque.jsp?dato=false");
-		}
 	}
-	}
+
 }

@@ -82,19 +82,22 @@ public class ClsImagen {
 	public Integer saber_id_nuevo_producto_trueque(){
 		int a=-1;
 		int toma=0;
-		//sql=select id_producto_tr from tb_trueque order by id_producto_tr desc limit 1;
-		String sql="select id_producto_tr from tb_trueque,tb_imagenes where tipo=1 and  id_producto_tr=id_producto_fk order by id_producto_tr desc limit 1;";
+		//select id_producto_tr from tb_trueque order by id_producto_tr desc limit 1;
+		String sql="select id_producto_tr from tb_trueque order by id_producto_tr desc limit 1;";
 		ClsConexion con=new ClsConexion();
 		ResultSet rs=null;
 		try{
 		rs=con.Consulta(sql);
 		while(rs.next()){
 			toma=rs.getInt(1);
+			rs.close();
+			con.getConexion().close();
 		}
 		}catch(Exception e){
 			a=-1;
 			System.out.println(e.getMessage());
 		}
+		
 		a=toma;
 		return a;
 	}
@@ -173,6 +176,7 @@ public class ClsImagen {
 				ps.executeUpdate();
 				ps.close();
 				fis.close();
+				
 				t = true;
 			}else{
 				t=false;

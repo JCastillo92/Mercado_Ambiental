@@ -81,6 +81,7 @@ out.print(print_user_data);
 
 </div>
 <div class="col-md-1">
+<!-- V A C I O  derecha -->
 </div>
 </div>
 <br><br><br><br><br>

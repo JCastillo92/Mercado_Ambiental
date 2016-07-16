@@ -64,13 +64,17 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		System.out.println(clave+" es igual "+clave2);
 		
 			
-		obj.actualuza_el_usuario(direccion,telefono,cedula);
 			if(clave_nueva==clave_antigua){
 					System.out.println("2nueva: "+clave_nueva +" es igual "+"2antigua: "+clave_antigua);
 					
+
 			if(clave != null  && clave2 != null&& clave_nueva != null){
 				obj.actualuza_clave(clave, cedula);
 			}
+
+			obj.actualuza_el_usuario(direccion,telefono,cedula);
+
+
 			response.sendRedirect("Usuario_peronal.jsp?dato=true");
 
 			}else{
