@@ -2,9 +2,8 @@
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
-
 <%
-String id = "1";
+String id = request.getParameter("id");
 
 HttpSession sessionok = request.getSession();
 Cls_General obj= new Cls_General();
@@ -16,6 +15,7 @@ if(sessionok.getAttribute("log")==null){
 }else{
 	perf = (Integer)sessionok.getAttribute("log");
 }
+
 if(perf !=2){
 	response.sendRedirect("index.jsp?error=No tiene privilegios para acceder a esa pagina");
 }

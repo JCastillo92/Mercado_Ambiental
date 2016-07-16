@@ -20,7 +20,7 @@ if(sessionok.getAttribute("log")==null){
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
-<title>Editar fono y dir</title>
+<title>Editar Mi Clave</title>
 </head>
 <body>
 
@@ -57,17 +57,21 @@ if (error != null && error.equals("true")){
 <center><h3><span class="label label-default">ACTUALIZAR MIS DATOS</span></h3></center>
 <br><br>
 
-<form action="Sr_actualiza_user_personal" method="post">
+<form action="Sr_actualiza_user_clave" method="post">
 
-<%
-ClsUsuario obj1= new ClsUsuario();
-String aa=obj1.devuelvo_para_actualizar(ced);
-out.print(aa);
-%>
   <div>
-  <a href="Edit_claves.jsp">Actualizar Mi Clave</a>
+  <h1>IMPORTANTE:</h1><p>Para efectuar los cambios debe <mark>ingresar su misma clave primero</mark>.</p>
   </div>
   
+<span class="input-group-addon" id="basic-addon1"> Clave Antigua: </span>
+  <input type="password" class="form-control" name="txtClaveN" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+
+<span class="input-group-addon" id="basic-addon1"> Nueva Clave: </span>
+  <input type="password" class="form-control" name="txtClave1" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+
+
+<span class="input-group-addon" id="basic-addon1"> Confirme la clave:</span>
+  <input type="password" class="form-control" name="txtClave2" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 <center>  
  <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="ACTUALIZAR">

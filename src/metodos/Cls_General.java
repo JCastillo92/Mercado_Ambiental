@@ -10,21 +10,17 @@ public class Cls_General {
 	String nombre;
 	int log;
 	int perfil;
-	
+	String cedula;
 	public int getPerfil() {
 		return perfil;
 	}
-
-
 	public void setPerfil(int perfil) {
 		this.perfil = perfil;
 	}
 
-
 	public String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -37,7 +33,13 @@ public class Cls_General {
 	public void setLog(int log) {
 		this.log = log;
 	}
-
+	
+	public String getCedula(){
+		return cedula;
+	}
+	public void setCedula(String cedula){
+		this.cedula=cedula;
+	}
 
 	public String desplegarmenus(int perfil){
 		
@@ -82,7 +84,7 @@ public class Cls_General {
 			menu += "<li><a href=\"puja.jsp\"><span class=\"glyphicon glyphicon-exclamation-sign\" aria-hidden=\"true\"></span>Puja</a></li>";
 			menu += "<li><a href=\"descripcion.jsp\"><span class=\"glyphicon glyphicon-tasks\" aria-hidden=\"true\"></span>Trueque</a></li>";
 			menu += "<li><a href=\"Usuario_peronal.jsp\"><span class=\"glyphicon glyphicon-user\" aria-hidden=\"true\"></span>Mi Perfil</a></li>";*/
-			menu += "<li><a href=\"cerrando\"><span class=\"glyphicon glyphicon-off\" aria-hidden=\"true\"></span>Cerrar Sesion</a></li>";
+			menu += "<li><a href=\"cerrando\"><span class=\"glyphicon glyphicon-off\" aria-hidden=\"true\"></span> Cerrar Sesi&oacute;n</a></li>";
 		}else{
 			
 	      	menu +="<form class=\"navbar-form navbar-left\" role=\"search\" action=\"logueame\">"+
@@ -101,22 +103,21 @@ public class Cls_General {
 	
 	public boolean ComprobarLoguin(String usuario, String clave){
 		boolean t = false;
-		System.out.println("Llego");
 		ClsConexion obj = new ClsConexion();
 		ResultSet rs=null;
 		String sql,nombre2,login_us2,direccion2;int perfil2=0 ,cedula = 0;
 		byte[] imgBytes3;
-		sql = "Select * from tb_usuarios where id_usuario='"+usuario+"' and clave='"+clave+"'";
+		sql = "Select * from tb_usuarios where id_usuario='"+usuario+"' and clave='"+clave+"';";
 		try {
 			rs = obj.Consulta(sql);
 			while(rs.next()){
-				
 				login_us2= rs.getString(1);
 				nombre2 = rs.getString(2);
 				perfil2 = rs.getInt(8);
 				setLog(perfil2);
 				setPerfil(perfil2);
 				setNombre(nombre2);
+				setCedula(login_us2);
 				t=true;
 			}
 		} catch (Exception e) {

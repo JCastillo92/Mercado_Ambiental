@@ -78,7 +78,7 @@ if (error != null){%>
 <tr>
 
 <td> <span class="input-group-addon" id="basic-addon1">Cédula* </span>
-  <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723450365" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
+  <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
 </tr>
 
 <tr>
@@ -93,7 +93,7 @@ if (error != null){%>
 
 <tr>
 <td> <span class="input-group-addon" id="basic-addon1"> Correo Universitario:* </span>
-  <input type="email" class="form-control" name="txtCorreo" e placeholder="ejem. bsuarez@est.ups.edu.ec" pattern="^[a-zA-Z]+@est+.ups+.edu+.ec" aria-describedby="basic-addon1" title="el correo debe coincidir con el ejemplo.  ejem: estudiante@est.ups.edu.ec" required></td>
+  <input type="email" class="form-control" name="txtCorreo" e placeholder="ejem. bsuarez@est.ups.edu.ec" pattern="^[a-zA-Z-0-1000]+@est+.ups+.edu+.ec" aria-describedby="basic-addon1" title="el correo debe coincidir con el ejemplo.  ejem: estudiante@est.ups.edu.ec" required></td>
 </tr>
 
 <tr>

@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,32 +9,40 @@
 <title>Uusario personal</title>
 </head>
 <body>
+
 <%
 HttpSession sessionok = request.getSession();
 Cls_General obj2= new Cls_General();
 int perf;
+String ced="";
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
 	response.sendRedirect("index.jsp");
 }else{
-	perf = (Integer)sessionok.getAttribute("log");
-
+	perf=(Integer)sessionok.getAttribute("log");
+	ced=(String)sessionok.getAttribute("cedula");
 }
-
+//<!--FIN MENSAJE DEL SERVLET -->
 String error;
-error = request.getParameter("dato");
-if (error != null){
+error = request.getParameter("msg");
+if (error != null && error.equals("true")){
 %>
 	<div class="alert alert-success" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Estado</strong>.<%=" "+error%>
+	  <strong>ESTADO</strong>.<%=" Proceso realizado con exito"%>
+	</div>
+<%
+}if(error != null && error.equals("false")){
+	%>
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>ESTADO</strong>.<%=" Se ha producido un error, por favor actualize y vuelva a intentar"%>
 	</div>
 <%
 }
-
 %>
-
+<!--FIN MENSAJE DEL SERVLET -->
 <div id="wrap">
 <div class="container-fluid">
 
@@ -55,14 +64,13 @@ out.print(menu);
 </div>
 
 <div class="col-md-10">
-
-<h1 class="text-center">Datos Personales del Usuario</h1>
+<center><h1><span class="label label-default">DATOS PERSONALES DEL USUARIO</span></h1></center>
 
 <!-- ----------------------------------------------------------------------------------------------- -->
 <%
 String print_user_data;
 ClsUsuario obj=new ClsUsuario();
-print_user_data=obj.consula_usuario_personal("1718900188");
+print_user_data=obj.consula_usuario_personal(ced);
 out.print(print_user_data);
 %>
 
@@ -79,6 +87,7 @@ out.print(print_user_data);
 
 </div>
 <div class="col-md-1">
+<!-- V A C I O  derecha -->
 </div>
 </div>
 <br><br><br><br><br>

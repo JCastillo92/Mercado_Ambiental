@@ -16,14 +16,14 @@ import metodos.Cls_validacione_password;
 /**
  * Servlet implementation class Sr_actualiza_user_personal
  */
-@WebServlet("/Sr_actualiza_user_personal")
-public class Sr_actualiza_user_personal extends HttpServlet {
+@WebServlet("/Sr_actualiza_user_clave")
+public class Sr_actualiza_user_clave extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sr_actualiza_user_personal() {
+    public Sr_actualiza_user_clave() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,26 +42,39 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		String cedula,direccion,telefono ;
+		String cedula,direccion,clave,clave2,telefono,clave_antigua,clave_base ;
 		ClsUsuario obj=new ClsUsuario();
+		Cls_validacione_password objpasss=new Cls_validacione_password(); 
 		
 		HttpSession sessionok = request.getSession();
 		cedula = (String)sessionok.getAttribute("cedula"); //cedula del logueado
 		direccion = request.getParameter("txtDireccion");
 		telefono=request.getParameter("txtTelefono");
+		clave = request.getParameter("txtClave1");
+		clave2 = request.getParameter("txtClave2");
+		clave_antigua = request.getParameter("txtClaveN");
+		clave_base=obj.Clave(cedula).trim();
 		
-		if(direccion != null  && telefono!= null){
-		obj.actualuza_el_usuario(direccion, telefono, cedula);
-		response.sendRedirect("Edit_tel_dir.jsp?dato=true");
-		}else{
-			response.sendRedirect("Edit_tel_dir.jsp?dato=false");		
-		}
-	
-	
-				
+		boolean contaseñas=false;
+		contaseñas=objpasss.check_password(clave, clave2);
 			
+		
+		
+		if(clave != null  && clave2 != null && clave_antigua != null && (clave_base.equals(clave_antigua))&& contaseñas==true){
+			obj.actualuza_clave(clave, cedula);
+					response.sendRedirect("Usuario_peronal.jsp?dato=true");
+			}else{
+				
+			response.sendRedirect("Edit_claves.jsp?dato=false");
+			}
+				
+				
+				
+				
+				
+				
+				
 				///////////////////////////////////////////////////////////
 			
 		
 	}}//fin
-

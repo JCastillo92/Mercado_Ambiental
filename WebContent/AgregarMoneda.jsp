@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"  import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,7 +9,7 @@
 <title>Registro de Moneda</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 </head>
-<body background="imagenes/fondo3.PNG">
+<body>
 
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
@@ -40,17 +41,19 @@ if (error != null && error.equals("true")){
 
 <div id="wrap">
 <div class="container-fluid">
-
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
 <center>
 <h3><span class="label label-default">AGREGAR MONEDA</span></h3>
 </center> 
 
 <form action="ingresoMoneda" method="post">
-<div class="row">
-<div class="col-md-2">
-</div>
 
-<div class="col-md-8">
+
+
+
 <table class="table table-hover"><tr>
 <td> <span class="input-group-addon" id="basic-addon1">Descripción de la moneda * </span>
   <input type="text" class="form-control"name="txtMoneda"  placeholder="ejem. Botellas Plasticas" aria-describedby="basic-addon1"  style="text-transform:uppercase" required></td>
@@ -61,14 +64,9 @@ if (error != null && error.equals("true")){
 <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Registar Moneda">
 <a href="index.jsp">Cancelar</a></center>
 </form>
-<br>
 </div>
-
 <div class="col-md-2">
 </div>
-
-</div>
-
 <div class="container">
 
 <left><br>
@@ -80,7 +78,6 @@ if (error != null && error.equals("true")){
  %>
 </div>
 
-<br>
 
 </div><!--Container -->
 </div><!--Wrap-->
