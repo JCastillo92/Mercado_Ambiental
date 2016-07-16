@@ -50,5 +50,24 @@ public class Cls_Trueque {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}//fin venta_no_completada_trueque
+	public Integer saber_id_nuevo_producto_trueque(String descripcion,int cantidad,int id_moneda,String titulo,int estado){
+		int a=-1;
+		int toma=0;
+		//select id_producto_tr from tb_trueque where descripcion='algebra de baldor usada, todas las hojas en perfecto estado.' and cantidad=4 and moneda=3 and titulo='algebra baldor' and estado=1;
+		String sql="select id_producto_tr from tb_trueque where descripcion='"+descripcion+"' and cantidad="+cantidad+" and moneda="+id_moneda+" and titulo='"+titulo+"' and estado="+estado+";";
+		ClsConexion con=new ClsConexion();
+		ResultSet rs=null;
+		try{
+		rs=con.Consulta(sql);
+		while(rs.next()){
+			toma=rs.getInt(1);
+		}
+		}catch(Exception e){
+			a=-1;
+			System.out.println(e.getMessage());
+		}
+		a=toma;
+		return a;
 	}
 }
