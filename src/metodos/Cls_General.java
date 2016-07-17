@@ -99,7 +99,7 @@ public class Cls_General {
 			
 	      	menu +="<form class=\"navbar-form navbar-left\" role=\"search\" action=\"logueame\">"+
 	      			"<div class=\"form-group\">"+
-	      			"<input type=\"text\" class=\"form-control\" name=\"txtuser\" placeholder=\"Usuario\"></div>"+
+	      			"<input type=\"text\" class=\"form-control\" name=\"txtuser\"autofocus placeholder=\"Usuario\"></div>"+
 	      			"<div class=\"form-group\">"+
 	      			"<input type=\"password\" class=\"form-control\" name=\"txtpassword\" placeholder=\"Password\"></div>"+
 	      			"<button type=\"submit\" class=\"btn btn-default\">Login</button></form>"+

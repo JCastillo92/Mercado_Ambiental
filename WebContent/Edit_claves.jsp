@@ -62,16 +62,15 @@ if (error != null && error.equals("true")){
   <div>
   <h1>IMPORTANTE:</h1><p>Para efectuar los cambios debe <mark>ingresar su misma clave primero</mark>.</p>
   </div>
-  
 <span class="input-group-addon" id="basic-addon1"> Clave Antigua: </span>
-  <input type="password" class="form-control" name="txtClaveN" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+  <input type="password" id="password"  class="form-control" name="txtClaveN" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 <span class="input-group-addon" id="basic-addon1"> Nueva Clave: </span>
-  <input type="password" class="form-control" name="txtClave1" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+  <input type="password" id="password" class="form-control" name="txtClave1" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 
 <span class="input-group-addon" id="basic-addon1"> Confirme la clave:</span>
-  <input type="password" class="form-control" name="txtClave2" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+  <input type="password" id="password" class="form-control" name="txtClave2" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 <center>  
  <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="ACTUALIZAR">
