@@ -8,6 +8,8 @@ public class Cls_mailing {
 	public void deliver(int CodOperation,String IdentificationResponse){
 		String ValueToFind="select * from tb_usuarios where id_usuario='"+IdentificationResponse+"';";
 		String GetRecipientDestination=null,GetRecipientNick=null,LibraryPredeterminated=null;
+		String username = "clubecologicoups@gmail.com";
+	    String password = "est.ups.edu.ec";
 		ClsConexion con=new ClsConexion();ResultSet resultSet=null;
 		try{
 			resultSet=con.Consulta(ValueToFind);
@@ -69,8 +71,7 @@ public class Cls_mailing {
 			
 			break;
 		}//fin switch
-		String username = "clubecologicoups@gmail.com";
-	    String password = "est.ups.edu.ec";
+		
 	    try {
 	        Properties props = System.getProperties();
 	        props.setProperty("mail.transport.protocol", "smtp");
@@ -90,7 +91,7 @@ public class Cls_mailing {
 	        Message message = new MimeMessage(emailSession);
 	        message.setFrom(new InternetAddress("clubecologicoups@gmail.com"));
 	        message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(GetRecipientDestination));
-	        message.setSubject("clubEcológicoUps mensaje automático");
+	        message.setSubject("ClubEcológicoUps mensaje automático");
 	        message.setText(LibraryPredeterminated);
 	 
 	        Transport transport = emailSession.getTransport("smtps");
@@ -99,5 +100,55 @@ public class Cls_mailing {
 	       } catch (MessagingException e) {
 	    	   System.out.println(e.getMessage());
 	       }
-	}
-}
+	}//fin clase DELIVER
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public void auto_mail_to_CEUPS(int CodOperation){
+		String LibraryPredeterminated=null;
+		String username = "clubecologicoups@gmail.com";
+	    String password = "est.ups.edu.ec";
+		
+		switch (CodOperation) {
+		case 1://accept the request of the user already registered
+			LibraryPredeterminated="\nHola, ADMIN.\n Luego de haber confirmado tus datos "
+					+ "te damos la más cordial bievenida a nuestro portal de intercambio, usamos dos "
+					+ "tipos de modalidad que son trueque y puja, en las cuales tendrás varias opciones "
+					+ "de productos a seleccionar y por medio de la página podras saber más del mismo.\n\n\n\n "
+					+ "Las transacciones se las realizará en las instalaciones de la Universidad Politécnica Salesiana, "
+					+ "en las instalaciones que posee el Club Ecológico UPS.\n\n\n";
+			break;
+		
+		default:
+			
+			break;
+		}//fin switch
+		
+	    try {
+	        Properties props = System.getProperties();
+	        props.setProperty("mail.transport.protocol", "smtp");
+	        props.setProperty("mail.host", "smtp.gmail.com");
+	        props.put("mail.smtp.auth", "true");
+	        props.put("mail.smtp.port", "465");
+	        props.put("mail.debug", "true");
+	        props.put("mail.smtp.socketFactory.port", "465");
+	        props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+	        props.put("mail.smtp.socketFactory.fallback", "false");
+	 
+	        Session emailSession = Session.getInstance(props,new javax.mail.Authenticator() {
+	        protected PasswordAuthentication getPasswordAuthentication() {return new PasswordAuthentication("clubecologicoups@gmail.com","est.ups.edu.ec");
+	        }});
+	 
+	        emailSession.setDebug(true);
+	        Message message = new MimeMessage(emailSession);
+	        message.setFrom(new InternetAddress("clubecologicoups@gmail.com"));
+	        message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(username));
+	        message.setSubject("ClubEcológicoUps plataforma");
+	        message.setText(LibraryPredeterminated);
+	 
+	        Transport transport = emailSession.getTransport("smtps");
+	        transport.connect("smtp.gmail.com", username, password);
+	        transport.sendMessage(message, message.getAllRecipients());
+	       } catch (MessagingException e) {
+	    	   System.out.println(e.getMessage());
+	       }
+	}//fin clase DELIVER
+}//FIN TODO
