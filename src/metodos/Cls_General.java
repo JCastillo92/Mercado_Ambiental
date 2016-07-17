@@ -76,6 +76,15 @@ public class Cls_General {
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
+			
+			try {
+				rs.close();
+				obj.getConexion().close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		
 		
@@ -98,7 +107,6 @@ public class Cls_General {
 		}
 		
 		menu +="</ul></div></div></nav>";
-		System.out.println(menu);
 		return menu;		
 	}
 	
@@ -130,6 +138,7 @@ public class Cls_General {
 		System.out.println(sql);
 		
 		try {
+			rs.close();
 			obj.getConexion().close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -148,11 +157,18 @@ public class Cls_General {
 			while(rs.next()){
 				contador++;
 			}
-			rs.close();
-			obj.getConexion().close();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+		try {
+			rs.close();
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return contador;
 	}
 	
@@ -221,8 +237,6 @@ public class Cls_General {
 					c +="SABER MÁS</span></a></h4></center>";
 					c +="";
 					
-					rs.close();
-					obj.getConexion().close();
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
@@ -271,8 +285,6 @@ public class Cls_General {
 						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
 						c +="SABER MÁS</span></a></h4></center></div>";
 					}
-					rs.close();
-					obj.getConexion().close();
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
@@ -321,8 +333,6 @@ public class Cls_General {
 						c +="SABER MÁS</span></a></h4></center></div>";
 					}
 					
-					rs.close();
-					obj.getConexion().close();
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
@@ -376,14 +386,21 @@ public class Cls_General {
 						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
 						c +="SABER MÁS</span></a></h4></center></div>";
 					}
-					rs.close();
-					obj.getConexion().close();
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
 				break;
 		} // fin switch
 
+		
+		try {
+			rs.close();
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return c;
 	}
 

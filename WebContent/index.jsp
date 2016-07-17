@@ -270,7 +270,7 @@ out.print(carrusel);
 <span style="color: blue;">
   <%
  ClsAdmin metodos =new ClsAdmin();
- out.print(metodos.devuelvo_Informacion());
+  out.print(metodos.devuelvo_Informacion());
  %> </span></td>
 </tr>
 </table>

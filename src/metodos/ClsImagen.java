@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import datos.ClsConexion;
 
 public class ClsImagen {
@@ -176,11 +178,19 @@ public class ClsImagen {
 					t=true;
 				}	
 			}
-			rs.close();
-			obj.getConexion().close();
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
+		
+		try {
+			rs.close();
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		System.out.println(t);
 		System.out.println(sql);
 		
@@ -205,6 +215,13 @@ public class ClsImagen {
 			setContador(contador);
 		} catch (Exception e) {
 			// TODO: handle exception
+		}
+		try {
+			rs.close();
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		System.out.println(sql+" contador "+contador);
 		
