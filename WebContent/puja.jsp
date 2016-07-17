@@ -18,6 +18,21 @@ if (error != null){
 HttpSession sessionok = request.getSession();
 Cls_General obj= new Cls_General();
 ClsTiempo tiempo = new ClsTiempo();
+ClsPujas puja = new ClsPujas();
+
+String id; 
+String dia;
+String mes;
+String año; 
+String hora;
+String minutos;
+String dato;
+
+id = request.getParameter("id");
+
+if(id==null){
+id=puja.Id_Puja_Momento();
+}
 
 int perf;
 double ag,lz,tel,inte,tot;
@@ -27,15 +42,6 @@ response.sendRedirect("index.jsp");
 }else{
 perf = (Integer)sessionok.getAttribute("log");
 }
-
-String id; 
-String dia;
-String mes;
-String año; 
-String hora;
-String minutos;
-String dato;
-id = request.getParameter("id");
 
 dia=tiempo.Dia(id);
 mes=tiempo.Mes(id);
@@ -119,7 +125,6 @@ out.print(menu);
 <br>
 
 <%
-ClsPujas puja = new ClsPujas();
 out.print(puja.Ver_Pujas());
 %>
 </div>
@@ -134,11 +139,6 @@ out.print(puja.Ver_Pujas());
 </span>
 </h1>
 </center>
-
-
-
-
-
 
 <center>
 
@@ -229,7 +229,9 @@ out.print(puja.Ver_Pujas());
 
 
 
+
 <form action="Pujar" method="post">
+<input type="hidden" class="form-control" name="valor" value=<%out.print(puja.Valor(id)); %>>
 
 <table class="table table-condensed">
 
@@ -247,7 +249,7 @@ out.print(puja.Ver_Pujas());
 
 <tr style="color:#456789;font-size:150%;">
 <td><span class="label label-info"> OFERTA ATUAL </span></td>
-<td> <input type="text" class="form-control" name="valor" value=<%out.print(puja.Valor(id)); %>> </td>
+<td><span class="label label-success"> <%out.print(puja.Valor(id)); %> </span></td>
 </tr>
 
 

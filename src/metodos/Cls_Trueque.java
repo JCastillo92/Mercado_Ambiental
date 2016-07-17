@@ -29,12 +29,24 @@ public class Cls_Trueque {
 			}
 		return acum_jsp;
 	}//fin lista add remove usuarios
-	public void confirma_venta_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
+	public boolean confirma_venta_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//aqui debo pasar de estado 2 a 3
+		//update tb_trueque set estado=3 where titulo='' and comprador='' and descripcion='';
+		boolean t=false;
 		Cls_mailing mailto= new Cls_mailing();
-		mailto.deliver(6,cedula_comprador_prod_trueque);
-		
-		
+		ClsConexion obj=new ClsConexion();
+		String sql="update tb_trueque set estado=3 where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"';";
+		try {
+			obj.Ejecutar(sql);
+			//case 6 enviar un mensaje de que el interesado SI fue exitoso
+			mailto.deliver(6,cedula_comprador_prod_trueque);
+			t=true;
+			obj.getConexion().close();
+		} catch (Exception e) {
+			t=false;
+			e.printStackTrace();
+		}
+		return t;
 	}
 	public boolean venta_no_completada_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//regreso al producto al estado uno y elimino la cedula de quien lo queria comprar
@@ -46,7 +58,7 @@ public class Cls_Trueque {
 		try {
 			obj.Ejecutar(sql);
 			//case 5 enviar un mensaje de que el interesado NO quiere concluir la venta
-			//mailto.deliver(5,cedula_comprador_prod_trueque);
+			mailto.deliver(5,cedula_comprador_prod_trueque);
 			t=true;
 			obj.getConexion().close();
 		} catch (Exception e) {
@@ -75,8 +87,7 @@ public class Cls_Trueque {
 		return a;
 	}
 	public String lista_trueques_vendidos_historial(){
-		///////////************************************
-		String sql="select tb_trueque.titulo,tb_trueque.cantidad,tb_monedas.descripcion,tb_usuarios.nombre,tb_usuarios.apellido,tb_usuarios.correo,tb_usuarios.celular,tb_trueque.comprador from tb_trueque,tb_monedas,tb_usuarios where estado=2 and id_moneda=moneda and id_usuario=comprador;";
+		String sql="";
 		
 		return sql;
 	}

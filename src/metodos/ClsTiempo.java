@@ -39,18 +39,20 @@ public class ClsTiempo {
 	ResultSet rs=null;
 	
 	String sql="Select mes from tb_tiempo where id_puja="+id+";";
-	//System.out.println(sql);
+	System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
 	while(rs.next()){
 	dato=rs.getString(1);
+	
 	}
 	
 	}
 	catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
-	//System.out.println("-------------------2--------------"+dato);
+	System.out.println("-------------------2--------------"+dato);
+	
 	return dato;
 	}
 	

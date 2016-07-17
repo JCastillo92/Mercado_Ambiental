@@ -39,17 +39,31 @@ public class Pujar extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
+		
 		ClsPujas obj = new ClsPujas();
 		String puja = request.getParameter("oferta");
+		String valor = request.getParameter("valor");
+		
 		//obj.Valor(id);
 		
-		int oferta;
+		int oferta = 0;
 		try{
-		oferta=Integer.parseInt(puja);	
+		oferta=Integer.parseInt(puja);
+		
+		if(Integer.parseInt(valor)>=oferta){
+		response.sendRedirect("puja.jsp?dato=Error ingrese una oferta mayor al Actual");	
+		}
+		else{
+		
+		}
+		
+		
 		}
 		catch(Exception e){
 		response.sendRedirect("puja.jsp?dato=Error ingrese un valor correcto en el campo Ofertar Valor");
 		}
+		
+		
 		
 		
 	}
