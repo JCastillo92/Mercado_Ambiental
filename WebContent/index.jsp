@@ -265,7 +265,7 @@ out.print(carrusel);
 
 <td> 
 <center>
-<h2><span class="label label-info" id="basic-addon1">INFORMACIÓN</span></h2>
+<h2><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h2>
  </center>
 <span style="color: blue;">
   <%
