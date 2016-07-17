@@ -37,17 +37,18 @@ public class Sr_A_ingresa_trueque extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 ClsAdmin trueque = new ClsAdmin();
 		
-		String descripcion, titulo, moneda; int cantidad,estado; 
+		String descripcion, titulo, moneda,categoria; int cantidad,estado; 
 		
 		titulo = request.getParameter("txtProducto");
 		descripcion = request.getParameter("txtArea");
 		moneda = (request.getParameter("moneda"));
+		categoria = (request.getParameter("categoria"));
 		cantidad=Integer.parseInt(request.getParameter("txtCantidad"));
 		estado=1;
 		System.out.println(titulo+" "+descripcion+" "+moneda+" "+cantidad+" "+estado);
 		
 		if(descripcion != null  && titulo != null && moneda != null &&  cantidad!= 0 ){
-			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado)){
+			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,trueque.Categoria_id(categoria),estado)){
 ///////////////////////I M A G E N S ////////////////////////////
 	String pathimg1,pathimg2,pathimg3,pathimg4;
 	int saber_id_ingreso_trueque=0;

@@ -197,12 +197,12 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 	}//fin boolean control_user
 	
 	//******************************************************************************************************************************************
-		public boolean agregarTrueque(String descripcion ,int cantidad,int moneda,String titulo ,int estado ){
+		public boolean agregarTrueque(String descripcion ,int cantidad,int moneda,String titulo,int categoria ,int estado ){
 			Date date = new Date();
 	        SimpleDateFormat fecha_sys = new SimpleDateFormat("yyyy-MM-dd");
 			boolean t=false;
 			ClsConexion obj = new ClsConexion();
-			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,estado,fecha_trueque) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"','"+estado+"','"+fecha_sys.format(date)+"');";
+			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,fk_categoria,estado,fecha_trueque) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"',"+categoria+",'"+estado+"','"+fecha_sys.format(date)+"');";
 			try {
 				obj.Ejecutar(sql);
 				t=true;
@@ -294,5 +294,51 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 				}
 			return codigo_jsp;
 		}
+		
+		public String Categoria(){
+
+			String categoria="<select class=form-control name=categoria>"
+			+ "<option> </option>";
+		  
+			datos.ClsConexion obj = new datos.ClsConexion();
+			ResultSet rs=null;
+			
+			String sql="Select descripcion from tb_categorias;";
+			try{
+			rs=obj.Consulta(sql);
+			while(rs.next()){
+				categoria+="<option>"+rs.getString(1)+"</option>";
+			}
+			rs.close();
+			obj.getConexion().close();
+			}catch(Exception e){
+				e.getMessage();
+			}
+			categoria+="</select>";
+			return categoria;
+			}
+		
+		//*****************************************************************************************************+
+		
+		public int Categoria_id(String categoria){
+			int id=0;
+			datos.ClsConexion obj = new datos.ClsConexion();
+			ResultSet rs=null;
+			
+			String sql="Select id_cat from tb_categorias where descripcion="+"'"+categoria+"';";
+			try{
+			rs=obj.Consulta(sql);
+			while(rs.next()){
+			id=rs.getInt(1);
+			}
+			rs.close();
+			obj.getConexion().close();
+			}catch(Exception e){
+			e.getMessage();	
+			}
+			return id;
+			}
+		
+		//******************************************************
 		
 }//FIN TODO
