@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import metodos.Cls_Trueque;
+
 /**
  * Servlet implementation class Sr_T_confirma_venta
  */
@@ -34,14 +36,15 @@ public class Sr_T_confirma_venta extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Cls_Trueque obj=new Cls_Trueque();		
+		String titulo_producto_trueque=request.getParameter("datoB");//titulo producto
+		String cedula_comprador_prod_trueque=request.getParameter("datoA");//cedula del comprador
 		
-		String titulo_producto_trueque=request.getParameter("datoA");//titulo producto
-		String cedula_comprador_prod_trueque=request.getParameter("datoB");//cedula del comprador
-		String descripcion_prod_vendido=request.getParameter("datoC");// descripcion producto
-		
-		
-		System.out.println("================"+titulo_producto_trueque+"   "+cedula_comprador_prod_trueque);
+		if(obj.confirma_venta_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque)){
+			response.sendRedirect("Trueque_x_vender.jsp?dato=true");
+		}else{
+			response.sendRedirect("Trueque_x_vender.jsp?dato=false");
+		}
 		
 	}
 
