@@ -2,7 +2,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
 <html>
 <head>
 <%
@@ -47,32 +46,24 @@ if (error != null){%>
 %>
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
-
+<div id="wrap">
+<div class="container-fluid">
 
 <div class="row">
-<div class="col-md-8">
 
 	<center><br>
 <h3><span class="label label-default">REGISTRO USUARIO</span></h3>
 <br></center> 
 
-<br>
 
 <form action="ingreso" method="post">
-<h4>*Campos Obigatorios</h4>
-<br>
-<br>
-<div class="row">
-<div class="col-md-1">
-</div>
-<div class="col-md-1">
-</div>
-<div class="col-md-1">
-</div>
-<div class="col-md-1">
+<center>
+<h3><span class="badge">*Todos los campos son obligatorios</span></h3>
+</center>
+<div class="col-md-4">
 </div>
 
-<div class="col-md-8">
+<div class="col-md-4">
 
 <table class="table table-hover">
 <tr>
@@ -123,29 +114,18 @@ if (error != null){%>
 
 <center>
 <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Registarse">
-<a href="index.jsp">Cancelar</a>
+<a class="btn btn-danger" href="index.jsp" role="button">Cancelar</a>
 
 </center>
 </div>
-
+<div class="col-md-4">
 </div>
 
 </form>
 
-
-<div class="row">
-
-<!-- Centros de Acopio -->
-<div class="col-md-3">
-
-
-
-
 </div>
-</div>
-</div>
-</div>
-</div> 
+</div><!--Container -->
+</div><!--Wrap-->
 <br>
 <div id="footer" >
 <div class="container text-center" >

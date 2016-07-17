@@ -10,8 +10,18 @@
 <title>Subir Información</title>
 </head>
 <body>
-<!-- MENSAJE DEL SERVLET -->
 <%
+HttpSession sessionok = request.getSession();
+Cls_General obj2= new Cls_General();
+int perf;
+double ag,lz,tel,inte,tot;
+if(sessionok.getAttribute("log")==null){
+	perf = 0;
+	response.sendRedirect("index.jsp");
+}else{
+	perf=(Integer)sessionok.getAttribute("log");
+}
+//<!--FIN MENSAJE DEL SERVLET -->
 String error;
 error = request.getParameter("msg");
 if (error != null && error.equals("true")){
