@@ -167,7 +167,7 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			rs=con.Consulta(sql);
 			while(rs.next()){
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td>"
-						+ "<td><a class=\"btn btn-success\" href=\"Sr_A_desbloquear_usuario?dato="+rs.getString(6)+"\" role=\"button\">Desbloquear/Habilitar</a></td>";
+						+ "<td><a class=\"btn btn-success\" href=\"Sr_A_desbloquear_usuario?dato="+rs.getString(6)+"\" role=\"button\">Desbloquear / Habilitar</a></td>";
 			}
 			acum_jsp+="</tbody></table>";
 			rs.close();

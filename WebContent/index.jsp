@@ -263,8 +263,10 @@ out.print(carrusel);
 <table class="table table-hover">
 <tr>
 
-<td> <span class="input-group-addon" id="basic-addon1">INFORMACIÓN </span>
- 
+<td> 
+<center>
+<h2><span class="label label-info" id="basic-addon1">INFORMACIÓN</span></h2>
+ </center>
 <span style="color: blue;">
   <%
  ClsAdmin metodos =new ClsAdmin();
