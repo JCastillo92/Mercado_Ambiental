@@ -9,10 +9,20 @@
 <title>Control de usuarios</title>
 </head>
 <body>
-<!-- MENSAJE DEL SERVLET -->
 <%
+HttpSession sessionok = request.getSession();
+Cls_General obj2= new Cls_General();
+int perf;
+double ag,lz,tel,inte,tot;
+if(sessionok.getAttribute("log")==null){
+	perf = 0;
+	response.sendRedirect("index.jsp");
+}else{
+	perf=(Integer)sessionok.getAttribute("log");
+}
+//<!--FIN MENSAJE DEL SERVLET -->
 String error;
-error = request.getParameter("msg");
+error = request.getParameter("dato");
 if (error != null && error.equals("true")){
 %>
 	<div class="alert alert-success" role="alert">
@@ -35,7 +45,7 @@ if (error != null && error.equals("true")){
 <div class="container-fluid">
 <div class="container">
 <center><br>
-<h3><span title="Aqu&iacute; se procede a enviar a los usuarios a la ventana de registro, por ende no podr&aacute;n lograr ingresar de nuevo, hasta que se realice los cambio" class="label label-default">CONTROL DE USUARIOS (MODO BLOQUEO)</span></h3>
+<h3><span title="Aqu&iacute; se procede a enviar a los usuarios a la ventana de usuarios bloqueados, por ende no podr&aacute;n lograr ingresar de nuevo, hasta que se realice los cambios" class="label label-default">CONTROL DE USUARIOS (MODO BLOQUEO)</span></h3>
 <br></center>
 
 <%

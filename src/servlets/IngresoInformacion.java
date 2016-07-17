@@ -1,25 +1,28 @@
 package servlets;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import metodos.Cls_Trueque;
+import metodos.ClsAdmin;
+
+
 
 /**
- * Servlet implementation class Sr_T_confirma_venta
+ * Servlet implementation class Ingreso
  */
-@WebServlet("/Sr_T_confirma_venta")
-public class Sr_T_confirma_venta extends HttpServlet {
+@WebServlet("/ingresoInfo")
+public class IngresoInformacion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Sr_T_confirma_venta() {
+    public IngresoInformacion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,17 +39,23 @@ public class Sr_T_confirma_venta extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Cls_Trueque obj=new Cls_Trueque();		
-		String titulo_producto_trueque=request.getParameter("datoB");//titulo producto
-		String cedula_comprador_prod_trueque=request.getParameter("datoA");//cedula del comprador
+		// TODO Auto-generated method stub
 		
-		if(obj.confirma_venta_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque)){
-			
-			response.sendRedirect("Trueque_x_vender.jsp?dato=true");
-		}else{
-			response.sendRedirect("Trueque_x_vender.jsp?dato=false");
-		}
+		String descripcion; 
+		ClsAdmin obj = new ClsAdmin();
+		descripcion = request.getParameter("txtAreaInfo");
+		
+		
+			 
+			if(obj.agregarInformacion(descripcion)){
+				System.out.println(descripcion);
+				response.sendRedirect("Informacion.jsp?msg=true");
+			}else{
+				response.sendRedirect("Informacion.jsp?msg=false");
+			}
+		
+		
 		
 	}
 
-}
+	}

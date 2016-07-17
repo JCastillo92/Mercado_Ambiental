@@ -70,6 +70,7 @@ document.write(''
  +'navigator.userAgent = '+navigator.userAgent+'<br>'
 );
 
+//window.location.replace("A_subir_trueque.jsp");
 
 </script>
 <!-- FIN JAVASCRIPT -->

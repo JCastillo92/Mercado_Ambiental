@@ -8,6 +8,8 @@ public class Cls_mailing {
 	public void deliver(int CodOperation,String IdentificationResponse){
 		String ValueToFind="select * from tb_usuarios where id_usuario='"+IdentificationResponse+"';";
 		String GetRecipientDestination=null,GetRecipientNick=null,LibraryPredeterminated=null;
+		String username = "clubecologicoups@gmail.com";
+	    String password = "est.ups.edu.ec";
 		ClsConexion con=new ClsConexion();ResultSet resultSet=null;
 		try{
 			resultSet=con.Consulta(ValueToFind);
@@ -18,10 +20,10 @@ public class Cls_mailing {
 			resultSet.close();
 			con.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+			e.getMessage();	
 			}
 		switch (CodOperation) {
-		case 1://accept the request of the user already registered
+		case 1://accept the request of user, he is already registered
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber confirmado tus datos "
 					+ "te damos la más cordial bievenida a nuestro portal de intercambio, usamos dos "
 					+ "tipos de modalidad que son trueque y puja, en las cuales tendrás varias opciones "
@@ -29,7 +31,7 @@ public class Cls_mailing {
 					+ "Las transacciones se las realizará en las instalaciones de la Universidad Politécnica Salesiana, "
 					+ "en las instalaciones que posee el Club Ecológico UPS.\n\n\n";
 			break;
-		case 2://deny user request for some reason
+		case 2://deny user
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber revisado tus datos, "
 					+ "hemos encontrado algunas inconsistencias en los mismos.\n\n Necesitamos que seas "
 					+ "estudiante de la Universidad Politécnica Salesiana y por ende que te registres con " 
@@ -65,12 +67,17 @@ public class Cls_mailing {
 					+ "que te pueden interesar.\n "
 					+ "Hasta pronto.";
 			break;
+		case 7://user unlcoked, not blocked, now he is already active
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n TRUEQUE ECOLÓGICO te saluda.\n Queremos informarte "
+					+ "que te hemos habilitado en la plataforma, esperamos que manejes la plataforma de la manera "
+					+ "más adecuada. \nCuaquier duda nos puedes contactar via Facebook, de forma presencial en la U.P.S. campus Sur.\n"
+					+ "Hasta pronto.";
+			break;
 		default:
 			
 			break;
 		}//fin switch
-		String username = "clubecologicoups@gmail.com";
-	    String password = "est.ups.edu.ec";
+		
 	    try {
 	        Properties props = System.getProperties();
 	        props.setProperty("mail.transport.protocol", "smtp");
@@ -90,7 +97,7 @@ public class Cls_mailing {
 	        Message message = new MimeMessage(emailSession);
 	        message.setFrom(new InternetAddress("clubecologicoups@gmail.com"));
 	        message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(GetRecipientDestination));
-	        message.setSubject("clubEcológicoUps mensaje automático");
+	        message.setSubject("ClubEcológicoUps mensaje automático");
 	        message.setText(LibraryPredeterminated);
 	 
 	        Transport transport = emailSession.getTransport("smtps");
@@ -99,5 +106,52 @@ public class Cls_mailing {
 	       } catch (MessagingException e) {
 	    	   System.out.println(e.getMessage());
 	       }
-	}
-}
+	}//fin clase DELIVER
+	////////////////////////////////////////////////////////////////////////////////////////////////////////
+	public void auto_mail_to_CEUPS(int CodOperation){
+		String LibraryPredeterminated=null;
+		String username = "clubecologicoups@gmail.com";
+	    String password = "est.ups.edu.ec";
+		
+		switch (CodOperation) {
+		case 1://a client clicked on COMPRAR TRUEQUE
+			LibraryPredeterminated="\nHola, ADMIN.\n Tenemos notificaciónes "
+					+ "de que un usuario está interesado en un artículo\n "
+					+ "para el TRUEQUE, ingresa a la plataforma a revisar las novedades.";
+			break;
+		
+		default:
+			
+			break;
+		}//fin switch
+		
+	    try {
+	        Properties props = System.getProperties();
+	        props.setProperty("mail.transport.protocol", "smtp");
+	        props.setProperty("mail.host", "smtp.gmail.com");
+	        props.put("mail.smtp.auth", "true");
+	        props.put("mail.smtp.port", "465");
+	        props.put("mail.debug", "true");
+	        props.put("mail.smtp.socketFactory.port", "465");
+	        props.put("mail.smtp.socketFactory.class","javax.net.ssl.SSLSocketFactory");
+	        props.put("mail.smtp.socketFactory.fallback", "false");
+	 
+	        Session emailSession = Session.getInstance(props,new javax.mail.Authenticator() {
+	        protected PasswordAuthentication getPasswordAuthentication() {return new PasswordAuthentication("clubecologicoups@gmail.com","est.ups.edu.ec");
+	        }});
+	 
+	        emailSession.setDebug(true);
+	        Message message = new MimeMessage(emailSession);
+	        message.setFrom(new InternetAddress("clubecologicoups@gmail.com"));
+	        message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(username));
+	        message.setSubject("ClubEcológicoUps plataforma");
+	        message.setText(LibraryPredeterminated);
+	 
+	        Transport transport = emailSession.getTransport("smtps");
+	        transport.connect("smtp.gmail.com", username, password);
+	        transport.sendMessage(message, message.getAllRecipients());
+	       } catch (MessagingException e) {
+	    	   System.out.println(e.getMessage());
+	       }
+	}//fin clase DELIVER
+}//FIN TODO
