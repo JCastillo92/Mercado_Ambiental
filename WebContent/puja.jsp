@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -57,9 +58,14 @@ dato=mes+"/"+dia+"/"+año+" "+hora+":"+minutos;
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 
+
+
+
 <script>
 
 var dato1 = '<%=dato%>'
+
+
 
 	function cdtd() {
 	//var xmas = new Date("December 25, 2017 00:01:00");
@@ -68,7 +74,9 @@ var dato1 = '<%=dato%>'
 	var timeDiff = xmas.getTime() - now.getTime();
 	if (timeDiff <= 0) {
     clearTimeout(timer);
-	document.write("Puja Terminada");
+    
+    window.location.replace("Tiempo?dato=<%=id%>");
+	//document.write("Puja Terminada");
 	// Run any code needed for countdown completion here
     }
 	var seconds = Math.floor(timeDiff / 1000);
@@ -232,7 +240,7 @@ out.print(puja.Ver_Pujas());
 
 <form action="Pujar" method="post">
 <input type="hidden" class="form-control" name="valor" value=<%out.print(puja.Valor(id)); %>>
-
+<input type="hidden" class="form-control" name="id_puja" value=<%out.print(id); %>>
 <table class="table table-condensed">
 
 <tr style="color:#456789;font-size:150%;">

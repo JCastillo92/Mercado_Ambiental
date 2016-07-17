@@ -1,6 +1,10 @@
 package metodos;
 
 import java.sql.ResultSet;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 import datos.ClsConexion;
 
@@ -213,7 +217,7 @@ public int Categoria_id(String categoria){
 
 //********************************************************************************************************
 	
-	public String Todas_Pujas(){
+	public String Todas_Pujas(int estado){
 		String pujas="<table class=table table-condensed>";
 		pujas+="<tr style=color:#456789;font-size:150%;>";
 		pujas+="<th> SELECIONAR NUEVA PUJA </th>";
@@ -223,13 +227,13 @@ public int Categoria_id(String categoria){
 		pujas+="<th> VALOR ACTUAL </th>";
 		pujas+="</tr>";
 		ResultSet rs=null;
-		String sql="select id_prod_pj, tb_pujas.titulo, tb_pujas.cantidad, tb_monedas.descripcion, tb_pujas.valor_minimo from tb_pujas, tb_monedas where tb_pujas.moneda=tb_monedas.id_moneda;;";
+		String sql="select id_prod_pj, tb_pujas.titulo, tb_pujas.cantidad, tb_monedas.descripcion, tb_pujas.valor_minimo from tb_pujas, tb_monedas where tb_pujas.moneda=tb_monedas.id_moneda and tb_pujas.estado="+estado+";";
 		System.out.println(sql);
 		try{
 		rs=con.Consulta(sql);
 		while(rs.next()){
 		pujas+="<tr style=color:#456789;font-size:100%;>";
-		pujas+="<td><A HREF=Administar_Pujas.jsp?dato="+rs.getString(1)+">HACER PUJA PRINCIPAL</A></td>";
+		pujas+="<td><A HREF=Administar_Pujas.jsp?dato="+rs.getString(1)+"&tipo=1>HACER PUJA PRINCIPAL</A></td>";
 		pujas+="<td>"+rs.getString(2)+"</td>";
 		pujas+="<td>"+rs.getString(3)+"</td>";
 		pujas+="<td>"+rs.getString(4)+"</td>";
@@ -320,8 +324,8 @@ public void Hacer_Principal(String id){
 	return id;
 	}
 //********************************************************************************************************
-public void Insertar_Actualizar_Comprador_Valor(int id_comprador, int valor){
-	String sql="INSERT INTO tb_pujas (valor_minimo,comprador) values ("+valor+","+id_comprador+");";
+public void Actualizar_Comprador_Valor(String id_comprador, int valor, int id){
+	String sql="update tb_pujas set valor_minimo="+valor+", comprador="+id_comprador+"  where id_prod_pj="+id+";";
 	System.out.println("****************"+sql);
 	try {
 	con.Ejecutar(sql);
@@ -329,5 +333,101 @@ public void Insertar_Actualizar_Comprador_Valor(int id_comprador, int valor){
 	e.printStackTrace();
 	}
 	}
+//********************************************************************************************************
+public void Actualizar_Estado(String id){
+	String sql="update tb_pujas set estado=2 where id_prod_pj="+id+";";
+	System.out.println("****************"+sql);
+	try {
+	con.Ejecutar(sql);
+	}catch (Exception e) {
+	e.printStackTrace();
+	}
+	}
+//********************************************************************************************************
+
+public String Pujas_Terminadas(int estado){
+	String pujas="<table class=table table-condensed>";
+	pujas+="<tr style=color:#456789;font-size:150%;>";
+	pujas+="<th> ELIMINAR </th>";
+	pujas+="<th> DESCRIPCION </th>";
+	pujas+="<th> MONEDA </th>";
+	pujas+="<th> VALOR OFERTADO </th>";
+	pujas+="<th> CEDULA DEL OFERTANTE </th>";
+	pujas+="<th> NOMBRE </th>";
+	pujas+="<th> APELLIDO </th>";
+	pujas+="</tr>";
+	ResultSet rs=null;
+	String sql="select id_prod_pj, tb_pujas.titulo, tb_monedas.descripcion, tb_pujas.valor_minimo, comprador, tb_usuarios.nombre, tb_usuarios.apellido  from tb_pujas, tb_monedas, tb_usuarios where tb_pujas.moneda=tb_monedas.id_moneda and tb_pujas.comprador= tb_usuarios.id_usuario and tb_pujas.estado="+estado+";";
+	System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	pujas+="<tr style=color:#456789;font-size:100%;>";
+	pujas+="<td><A HREF=Administar_Pujas.jsp?dato="+rs.getString(1)+"&tipo=2>ELIMINAR</A></td>";
+	pujas+="<td>"+rs.getString(2)+"</td>";
+	pujas+="<td>"+rs.getString(3)+"</td>";
+	pujas+="<td>"+rs.getString(4)+"</td>";
+	pujas+="<td>"+rs.getString(5)+"</td>";
+	pujas+="<td>"+rs.getString(6)+"</td>";
+	pujas+="<td>"+rs.getString(7)+"</td>";
+	pujas+="</tr>";
+	}
+	rs.close();
+	}catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	pujas+="</table>";
+	return pujas;
+}
+
+//********************************************************************************************************
+public void Pujas_Historico(String id){
+		
+		String titulo, descripcion, comprador;
+		int cantidad, moneda, valor, categoria; 
+	
+		ResultSet rs=null;
+		String sql="Select *from tb_pujas where id_prod_pj="+id+";";
+		System.out.println(sql);
+		try{
+		rs=con.Consulta(sql);
+		while(rs.next()){
+		titulo=rs.getString(2);
+		//descripcion=rs.getString(3);
+		cantidad=rs.getInt(4);
+		moneda=rs.getInt(5);
+		valor=rs.getInt(6);
+		categoria=rs.getInt(7);
+		comprador=rs.getString(10);
+		
+		Ingresar_Historia(Integer.parseInt(id), titulo, cantidad, moneda, categoria, valor, comprador);
+		
+		
+		//System.out.println("****************************"+titulo+"  "+descripcion+"  "+cantidad+"  "+moneda+"  "+valor+"  "+categoria+"  "+comprador);
+		
+		
+		}
+		rs.close();
+		}catch(Exception e){
+		System.out.print(e.getMessage());	
+		}
+
+		}
+//********************************************************************************************************
+	public void Ingresar_Historia(int id_producto, String descripcion, int cantidad, int fk_moneda, int fk_categoria, int valor_minimo, String fk_id_usuario ){
+	
+	Date date = new Date();
+	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+		
+	String sql="INSERT INTO tb_historico (id_producto,descripcion,tipo,cantidad,fk_moneda,fk_categoria,valor_minimo,fecha,fk_id_usuario) values ("+id_producto+",'"+descripcion+"',"+2+","+cantidad+","+fk_moneda+","+fk_categoria+","+valor_minimo+",'"+dateFormat.format(date)+"','"+fk_id_usuario+"');";
+	System.out.println(":::::::::::::::::::::::::::::::"+sql);
+	try {
+	con.Ejecutar(sql);
+	} catch (Exception e) {
+	// TODO: handle exception
+	e.printStackTrace();
+	}
+	}
+
 }//fin de TODA LA LASE
 

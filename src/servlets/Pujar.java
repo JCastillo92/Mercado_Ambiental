@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import metodos.ClsPujas;
 
@@ -39,22 +40,31 @@ public class Pujar extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 		
+		HttpSession sesionok = request.getSession();
+		
+		String cedula=(String) sesionok.getAttribute("cedula");
 		
 		ClsPujas obj = new ClsPujas();
 		String puja = request.getParameter("oferta");
 		String valor = request.getParameter("valor");
+		String id = request.getParameter("id_puja");
+		
 		
 		//obj.Valor(id);
 		
 		int oferta = 0;
 		try{
 		oferta=Integer.parseInt(puja);
+		//System.out.println(id+"  "+cedula+"  "+oferta);
+		//System.out.println(oferta+" ********************");
+		//System.out.println(valor+" ********************");
 		
 		if(Integer.parseInt(valor)>=oferta){
 		response.sendRedirect("puja.jsp?dato=Error ingrese una oferta mayor al Actual");	
 		}
 		else{
-		
+		obj.Actualizar_Comprador_Valor(cedula, oferta, Integer.parseInt(id));
+		response.sendRedirect("puja.jsp?dato=Oferta Realizada");
 		}
 		
 		
