@@ -92,7 +92,7 @@ public class Cls_Trueque {
 				+ "and tb_historico.fk_moneda=tb_monedas.id_moneda "
 				+ "and tb_historico.fk_categoria=tb_categorias.id_cat "
 				+ "and tb_historico.fk_id_usuario=tb_usuarios.id_usuario "
-				+ "and tb_historico.tipo=1 "
+				//+ "and tb_historico.tipo=1 "
 				+ "order by tb_historico.fecha;";
 		ClsConexion con = new ClsConexion();
 		ResultSet rs=null;
