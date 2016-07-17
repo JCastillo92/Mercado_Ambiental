@@ -85,7 +85,7 @@ out.print(menu);
   <h3>
   <a href="admin.jsp?id=10" class="list-group-item">
   <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
-  HISTORIAL TRUEQUES
+  HISTORIAL TRUEQUES Y PUJAS
   </a>
   </h3>	
   
@@ -178,17 +178,38 @@ if (id.equals("10")){
 
 </div>
 
-
-<div id="footer">
+<br>
+<br>
+<br>
+<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
+<br>
+Copyright © J3BCompany
+<br><br>
 <div class="container text-center" >
-<br>
-Copyright © JB3Company<br>
-Desarrollado por: JCastillo,JValles, JFlores, BTorres
-<br>
-jcastillor1@est.ups.edu.ec, jvallesc@est.ups.edu.ec, jfloresg1@est.ups.edu.ec, blarat@est.ups.edu.ec 
-</div>
-</div>
+<div class="col-md-4">
+<center>
+Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
+</center></div><div class="col-md-4">
+<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> bryans71@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
 
+</div><div class="col-md-4">
+<br>
+Contacto:
+<br>098 346 6689<br>
+
+</div>
+<br>
+
+
+
+<br>
+<br>
+
+</div>
+SistemasUPS - AmbientalUPS 2016
+<br>
+<br>
+</div>  
 
 
 

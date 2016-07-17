@@ -21,6 +21,8 @@ if(sessionok.getAttribute("log")==null){
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registro de Usuario</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/miestilo.css">
+
 </head>
 <body background="imagenes/fondo3.PNG">
 
@@ -68,7 +70,7 @@ if (error != null){%>
 <table class="table table-hover">
 <tr>
 
-<td> <span class="input-group-addon" id="basic-addon1">Cédula* </span>
+<td> <span class="input-group-addon" id="basic-addon1">C&eacute;dula* </span>
   <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
 </tr>
 
@@ -88,12 +90,12 @@ if (error != null){%>
 </tr>
 
 <tr>
-<td> <span class="input-group-addon" id="basic-addon1">Dirección Domiliciliaria:* </span>
+<td> <span class="input-group-addon" id="basic-addon1">Direcci&oaute;n Domiliciliaria:* </span>
   <input type="text" class="form-control" name="txtDireccion" placeholder="ejem. La Magdalena" aria-describedby="basic-addon1" style="text-transform:uppercase" required></td>
 </tr>
 
 <tr>
-<td> <span class="input-group-addon" id="basic-addon1"> Teléfono:* </span>
+<td> <span class="input-group-addon" id="basic-addon1"> Tel&eacute;fono:* </span>
   <input type="number" class="form-control" name="txtTelefono" pattern="[0-9]{7-10}" placeholder="ejem. 0985677676" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
 </tr>
 
@@ -127,22 +129,34 @@ if (error != null){%>
 </div><!--Container -->
 </div><!--Wrap-->
 <br>
-<div id="footer" >
+<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:white;background-color:#060504">
+
+Copyright © J3BCompany
+<br><br>
 <div class="container text-center" >
-<br>
-Copyright © JB3Company<br>
-Desarrollado por: JCastillo,JValles, JFlores, BTorres
-<br>
-jcastillor1@est.ups.edu.ec, jvallesc@est.ups.edu.ec, jfloresg1@est.ups.edu.ec, blarat@est.ups.edu.ec 
+<div class="col-md-4">
+<center>
+Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
+</center></div><div class="col-md-4">
+<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> bryans71@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
+
+</div><div class="col-md-4">
+<br>099 505 8655<br>
+098 998 8557<br>
+098 590 0618<br>
+098 355 2126<br>
 </div>
+<br>
+
+
+
+<br>
+<br>
+
+</div>
+SistemasUPS - AmbientalUPS 2016
+<br>
 </div>  
-
-
-
-
-
-
-
 
 
 <script src="css/jquery-2.1.4.min.js"></script>
