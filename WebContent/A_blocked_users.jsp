@@ -1,4 +1,3 @@
-<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -6,7 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
-<title>Control de usuarios</title>
+<title>Lista usuarios bloqueados</title>
 </head>
 <body>
 <%
@@ -40,19 +39,18 @@ if (error != null && error.equals("true")){
 }
 %>
 <!--FIN MENSAJE DEL SERVLET -->
-
 <div id="wrap">
 <div class="container-fluid">
 <div class="container">
 <center><br>
-<h3><span title="Aqu&iacute; se procede a enviar a los usuarios a la ventana de usuarios bloqueados, por ende no podr&aacute;n lograr ingresar de nuevo, hasta que se realice los cambios" class="label label-default">CONTROL DE USUARIOS (MODO BLOQUEO)</span></h3>
+<h3><span title="Aqu&iacute; se a desbloquear a usuarios bloqueados, y se los vuelve a ingresar con los dem&aacute;s usuarios" class="label label-default">CONTROL DE USUARIOS (MODO DESBLOQUEO)</span></h3>
 <br></center>
 
 <%
-ClsAdmin llamo=new ClsAdmin();
-String control=llamo.control_usuarios();
-out.print(control);
 
+ClsAdmin llamo=new ClsAdmin();
+String control=llamo.lista_usuarios_bloqueados();
+out.print(control);
 %>
 </div>
 

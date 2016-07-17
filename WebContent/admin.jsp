@@ -83,7 +83,7 @@ out.print(menu);
   </h3>
   
   <h3>
-  <a href="admin.jsp?id=7" class="list-group-item">
+  <a href="admin.jsp?id=10" class="list-group-item">
   <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
   HISTORIAL TRUEQUES
   </a>
@@ -103,8 +103,20 @@ out.print(menu);
   </a>
   </h3>
   
+    <h3>
+  <a href="admin.jsp?id=9" class="list-group-item">
+  <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
+  DESBLOQUEAR USUARIOS
+  </a>
+  </h3>
   
-
+<h3>
+  <a href="admin.jsp?id=7" class="list-group-item">
+  <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
+  AGREGAR INFORMACIÓN
+  </a>
+  </h3>	
+  
 </div>
 
 </div>
@@ -138,13 +150,21 @@ if (id.equals("6")){
 %><iframe class="embed-responsive-item" src="A_subir_trueque.jsp"></iframe><%
 }
 if (id.equals("7")){
-%><iframe class="embed-responsive-item" src="Trueque_vendido.jsp"></iframe><%
+
+%><iframe class="embed-responsive-item" src="Informacion.jsp"></iframe><%
+
+
 }
 if (id.equals("8")){
 %><iframe class="embed-responsive-item" src="Trueque_x_vender.jsp"></iframe><%
 }
-%>
+if (id.equals("9")){
+%><iframe class="embed-responsive-item" src="A_blocked_users.jsp"></iframe><%
 
+}
+if (id.equals("10")){
+%><iframe class="embed-responsive-item" src="Trueque_vendido.jsp"></iframe><%
+}%>
 
 
 

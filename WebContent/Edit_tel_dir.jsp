@@ -65,13 +65,13 @@ String aa=obj1.devuelvo_para_actualizar(ced);
 out.print(aa);
 %>
   <div>
-  <a href="Edit_claves.jsp">Actualizar Mi Clave</a>
+  <a class="btn btn-success" href="Edit_claves.jsp" role="button">Actualizar Mi Clave</a>
   </div>
   
 
 <center>  
  <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="ACTUALIZAR">
- <a href="index.jsp">Cancelar</a>
+ <a class="btn btn-danger" href="index.jsp" role="button">Cancelar</a>
  </center>
  <br><br>
  </form> 

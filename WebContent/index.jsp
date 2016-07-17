@@ -257,13 +257,23 @@ out.print(carrusel);
 </div>
 
 <div class="col-md-3">
-
+<br>
+<br>
 <center>
-<h1>
-<span class="label label-info"> 
-<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> INFORMACION</span> 
-</span>
-</h1>
+<table class="table table-hover">
+<tr>
+
+<td> 
+<center>
+<h2><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h2>
+ </center>
+<span style="color: blue;">
+  <%
+ ClsAdmin metodos =new ClsAdmin();
+ out.print(metodos.devuelvo_Informacion());
+ %> </span></td>
+</tr>
+</table>
 </center>
 
 

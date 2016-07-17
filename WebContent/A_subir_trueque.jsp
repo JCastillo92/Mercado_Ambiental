@@ -3,6 +3,7 @@
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%ClsPujas trueque = new ClsPujas(); %>
+<%ClsAdmin cate = new ClsAdmin(); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -68,6 +69,13 @@ if (error != null && error.equals("true")){
 <td> <span class="input-group-addon" id="basic-addon1">Nombre del Producto: </span>
   <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" style="text-transform:uppercase" required></td>
 </tr>
+</table>
+
+<table>
+<tr>
+<td><span class="input-group-addon" id="basic-addon1">Categor&iacute;a del Producto: </span>
+ <%out.print(cate.Categoria()); %> </td>
+ </tr>
 </table>
 
 <table>

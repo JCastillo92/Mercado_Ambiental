@@ -2,27 +2,18 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%ClsPujas trueque = new ClsPujas(); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
-<title>Control de usuarios</title>
+<title>Subir Información</title>
 </head>
 <body>
+<!-- MENSAJE DEL SERVLET -->
 <%
-HttpSession sessionok = request.getSession();
-Cls_General obj2= new Cls_General();
-int perf;
-double ag,lz,tel,inte,tot;
-if(sessionok.getAttribute("log")==null){
-	perf = 0;
-	response.sendRedirect("index.jsp");
-}else{
-	perf=(Integer)sessionok.getAttribute("log");
-}
-//<!--FIN MENSAJE DEL SERVLET -->
 String error;
-error = request.getParameter("dato");
+error = request.getParameter("msg");
 if (error != null && error.equals("true")){
 %>
 	<div class="alert alert-success" role="alert">
@@ -40,28 +31,47 @@ if (error != null && error.equals("true")){
 }
 %>
 <!--FIN MENSAJE DEL SERVLET -->
-
 <div id="wrap">
 <div class="container-fluid">
-<div class="container">
-<center><br>
-<h3><span title="Aqu&iacute; se procede a enviar a los usuarios a la ventana de usuarios bloqueados, por ende no podr&aacute;n lograr ingresar de nuevo, hasta que se realice los cambios" class="label label-default">CONTROL DE USUARIOS (MODO BLOQUEO)</span></h3>
-<br></center>
+<div class="row">
 
-<%
-ClsAdmin llamo=new ClsAdmin();
-String control=llamo.control_usuarios();
-out.print(control);
-
-%>
+<div class="col-md-2">
+<!-- NO PONER NADA AQUI -->
 </div>
 
-</div><!--Container -->
+<div class="col-md-8">
+<form action="ingresoInfo" method="post">
+
+<!-- /////////////////////////////////////////////////////////////////////////////// -->
+<center>
+<br>
+        <h2><span class="label label-default" id="gridSystemModalLabel">Ingresar la información más importante</span></h2>
+  <!-- PONER LO DEL BRYAN AQUI -->
+  <table class="table table-hover"><tr>
+<td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n de la información: </span>
+  <center><textarea id="txtArea" rows="20" cols="100" name="txtAreaInfo" aria-describedby="basic-addon1"  required></textarea></center></td>
+</tr>
+</table>
+<br> 
+</center>
+      <center>
+<input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Agregar Información">
+<a class="btn btn-danger" href="index.jsp" role="button">Cancelar</a>
+
+</center>
+       
+</form>
+</div>
+<!-- ------------------------------------ -->
+
+
+</div><!--row -->
+</div><!--Container-fluid -->
 </div><!--Wrap-->
 
 
- 	<script src="Estilos/jquery-2.1.3.min.js"></script>
+	<script src="Estilos/jquery-2.1.3.min.js"></script>
     <script src="Estilos/bootstrap.min.js"></script>
-
+      
 </body>
 </html>
