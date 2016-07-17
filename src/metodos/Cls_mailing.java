@@ -18,7 +18,7 @@ public class Cls_mailing {
 			resultSet.close();
 			con.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+			e.getMessage();	
 			}
 		switch (CodOperation) {
 		case 1://accept the request of the user already registered

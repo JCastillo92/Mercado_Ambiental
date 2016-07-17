@@ -11,7 +11,6 @@ public class ClsAdmin {
 		boolean t=false;
 		datos.ClsConexion obj = new datos.ClsConexion();
 		String sql="insert into tb_monedas (descripcion) values ('"+descripcion.toUpperCase()+"');";
-		System.out.println(sql);
 		try {
 			obj.Ejecutar(sql);
 			t=true;
@@ -37,7 +36,7 @@ public String consulta_monedas(){
 			rs.close();
 			con.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+			e.getMessage();	
 			}
 			return acumulada;
 	}	
@@ -76,7 +75,7 @@ public boolean elimina_moneda(int id){
 			rs.close();
 			con.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+				e.getMessage();
 			}
 		return acum_jsp;
 	}//fin lista add remove usuarios
@@ -139,7 +138,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			rs.close();
 			con.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+			e.getMessage();	
 			}
 		return acum_jsp;
 	}//fin control_usuarios
@@ -148,7 +147,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 		ClsConexion obj=new ClsConexion();
 		Cls_mailing mailto= new Cls_mailing();
 		//update  tb_activos_usuarios set estado='FALSE' where id_fk_usuario='1718900188';
-		String sql1="update  tb_activos_usuarios set estado='FALSE' where id_fk_usuario='"+id+"';";
+		String sql1="update  tb_activos_usuarios set estado='FALSE',bloqueado='b' where id_fk_usuario='"+id+"';";
 		try {
 			obj.Ejecutar(sql1);
 			mailto.deliver(3,id);
@@ -169,7 +168,6 @@ public boolean accept_user(String recibo_dato_aceptar){
 			boolean t=false;
 			ClsConexion obj = new ClsConexion();
 			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,estado,fecha_trueque) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"','"+estado+"','"+fecha_sys.format(date)+"');";
-			System.out.println(sql);
 			try {
 				obj.Ejecutar(sql);
 				t=true;
@@ -190,7 +188,6 @@ public boolean accept_user(String recibo_dato_aceptar){
 			ResultSet rs=null;
 			
 			String sql="Select descripcion from tb_monedas;";
-			System.out.println(sql);
 			try{
 			rs=obj.Consulta(sql);
 			while(rs.next()){
@@ -199,7 +196,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			rs.close();
 			obj.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+				e.getMessage();
 			}
 			moneda+="</select>";
 			return moneda;
@@ -213,7 +210,6 @@ public boolean accept_user(String recibo_dato_aceptar){
 			ResultSet rs=null;
 			
 			String sql="Select id_moneda from tb_monedas where descripcion="+"'"+moneda+"';";
-			System.out.println(sql);
 			try{
 			rs=obj.Consulta(sql);
 			while(rs.next()){
@@ -222,7 +218,7 @@ public boolean accept_user(String recibo_dato_aceptar){
 			rs.close();
 			obj.getConexion().close();
 			}catch(Exception e){
-			System.out.print(e.getMessage());	
+			e.getMessage();	
 			}
 			return id;
 			}
