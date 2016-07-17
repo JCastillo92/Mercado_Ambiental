@@ -270,7 +270,7 @@ out.print(x1.top_5_user_index());
 <div class="col-md-3">
 <br>
 <br>
-<center>
+<rigth>
 <table class="table table-hover">
 <tr>
 
@@ -285,7 +285,7 @@ out.print(x1.top_5_user_index());
  %> </span></td>
 </tr>
 </table>
-</center>
+</rigth>
 
 
 </div>
