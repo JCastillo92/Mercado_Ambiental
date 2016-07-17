@@ -259,7 +259,7 @@ out.print(carrusel);
 <div class="col-md-3">
 <br>
 <br>
-<center>
+<rigth>
 <table class="table table-hover">
 <tr>
 
@@ -274,7 +274,7 @@ out.print(carrusel);
  %> </span></td>
 </tr>
 </table>
-</center>
+</rigth>
 
 
 </div>
