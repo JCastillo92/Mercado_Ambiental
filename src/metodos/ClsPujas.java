@@ -104,23 +104,23 @@ public class ClsPujas {
 	}
 //********************************************************************************************************
 	public String cmbCategorias(){
-		String moneda="<select class=form-control name=categorias>"
-		+ "<option> </option>";
-		ResultSet rs=null;
-		String sql="Select descripcion from tb_categorias;";
-		//System.out.println(sql);
-		try{
-		rs=con.Consulta(sql);
-		while(rs.next()){
-		moneda+="<option>"+rs.getString(1)+"</option>";
-		}
-		rs.close();
-		}catch(Exception e){
-		System.out.print(e.getMessage());	
-		}
-		moneda+="</select required>";
-		return moneda;
-		}
+	String moneda="<select class=form-control name=categorias>"
+	+ "<option> </option>";
+	ResultSet rs=null;
+	String sql="Select descripcion from tb_categorias;";
+	//System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	moneda+="<option>"+rs.getString(1)+"</option>";
+	}
+	rs.close();
+	}catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	moneda+="</select required>";
+	return moneda;
+	}
 	
 	public int Moneda_id(String moneda){
 	int id=0;
@@ -140,21 +140,21 @@ public class ClsPujas {
 	}
 //********************************************************************************************************
 public int Categoria_id(String categoria){
-		int id=0;
-		ResultSet rs=null;
-		String sql="Select id_cat from tb_categorias where descripcion="+"'"+categoria+"';";
-		System.out.println(sql);
-		try{
-		rs=con.Consulta(sql);
-		while(rs.next()){
-		id=rs.getInt(1);
-		}
-		rs.close();
-		}catch(Exception e){
-		System.out.print(e.getMessage());	
-		}
-		return id;
-		}
+	int id=0;
+	ResultSet rs=null;
+	String sql="Select id_cat from tb_categorias where descripcion="+"'"+categoria+"';";
+	System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	id=rs.getInt(1);
+	}
+	rs.close();
+	}catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	return id;
+	}
 		
 //********************************************************************************************************
 	public void Ingresar_Puja(String nombre, String descripcion, int cantidad, int moneda, double val, int categorias){
@@ -297,6 +297,35 @@ public void Hacer_Principal(String id){
 	con.Ejecutar(sql);
 	} catch (Exception e) {
 	// TODO: handle exception
+	e.printStackTrace();
+	}
+	}
+	
+//********************************************************************************************************
+	public String Id_Puja_Momento(){
+	String id="";
+	ResultSet rs=null;
+	String sql="Select id_prod_pj from tb_pujas where principal='true';";
+	System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	id=rs.getString(1);
+	System.out.println("???????????????????????"+id);
+	}
+	rs.close();
+	}catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	return id;
+	}
+//********************************************************************************************************
+public void Insertar_Actualizar_Comprador_Valor(int id_comprador, int valor){
+	String sql="INSERT INTO tb_pujas (valor_minimo,comprador) values ("+valor+","+id_comprador+");";
+	System.out.println("****************"+sql);
+	try {
+	con.Ejecutar(sql);
+	}catch (Exception e) {
 	e.printStackTrace();
 	}
 	}

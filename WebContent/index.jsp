@@ -8,21 +8,73 @@
 
 HttpSession sessionok = request.getSession();
 Cls_General obj= new Cls_General();
+ClsPujas puja = new ClsPujas();
+ClsTiempo tiempo = new ClsTiempo();
+
+String id=puja.Id_Puja_Momento();
+
 int perf;
+
+String dia;
+String mes;
+String año; 
+String hora;
+String minutos;
+String dato;
+
+dia=tiempo.Dia(id);
+mes=tiempo.Mes(id);
+año=tiempo.año(id);
+hora=tiempo.hora(id);
+minutos=tiempo.minutos(id);
+dato=mes+"/"+dia+"/"+año+" "+hora+":"+minutos;
+
+
+
 double ag,lz,tel,inte,tot;
 String carrusel;
 carrusel = obj.carruseles();
 if(sessionok.getAttribute("log")==null){
-	perf = 0; 
+perf = 0; 
 	
 }else{
-	perf = (Integer)sessionok.getAttribute("log");
+perf = (Integer)sessionok.getAttribute("log");
 }
 
 %>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Mercado Ambiental</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
+
+<script>
+
+var dato1 = '<%=dato%>'
+
+	function cdtd() {
+	//var xmas = new Date("December 25, 2017 00:01:00");
+	var xmas = new Date(dato1);
+	var now = new Date();
+	var timeDiff = xmas.getTime() - now.getTime();
+	if (timeDiff <= 0) {
+    clearTimeout(timer);
+	document.write("Puja Terminada");
+	// Run any code needed for countdown completion here
+    }
+	var seconds = Math.floor(timeDiff / 1000);
+	var minutes = Math.floor(seconds / 60);
+	var hours = Math.floor(minutes / 60);
+	var days = Math.floor(hours / 24);
+	hours %= 24;
+    minutes %= 60;
+    seconds %= 60;
+	document.getElementById("daysBox").innerHTML = days;
+	document.getElementById("hoursBox").innerHTML = hours;
+	document.getElementById("minsBox").innerHTML = minutes;
+	document.getElementById("secsBox").innerHTML = seconds;
+	var timer = setTimeout('cdtd()',1000);
+}
+</script>
+
 </head>
 <body background="imagenes/fondo3.PNG" >
 
@@ -45,6 +97,7 @@ if (error != null){
 String menu;
 menu = obj.desplegarmenus(perf);
 out.print(menu);
+out.print(dato);
 %>
 
 <!--Encabezado**************************************************************************************-->
@@ -114,38 +167,87 @@ out.print(carrusel);
 <center>
 <h1>
 <span class="label label-success"> 
-<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> LA PUJA DEL MOMENTO</span> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> TERMINA EN:</span> 
 </span>
 </h1>
 </center>
+
+
+<center>
+
+<h1>
+
+<span class="label label-info" id="daysBox"></span> Días 
+<span class="label label-info" id="hoursBox"> </span> Horas
+<span class="label label-info" id="minsBox">  </span>min.
+<span class="label label-info" id="secsBox"></span> seg.
+
+<script>cdtd();</script>
+
+ 
+
+</h1>
+</center>
+
 <br>
 
-<img src="imagenes/z4.jpg" alt="..." class="center-block" height="300" width="400">
 
-<br>
+<div id="carrusel-11" class="carousel slide" data-ride="carousel">
+ 	
+ 	<!-- Indicators -->
+  	
+  	<ol class="carousel-indicators">
+    <li data-target="carrusel-11" data-slide-to="0" class="active"></li>
+    <li data-target="carrusel-11" data-slide-to="1"></li>
+    <li data-target="carrusel-11" data-slide-to="2"></li>
+    <li data-target="carrusel-11" data-slide-to="3"></li>
+    </ol>
+ 
+ 	<div class="carousel-inner">
+    
+    <div class="item active">
+    <img src="imagen?prod=<%=id%>&place=<%=1%>&i_tipo=<%=2%>" alt="..."  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <div class="carousel-caption">
+    </div>
+    </div>
+    
+    <div class="item">
+    <img src="imagen?prod=<%=id%>&place=<%=2%>&i_tipo=<%=2%>" alt="..." style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <div class="carousel-caption">
+    </div>
+    </div>
+    
+    <div class="item">
+    <img src="imagen?prod=<%=id%>&place=<%=3%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <div class="carousel-caption">
+    </div>
+    </div>
+    
+    <div class="item">
+    <img src="imagen?prod=<%=id%>&place=<%=4%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <div class="carousel-caption">
+    </div>
+    </div>
+    
+    
+    
+	</div>
+	</div>
 
-<table class="table table-condensed">
-
-<tr>
-<td><center><span class="label label-success"> TIPO DE MONEDA </span></center></td>
-<td><center><span class="label label-success"> CARGAR TIPO DE MONEDA </span></center></td>
-</tr>
-
-
-<tr>
-<td><center><span class="label label-info"> OFERTA ATUAL </span></center></td>
-<td><center><span class="label label-info"> CARGAR OFERTA ATUAL </span></center></td>
-</tr>
+	<a class="left carousel-control" href="#carrusel-11" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  	</a>
+  	<a class="right carousel-control" href="#carrusel-11" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+    
+    <center><h5><font color="white"><%out.print(puja.Descripcion(String.valueOf(id)));%></font></h5></center>
 
 
-<tr>
-<td><center><span class="label label-success"> FECHA LIMITE </span></center></td>
-<td><center><span class="label label-success"> CARGAR FECHA LIMITE </span></center></td>
-</tr>
-</table>
 
 
-<center><a href="puja.jsp"><button class="btn btn-info" type="button" >
+
+<center><a href="puja.jsp?id=<%=id%>"><button class="btn btn-info" type="button" >
 <span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"> PUJAR </span> 
 
 </button></a></center>

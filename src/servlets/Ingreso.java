@@ -62,8 +62,6 @@ public class Ingreso extends HttpServlet {
 		boolean contaseñas=false;
 		contaseñas=objpasss.check_password(clave, clave2);
 		
-		System.out.println(cedula+nombre+apellido+correo +direccion+direccion+clave);
-		System.out.println(contaseñas);
 		if(nombre != null && cedula != null  && direccion != null  && apellido != null && correo != null && telefono != null &&  contaseñas==true ){
 			 
 			if(obj.agregarusuario(cedula,nombre,apellido,clave,correo,direccion,telefono,perfil)){

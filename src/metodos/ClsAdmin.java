@@ -31,7 +31,7 @@ public String consulta_monedas(){
 		try{
 			rs=con.Consulta(sql);
 			while(rs.next()){
-				acumulada+="<tr><td>"+rs.getString(2)+"</td><td><a class=\"btn btn-primary\" href=\"Se_elimina_moneda?dato="+rs.getInt(1)+"\" role=\"button\">Eliminar</a></td></tr>";
+				acumulada+="<tr><td>"+rs.getString(2)+"</td><td><a class=\"btn btn-danger\" href=\"Se_elimina_moneda?dato="+rs.getInt(1)+"\" role=\"button\">Eliminar</a></td></tr>";
 			}
 			acumulada+="</tbody></table>";
 			rs.close();

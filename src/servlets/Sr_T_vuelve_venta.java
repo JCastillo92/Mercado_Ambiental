@@ -37,11 +37,16 @@ public class Sr_T_vuelve_venta extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String titulo_producto_trueque=request.getParameter("dato2");
-		String cedula_comprador_prod_trueque=request.getParameter("dato2B");
+		String cedula_comprador_prod_trueque=request.getParameter("dato2");
+		String titulo_producto_trueque=request.getParameter("dato2B");
+		System.out.println("---------------------"+titulo_producto_trueque+cedula_comprador_prod_trueque);
 		Cls_Trueque obj=new Cls_Trueque();
-		obj.venta_no_completada_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque);
-		response.sendRedirect("Trueque_x_vender.jsp?dato=true");
+		if(obj.venta_no_completada_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque)){
+			response.sendRedirect("Trueque_x_vender.jsp?dato=true");
+		}else{
+			response.sendRedirect("Trueque_x_vender.jsp?dato=false");
+		}
+		
 	}
 
 }

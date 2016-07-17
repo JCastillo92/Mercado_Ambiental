@@ -33,7 +33,7 @@ if (error != null){
 	</div>
 	
 	<div class="form-group">
-  	<h4><label for="comment">Descripción del Producto</label></h4>
+  	<h4><label for="comment">Descripci&oacute;n del Producto</label></h4>
   	<textarea class="form-control" rows="3" name="descripcion" required></textarea>
 	</div>
 	
@@ -49,7 +49,7 @@ if (error != null){
 	</div>
 	
 	<div class="form-group">
-  	<h4><label for="sel1">Categorias</label></h4>
+  	<h4><label for="sel1">Categor&iacute;as</label></h4>
  	<%out.print(puja.cmbCategorias()); %>
 	</div>
 	
@@ -60,11 +60,11 @@ if (error != null){
 	
 	<table class="table table-inverse">
 	<tr>
-	<th>Año Límite</th>
-	<th>Mes Límite</th>
-	<th>Día Límite</th>
-	<th>Hora Límite</th>
-	<th>Minuto Límiteyy</th>
+	<th>A&ntilde;o L&iacute;mite</th>
+	<th>Mes L&iacute;mite</th>
+	<th>D&iacute;a L&iacute;mite</th>
+	<th>Hora L&iacute;mite</th>
+	<th>Minuto L&iacute;mite</th>
 	</tr>
 	
 	<tr>
