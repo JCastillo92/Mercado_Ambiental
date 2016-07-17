@@ -87,12 +87,10 @@ public class Cls_Trueque {
 	}
 	public String lista_trueques_vendidos_historial(){
 		String sql="select tb_historico.descripcion,tb_historico.cantidad,tb_monedas.descripcion,tb_categorias.descripcion,tb_historico.fecha,tb_usuarios.nombre "
-				+ "from tb_historico,tb_trueque,tb_monedas,tb_categorias,tb_usuarios "
-				+ "where tb_historico.id_producto=tb_trueque.id_producto_tr "
-				+ "and tb_historico.fk_moneda=tb_monedas.id_moneda "
+				+ "from tb_historico,tb_monedas,tb_categorias,tb_usuarios "
+				+ "where tb_historico.fk_moneda=tb_monedas.id_moneda "
 				+ "and tb_historico.fk_categoria=tb_categorias.id_cat "
 				+ "and tb_historico.fk_id_usuario=tb_usuarios.id_usuario "
-				//+ "and tb_historico.tipo=1 "
 				+ "order by tb_historico.fecha;";
 		ClsConexion con = new ClsConexion();
 		ResultSet rs=null;
@@ -102,7 +100,7 @@ public class Cls_Trueque {
 			rs=con.Consulta(sql);
 			while(rs.next()){
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getInt(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td>"
-						+ "<td><span class=\"badge\">trueque</span></tr>";
+						+ "<td><span class=\"badge\">Trueque / Puja</span></tr>";
 			}
 			acum_jsp+="</tbody></table>";
 			rs.close();
