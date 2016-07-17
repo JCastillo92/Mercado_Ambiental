@@ -176,6 +176,8 @@ public class ClsImagen {
 					t=true;
 				}	
 			}
+			rs.close();
+			obj.getConexion().close();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

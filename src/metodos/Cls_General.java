@@ -345,11 +345,12 @@ public class Cls_General {
 						c += "<center><h3><span class=\"label label-info\">";
 						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
 						c +="</span></h3></center>";
-						c +="<div id=\"carrusel-1\" class=\"carousel slide\" data-ride=\"carousel\">";
+						c +="<div id=\"carrusel-"+i+"\" class=\"carousel slide\" data-ride=\"carousel\">";
 						c +="<ol class=\"carousel-indicators\">";
-						c +="<li data-target=\"carrusel-1\" data-slide-to=\"0\" class=\"active\"></li>";
-						c +="<li data-target=\"carrusel-1\" data-slide-to=\"1\"></li>";
-						c +="<li data-target=\"carrusel-1\" data-slide-to=\"2\"></li></ol>";
+						c +="<li data-target=\"carrusel-"+i+"\" data-slide-to=\"0\" class=\"active\"></li>";
+						c +="<li data-target=\"carrusel-"+i+"\" data-slide-to=\"1\"></li>";
+						c +="<li data-target=\"carrusel-"+i+"\" data-slide-to=\"2\"></li>";
+						c +="<li data-target=\"carrusel-"+i+"\" data-slide-to=\"3\"></li></ol>";
 						c +="<div class=\"carousel-inner\">";
 						c +="<div class=\"item active\">";
 						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=1%>&i_tipo=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
@@ -368,9 +369,9 @@ public class Cls_General {
 						c +="<div class=\"carousel-caption\"></div>";
 						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
 						c +="</div></div>";
-						c +="<a class=\"left carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"prev\">";
+						c +="<a class=\"left carousel-control\" href=\"#carrusel-"+i+"\" role=\"button\" data-slide=\"prev\">";
 						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
-						c +="<a class=\"right carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"next\">";
+						c +="<a class=\"right carousel-control\" href=\"#carrusel-"+i+"\" role=\"button\" data-slide=\"next\">";
 						c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
 						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
 						c +="SABER MÁS</span></a></h4></center></div>";
