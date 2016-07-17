@@ -208,7 +208,7 @@ public class Cls_General {
 					titulos.get(0);
 					cantidades.get(0);
 					monedas.get(0); */
-					c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(0)+"</span>" ;
+					c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(0)+"</span>" ;
 					c +="</span></h3></center>";
 					c +="<div id=\"carrusel-1\" class=\"carousel slide\" data-ride=\"carousel\">";
 					c +="<ol class=\"carousel-indicators\">";
@@ -261,7 +261,7 @@ public class Cls_General {
 					for (int i = 0; i < titulos.size(); i++) {
 						c +="<div class=\"col-md-6\">";
 						c += "<center><h3><span class=\"label label-info\">";
-						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
 						c +="</span></h3></center>";
 						c +="<div id=\"carrusel-"+i+"\" class=\"carousel slide\" data-ride=\"carousel\">";
 						c +="<ol class=\"carousel-indicators\">";
@@ -313,7 +313,7 @@ public class Cls_General {
 					for (int i = 0; i < titulos.size(); i++) {
 						c +="<div class=\"col-md-4\">";
 						c += "<center><h3><span class=\"label label-info\">";
-						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
 						c +="</span></h3></center>";
 						c +="<div id=\"carrusel-"+i+"\" class=\"carousel slide\" data-ride=\"carousel\">";
 						c +="<ol class=\"carousel-indicators\">";
@@ -367,7 +367,7 @@ public class Cls_General {
 					for (int i = 0; i < titulos.size(); i++) {
 						c +="<div class=\"col-md-3\">";
 						c += "<center><h3><span class=\"label label-info\">";
-						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
 						c +="</span></h3></center>";
 						c +="<div id=\"carrusel-"+i+"\" class=\"carousel slide\" data-ride=\"carousel\">";
 						c +="<ol class=\"carousel-indicators\">";

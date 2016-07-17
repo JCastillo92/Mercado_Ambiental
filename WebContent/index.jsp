@@ -97,7 +97,6 @@ if (error != null){
 String menu;
 menu = obj.desplegarmenus(perf);
 out.print(menu);
-out.print(dato);
 %>
 
 <!--Encabezado**************************************************************************************-->
@@ -149,13 +148,13 @@ out.print(carrusel);
 <!--Carouseles****************************************************************************************-->
 <!--Carouseles****************************************************************************************-->
 
-
-
+<br>
+<br>
 <div class="row">
 
 <!-- top 5 usuarios que compran -->
 <div class="col-md-3">
-<center><br>
+<center>
 <h3><span class="label label-default">TOP 5 RANKING DE NUESTROS USUARIOS</span></h3>
 <br></center>
 <div class="col-md-1">
@@ -278,13 +277,17 @@ out.print(x1.top_5_user_index());
 
 <td> 
 <center>
-<h2><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h2>
+<h1><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h1>
  </center>
+<h3>
 <span style="color: blue;">
-  <%
- ClsAdmin metodos =new ClsAdmin();
-  out.print(metodos.devuelvo_Informacion());
- %> </span></td>
+
+<%
+ClsAdmin metodos =new ClsAdmin();
+out.print(metodos.devuelvo_Informacion());
+ %> 
+ 
+ </span></h3></td>
 </tr>
 </table>
 </div>
