@@ -33,14 +33,10 @@ public class Cls_Trueque {
 		//aqui debo pasar de estado 2 a 3
 		//update tb_trueque set estado=3 where titulo='' and comprador='' and descripcion='';
 		boolean t=false;
-		Cls_mailing mailto= new Cls_mailing();
 		ClsConexion obj=new ClsConexion();
 		String sql="update tb_trueque set estado=3 where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"';";
 		try {
 			obj.Ejecutar(sql);
-			
-			//case 6 enviar un mensaje de que el interesado SI fue exitoso
-			mailto.deliver(6,cedula_comprador_prod_trueque);
 			t=true;
 			t=ingresar_venta_en_tb_historico(titulo_producto_trueque,cedula_comprador_prod_trueque);
 			obj.getConexion().close();
@@ -86,20 +82,44 @@ public class Cls_Trueque {
 			System.out.println(e.getMessage());
 		}
 		a=toma;
+
 		return a;
 	}
 	public String lista_trueques_vendidos_historial(){
-		String sql="";
-		
-		return sql;
+		String sql="select tb_historico.descripcion,tb_historico.cantidad,tb_monedas.descripcion,tb_categorias.descripcion,tb_historico.fecha,tb_usuarios.nombre "
+				+ "from tb_historico,tb_trueque,tb_monedas,tb_categorias,tb_usuarios "
+				+ "where tb_historico.id_producto=tb_trueque.id_producto_tr "
+				+ "and tb_historico.fk_moneda=tb_monedas.id_moneda "
+				+ "and tb_historico.fk_categoria=tb_categorias.id_cat "
+				+ "and tb_historico.fk_id_usuario=tb_usuarios.id_usuario "
+				+ "and tb_historico.tipo=1 "
+				+ "order by tb_historico.fecha;";
+		ClsConexion con = new ClsConexion();
+		ResultSet rs=null;
+		String acum_jsp="<table class=\"table table-striped\"> ";
+		acum_jsp+=" <thead><tr><th>PRODUCTO</th><th>Cant.</th><th>MONEDA</th><th>CATEGOR&Iacute;A</th><th>FECHA</th><th>COMPRADOR</th></tr></thead><tbody>";
+		try{
+			rs=con.Consulta(sql);
+			while(rs.next()){
+				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getInt(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td>"
+						+ "<td><span class=\"badge\">trueque</span></tr>";
+			}
+			acum_jsp+="</tbody></table>";
+			rs.close();
+			con.getConexion().close();
+			}catch(Exception e){
+			System.out.print(e.getMessage());	
+			}
+		return acum_jsp;
 	}//fin saber_id_nuevo_producto_trueque
 	
 	private boolean ingresar_venta_en_tb_historico(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//sql select * from tb_trueque where comprador ='1719130476' and titulo='hp envy dv4';
 		//sql2 insert into tb_historico (id_producto,descripcion,tipo,cantidad,fk_moneda,fk_categoria,fecha,fk_id_usuario) values (id_prducto,'titulo',1xdefault,cantidad,moneda,fk_categoria,'2016-07-16','1719130476');
 		String sql2="",sql="select * from tb_trueque where comprador ='"+cedula_comprador_prod_trueque+"' and titulo='"+titulo_producto_trueque+"';";
-		boolean t=true;
-		ClsConexion con = new datos.ClsConexion();
+		boolean t=false;
+		ClsConexion con = new ClsConexion();
+		Cls_mailing mailto= new Cls_mailing();
 		ResultSet rs=null;
 		String descripcion="",fecha="",fk_id_usuario="";
 		int id_producto=0,tipo=1,cantidad=0,fk_moneda=0,fk_categoria=0;
@@ -118,14 +138,17 @@ public class Cls_Trueque {
 					+ "values ("+id_producto+",'"+descripcion+"',"+tipo+","+cantidad+","+fk_moneda+","+fk_categoria+",'"+fecha+"','"+fk_id_usuario+"'); ";
 			try {
 				con.Ejecutar(sql2);
+				//case 6 enviar un mensaje de que el interesado SI fue exitoso
+				mailto.deliver(6,cedula_comprador_prod_trueque);
 				t=true;
-			} catch (Exception e) {
-				// TODO: handle exception
+			}catch (Exception e) {
+				t=false;
 				e.printStackTrace();
 			}
 			rs.close();
 			con.getConexion().close();
 			}catch(Exception e){
+				t=false;
 			System.out.print(e.getMessage());	
 			}
 		return t;
