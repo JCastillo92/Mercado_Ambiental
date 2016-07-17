@@ -326,7 +326,7 @@ public void Hacer_Principal(String id){
 //********************************************************************************************************
 public void Actualizar_Comprador_Valor(String id_comprador, int valor, int id){
 	String sql="update tb_pujas set valor_minimo="+valor+", comprador="+id_comprador+"  where id_prod_pj="+id+";";
-	System.out.println("****************"+sql);
+	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
 	try {
 	con.Ejecutar(sql);
 	}catch (Exception e) {
@@ -417,7 +417,7 @@ public void Pujas_Historico(String id){
 	public void Ingresar_Historia(int id_producto, String descripcion, int cantidad, int fk_moneda, int fk_categoria, int valor_minimo, String fk_id_usuario ){
 	
 	Date date = new Date();
-	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
 	String sql="INSERT INTO tb_historico (id_producto,descripcion,tipo,cantidad,fk_moneda,fk_categoria,valor_minimo,fecha,fk_id_usuario) values ("+id_producto+",'"+descripcion+"',"+2+","+cantidad+","+fk_moneda+","+fk_categoria+","+valor_minimo+",'"+dateFormat.format(date)+"','"+fk_id_usuario+"');";
 	System.out.println(":::::::::::::::::::::::::::::::"+sql);

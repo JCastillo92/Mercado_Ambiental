@@ -27,6 +27,7 @@ if(principal != null && tipo.equals("2")){
 puja.Pujas_Historico(principal);
 puja.Eliminar_Tiempo(Integer.parseInt(principal));
 puja.Eiminar_Puja(Integer.parseInt(principal));
+puja.Eiminar_Imagen_Puja(Integer.parseInt(principal));
 }
 %>
 <span class="label label-success"> <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true">OFERTAS ACTUALES</span> </span> 
