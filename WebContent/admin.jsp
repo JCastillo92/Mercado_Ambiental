@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -75,6 +76,20 @@ out.print(menu);
   </h3>	
   
   <h3>
+  <a href="admin.jsp?id=8" class="list-group-item">
+  <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
+  TRUEQUES POR CONFIRMAR INTERCAMBIO
+  </a>
+  </h3>
+  
+  <h3>
+  <a href="admin.jsp?id=7" class="list-group-item">
+  <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
+  HISTORIAL TRUEQUES
+  </a>
+  </h3>	
+  
+  <h3>
   <a href="admin.jsp?id=4" class="list-group-item">
   <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
   ACEPTAR / RECHAZAR DE USUARIOS
@@ -121,6 +136,12 @@ if (id.equals("5")){
 }
 if (id.equals("6")){
 %><iframe class="embed-responsive-item" src="A_subir_trueque.jsp"></iframe><%
+}
+if (id.equals("7")){
+%><iframe class="embed-responsive-item" src="Trueque_vendido.jsp"></iframe><%
+}
+if (id.equals("8")){
+%><iframe class="embed-responsive-item" src="Trueque_x_vender.jsp"></iframe><%
 }
 %>
 

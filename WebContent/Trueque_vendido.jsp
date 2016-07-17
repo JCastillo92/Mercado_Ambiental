@@ -9,6 +9,18 @@
 <title>Historial ventas trueques</title>
 </head>
 <body>
+<%
+HttpSession sessionok = request.getSession();
+Cls_General obj2= new Cls_General();
+int perf;
+double ag,lz,tel,inte,tot;
+if(sessionok.getAttribute("log")==null){
+	perf = 0;
+	response.sendRedirect("index.jsp");
+}else{
+	perf=(Integer)sessionok.getAttribute("log");
+}
+%>
 
 <div id="wrap">
 <div class="container-fluid">
