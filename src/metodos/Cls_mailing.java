@@ -23,7 +23,7 @@ public class Cls_mailing {
 			e.getMessage();	
 			}
 		switch (CodOperation) {
-		case 1://accept the request of the user already registered
+		case 1://accept the request of user, he is already registered
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber confirmado tus datos "
 					+ "te damos la más cordial bievenida a nuestro portal de intercambio, usamos dos "
 					+ "tipos de modalidad que son trueque y puja, en las cuales tendrás varias opciones "
@@ -31,7 +31,7 @@ public class Cls_mailing {
 					+ "Las transacciones se las realizará en las instalaciones de la Universidad Politécnica Salesiana, "
 					+ "en las instalaciones que posee el Club Ecológico UPS.\n\n\n";
 			break;
-		case 2://deny user request for some reason
+		case 2://deny user
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber revisado tus datos, "
 					+ "hemos encontrado algunas inconsistencias en los mismos.\n\n Necesitamos que seas "
 					+ "estudiante de la Universidad Politécnica Salesiana y por ende que te registres con " 
@@ -65,6 +65,12 @@ public class Cls_mailing {
 					+ "ayudar al medio ambiente recolectando cosas reciclables. "
 					+ "\nGrácias por tu intercambio, sigue revisando nuestra página, tenemos muchos artículos  "
 					+ "que te pueden interesar.\n "
+					+ "Hasta pronto.";
+			break;
+		case 7://user unlcoked, not blocked, now he is already active
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n TRUEQUE ECOLÓGICO te saluda.\n Queremos informarte "
+					+ "que te hemos habilitado en la plataforma, esperamos que manejes la plataforma de la manera "
+					+ "más adecuada. \nCuaquier duda nos puedes contactar via Facebook, de forma presencial en la U.P.S. campus Sur.\n"
 					+ "Hasta pronto.";
 			break;
 		default:
@@ -108,13 +114,10 @@ public class Cls_mailing {
 	    String password = "est.ups.edu.ec";
 		
 		switch (CodOperation) {
-		case 1://accept the request of the user already registered
-			LibraryPredeterminated="\nHola, ADMIN.\n Luego de haber confirmado tus datos "
-					+ "te damos la más cordial bievenida a nuestro portal de intercambio, usamos dos "
-					+ "tipos de modalidad que son trueque y puja, en las cuales tendrás varias opciones "
-					+ "de productos a seleccionar y por medio de la página podras saber más del mismo.\n\n\n\n "
-					+ "Las transacciones se las realizará en las instalaciones de la Universidad Politécnica Salesiana, "
-					+ "en las instalaciones que posee el Club Ecológico UPS.\n\n\n";
+		case 1://a client clicked on COMPRAR TRUEQUE
+			LibraryPredeterminated="\nHola, ADMIN.\n Tenemos notificaciónes "
+					+ "de que un usuario está interesado en un artículo\n "
+					+ "para el TRUEQUE, ingresa a la plataforma a revisar las novedades.";
 			break;
 		
 		default:

@@ -58,8 +58,8 @@ public boolean elimina_moneda(int id){
 	//******************************************************************************************************************************************
 
 	public String retorno_lista_add_remove(){
-		//select id_usuario,nombre, apellido,correo, direccion,celular from tb_usuarios,tb_activos_usuarios where id_usuario=id_fk_usuario and estado=FALSE;
-		String sql="select nombre,apellido,correo,direccion,celular,id_usuario from tb_usuarios,tb_activos_usuarios where id_usuario=id_fk_usuario and estado=FALSE;";
+		//select nombre,apellido,correo,direccion,celular,id_usuario from tb_usuarios,tb_activos_usuarios where id_usuario=id_fk_usuario and tb_activos_usuarios.estado=FALSE and tb_activos_usuarios.bloqueado is null;
+		String sql="select nombre,apellido,correo,direccion,celular,id_usuario from tb_usuarios,tb_activos_usuarios where id_usuario=id_fk_usuario and tb_activos_usuarios.estado=FALSE and tb_activos_usuarios.bloqueado is null;";
 		ClsConexion con=new ClsConexion();
 		ResultSet rs=null;
 		String acum_jsp="<table class=\"table table-striped\"> ";
@@ -97,8 +97,22 @@ public boolean accept_user(String recibo_dato_aceptar){
 		}
 		return t;
 	}//fin public boolean accept_user
-////////////////////////////////////
-	
+public boolean desbloquear_usuario(String recibo_dato_aceptar){
+	boolean t=false;
+	ClsConexion obj=new ClsConexion();
+	Cls_mailing mailto= new Cls_mailing();
+	String sql="update tb_activos_usuarios set estado='TRUE',bloqueado=null where id_fk_usuario='"+recibo_dato_aceptar+"';";
+	try {
+		obj.Ejecutar(sql);
+		t=true;
+		mailto.deliver(7,recibo_dato_aceptar);
+		obj.getConexion().close();
+	} catch (Exception e) {
+		t=false;
+		e.printStackTrace();
+	}
+	return t;
+}
 	
 	public boolean delete_user(String recibo_dato_eliminar){
 		boolean t=false;
@@ -133,6 +147,27 @@ public boolean accept_user(String recibo_dato_aceptar){
 			while(rs.next()){
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td>"
 						+ "<td><a class=\"btn btn-warning\" href=\"Sr_A_control?dato="+rs.getString(6)+"\" role=\"button\">Bloquear</a></td>";
+			}
+			acum_jsp+="</tbody></table>";
+			rs.close();
+			con.getConexion().close();
+			}catch(Exception e){
+			e.getMessage();	
+			}
+		return acum_jsp;
+	}//fin control_usuarios
+	public String lista_usuarios_bloqueados(){
+		//select nombre,apellido,correo,direccion,celular,id_usuario from tb_usuarios,tb_activos_usuarios where id_usuario=id_fk_usuario and estado=FALSE and bloqueado='b';
+		String sql="select nombre,apellido,correo,direccion,celular,id_usuario from tb_usuarios,tb_activos_usuarios where id_usuario=id_fk_usuario and estado=FALSE and bloqueado='b';";
+		ClsConexion con=new ClsConexion();
+		ResultSet rs=null;
+		String acum_jsp="<table class=\"table table-striped\"> ";
+		acum_jsp+=" <thead><tr><th>NOMBRE</th><th>APELLIDO</th><th>CORREO</th><th>DIRECCION</th><th>CELULAR</th></tr></thead><tbody>";
+		try{
+			rs=con.Consulta(sql);
+			while(rs.next()){
+				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td>"
+						+ "<td><a class=\"btn btn-success\" href=\"Sr_A_desbloquear_usuario?dato="+rs.getString(6)+"\" role=\"button\">Desbloquear/Habilitar</a></td>";
 			}
 			acum_jsp+="</tbody></table>";
 			rs.close();
