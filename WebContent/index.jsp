@@ -526,13 +526,21 @@ SABER MÁS
 </div>
 
 <div class="col-md-3">
-
+<br>
+<br>
 <center>
-<h1>
-<span class="label label-info"> 
-<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> INFORMACION</span> 
-</span>
-</h1>
+<table class="table table-hover">
+<tr>
+
+<td> <span class="input-group-addon" id="basic-addon1">INFORMACIÓN </span>
+ 
+<span style="color: blue;">
+  <%
+ ClsAdmin metodos =new ClsAdmin();
+ out.print(metodos.devuelvo_Informacion());
+ %> </span></td>
+</tr>
+</table>
 </center>
 
 

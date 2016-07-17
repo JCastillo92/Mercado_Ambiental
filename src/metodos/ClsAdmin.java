@@ -226,4 +226,42 @@ public boolean accept_user(String recibo_dato_aceptar){
 			}
 			return id;
 			}
+		
+		//******************************************************
+		
+		public boolean agregarInformacion(String descripcion){
+			boolean t=false;
+			datos.ClsConexion obj = new datos.ClsConexion();
+			String sql="insert into tb_informacion (descripcion) values ('"+descripcion+"');";
+			System.out.println(sql);
+			try {
+				obj.Ejecutar(sql);
+				t=true;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			return t;
+		}
+		
+		public String devuelvo_Informacion(){
+			String sql="Select descripcion,id_informacion from tb_informacion order by id_informacion desc limit 1;";
+			ClsConexion con =new ClsConexion();
+			ResultSet rs=null;
+			String codigo_jsp="";
+			
+			try{
+				rs=con.Consulta(sql);
+				
+				while(rs.next()){
+				codigo_jsp+=rs.getString(1);
+				}
+				rs.close();
+				con.getConexion().close();
+				}catch(Exception e){
+				System.out.print(e.getMessage());	
+				}
+			return codigo_jsp;
+		}
+		
 }//FIN TODO

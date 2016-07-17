@@ -86,6 +86,12 @@ out.print(menu);
   CONTROL DE USUARIOS
   </a>
   </h3>
+  <h3>
+  <a href="admin.jsp?id=7" class="list-group-item">
+  <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
+  AGREGAR INFORMACIÓN
+  </a>
+  </h3>	
   
   
 
@@ -121,8 +127,10 @@ if (id.equals("5")){
 if (id.equals("6")){
 %><iframe class="embed-responsive-item" src="A_subir_trueque.jsp"></iframe><%
 }
+if (id.equals("7")){
+%><iframe class="embed-responsive-item" src="Informacion.jsp"></iframe><%
+}
 %>
-
 
 
 
