@@ -305,7 +305,7 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			datos.ClsConexion obj = new datos.ClsConexion();
 			ResultSet rs=null;
 			
-			String sql="Select descripcion from tb_categorias;";
+			String sql="Select descripcion from tb_categorias order by descripcion asc;";
 			try{
 			rs=obj.Consulta(sql);
 			while(rs.next()){
