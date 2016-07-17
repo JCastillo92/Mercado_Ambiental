@@ -38,9 +38,11 @@ public class Cls_Trueque {
 		String sql="update tb_trueque set estado=3 where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"';";
 		try {
 			obj.Ejecutar(sql);
+			
 			//case 6 enviar un mensaje de que el interesado SI fue exitoso
 			mailto.deliver(6,cedula_comprador_prod_trueque);
 			t=true;
+			t=ingresar_venta_en_tb_historico(titulo_producto_trueque,cedula_comprador_prod_trueque);
 			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
@@ -90,5 +92,42 @@ public class Cls_Trueque {
 		String sql="";
 		
 		return sql;
+	}//fin saber_id_nuevo_producto_trueque
+	
+	private boolean ingresar_venta_en_tb_historico(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
+		//sql select * from tb_trueque where comprador ='1719130476' and titulo='hp envy dv4';
+		//sql2 insert into tb_historico (id_producto,descripcion,tipo,cantidad,fk_moneda,fk_categoria,fecha,fk_id_usuario) values (id_prducto,'titulo',1xdefault,cantidad,moneda,fk_categoria,'2016-07-16','1719130476');
+		String sql2="",sql="select * from tb_trueque where comprador ='"+cedula_comprador_prod_trueque+"' and titulo='"+titulo_producto_trueque+"';";
+		boolean t=true;
+		ClsConexion con = new datos.ClsConexion();
+		ResultSet rs=null;
+		String descripcion="",fecha="",fk_id_usuario="";
+		int id_producto=0,tipo=1,cantidad=0,fk_moneda=0,fk_categoria=0;
+		try{
+			rs=con.Consulta(sql);
+			while(rs.next()){
+				id_producto=rs.getInt(1);
+				cantidad=rs.getInt(3);
+				fk_moneda=rs.getInt(4);
+				descripcion=rs.getString(5);
+				fk_categoria=rs.getInt(6);
+				fk_id_usuario=rs.getString(8);
+				fecha=rs.getString(9);
+			}
+			sql2="insert into tb_historico (id_producto,descripcion,tipo,cantidad,fk_moneda,fk_categoria,fecha,fk_id_usuario) "
+					+ "values ("+id_producto+",'"+descripcion+"',"+tipo+","+cantidad+","+fk_moneda+","+fk_categoria+",'"+fecha+"','"+fk_id_usuario+"'); ";
+			try {
+				con.Ejecutar(sql2);
+				t=true;
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			rs.close();
+			con.getConexion().close();
+			}catch(Exception e){
+			System.out.print(e.getMessage());	
+			}
+		return t;
 	}
 }

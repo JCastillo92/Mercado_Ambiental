@@ -41,6 +41,7 @@ public class Sr_T_confirma_venta extends HttpServlet {
 		String cedula_comprador_prod_trueque=request.getParameter("datoA");//cedula del comprador
 		
 		if(obj.confirma_venta_trueque(titulo_producto_trueque,cedula_comprador_prod_trueque)){
+			
 			response.sendRedirect("Trueque_x_vender.jsp?dato=true");
 		}else{
 			response.sendRedirect("Trueque_x_vender.jsp?dato=false");
