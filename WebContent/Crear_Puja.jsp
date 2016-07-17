@@ -69,7 +69,7 @@ if (error != null){
 	
 	<tr>
 	<td>
-	<select class="form-control" name="año">
+	<select class="form-control" name="anio">
  	<option>2016</option>
   	<option>2017</option>
   	<option>2018</option>
@@ -97,6 +97,7 @@ if (error != null){
   	<option>2040</option>
 	</select>
 	</td>
+	
 	<td>
 	<select class="form-control" name="mes">
  	<option>January</option>
@@ -112,6 +113,7 @@ if (error != null){
   	<option>December</option>
 	</select>
 	</td>
+	
 	<td>
 	<select class="form-control" name="dia">
  	<option>01</option>
@@ -147,6 +149,7 @@ if (error != null){
   	<option>31</option>
 	</select>
 	</td>
+	
 	<td>
 	<select class="form-control" name="hora">
 	<option>00</option>
@@ -175,6 +178,7 @@ if (error != null){
   	<option>23</option>
 	</select>
 	</td>
+	
 	<td>
 	<select class="form-control" name="minuto">
 	<option>00</option>
@@ -239,7 +243,7 @@ if (error != null){
   	<option>59</option>
 	</select>
 	</td>
-	</td>
+
 	</tr>
   
 	</table>

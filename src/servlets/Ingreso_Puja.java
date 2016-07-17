@@ -65,7 +65,8 @@ public class Ingreso_Puja extends HttpServlet {
 		valor=request.getParameter("valor");
 		categorias=request.getParameter("categorias");
 		
-		año = request.getParameter("año");
+		año = request.getParameter("anio");
+		System.out.println("*********************************>>>>>>>>>>>>>>>"+año);
 		mes = request.getParameter("mes");
 		dia = request.getParameter("dia");
 		hora = request.getParameter("hora");
@@ -101,6 +102,8 @@ public class Ingreso_Puja extends HttpServlet {
 		int id;
 		puja.Ingresar_Puja(nombre, descripcion, can, mon, val, cat);
 		id=puja.Obtener_ID(nombre, descripcion, can, mon, val, cat);
+		
+		System.out.println("*********************************>>>>>>>>>>>>>>>"+año);
 		puja.Ingresar_Tiempo(id, dia, mes, año, hora, minuto);
 		
 		try {

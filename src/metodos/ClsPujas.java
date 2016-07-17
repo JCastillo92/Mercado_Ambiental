@@ -283,7 +283,8 @@ public void Hacer_Principal(String id){
 }
 //********************************************************************************************************
 	public void Ingresar_Tiempo(int id, String dia, String mes, String año, String hora, String minutos){
-		
+	
+	System.out.println("*********************************>>>>>>>>>>>>>>>"+año);
 	String sql="INSERT INTO tb_tiempo (id_puja,dia,mes,año,hora,minutos) values ("+id+",'"+dia+"','"+mes+"','"+año+"','"+hora+"','"+minutos+"');";
 	System.out.println(":::::::::::::::::::::::::::::::"+sql);
 	try {
