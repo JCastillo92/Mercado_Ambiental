@@ -187,7 +187,7 @@ out.print(x1.top_5_user_index());
 
 <h1>
 
-<span class="label label-info" id="daysBox"></span> Días 
+<span class="label label-info" id="daysBox"></span> D&iacute;as 
 <span class="label label-info" id="hoursBox"> </span> Horas
 <span class="label label-info" id="minsBox">  </span>min.
 <span class="label label-info" id="secsBox"></span> seg.
