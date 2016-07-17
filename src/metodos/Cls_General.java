@@ -2,6 +2,7 @@ package metodos;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import datos.ClsConexion;
 
@@ -76,7 +77,7 @@ public class Cls_General {
 				// TODO: handle exception
 			}
 		}
-
+		
 		
 		//menu +="<p class=\"navbar-text\">Logueado como <%= usuariorec %></p>";
 		if(t){
@@ -135,6 +136,254 @@ public class Cls_General {
 			e.printStackTrace();
 		}
 		return t;
+	}
+	
+	public int conteo_trueques(){
+		int contador=0;
+		String sql = "select * from tb_trueque";
+		ClsConexion obj = new ClsConexion();
+		ResultSet rs = null;
+		try {
+			rs=obj.Consulta(sql);
+			while(rs.next()){
+				contador++;
+			}
+			rs.close();
+			obj.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return contador;
+	}
+	
+	public String carruseles(){
+		String c = "";
+		
+		//Saco cuantos trueques existen
+		int numero_trueques;
+		numero_trueques = conteo_trueques();
+		ClsConexion obj = new ClsConexion();
+		ResultSet rs = null;
+		ArrayList<String> id_producto_trs = new ArrayList<String>();
+		ArrayList<String> titulos = new ArrayList<String>();
+		ArrayList<String> cantidades = new ArrayList<String>();
+		ArrayList<String> monedas= new ArrayList<String>();
+		String sql ="select id_producto_tr, titulo, cantidad, tb_monedas.descripcion " 
+					+"from tb_trueque,tb_monedas "
+					+"where moneda = id_moneda "
+					+"order by fecha_trueque DESC "
+					+"limit 4";
+		switch(numero_trueques){
+			case 0:
+				// NO HAY TRUEQUES
+				c ="<h2>De momento no contamos con trueques</h2>";
+				break;
+			case 1:
+				c = "<center><h3><span class=\"label label-info\">";
+				try {
+					rs=obj.Consulta(sql);
+					while(rs.next()){
+						id_producto_trs.add(rs.getString(1));
+						titulos.add(rs.getString(2));
+						cantidades.add(rs.getString(3));
+						monedas.add(rs.getString(4));
+					}
+					/*id_producto_trs.get(0);
+					titulos.get(0);
+					cantidades.get(0);
+					monedas.get(0); */
+					c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(0)+"</span>" ;
+					c +="</span></h3></center>";
+					c +="<div id=\"carrusel-1\" class=\"carousel slide\" data-ride=\"carousel\">";
+					c +="<ol class=\"carousel-indicators\">";
+					c +="<li data-target=\"carrusel-1\" data-slide-to=\"0\" class=\"active\"></li>";
+					c +="<li data-target=\"carrusel-1\" data-slide-to=\"1\"></li>";
+					c +="<li data-target=\"carrusel-1\" data-slide-to=\"2\"></li></ol>";
+					c +="<div class=\"carousel-inner\">";
+					c +="<div class=\"item active\">";
+					c +="<img src=\"imagen?prod="+id_producto_trs.get(0)+"&place=<%=1%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+					c +="<div class=\"carousel-caption\"></div>";
+					c +="<center><h6><font color=\"white\">"+cantidades.get(0)+" "+monedas.get(0)+"</font></h6></center></div>";
+					c +="<div class=\"item\">";
+					c +="<img src=\"imagen?prod="+id_producto_trs.get(0)+"&place=<%=2%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+					c +="<div class=\"carousel-caption\"></div>";
+					c +="<center><h6><font color=\"white\">"+cantidades.get(0)+" "+monedas.get(0)+"</font></h6></center></div>";
+					c +="<div class=\"item\">";
+					c +="<img src=\"imagen?prod="+id_producto_trs.get(0)+"&place=<%=3%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+					c +="<div class=\"carousel-caption\"></div>";
+					c +="<center><h6><font color=\"white\">"+cantidades.get(0)+" "+monedas.get(0)+"</font></h6></center></div>";
+					c +="</div></div>";
+					c +="<a class=\"left carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"prev\">";
+					c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
+					c +="<a class=\"right carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"next\">";
+					c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
+					c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
+					c +="SABER MÁS</span></a></h4></center>";
+					c +="";
+					
+					rs.close();
+					obj.getConexion().close();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				break;
+			case 2:
+				//AQUI EMPIEZA EL 1ER
+				
+				try {
+					rs=obj.Consulta(sql);
+					while(rs.next()){
+						id_producto_trs.add(rs.getString(1));
+						titulos.add(rs.getString(2));
+						cantidades.add(rs.getString(3));
+						monedas.add(rs.getString(4));
+					}
+					
+					for (int i = 0; i < titulos.size(); i++) {
+						c +="<div class=\"col-md-6\">";
+						c += "<center><h3><span class=\"label label-info\">";
+						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="</span></h3></center>";
+						c +="<div id=\"carrusel-1\" class=\"carousel slide\" data-ride=\"carousel\">";
+						c +="<ol class=\"carousel-indicators\">";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"0\" class=\"active\"></li>";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"1\"></li>";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"2\"></li></ol>";
+						c +="<div class=\"carousel-inner\">";
+						c +="<div class=\"item active\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=<%=1%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<div class=\"item\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=<%=2%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<div class=\"item\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=<%=3%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="</div></div>";
+						c +="<a class=\"left carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"prev\">";
+						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
+						c +="<a class=\"right carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"next\">";
+						c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
+						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
+						c +="SABER MÁS</span></a></h4></center></div>";
+					}
+					rs.close();
+					obj.getConexion().close();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				break;
+			case 3:
+				
+				try {
+					rs=obj.Consulta(sql);
+					while(rs.next()){
+						id_producto_trs.add(rs.getString(1));
+						titulos.add(rs.getString(2));
+						cantidades.add(rs.getString(3));
+						monedas.add(rs.getString(4));
+					}
+					
+					for (int i = 0; i < titulos.size(); i++) {
+						c +="<div class=\"col-md-4\">";
+						c += "<center><h3><span class=\"label label-info\">";
+						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="</span></h3></center>";
+						c +="<div id=\"carrusel-1\" class=\"carousel slide\" data-ride=\"carousel\">";
+						c +="<ol class=\"carousel-indicators\">";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"0\" class=\"active\"></li>";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"1\"></li>";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"2\"></li></ol>";
+						c +="<div class=\"carousel-inner\">";
+						c +="<div class=\"item active\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=<%=1%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<div class=\"item\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=<%=2%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<div class=\"item\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=<%=3%>&i_tipo=<%=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="</div></div>";
+						c +="<a class=\"left carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"prev\">";
+						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
+						c +="<a class=\"right carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"next\">";
+						c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
+						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
+						c +="SABER MÁS</span></a></h4></center></div>";
+					}
+					
+					rs.close();
+					obj.getConexion().close();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				
+				break;
+			
+			default:
+				
+				try {
+					rs=obj.Consulta(sql);
+					while(rs.next()){
+						id_producto_trs.add(rs.getString(1));
+						titulos.add(rs.getString(2));
+						cantidades.add(rs.getString(3));
+						monedas.add(rs.getString(4));
+					}
+					
+					for (int i = 0; i < titulos.size(); i++) {
+						c +="<div class=\"col-md-3\">";
+						c += "<center><h3><span class=\"label label-info\">";
+						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="</span></h3></center>";
+						c +="<div id=\"carrusel-1\" class=\"carousel slide\" data-ride=\"carousel\">";
+						c +="<ol class=\"carousel-indicators\">";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"0\" class=\"active\"></li>";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"1\"></li>";
+						c +="<li data-target=\"carrusel-1\" data-slide-to=\"2\"></li></ol>";
+						c +="<div class=\"carousel-inner\">";
+						c +="<div class=\"item active\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=1%>&i_tipo=1%>\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<div class=\"item\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=2&i_tipo=1\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<div class=\"item\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=3&i_tipo=1\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<div class=\"item\">";
+						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=4&i_tipo=1\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
+						c +="<div class=\"carousel-caption\"></div>";
+						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="</div></div>";
+						c +="<a class=\"left carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"prev\">";
+						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
+						c +="<a class=\"right carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"next\">";
+						c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
+						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
+						c +="SABER MÁS</span></a></h4></center></div>";
+					}
+					rs.close();
+					obj.getConexion().close();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
+				break;
+		} // fin switch
+
+		return c;
 	}
 
 
