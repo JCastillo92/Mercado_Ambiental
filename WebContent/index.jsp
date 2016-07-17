@@ -153,12 +153,23 @@ out.print(carrusel);
 
 <div class="row">
 
-<!-- Centros de Acopio -->
+<!-- top 5 usuarios que compran -->
 <div class="col-md-3">
-
-
-
-
+<center><br>
+<h3><span class="label label-default">TOP 5 RANKING DE NUESTROS USUARIOS</span></h3>
+<br></center>
+<div class="col-md-1">
+<!-- SIEMPRE VACIO  -->
+</div>
+<div class="col-md-10">
+<%
+Cls_index_components x1= new Cls_index_components();
+out.print(x1.top_5_user_index());
+%>
+</div>
+<div class="col-md-1">
+<!-- SIEMPRE VACIO  -->
+</div>
 </div>
 
 
@@ -257,9 +268,11 @@ out.print(carrusel);
 </div>
 
 <div class="col-md-3">
-<br>
-<br>
-<center>
+
+<div class="col-md-1">
+<!--  AQUI NO PONER NADA -->
+</div>
+<div class="col-md-10">
 <table class="table table-hover">
 <tr>
 
@@ -274,8 +287,10 @@ out.print(carrusel);
  %> </span></td>
 </tr>
 </table>
-</center>
-
+</div>
+<div class="col-md-1">
+<!--  AQUI NO PONER NADA -->
+</div>
 
 </div>
 </div>

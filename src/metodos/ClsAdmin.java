@@ -263,8 +263,8 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 		public boolean agregarInformacion(String descripcion){
 			boolean t=false;
 			datos.ClsConexion obj = new datos.ClsConexion();
-			String sql="insert into tb_informacion (descripcion) values ('"+descripcion+"');";
-			System.out.println(sql);
+			//String sql="insert into tb_informacion (descripcion) values ('"+descripcion+"');";
+			String sql="update tb_informacion set  descripcion='"+descripcion+"' where id_informacion='"+1+"';";
 			try {
 				obj.Ejecutar(sql);
 				t=true;
@@ -276,7 +276,9 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 		}
 		
 		public String devuelvo_Informacion(){
-			String sql="Select descripcion,id_informacion from tb_informacion order by id_informacion desc limit 1;";
+			String sql="Select descripcion from tb_informacion;";
+			//String sql="update tb_informacion set  descripcion='"+descripcion+"' where id_informacion='"+1+"';";
+			
 			ClsConexion con =new ClsConexion();
 			ResultSet rs=null;
 			String codigo_jsp="";
