@@ -268,9 +268,11 @@ out.print(x1.top_5_user_index());
 </div>
 
 <div class="col-md-3">
-<br>
-<br>
-<rigth>
+
+<div class="col-md-1">
+<!--  AQUI NO PONER NADA -->
+</div>
+<div class="col-md-10">
 <table class="table table-hover">
 <tr>
 
@@ -285,8 +287,10 @@ out.print(x1.top_5_user_index());
  %> </span></td>
 </tr>
 </table>
-</rigth>
-
+</div>
+<div class="col-md-1">
+<!--  AQUI NO PONER NADA -->
+</div>
 
 </div>
 </div>
