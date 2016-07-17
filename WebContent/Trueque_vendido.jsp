@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,8 +16,7 @@
 
 
 <center><br>
-<h3><span class="label label-default">Trueques, las personas en &eacute;ste listado quieren 
-o est&aacute;n interesados en hacer el intercambio.</span></h3>
+<h3><span class="label label-default">HIST&Oacute;RICO DE TRUEQUES.</span></h3>
 <br></center>
 <!-- ----------------------------------------------------------------------------------------------- -->
 <%
