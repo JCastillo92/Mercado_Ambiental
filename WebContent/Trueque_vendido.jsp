@@ -39,6 +39,8 @@ out.print(print_user_data);
 %>
 
 <!-- -------------------------------------------------------------------------------------- -->
+</div>
+<div class="container">
 <br>
 <center><br>
 <h3><span class="label label-default">HIST&Oacute;RICO DE PUJAS.</span></h3>
