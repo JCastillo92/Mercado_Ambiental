@@ -149,7 +149,7 @@ public class Cls_General {
 	
 	public int conteo_trueques(){
 		int contador=0;
-		String sql = "select * from tb_trueque";
+		String sql = "select * from tb_trueque where estado = 1";
 		ClsConexion obj = new ClsConexion();
 		ResultSet rs = null;
 		try {
@@ -189,15 +189,24 @@ public class Cls_General {
 					+"where moneda = id_moneda and estado = 1 "
 					+"order by fecha_trueque DESC "
 					+"limit 4";
+		
+		try {
+			rs=obj.Consulta(sql);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		switch(numero_trueques){
 			case 0:
 				// NO HAY TRUEQUES
-				c ="<h2>De momento no contamos con trueques</h2>";
+				c = "<center><h2><span class=\"label label-info\">";
+				c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">De momento no contamos con trueques</span>" ;
+				c +="</span></h2></center>";
+				
 				break;
 			case 1:
 				c = "<center><h3><span class=\"label label-info\">";
 				try {
-					rs=obj.Consulta(sql);
 					while(rs.next()){
 						id_producto_trs.add(rs.getString(1));
 						titulos.add(rs.getString(2));
@@ -250,7 +259,6 @@ public class Cls_General {
 				//AQUI EMPIEZA EL 1ER
 				
 				try {
-					rs=obj.Consulta(sql);
 					while(rs.next()){
 						id_producto_trs.add(rs.getString(1));
 						titulos.add(rs.getString(2));
@@ -302,7 +310,6 @@ public class Cls_General {
 			case 3:
 				
 				try {
-					rs=obj.Consulta(sql);
 					while(rs.next()){
 						id_producto_trs.add(rs.getString(1));
 						titulos.add(rs.getString(2));
@@ -356,7 +363,6 @@ public class Cls_General {
 			default:
 				
 				try {
-					rs=obj.Consulta(sql);
 					while(rs.next()){
 						id_producto_trs.add(rs.getString(1));
 						titulos.add(rs.getString(2));
