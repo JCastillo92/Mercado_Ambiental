@@ -27,7 +27,7 @@ mes=tiempo.Mes(id);
 año=tiempo.año(id);
 hora=tiempo.hora(id);
 minutos=tiempo.minutos(id);
-dato=mes+"/"+dia+"/"+año+" "+hora+":"+minutos;
+dato=mes+" "+dia+", "+año+" "+hora+":"+minutos;
 
 
 
