@@ -62,7 +62,7 @@ public class ClsImagen {
 				ps.setInt(2, 1);
 				ps.setString(3, file.getName());
 				ps.setBinaryStream(4, fis, (int)file.length());
-				System.out.println(ps);
+				//System.out.println(ps);
 				ps.executeUpdate();
 				ps.close();
 				fis.close();
@@ -75,6 +75,12 @@ public class ClsImagen {
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		}
+		
+		try {
+			obj.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return t;
 	}
@@ -113,15 +119,22 @@ public class ClsImagen {
 				// TODO: handle exception
 				e.printStackTrace();
 			}
+			
+			try {
+				obj.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			return t;
 		}
 	
 //*******************************************************************************************************
 	public boolean insertarimagen_trueque(String path, int tipo_trueque_o_puja, int saber_id_ingreso_trueque){
 		boolean t = false;
+		ClsConexion obj = new ClsConexion();
 		try {
 			File file = new File(path);
-			ClsConexion obj = new ClsConexion();
+			
 			FileInputStream fis = new FileInputStream(file);
 			String nombrearchivo = file.getName();
 			nombrearchivo = nombrearchivo.substring(nombrearchivo.length() -4, nombrearchivo.length());
@@ -146,6 +159,12 @@ public class ClsImagen {
 			// TODO: handle exception
 			t=false;
 			e.printStackTrace();
+		}
+		
+		try {
+			obj.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return t;
 	}
@@ -189,10 +208,6 @@ public class ClsImagen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println(t);
-		System.out.println(sql);
-		
 		return t;
 	}
 	
@@ -205,7 +220,6 @@ public class ClsImagen {
 		contador=0;
 		byte[] imgBytes3;
 		sql = "Select * from tb_imagenes where id_producto_fk="+prod;
-		System.out.println(sql);
 		try {
 			rs = obj.Consulta(sql);
 			while(rs.next()){
@@ -222,7 +236,6 @@ public class ClsImagen {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(sql+" contador "+contador);
 		
 	}
 

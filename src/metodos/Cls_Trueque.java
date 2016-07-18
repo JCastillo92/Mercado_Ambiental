@@ -375,14 +375,12 @@ public class Cls_Trueque {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		System.out.println(sql);
 	}
 	
 	public boolean trueque_usuario(String id, String cedula){
 		boolean t =false;
 		ClsConexion con=new ClsConexion();
 		String sql="update tb_trueque set estado=2, comprador='"+cedula+"' where id_producto_tr="+id;
-		System.out.println(sql);
 		try {
 			con.Ejecutar(sql);
 			t=true;

@@ -186,11 +186,17 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 						+ "<td><a class=\"btn btn-warning\" href=\"Sr_A_control?dato="+rs.getString(6)+"\" role=\"button\">Bloquear</a></td>";
 			}
 			acum_jsp+="</tbody></table>";
-			rs.close();
-			con.getConexion().close();
+			
 			}catch(Exception e){
 			e.getMessage();	
 			}
+		
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return acum_jsp;
 	}//fin control_usuarios
 	public String lista_usuarios_bloqueados(){
@@ -207,11 +213,16 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 						+ "<td><a class=\"btn btn-success\" href=\"Sr_A_desbloquear_usuario?dato="+rs.getString(6)+"\" role=\"button\">Desbloquear / Habilitar</a></td>";
 			}
 			acum_jsp+="</tbody></table>";
-			rs.close();
-			con.getConexion().close();
 			}catch(Exception e){
 			e.getMessage();	
 			}
+		
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return acum_jsp;
 	}//fin control_usuarios
 	public boolean control_user(String id){
@@ -224,12 +235,16 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			obj.Ejecutar(sql1);
 			mailto.deliver(3,id);
 			t=true;
-			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
 		}
 		
+		try {
+			obj.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return t;
 	}//fin boolean control_user
 	
@@ -245,6 +260,12 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 				t=true;
 			} catch (Exception e) {
 				e.printStackTrace();
+			}
+			
+			try {
+				obj.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
 			return t;
 		}
@@ -265,12 +286,18 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			while(rs.next()){
 			moneda+="<option>"+rs.getString(1)+"</option>";
 			}
-			rs.close();
-			obj.getConexion().close();
+			
 			}catch(Exception e){
 				e.getMessage();
 			}
 			moneda+="</select>";
+			
+			try {
+				rs.close();
+				obj.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			return moneda;
 			}
 		
@@ -287,10 +314,15 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			while(rs.next()){
 			id=rs.getInt(1);
 			}
-			rs.close();
-			obj.getConexion().close();
 			}catch(Exception e){
 			e.getMessage();	
+			}
+			
+			try {
+				rs.close();
+				obj.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
 			return id;
 			}
@@ -309,6 +341,12 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 				// TODO: handle exception
 				e.printStackTrace();
 			}
+			
+			try {
+				obj.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			return t;
 		}
 		
@@ -326,11 +364,16 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 				while(rs.next()){
 				codigo_jsp+=rs.getString(1);
 				}
-				rs.close();
-				con.getConexion().close();
 				}catch(Exception e){
 				System.out.print(e.getMessage());	
 				}
+			
+			try {
+				rs.close();
+				con.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			return codigo_jsp;
 		}
 		
@@ -348,12 +391,17 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			while(rs.next()){
 				categoria+="<option>"+rs.getString(1)+"</option>";
 			}
-			rs.close();
-			obj.getConexion().close();
 			}catch(Exception e){
 				e.getMessage();
 			}
 			categoria+="</select>";
+			
+			try {
+				rs.close();
+				obj.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 			return categoria;
 			}
 		
@@ -370,10 +418,15 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			while(rs.next()){
 			id=rs.getInt(1);
 			}
-			rs.close();
-			obj.getConexion().close();
 			}catch(Exception e){
 			e.getMessage();	
+			}
+			
+			try {
+				rs.close();
+				obj.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
 			return id;
 			}

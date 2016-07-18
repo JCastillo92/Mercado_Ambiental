@@ -1,5 +1,6 @@
 package metodos;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import datos.ClsConexion;
 public class ClsUsuario {
@@ -76,6 +77,13 @@ public class ClsUsuario {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		try {
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return t;
 	}
 	
@@ -90,6 +98,13 @@ public class ClsUsuario {
 			mailto.deliver(4,cedula);
 			t=true;
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return t;
@@ -109,11 +124,16 @@ public class ClsUsuario {
 							+ " <span class=\"input-group-addon\" id=\"basic-addon1\"> Teléfono:</span>"
 							+ "  <input type=\"number\" class=\"form-control\" name=\"txtTelefono\" pattern=\"[0-9]{7-10}\" value=\""+rs.getString(2)+"\" aria-describedby=\"basic-addon1\" required>";
 			}
+			}catch(Exception e){
+			}
+		
+		try {
 			rs.close();
 			con.getConexion().close();
-			}catch(Exception e){
-			System.out.print(e.getMessage());	
-			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return codigo_jsp;
 	}
 	public void actualuza_el_usuario(String dir,String tel,String ci){
@@ -124,6 +144,12 @@ public class ClsUsuario {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		try {
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}//FIN VOID
 	
 	public void actualuza_clave( String p1,String ci){
@@ -132,6 +158,13 @@ public class ClsUsuario {
 		try {
 			obj.Ejecutar(sql);
 		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		try {
+			
+			obj.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}//FIN VOID
@@ -156,11 +189,16 @@ public String consula_usuario_personal(String ci_usuario){
 			+ "<li class=\"list-group-item\"><span class=\"badge\">"+rs.getString(7)+"</span>Tel&eacute;fono</li></ul>"
 					+ "</div></div>";
 			}
+			}catch(Exception e){
+			}
+		
+		try {
 			rs.close();
 			con.getConexion().close();
-			}catch(Exception e){
-			System.out.print(e.getMessage());
-			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return codigo_jsp;
 	}//fin public string consula_usuario_personal
 
@@ -174,10 +212,15 @@ public String Clave(String ci_usuario){
 	while(rs.next()){
 	clave=rs.getString(1);
 	}
-	rs.close();
-	con.getConexion().close();
 	}catch(Exception e){
-	System.out.print(e.getMessage());	
+	}
+	
+	try {
+		rs.close();
+		con.getConexion().close();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
 	}
 	return clave;
 	}

@@ -18,11 +18,17 @@ public class Cls_mailing {
 				GetRecipientNick=resultSet.getString(2);
 				GetRecipientDestination=resultSet.getString(5);
 			}
-			resultSet.close();
-			con.getConexion().close();
 			}catch(Exception e){
 			e.getMessage();	
 			}
+		
+		try {
+	    	resultSet.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		switch (CodOperation) {
 		case 1://accept the request of user, he is already registered
 			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n Luego de haber confirmado tus datos "
@@ -115,12 +121,7 @@ public class Cls_mailing {
 	    	  e.getMessage();
 	       }
 	    
-	    try {
-	    	resultSet.close();
-			con.getConexion().close();
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+	    
 	}//fin clase DELIVER
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public void auto_mail_to_CEUPS(int CodOperation){
