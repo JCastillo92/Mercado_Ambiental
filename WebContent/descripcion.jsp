@@ -31,7 +31,7 @@ id = request.getParameter("id");
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Descripción</title>
+<title>Descripci&oacute;n</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 
 </head>
@@ -74,7 +74,7 @@ out.print(menu);
 	
 	<div class="col-md-6">
 		
-		<center><h1><span class="label label-success"> DESCRIPCIÓN </span></h1></center>
+		<center><h1><span class="label label-success"> DESCRIPCI&Oacute;N </span></h1></center>
 		<br>
 		
 		<pre>
@@ -120,7 +120,7 @@ Copyright © J3BCompany
 <center>
 Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
 </center></div><div class="col-md-4">
-<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> bryans71@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
+<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
 
 </div><div class="col-md-4">
 <br>

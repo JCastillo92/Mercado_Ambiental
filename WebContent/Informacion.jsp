@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
-<title>Subir Información</title>
+<title>Subir Informaci&oacute;n</title>
 </head>
 <body>
 <%
@@ -55,7 +55,7 @@ if (error != null && error.equals("true")){
 <!-- /////////////////////////////////////////////////////////////////////////////// -->
 <center>
 <br>
-        <h2><span class="label label-default" id="gridSystemModalLabel">Ingresar la información más importante</span></h2>
+        <h2><span class="label label-default" id="gridSystemModalLabel">Ingresar la informaci&oacute;n m&aacute;s importante</span></h2>
   <!-- PONER LO DEL BRYAN AQUI -->
   <table class="table table-hover"><tr>
 <td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n de la información: </span>

@@ -55,7 +55,7 @@ if (error != null && error.equals("true")){
 
 
 <table class="table table-hover"><tr>
-<td> <span class="input-group-addon" id="basic-addon1">Descripción de la moneda * </span>
+<td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n de la moneda * </span>
   <input type="text" class="form-control"name="txtMoneda"  placeholder="ejem. Botellas Plasticas" aria-describedby="basic-addon1"  style="text-transform:uppercase" required></td>
 </tr></table>
 <hr>

@@ -57,7 +57,7 @@ dato=mes+"/"+dia+"/"+año+" "+hora+":"+minutos;
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>PUJA</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 
 
@@ -122,14 +122,7 @@ out.print(menu);
 </h1>
 </center>
 
-<form class="navbar-form navbar-left" role="search">
-<div class="form-group">
-<input type="text" class="form-control" placeholder="Buscar">
-</div>
-<button type="submit" class="btn btn-success">
-<span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"> BUSCAR</span>
-</button>
-</form>
+
 
 <br>
 <br>
@@ -268,7 +261,7 @@ out.print(puja.Ver_Pujas());
 <td></td>
 </tr>
 
-<tr style="color:#456789;font-size:150%;">
+<tr style="color:#456789;font-size:140%;">
 <td><span class="label label-success"> OFERTAR VALOR </span></td>
 <td> <input type="text" class="form-control" name="oferta" required> </td>
 </tr>
@@ -294,7 +287,7 @@ Copyright © J3BCompany
 <center>
 Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
 </center></div><div class="col-md-4">
-<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> bryans71@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
+<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
 
 </div><div class="col-md-4">
 <br>
