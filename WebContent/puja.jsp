@@ -64,6 +64,18 @@ dato=mes+" "+dia+", "+año+" "+hora+":"+minutos;
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 
 
+<script language="JavaScript">
+function mensaje() {
+if (!confirm("Esta Seguro que desea realizar la oferta"))
+{
+history.back();
+}
+}
+
+</script>
+
+
+
 
 
 <script>
@@ -115,6 +127,23 @@ out.print(menu);
 <!--Encabezado**************************************************************************************-->
 
 <div class="row">
+
+<%int control = puja.Controlar_Puja();
+
+if(control == 0){
+%>
+<center>
+<h1>
+<span class="label label-success"> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> LO SENTIMOS NO HAY PUJAS DISPONIBLES</span> 
+</span>
+</h1>
+</center>
+<% 	
+}
+else{
+%>
+
 <div class="col-md-3">
 
 <center>
@@ -130,14 +159,28 @@ out.print(menu);
 <br>
 <br>
 
+<div style="height: 415px; overflow-y: scroll;">
 <%
 out.print(puja.Ver_Pujas());
 %>
 </div>
+</div>
 
 <div class="col-md-6">
 
-
+<%
+if(id==null){
+%>
+<center>
+<h1>
+<span class="label label-success"> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> SELECCIONE UNA PUJA</span> 
+</span>
+</h1>
+</center>
+<%
+}else{
+%>
 <center>
 <h1>
 <span class="label label-success"> 
@@ -216,6 +259,7 @@ out.print(puja.Ver_Pujas());
     
     <center><h5><font color="white"><%out.print(puja.Descripcion(id));%></font></h5></center>
 
+<%} %>
 </div>
 
 
@@ -271,11 +315,12 @@ out.print(puja.Ver_Pujas());
 
 </table>
 
-<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">PUJAR</span></button>
+<button type="submit" class="btn btn-info" onclick ="mensaje()"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">PUJAR</span></button>
 </form>
 
 </div>
 
+<%} %>
 </div> 
 
 <br>

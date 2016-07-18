@@ -292,8 +292,9 @@ if (error != null){
   		<input type="hidden" id="input02" name="path_imagen2">
   		<input type="hidden" id="input03" name="path_imagen3">
   		<input type="hidden" id="input04" name="path_imagen4">
-  	<button type="submit" class="btn btn-info" onclick="detectarnav();"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"> Crear Puja</span></button>
+  	<center><button type="submit" class="btn btn-success" onclick="detectarnav();"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true"> Crear Puja</span></button></center>
 	</form>
+	<br>
 </div>
 
 

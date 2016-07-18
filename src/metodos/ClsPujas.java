@@ -446,7 +446,7 @@ public void Hacer_Principal(String id){
 //********************************************************************************************************
 	public String Id_Puja_Momento(){
 	ClsConexion con=new ClsConexion();
-	String id="";
+	String id=null;
 	ResultSet rs=null;
 	String sql="Select id_prod_pj from tb_pujas where principal='true';";
 	System.out.println(sql);
@@ -694,6 +694,33 @@ public void Actualizar_Valor_Anterior(String id){
 	} catch (SQLException e) {
 	// TODO Auto-generated catch block
 	}
+	}
+
+//********************************************************************************************************
+	public int Controlar_Puja(){
+	
+	ClsConexion con=new ClsConexion();
+	int id=0;
+	ResultSet rs=null;
+	String sql="select count(*) from tb_pujas where estado =1;";
+	System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	id=rs.getInt(1);
+	}
+	//rs.close();
+	}catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
+	return id;
 	}
 }//fin de TODA LA LASE
 
