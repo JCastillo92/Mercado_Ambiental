@@ -96,10 +96,11 @@ out.print(menu);
 		</h1></center>
 		
 		<br><br>
+		<div style="height: 415px; overflow-y: scroll;">
 		<%
 		out.print(listame_trueques);
 		%>
-	
+		</div>
 	</div> <!-- FIN COLO MD 3 -->
 	
 	<div class="col-md-9">
@@ -115,7 +116,6 @@ out.print(menu);
 			<div class="col-md-5">
 				
 				<center><h1><span class="label label-success"> DESCRIPCIÓN </span></h1></center>
-				<br><br>
 				<br><pre><%=obj2.getDescripcion_t()%></pre>
 			
 			</div>
