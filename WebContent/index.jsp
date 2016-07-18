@@ -186,10 +186,10 @@ out.print(x1.top_5_user_index());
 
 <h1>
 
-<span class="label label-info" id="daysBox"></span> D&iacute;as 
-<span class="label label-info" id="hoursBox"> </span> Horas
-<span class="label label-info" id="minsBox">  </span>min.
-<span class="label label-info" id="secsBox"></span> seg.
+<span class="label label-info" id="daysBox"></span> <span class="badge">D&iacute;as</span> 
+<span class="label label-info" id="hoursBox"> </span> <span class="badge">Horas</span>
+<span class="label label-info" id="minsBox">  </span><span class="badge">min.</span>
+<span class="label label-info" id="secsBox"></span> <span class="badge"> seg.</span>
 
 <script>cdtd();</script>
 

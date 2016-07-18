@@ -16,7 +16,7 @@ public class ClsPujas {
 	String pujas="<div class=list-group>";
 	ResultSet rs=null;
 	String sql="Select id_prod_pj, titulo from tb_pujas where estado=1;";
-	System.out.println(sql);
+	//System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
 	while(rs.next()){
@@ -327,9 +327,12 @@ public void Hacer_Principal(String id){
 //********************************************************************************************************
 public void Actualizar_Comprador_Valor(String id_comprador, int valor, int id){
 	String sql="update tb_pujas set valor_minimo="+valor+", comprador="+id_comprador+"  where id_prod_pj="+id+";";
-	System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
+	//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
+	
 	try {
 	con.Ejecutar(sql);
+	Cls_mailing mailto=new Cls_mailing();
+	mailto.deliver(8, id_comprador);
 	}catch (Exception e) {
 	e.printStackTrace();
 	}
