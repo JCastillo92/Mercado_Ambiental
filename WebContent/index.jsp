@@ -172,6 +172,26 @@ out.print(x1.top_5_user_index());
 
 <div class="col-md-6">
 
+
+<%int control = puja.Controlar_Puja();
+
+if(id == null){
+control = 0;
+}
+
+if(control == 0){
+%>
+<center>
+<h1>
+<span class="label label-success"> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> LO SENTIMOS NO HAY PUJAS DISPONIBLES</span> 
+</span>
+</h1>
+</center>
+<% 	
+}
+else{
+%>
 <center>
 <h1>
 <span class="label label-success"> 
@@ -260,7 +280,7 @@ out.print(x1.top_5_user_index());
 
 </button></a></center>
 
-
+<%} %>
 
 </div>
 

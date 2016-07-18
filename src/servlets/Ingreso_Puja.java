@@ -120,7 +120,7 @@ public class Ingreso_Puja extends HttpServlet {
 		response.sendRedirect("Crear_Puja.jsp?dato=Datos Ingresados Correctamente");
 		}
 		else{
-		response.sendRedirect("Crear_Puja.jsp?dato=Las imágenes deben ser únicamente en formato jpg");
+		response.sendRedirect("Crear_Puja.jsp?dato=Las fotos deben ser solo en formato jpg");
 		System.out.println("BORRAR DATOS");
 		puja.Eliminar_Tiempo(id);
 		puja.Eiminar_Puja(id);

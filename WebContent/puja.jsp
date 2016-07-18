@@ -115,6 +115,23 @@ out.print(menu);
 <!--Encabezado**************************************************************************************-->
 
 <div class="row">
+
+<%int control = puja.Controlar_Puja();
+
+if(control == 0){
+%>
+<center>
+<h1>
+<span class="label label-success"> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> LO SENTIMOS NO HAY PUJAS DISPONIBLES</span> 
+</span>
+</h1>
+</center>
+<% 	
+}
+else{
+%>
+
 <div class="col-md-3">
 
 <center>
@@ -137,7 +154,19 @@ out.print(puja.Ver_Pujas());
 
 <div class="col-md-6">
 
-
+<%
+if(id==null){
+%>
+<center>
+<h1>
+<span class="label label-success"> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> SELECCIONE UNA PUJA</span> 
+</span>
+</h1>
+</center>
+<%
+}else{
+%>
 <center>
 <h1>
 <span class="label label-success"> 
@@ -216,6 +245,7 @@ out.print(puja.Ver_Pujas());
     
     <center><h5><font color="white"><%out.print(puja.Descripcion(id));%></font></h5></center>
 
+<%} %>
 </div>
 
 
@@ -276,6 +306,7 @@ out.print(puja.Ver_Pujas());
 
 </div>
 
+<%} %>
 </div> 
 
 <br>
