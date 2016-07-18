@@ -38,13 +38,45 @@ public class Cls_Trueque {
 		try {
 			obj.Ejecutar(sql);
 			t=true;
-			t=ingresar_venta_en_tb_historico(titulo_producto_trueque,cedula_comprador_prod_trueque);
+			ingresar_venta_en_tb_historico(titulo_producto_trueque,cedula_comprador_prod_trueque);
+			eliminar_el_trueque_y_la_foto(titulo_producto_trueque,cedula_comprador_prod_trueque);
 			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
 		}
 		return t;
+	}//fin de confirmacion de venta del truque
+	private void eliminar_el_trueque_y_la_foto(String titulo_producto_trueque,String cedula_comprador_prod_trueque){
+		ClsConexion con = new datos.ClsConexion();
+		int id_producto=0;
+		ResultSet rs=null;
+		String sentecnia1="select id_producto_tr from tb_trueque where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"' and estado=3;";
+		try {
+			rs=con.Consulta(sentecnia1);
+			while(rs.next()){
+				id_producto=rs.getInt(1);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		//sql delete from tb_trueque where titulo='hp envy dv4' and comprador='1719130476' and estado=3;
+		String sentencia2="delete from tb_imagenes where id_producto_fk="+id_producto+";";
+		String sentencia3="delete from tb_trueque where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"' and estado=3;";
+		
+		try {
+			con.Ejecutar(sentencia2);
+			con.Ejecutar(sentencia3);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		try {
+			con.getConexion().close();
+			rs.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	public boolean venta_no_completada_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//regreso al producto al estado uno y elimino la cedula de quien lo queria comprar
@@ -143,12 +175,16 @@ public class Cls_Trueque {
 				t=false;
 				e.printStackTrace();
 			}
-			rs.close();
-			con.getConexion().close();
 			}catch(Exception e){
 				t=false;
 			System.out.print(e.getMessage());	
 			}
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return t;
 	}
 }

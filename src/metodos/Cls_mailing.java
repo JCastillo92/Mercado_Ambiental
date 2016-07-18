@@ -10,7 +10,8 @@ public class Cls_mailing {
 		String GetRecipientDestination=null,GetRecipientNick=null,LibraryPredeterminated=null;
 		String username = "clubecologicoups@gmail.com";
 	    String password = "est.ups.edu.ec";
-		ClsConexion con=new ClsConexion();ResultSet resultSet=null;
+		ClsConexion con=new ClsConexion();
+		ResultSet resultSet=null;
 		try{
 			resultSet=con.Consulta(ValueToFind);
 			while(resultSet.next()){
@@ -73,6 +74,13 @@ public class Cls_mailing {
 					+ "más adecuada. \nCuaquier duda nos puedes contactar via Facebook, de forma presencial en la U.P.S. campus Sur.\n"
 					+ "Hasta pronto.";
 			break;
+		case 8://user push on PUJA
+			LibraryPredeterminated="\nHola, "+GetRecipientNick+".\n TRUEQUE ECOLÓGICO te saluda.\n Queremos informarte "
+					+ "que hemos registrado los datos de tu subasta, recuerda que existe un tiempo limite para "
+					+ "cada subasta. Gracias por aumentar la cantidad.\n "
+					+ "Una vez terminada la subasta te llamarémos en caso de que seas el ganador.\n "
+					+ "Hasta pronto.";
+			break;
 		default:
 			
 			break;
@@ -106,6 +114,12 @@ public class Cls_mailing {
 	       } catch (MessagingException e) {
 	    	   System.out.println(e.getMessage());
 	       }
+	    try {
+	    	resultSet.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}//fin clase DELIVER
 	////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public void auto_mail_to_CEUPS(int CodOperation){
