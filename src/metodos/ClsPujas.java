@@ -126,7 +126,7 @@ public class ClsPujas {
 	+ "<option> </option>";
 	ResultSet rs=null;
 	
-	String sql="Select descripcion from tb_monedas;";
+	String sql="Select descripcion from tb_monedas order by descripcion asc;";
 	//System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
@@ -153,18 +153,19 @@ public class ClsPujas {
 	String moneda="<select class=form-control name=categorias>"
 	+ "<option> </option>";
 	ResultSet rs=null;
-	String sql="Select descripcion from tb_categorias;";
+	String sql="Select descripcion from tb_categorias order by descripcion asc;";
 	//System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
 	while(rs.next()){
 	moneda+="<option>"+rs.getString(1)+"</option>";
 	}
+	moneda+="</select required>";
 	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
-	moneda+="</select required>";
+	
 	
 	try {
 	rs.close();
