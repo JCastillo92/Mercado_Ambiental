@@ -54,7 +54,13 @@ out.print(menu);
 <br>
 <div class="row">
 <div class="col-md-3">
-<!-- no poner nada aqui -->
+<script>
+var myVar = setInterval(myTimer, 1000);
+function myTimer() {
+    var d = new Date();
+    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+}
+</script>
 </div>
 <div class="col-md-6" >
 
@@ -79,13 +85,6 @@ Av. Rumichaca y Morán Valverde s/n., Quito">DIRECCI&Oacute;N</A>
 </div> 
 <div class="col-md-3">
 <h3><span class="label label-info" id="demo"></span></h3>
-<script>
-var myVar = setInterval(myTimer, 1000);
-function myTimer() {
-    var d = new Date();
-    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-}
-</script>
 </div>
 </div>
 
