@@ -193,7 +193,8 @@ public class Cls_Trueque {
 				+ "from tb_historico,tb_monedas,tb_categorias,tb_usuarios "
 				+ "where tb_historico.fk_moneda=tb_monedas.id_moneda "
 				+ "and tb_historico.fk_categoria=tb_categorias.id_cat "
-				+ "and tb_historico.fk_id_usuario=tb_usuarios.id_usuario "
+				+ "and tb_historico.fk_id_usuario=tb_usuarios.id_usuario"
+				+ "and tb_historico.tipo=1 "
 				+ "order by tb_historico.fecha;";
 		ClsConexion con = new ClsConexion();
 		ResultSet rs=null;
@@ -203,7 +204,7 @@ public class Cls_Trueque {
 			rs=con.Consulta(sql);
 			while(rs.next()){
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getInt(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td>"
-						+ "<td><span class=\"badge\">Trueque / Puja</span></tr>";
+						+ "<td><span class=\"badge\">Trueque</span></tr>";
 			}
 			acum_jsp+="</tbody></table>";
 			}catch(Exception e){
@@ -219,6 +220,37 @@ public class Cls_Trueque {
 		return acum_jsp;
 	}//fin saber_id_nuevo_producto_trueque
 	
+	public String lista_trueques_vendidos_puja(){
+		String sql="select tb_historico.descripcion,tb_historico.cantidad,tb_monedas.descripcion,tb_categorias.descripcion,tb_historico.fecha,tb_usuarios.nombre "
+				+ "from tb_historico,tb_monedas,tb_categorias,tb_usuarios "
+				+ "where tb_historico.fk_moneda=tb_monedas.id_moneda "
+				+ "and tb_historico.fk_categoria=tb_categorias.id_cat "
+				+ "and tb_historico.fk_id_usuario=tb_usuarios.id_usuario"
+				+ "and tb_historico.tipo=2 "
+				+ "order by tb_historico.fecha;";
+		ClsConexion con = new ClsConexion();
+		ResultSet rs=null;
+		String acum_jsp="<table class=\"table table-striped\"> ";
+		acum_jsp+=" <thead><tr><th>PRODUCTO</th><th>Cant.</th><th>MONEDA</th><th>CATEGOR&Iacute;A</th><th>FECHA</th><th>COMPRADOR</th></tr></thead><tbody>";
+		try{
+			rs=con.Consulta(sql);
+			while(rs.next()){
+				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getInt(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td>"
+						+ "<td><span class=\"badge\">Puja</span></tr>";
+			}
+			acum_jsp+="</tbody></table>";
+			}catch(Exception e){
+			System.out.print(e.getMessage());	
+			}
+		
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return acum_jsp;
+	}//fin saber_id_nuevo_producto_puja
 	private boolean ingresar_venta_en_tb_historico(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//sql select * from tb_trueque where comprador ='1719130476' and titulo='hp envy dv4';
 		//sql2 insert into tb_historico (id_producto,descripcion,tipo,cantidad,fk_moneda,fk_categoria,fecha,fk_id_usuario) values (id_prducto,'titulo',1xdefault,cantidad,moneda,fk_categoria,'2016-07-16','1719130476');

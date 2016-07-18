@@ -39,6 +39,20 @@ out.print(print_user_data);
 %>
 
 <!-- -------------------------------------------------------------------------------------- -->
+<br>
+<center><br>
+<h3><span class="label label-default">HIST&Oacute;RICO DE PUJAS.</span></h3>
+<br></center>
+<!-- ----------------------------------------------------------------------------------------------- -->
+<%
+String print_user_data2;
+print_user_data2=obj.lista_trueques_vendidos_puja();
+out.print(print_user_data);
+%>
+
+<!-- -------------------------------------------------------------------------------------- -->
+
+
 </div><!-- FIN CONTAINER-->
 </div>  <!-- FIN CONTAINER  FLUID-->
 </div> <!-- FIN WRAP  -->
