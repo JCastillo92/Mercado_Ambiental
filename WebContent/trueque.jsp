@@ -26,14 +26,27 @@ try{
 	
 }
 
+//VALIDANDO SI NO HAY TRUEQUES
+String id="0",lugardelaimagen;
+int trueques_num;
+trueques_num=obj.conteo_trueques();
+if(trueques_num == 0){
+	response.sendRedirect("index.jsp?error=No hay trueques disponibles");
+}else{
+	//INTENTARA OBTENER EL ID DE LA URL
+	try{
+		id = request.getParameter("id");
+	}catch(Exception e){
+
+	}//si no hay id en la url, entonces buscar un id en la base
+	if(id==null){
+		id = obj2.id_untrueque();
+	}
+		
+}
+
 //SACAR DATOS DE LAS IMAGENES
 //LA 1RA IMAGEN SALDRA COMO PRINCIPAL POR DEFECTO
-String id="0",lugardelaimagen;
-try{
-	id = request.getParameter("id");
-}catch(Exception e){
-
-}	
 try{
 	obj2.detalles_trueque_especifico(id);
 }catch(Exception e){

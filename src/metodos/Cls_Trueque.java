@@ -382,4 +382,27 @@ public class Cls_Trueque {
 		}
 		return t;
 	}
+	
+	public String id_untrueque(){
+		String miid="";
+		ClsConexion con=new ClsConexion();
+		ResultSet rs=null;
+		String sql="select id_producto_tr from tb_trueque where estado = 1 order by id_producto_tr DESC limit 1 ";
+		try{
+			rs=con.Consulta(sql);
+			while(rs.next()){
+				miid = rs.getString(1);
+			}
+		
+		}catch(Exception e){
+		}
+		
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return miid;
+	}
 }
