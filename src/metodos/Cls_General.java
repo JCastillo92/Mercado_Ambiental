@@ -56,7 +56,10 @@ public class Cls_General {
 	                    +"<span class=\"icon-bar\"></span>"
 	                +"</button></div>";
 		menu +="<div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">"+
-	                "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"index.jsp\"><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span></a></li>";
+	                "<ul class=\"nav navbar-nav navbar-right\"><li><a href=\"index.jsp\"><span class=\"glyphicon glyphicon-home\" aria-hidden=\"true\"></span><span>Home</span></a></li>"+
+				"<li><a href=\"QuienesSomos.jsp\"><span class=\"glyphicon glyphicon-screenshot\" aria-hidden=\"true\"></span><span> Nosotros</span></a></li>"+
+	                "<li><a href=\"Contactos.jsp\"><span class=\"glyphicon glyphicon-phone\"aria-hidden=\"true\"></span><span> Contactos</span>"+ 
+"</a></li>";
 		
 		
 		if(perfil != 0){
