@@ -137,6 +137,24 @@ public class Cls_Trueque {
 		}
 	}
 	
+	public void borrar_imagen_y_dato_en_caso_de_error_trueque(int saber_id_ingreso_trueque){
+		ClsConexion con=new ClsConexion();
+		String sql="delete from tb_imagenes where id_producto_fk="+saber_id_ingreso_trueque+";";
+		String sql2="delete from tb_trueque where id_producto_tr="+saber_id_ingreso_trueque+";";
+		try {
+			con.Ejecutar(sql);
+			con.Ejecutar(sql2);
+		} catch (Exception e) {
+			e.getMessage();
+		}
+		//nuevo codigo cerrar sesion
+		try {
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	}
 	public boolean venta_no_completada_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//regreso al producto al estado uno y elimino la cedula de quien lo queria comprar
 		//update tb_trueque set estado=1, comprador=null where titulo='NOKIA LUMIA 820' and comprador='1704475084';

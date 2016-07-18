@@ -52,8 +52,8 @@ ClsAdmin trueque = new ClsAdmin();
 ///////////////////////I M A G E N S ////////////////////////////
 	String pathimg1,pathimg2,pathimg3,pathimg4;
 	int saber_id_ingreso_trueque=0;
-	Cls_Trueque ver_id=new Cls_Trueque();
-	saber_id_ingreso_trueque=ver_id.saber_id_nuevo_producto_trueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado);
+	Cls_Trueque objeto=new Cls_Trueque();
+	saber_id_ingreso_trueque=objeto.saber_id_nuevo_producto_trueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado);
 	
 	pathimg1 = request.getParameter("path_imagen1");
 	System.out.println(pathimg1);
@@ -79,6 +79,7 @@ ClsAdmin trueque = new ClsAdmin();
 		//aqui elimino las imagenes de la base en caso de que exista un
 		//error de ingreso en alguna de las 4 imagenes
 		//entonces vuelve a quedar en "cero" la base
+		objeto.borrar_imagen_y_dato_en_caso_de_error_trueque(saber_id_ingreso_trueque);
 		//aqui debo eliminar lo que ingresa el Bryan
 		response.sendRedirect("A_subir_trueque.jsp?msg=false");
 	}//fin else jairo
