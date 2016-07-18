@@ -1,16 +1,17 @@
 package metodos;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import datos.ClsConexion;
 
 public class ClsTiempo {
 
-	ClsConexion con=new ClsConexion();
+	
 
 //***************************************************************************************
 	public String Dia(String id){
-	
+	ClsConexion con=new ClsConexion();
 	String dato="";
 	
 	ResultSet rs=null;
@@ -28,12 +29,18 @@ public class ClsTiempo {
 	System.out.print(e.getMessage());	
 	}
 	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	//System.out.println("-------------------1--------------"+dato);
 	return dato;
 	}
 //***************************************************************************************
 	public String Mes(String id){
-		
+	ClsConexion con=new ClsConexion();
 	String dato="";
 	
 	ResultSet rs=null;
@@ -51,14 +58,20 @@ public class ClsTiempo {
 	catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
-	System.out.println("-------------------2--------------"+dato);
+	//System.out.println("-------------------2--------------"+dato);
 	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	return dato;
 	}
 	
 //***************************************************************************************
 	public String año(String id){
-		
+	ClsConexion con=new ClsConexion();
 	String dato="";
 	
 	ResultSet rs=null;
@@ -75,13 +88,20 @@ public class ClsTiempo {
 	catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	//System.out.println("-------------------3--------------"+dato);
 	return dato;
 	}
 	
 //***************************************************************************************
 	public String hora(String id){
-		
+	ClsConexion con=new ClsConexion();
 	String dato="";
 	
 	ResultSet rs=null;
@@ -98,12 +118,19 @@ public class ClsTiempo {
 	catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	//System.out.println("-------------------4--------------"+dato);
 	return dato;
 }
 //***************************************************************************************
 	public String minutos(String id){
-		
+	ClsConexion con=new ClsConexion();
 	String dato="";
 	
 	ResultSet rs=null;
@@ -120,12 +147,19 @@ public class ClsTiempo {
 	catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	//System.out.println("-------------------5--------------"+dato);
 	return dato;
 }
 //***************************************************************************************
 	public String mn(String id){
-		
+	ClsConexion con=new ClsConexion();
 	String dato="";
 	
 	ResultSet rs=null;
@@ -141,6 +175,13 @@ public class ClsTiempo {
 	}
 	catch(Exception e){
 	System.out.print(e.getMessage());	
+	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
 	}
 	//System.out.println("-------------------6--------------"+dato);
 	return dato;

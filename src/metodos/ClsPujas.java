@@ -1,6 +1,7 @@
 package metodos;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -10,9 +11,11 @@ import datos.ClsConexion;
 
 public class ClsPujas {
 
-	ClsConexion con=new ClsConexion();
+	
 	
 	public String Ver_Pujas(){
+		
+	ClsConexion con=new ClsConexion();
 	String pujas="<div class=list-group>";
 	ResultSet rs=null;
 	String sql="Select id_prod_pj, titulo from tb_pujas where estado=1;";
@@ -25,7 +28,7 @@ public class ClsPujas {
 			+ "</span></span>";
 	pujas+=rs.getString(2)+"</a></h3>";
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
@@ -34,6 +37,8 @@ public class ClsPujas {
 	}
 	
 	public String Descripcion(String id){
+	
+	ClsConexion con=new ClsConexion();
 	String descripcion="";
 	ResultSet rs=null;
 	String sql="Select descripcion from tb_pujas where id_prod_pj="+id+";";
@@ -42,15 +47,26 @@ public class ClsPujas {
 	while(rs.next()){
 	descripcion=rs.getString(1);
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
+	
+	
 	return descripcion;
 	}
 	
 	
 	public String Moneda(String id){
+	
+	ClsConexion con=new ClsConexion();
 	String descripcion="";
 	ResultSet rs=null;
 	String sql="Select tb_monedas.descripcion from tb_pujas, tb_monedas where moneda=id_moneda and "
@@ -61,14 +77,24 @@ public class ClsPujas {
 	while(rs.next()){
 	descripcion=rs.getString(1);
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
+	}
+	
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
 	}
 	return descripcion;
 	}
 	
 	public String Valor(String id){
+	
+	ClsConexion con=new ClsConexion();	
 	String descripcion="";
 	ResultSet rs=null;
 	String sql="Select valor_minimo from tb_pujas where id_prod_pj="+id+";";
@@ -78,16 +104,24 @@ public class ClsPujas {
 	while(rs.next()){
 	descripcion=rs.getString(1);
 	}
-	rs.close();
+	//rs.close();
 	}
 	catch(Exception e){
 	System.out.print(e.getMessage());	
+	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
 	}
 	return descripcion;
 	}
 //********************************************************************************************************
 
 	public String Moneda(){
+	ClsConexion con=new ClsConexion();
 	String moneda="<select class=form-control name=moneda>"
 	+ "<option> </option>";
 	ResultSet rs=null;
@@ -99,15 +133,23 @@ public class ClsPujas {
 	while(rs.next()){
 	moneda+="<option>"+rs.getString(1)+"</option>";
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
 	moneda+="</select required>";
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
+	
 	return moneda;
 	}
 //********************************************************************************************************
 	public String cmbCategorias(){
+	ClsConexion con=new ClsConexion();
 	String moneda="<select class=form-control name=categorias>"
 	+ "<option> </option>";
 	ResultSet rs=null;
@@ -118,15 +160,24 @@ public class ClsPujas {
 	while(rs.next()){
 	moneda+="<option>"+rs.getString(1)+"</option>";
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
 	moneda+="</select required>";
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	return moneda;
 	}
+//********************************************************************************************************
 	
 	public int Moneda_id(String moneda){
+	ClsConexion con=new ClsConexion();
 	int id=0;
 	ResultSet rs=null;
 	String sql="Select id_moneda from tb_monedas where descripcion="+"'"+moneda+"';";
@@ -136,14 +187,23 @@ public class ClsPujas {
 	while(rs.next()){
 	id=rs.getInt(1);
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
+	
 	return id;
 	}
 //********************************************************************************************************
 public int Categoria_id(String categoria){
+	ClsConexion con=new ClsConexion();
 	int id=0;
 	ResultSet rs=null;
 	String sql="Select id_cat from tb_categorias where descripcion="+"'"+categoria+"';";
@@ -153,15 +213,24 @@ public int Categoria_id(String categoria){
 	while(rs.next()){
 	id=rs.getInt(1);
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
+	
 	return id;
 	}
 		
 //********************************************************************************************************
 	public void Ingresar_Puja(String nombre, String descripcion, int cantidad, int moneda, double val, int categorias){
+	ClsConexion con=new ClsConexion();
 	String sql="INSERT INTO tb_pujas (titulo,descripcion,cantidad,moneda,valor_minimo,fk_categoria,principal, estado) values ('"+nombre+"','"+descripcion+"',"+cantidad+","+moneda+","+val+","+categorias+",'false',"+1+");";
 	System.out.println("****************"+sql);
 	try {
@@ -169,9 +238,17 @@ public int Categoria_id(String categoria){
 	}catch (Exception e) {
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
+
 	}
 //********************************************************************************************************
 	public void Eiminar_Puja(int id){
+	ClsConexion con=new ClsConexion();
 	String sql="delete from tb_pujas where id_prod_pj="+id+";";
 	System.out.println("****************"+sql);
 	try {
@@ -179,10 +256,17 @@ public int Categoria_id(String categoria){
 	}catch (Exception e) {
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 	
 //********************************************************************************************************
 	public void Eiminar_Imagen_Puja(int id){
+	ClsConexion con=new ClsConexion();
 	String sql="delete from tb_imagenes where id_producto_fk="+id+" "
 			+ "and tipo=2;";
 	try {
@@ -190,9 +274,16 @@ public int Categoria_id(String categoria){
 	} catch (Exception e) {
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 //********************************************************************************************************
 	public int Obtener_ID (String nombre, String descripcion, int cantidad, int moneda, double val, int categorias){
+	ClsConexion con=new ClsConexion();
 	int id =0;
 	ResultSet rs=null;
 	String sql="Select id_prod_pj from tb_pujas where "
@@ -208,9 +299,16 @@ public int Categoria_id(String categoria){
 	while(rs.next()){
 	id=rs.getInt(1);
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
+	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
 	}
 	return id;
 	}
@@ -218,6 +316,9 @@ public int Categoria_id(String categoria){
 //********************************************************************************************************
 	
 	public String Todas_Pujas(int estado){
+		
+		ClsConexion con=new ClsConexion();
+		
 		String pujas="<table class=table table-condensed>";
 		pujas+="<tr style=color:#456789;font-size:150%;>";
 		pujas+="<th> SELECIONAR NUEVA PUJA </th>";
@@ -240,16 +341,24 @@ public int Categoria_id(String categoria){
 		pujas+="<td>"+rs.getString(5)+"</td>";
 		pujas+="</tr>";
 		}
-		rs.close();
+		//rs.close();
 		}catch(Exception e){
 		System.out.print(e.getMessage());	
 		}
 		pujas+="</table>";
+		
+		try {
+		rs.close();
+		con.getConexion().close();
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		}
 		return pujas;
 	}
 	
 //********************************************************************************************************
 public int Puja_Pricipal(){
+		ClsConexion con=new ClsConexion();
 		int id=0;
 		ResultSet rs=null;
 		String sql="Select id_prod_pj from tb_pujas where principal='TRUE';";
@@ -259,15 +368,23 @@ public int Puja_Pricipal(){
 		while(rs.next()){
 		id=rs.getInt(1);
 		}
-		rs.close();
+		//rs.close();
 		}catch(Exception e){
 		System.out.print(e.getMessage());	
+		}
+		
+		try {
+		rs.close();
+		con.getConexion().close();
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
 		}
 		return id;
 		}
 
 //********************************************************************************************************
 public void Hacer_Principal(String id){
+	ClsConexion con=new ClsConexion();
 	String sql="update tb_pujas set principal='FALSE' where principal='TRUE';";
 	try {
 	con.Ejecutar(sql);
@@ -280,10 +397,16 @@ public void Hacer_Principal(String id){
 	} catch (Exception e) {
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 }
 //********************************************************************************************************
 	public void Ingresar_Tiempo(int id, String dia, String mes, String año, String hora, String minutos){
-	
+	ClsConexion con=new ClsConexion();
 	System.out.println("*********************************>>>>>>>>>>>>>>>"+año);
 	String sql="INSERT INTO tb_tiempo (id_puja,dia,mes,año,hora,minutos) values ("+id+",'"+dia+"','"+mes+"','"+año+"','"+hora+"','"+minutos+"');";
 	System.out.println(":::::::::::::::::::::::::::::::"+sql);
@@ -293,9 +416,16 @@ public void Hacer_Principal(String id){
 	// TODO: handle exception
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 //********************************************************************************************************
 	public void Eliminar_Tiempo(int id){
+	ClsConexion con=new ClsConexion();
 	String sql="delete from tb_tiempo where id_puja="+id;
 	System.out.println("****************"+sql);
 	try {
@@ -304,10 +434,17 @@ public void Hacer_Principal(String id){
 	// TODO: handle exception
 	e.printStackTrace();
 	}
+	
+	try {	
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 	
 //********************************************************************************************************
 	public String Id_Puja_Momento(){
+	ClsConexion con=new ClsConexion();
 	String id="";
 	ResultSet rs=null;
 	String sql="Select id_prod_pj from tb_pujas where principal='true';";
@@ -318,14 +455,22 @@ public void Hacer_Principal(String id){
 	id=rs.getString(1);
 	System.out.println("???????????????????????"+id);
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
+	}
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
 	}
 	return id;
 	}
 //********************************************************************************************************
 public void Actualizar_Comprador_Valor(String id_comprador, int valor, int id){
+	ClsConexion con=new ClsConexion();
 	String sql="update tb_pujas set valor_minimo="+valor+", comprador="+id_comprador+"  where id_prod_pj="+id+";";
 	//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
 	
@@ -336,9 +481,16 @@ public void Actualizar_Comprador_Valor(String id_comprador, int valor, int id){
 	}catch (Exception e) {
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 //********************************************************************************************************
 public void Actualizar_Estado(String id){
+	ClsConexion con=new ClsConexion();
 	String sql="update tb_pujas set estado=2 where id_prod_pj="+id+";";
 	System.out.println("****************"+sql);
 	try {
@@ -346,10 +498,18 @@ public void Actualizar_Estado(String id){
 	}catch (Exception e) {
 	e.printStackTrace();
 	}
+	
+	try {
+		
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 //********************************************************************************************************
 
 public String Pujas_Terminadas(int estado){
+	ClsConexion con=new ClsConexion();
 	String pujas="<table class=table table-condensed>";
 	pujas+="<tr style=color:#456789;font-size:150%;>";
 	pujas+="<th> ELIMINAR </th>";
@@ -376,16 +536,24 @@ public String Pujas_Terminadas(int estado){
 	pujas+="<td>"+rs.getString(7)+"</td>";
 	pujas+="</tr>";
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
 	pujas+="</table>";
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	return pujas;
 }
 
 //********************************************************************************************************
 public void Pujas_Historico(String id){
+		ClsConexion con=new ClsConexion();
 		
 		String titulo, descripcion, comprador;
 		int cantidad, moneda, valor, categoria; 
@@ -411,15 +579,22 @@ public void Pujas_Historico(String id){
 		
 		
 		}
-		rs.close();
+		//rs.close();
 		}catch(Exception e){
 		System.out.print(e.getMessage());	
+		}
+		
+		try {
+		rs.close();
+		con.getConexion().close();
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
 		}
 
 		}
 //********************************************************************************************************
 	public void Ingresar_Historia(int id_producto, String descripcion, int cantidad, int fk_moneda, int fk_categoria, int valor_minimo, String fk_id_usuario ){
-	
+	ClsConexion con=new ClsConexion();
 	Date date = new Date();
      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		
@@ -431,9 +606,17 @@ public void Pujas_Historico(String id){
 	// TODO: handle exception
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 //********************************************************************************************************
 public void Actualizar_Valor_Actual(String id, String valor){
+	
+	ClsConexion con=new ClsConexion();
 	String sql="update tb_pujas set anterior="+valor+" where id_prod_pj="+id+";";
 	//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
 	try {
@@ -441,9 +624,16 @@ public void Actualizar_Valor_Actual(String id, String valor){
 	}catch (Exception e) {
 	e.printStackTrace();
 	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	}
 //********************************************************************************************************
 public String Pujas_Valor_Anterior(int estado){
+	ClsConexion con=new ClsConexion();
 	String pujas="<table class=table table-condensed>";
 	pujas+="<tr style=color:#456789;font-size:150%;>";
 	pujas+="<th> VALOR ANTERIOR </th>";
@@ -472,22 +662,36 @@ public String Pujas_Valor_Anterior(int estado){
 	pujas+="<td>"+rs.getString(8)+"</td>";
 	pujas+="</tr>";
 	}
-	rs.close();
+	//rs.close();
 	}catch(Exception e){
 	System.out.print(e.getMessage());	
 	}
 	pujas+="</table>";
+	
+	try {
+	rs.close();
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	}
 	return pujas;
 }
 
 //********************************************************************************************************
 public void Actualizar_Valor_Anterior(String id){
+	ClsConexion con=new ClsConexion();
 	String sql="update tb_pujas set valor_minimo=anterior where id_prod_pj="+id+";";
 	//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
 	try {
 	con.Ejecutar(sql);
 	}catch (Exception e) {
 	e.printStackTrace();
+	}
+	
+	try {
+	con.getConexion().close();
+	} catch (SQLException e) {
+	// TODO Auto-generated catch block
 	}
 	}
 }//fin de TODA LA LASE
