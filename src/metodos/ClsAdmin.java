@@ -63,7 +63,7 @@ public boolean elimina_moneda(int id){
 		ClsConexion con=new ClsConexion();
 		ResultSet rs=null;
 		String acum_jsp="<table class=\"table table-striped\"> ";
-		acum_jsp+=" <thead><tr><th>NOMBRE</th><th>APELLIDO</th><th>CORREO</th><th>DIRECCION</th><th>CELULAR</th></tr></thead><tbody>";
+		acum_jsp+=" <thead><tr><th>NOMBRE</th><th>APELLIDO</th><th>CORREO</th><th>DIRECCI&Oacute;N</th><th>CELULAR</th></tr></thead><tbody>";
 		try{
 			rs=con.Consulta(sql);
 			while(rs.next()){
