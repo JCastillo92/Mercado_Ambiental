@@ -112,8 +112,9 @@ public class Cls_mailing {
 	        transport.connect("smtp.gmail.com", username, password);
 	        transport.sendMessage(message, message.getAllRecipients());
 	       } catch (MessagingException e) {
-	    	   System.out.println(e.getMessage());
+	    	  e.getMessage();
 	       }
+	    
 	    try {
 	    	resultSet.close();
 			con.getConexion().close();
@@ -133,12 +134,10 @@ public class Cls_mailing {
 					+ "de que un usuario está interesado en un artículo\n "
 					+ "para el TRUEQUE, ingresa a la plataforma a revisar las novedades.";
 			break;
-		
 		default:
 			
 			break;
 		}//fin switch
-		
 	    try {
 	        Properties props = System.getProperties();
 	        props.setProperty("mail.transport.protocol", "smtp");
@@ -165,7 +164,7 @@ public class Cls_mailing {
 	        transport.connect("smtp.gmail.com", username, password);
 	        transport.sendMessage(message, message.getAllRecipients());
 	       } catch (MessagingException e) {
-	    	   System.out.println(e.getMessage());
+	    	   e.getMessage();
 	       }
 	}//fin clase DELIVER
 }//FIN TODO

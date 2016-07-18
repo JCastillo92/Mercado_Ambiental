@@ -22,28 +22,36 @@ public class Cls_Trueque {
 						+ "<td><a class=\"btn btn-warning\" href=\"Sr_T_vuelve_venta?dato2="+rs.getString(8)+"&dato2B="+rs.getString(1)+"\" role=\"button\">No se ha vendido</a></td></tr>";
 			}
 			acum_jsp+="</tbody></table>";
-			rs.close();
-			con.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return acum_jsp;
 	}//fin lista add remove usuarios
 	public boolean confirma_venta_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//aqui debo pasar de estado 2 a 3
 		//update tb_trueque set estado=3 where titulo='' and comprador='' and descripcion='';
 		boolean t=false;
-		ClsConexion obj=new ClsConexion();
+		ClsConexion con=new ClsConexion();
 		String sql="update tb_trueque set estado=3 where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"';";
 		try {
-			obj.Ejecutar(sql);
+			con.Ejecutar(sql);
 			t=true;
 			ingresar_venta_en_tb_historico(titulo_producto_trueque,cedula_comprador_prod_trueque);
 			eliminar_el_trueque_y_la_foto(titulo_producto_trueque,cedula_comprador_prod_trueque);
-			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
+		}
+		try {
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return t;
 	}//fin de confirmacion de venta del truque
@@ -71,9 +79,10 @@ public class Cls_Trueque {
 		} catch (Exception e) {
 			e.getMessage();
 		}
+		//nuevo codigo cerrar sesion
 		try {
-			con.getConexion().close();
 			rs.close();
+			con.getConexion().close();
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
@@ -82,18 +91,22 @@ public class Cls_Trueque {
 		//regreso al producto al estado uno y elimino la cedula de quien lo queria comprar
 		//update tb_trueque set estado=1, comprador=null where titulo='NOKIA LUMIA 820' and comprador='1704475084';
 		boolean t=false;
-		ClsConexion obj=new ClsConexion();
+		ClsConexion con=new ClsConexion();
 		Cls_mailing mailto= new Cls_mailing();
 		String sql="update tb_trueque set estado=1, comprador=null where titulo='"+titulo_producto_trueque+"' and comprador='"+cedula_comprador_prod_trueque+"';";
 		try {
-			obj.Ejecutar(sql);
+			con.Ejecutar(sql);
 			//case 5 enviar un mensaje de que el interesado NO quiere concluir la venta
 			mailto.deliver(5,cedula_comprador_prod_trueque);
 			t=true;
-			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
+		}
+		try {
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return t;
 	}//fin venta_no_completada_trueque
@@ -114,7 +127,13 @@ public class Cls_Trueque {
 			System.out.println(e.getMessage());
 		}
 		a=toma;
-
+		//nuevo codigo cerrar sesion
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return a;
 	}
 	public String lista_trueques_vendidos_historial(){
@@ -135,11 +154,16 @@ public class Cls_Trueque {
 						+ "<td><span class=\"badge\">Trueque / Puja</span></tr>";
 			}
 			acum_jsp+="</tbody></table>";
-			rs.close();
-			con.getConexion().close();
 			}catch(Exception e){
 			System.out.print(e.getMessage());	
 			}
+		
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return acum_jsp;
 	}//fin saber_id_nuevo_producto_trueque
 	

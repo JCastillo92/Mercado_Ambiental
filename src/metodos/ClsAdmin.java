@@ -9,14 +9,20 @@ import datos.ClsConexion;
 public class ClsAdmin {
 	public boolean agregarmoneda(String descripcion){
 		boolean t=false;
-		datos.ClsConexion obj = new datos.ClsConexion();
+		datos.ClsConexion con = new datos.ClsConexion();
 		String sql="insert into tb_monedas (descripcion) values ('"+descripcion.toUpperCase()+"');";
 		try {
-			obj.Ejecutar(sql);
+			con.Ejecutar(sql);
 			t=true;
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
+		}
+		//nuevo codigo cerrar sesion
+		try {
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		return t;
 	}
@@ -33,24 +39,36 @@ public String consulta_monedas(){
 				acumulada+="<tr><td>"+rs.getString(2)+"</td><td><a class=\"btn btn-danger\" href=\"Se_elimina_moneda?dato="+rs.getInt(1)+"\" role=\"button\">Eliminar</a></td></tr>";
 			}
 			acumulada+="</tbody></table>";
-			rs.close();
-			con.getConexion().close();
 			}catch(Exception e){
 			e.getMessage();	
 			}
+		//nuevo codigo cerrar sesion
+				try {
+					rs.close();
+					con.getConexion().close();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 			return acumulada;
 	}	
 
 public boolean elimina_moneda(int id){
 	boolean hh=false;
 	String sentencia="delete from tb_monedas where id_moneda="+id;
+	ClsConexion con = new datos.ClsConexion();
 	try {
-		ClsConexion con = new datos.ClsConexion();
+		
 		con.Ejecutar(sentencia);
 		hh=true;
 		con.getConexion().close();
 	} catch (Exception e) {
 		e.getMessage();
+	}
+	//nuevo codigo cerrar sesion
+	try {
+		con.getConexion().close();
+	} catch (Exception e) {
+		// TODO: handle exception
 	}
 	
 	return hh;
@@ -72,45 +90,60 @@ public boolean elimina_moneda(int id){
 						+ "<td><a class=\"btn btn-danger\" href=\"Sr_A_deny_user?dato2="+rs.getString(6)+"\" role=\"button\">Eliminar</a></td></tr>";
 			}
 			acum_jsp+="</tbody></table>";
-			rs.close();
-			con.getConexion().close();
 			}catch(Exception e){
 				e.getMessage();
 			}
+		//nuevo codigo cerrar sesion
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return acum_jsp;
 	}//fin lista add remove usuarios
 	
 public boolean accept_user(String recibo_dato_aceptar){
 		boolean t=false;
 		//update tb_activos_usuarios set estado='TRUE' where id_fk_usuario='12345';
-		ClsConexion obj=new ClsConexion();
+		ClsConexion con=new ClsConexion();
 		Cls_mailing mailto= new Cls_mailing();
 		String sql="update tb_activos_usuarios set estado='TRUE' where id_fk_usuario='"+recibo_dato_aceptar+"';";
 		try {
-			obj.Ejecutar(sql);
+			con.Ejecutar(sql);
 			t=true;
 			mailto.deliver(1,recibo_dato_aceptar);
-			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
 		}
+		//nuevo codigo cerrar sesion
+				try {
+					con.getConexion().close();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 		return t;
 	}//fin public boolean accept_user
 public boolean desbloquear_usuario(String recibo_dato_aceptar){
 	boolean t=false;
-	ClsConexion obj=new ClsConexion();
+	ClsConexion con=new ClsConexion();
 	Cls_mailing mailto= new Cls_mailing();
 	String sql="update tb_activos_usuarios set estado='TRUE',bloqueado=null where id_fk_usuario='"+recibo_dato_aceptar+"';";
 	try {
-		obj.Ejecutar(sql);
+		con.Ejecutar(sql);
 		t=true;
 		mailto.deliver(7,recibo_dato_aceptar);
-		obj.getConexion().close();
 	} catch (Exception e) {
 		t=false;
 		e.printStackTrace();
 	}
+	//nuevo codigo cerrar sesion
+			try {
+				con.getConexion().close();
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
 	return t;
 }
 	
@@ -118,21 +151,25 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 		boolean t=false;
 		//1) delete from tb_activos_usuarios where id_fk_usuario='1111';
 		//2) delete from tb_usuarios where id_usuario='1111';
-		ClsConexion obj=new ClsConexion();
+		ClsConexion con=new ClsConexion();
 		Cls_mailing mailto= new Cls_mailing();
 		String sql1="delete from tb_activos_usuarios where id_fk_usuario='"+recibo_dato_eliminar+"';";
 		String sql2="delete from tb_usuarios where id_usuario='"+recibo_dato_eliminar+"';";
 		try {
 			mailto.deliver(2,recibo_dato_eliminar);
-			obj.Ejecutar(sql1);
-			obj.Ejecutar(sql2);
+			con.Ejecutar(sql1);
+			con.Ejecutar(sql2);
 			t=true;
-			obj.getConexion().close();
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
 		}
-		
+		//nuevo codigo cerrar sesion
+				try {
+					con.getConexion().close();
+				} catch (Exception e) {
+					// TODO: handle exception
+				}
 		return t;
 	}//fin public boolean deny_user
 	public String control_usuarios(){
