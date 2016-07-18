@@ -32,7 +32,7 @@ puja.Eiminar_Imagen_Puja(Integer.parseInt(principal));
 
 if(principal != null && tipo.equals("3")){
 //out.print(principal);
-puja.Actualizar_Valor_Anterior(principal);
+	puja.Actualizar_Valor_Anterior(principal);
 }
 %>
 <span class="label label-success"> <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true">OFERTAS ACTUALES</span> </span> 

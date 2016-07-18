@@ -57,7 +57,6 @@ var dato1 = '<%=dato%>'
 	var timeDiff = xmas.getTime() - now.getTime();
 	if (timeDiff <= 0) {
     clearTimeout(timer);
-	document.write("Puja Terminada");
 	// Run any code needed for countdown completion here
     }
 	var seconds = Math.floor(timeDiff / 1000);
