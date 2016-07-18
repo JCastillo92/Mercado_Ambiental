@@ -186,7 +186,7 @@ public class Cls_General {
 		ArrayList<String> monedas= new ArrayList<String>();
 		String sql ="select id_producto_tr, titulo, cantidad, tb_monedas.descripcion " 
 					+"from tb_trueque,tb_monedas "
-					+"where moneda = id_moneda "
+					+"where moneda = id_moneda and estado = 1 "
 					+"order by fecha_trueque DESC "
 					+"limit 4";
 		switch(numero_trueques){
@@ -237,7 +237,7 @@ public class Cls_General {
 					c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
 					c +="<a class=\"right carousel-control\" href=\"#carrusel-1\" role=\"button\" data-slide=\"next\">";
 					c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
-					c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
+					c +="<center><h4><a href=\"trueque.jsp?id="+id_producto_trs.get(0)+"\"><span class=\"label label-success\">";
 					c +="SABER MÁS</span></a></h4></center>";
 					c +="";
 					
@@ -291,7 +291,7 @@ public class Cls_General {
 						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
 						c +="<a class=\"right carousel-control\" href=\"#carrusel-"+i+"\" role=\"button\" data-slide=\"next\">";
 						c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
-						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(i)+"\"><span class=\"label label-success\">";
+						c +="<center><h4><a href=\"trueque.jsp?id="+id_producto_trs.get(i)+"\"><span class=\"label label-success\">";
 						c +="SABER MÁS</span></a></h4></center></div>";
 					}
 				} catch (Exception e) {
@@ -343,7 +343,7 @@ public class Cls_General {
 						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
 						c +="<a class=\"right carousel-control\" href=\"#carrusel-"+i+"\" role=\"button\" data-slide=\"next\">";
 						c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
-						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(i)+"\"><span class=\"label label-success\">";
+						c +="<center><h4><a href=\"trueque.jsp?id="+id_producto_trs.get(i)+"\"><span class=\"label label-success\">";
 						c +="SABER MÁS</span></a></h4></center></div>";
 					}
 					
@@ -397,7 +397,7 @@ public class Cls_General {
 						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";
 						c +="<a class=\"right carousel-control\" href=\"#carrusel-"+i+"\" role=\"button\" data-slide=\"next\">";
 						c +="<span class=\"glyphicon glyphicon-chevron-right\"></span></a><br>";
-						c +="<center><h4><a href=\"descripcion.jsp?id="+id_producto_trs.get(i)+"\"><span class=\"label label-success\">";
+						c +="<center><h4><a href=\"trueque.jsp?id="+id_producto_trs.get(i)+"\"><span class=\"label label-success\">";
 						c +="SABER MÁS</span></a></h4></center></div>";
 					}
 				} catch (Exception e) {

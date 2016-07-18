@@ -234,5 +234,20 @@ function detectIE() {
 }
 
 </script>
+
+<script type="text/javascript">
+
+function changeImage(lugar){
+	var imagen_antigua;
+	var str;
+	str=document.getElementById("zoom_01").src;
+	    var pos = str.indexOf("place=");
+	    var pos2 = str.indexOf("&i_tipo");
+	    var res2 = str.substring(pos, pos2);
+	    var res = str.replace(res2, "place="+lugar);
+	    document.getElementById("zoom_01").src = res;
+}
+
+</script>
 </body>
 </html>

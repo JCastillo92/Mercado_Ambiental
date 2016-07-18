@@ -1,10 +1,58 @@
 package metodos;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import datos.ClsConexion;
 
 public class Cls_Trueque {
+	
+	String id_t;
+	String descripcion_t;
+	String cantidad_t;
+	String moneda_t;
+	String titulo_t;
+	
+	public String getId_t() {
+		return id_t;
+	}
+
+	public void setId_t(String id_t) {
+		this.id_t = id_t;
+	}
+
+	public String getDescripcion_t() {
+		return descripcion_t;
+	}
+
+	public void setDescripcion_t(String descripcion_t) {
+		this.descripcion_t = descripcion_t;
+	}
+
+	public String getCantidad_t() {
+		return cantidad_t;
+	}
+
+	public void setCantidad_t(String cantidad_t) {
+		this.cantidad_t = cantidad_t;
+	}
+
+	public String getMoneda_t() {
+		return moneda_t;
+	}
+
+	public void setMoneda_t(String moneda_t) {
+		this.moneda_t = moneda_t;
+	}
+
+	public String getTitulo_t() {
+		return titulo_t;
+	}
+
+	public void setTitulo_t(String titulo_t) {
+		this.titulo_t = titulo_t;
+	}
+
 	public String lista_trueques_por_confirmar_venta(){
 		//select tb_trueque.titulo,tb_trueque.cantidad,tb_monedas.descripcion,tb_usuarios.nombre,tb_usuarios.apellido,tb_usuarios.correo,tb_usuarios.celular,tb_trueque.comprador from tb_trueque,tb_monedas,tb_usuarios where estado=2 and id_moneda=moneda and id_usuario=comprador;
 		//estado=2 significa que en el trueque alguien (usuario x) puso comprar luego pasaria a un estado 3 que seria vendido totalmente.
@@ -29,6 +77,7 @@ public class Cls_Trueque {
 			}
 		return acum_jsp;
 	}//fin lista add remove usuarios
+	
 	public boolean confirma_venta_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//aqui debo pasar de estado 2 a 3
 		//update tb_trueque set estado=3 where titulo='' and comprador='' and descripcion='';
@@ -46,6 +95,7 @@ public class Cls_Trueque {
 		}
 		return t;
 	}
+	
 	public boolean venta_no_completada_trueque(String titulo_producto_trueque, String cedula_comprador_prod_trueque){
 		//regreso al producto al estado uno y elimino la cedula de quien lo queria comprar
 		//update tb_trueque set estado=1, comprador=null where titulo='NOKIA LUMIA 820' and comprador='1704475084';
@@ -65,6 +115,7 @@ public class Cls_Trueque {
 		}
 		return t;
 	}//fin venta_no_completada_trueque
+	
 	public Integer saber_id_nuevo_producto_trueque(String descripcion,int cantidad,int id_moneda,String titulo,int estado){
 		int a=-1;
 		int toma=0;
@@ -85,6 +136,7 @@ public class Cls_Trueque {
 
 		return a;
 	}
+	
 	public String lista_trueques_vendidos_historial(){
 		String sql="select tb_historico.descripcion,tb_historico.cantidad,tb_monedas.descripcion,tb_categorias.descripcion,tb_historico.fecha,tb_usuarios.nombre "
 				+ "from tb_historico,tb_trueque,tb_monedas,tb_categorias,tb_usuarios "
@@ -151,6 +203,93 @@ public class Cls_Trueque {
 				t=false;
 			System.out.print(e.getMessage());	
 			}
+		return t;
+	}
+	
+	public String listar_trueques(){
+		
+		ClsConexion con=new ClsConexion();
+		
+		String lista_trueque="<div class=list-group>";
+		ResultSet rs=null;
+		String sql="select id_producto_tr, titulo from tb_trueque where estado=1;";
+		System.out.println(sql);
+		try{
+		rs=con.Consulta(sql);
+		while(rs.next()){
+			//href="imagenes_trueque.jsp?id=<%=id%>&lug=3
+			lista_trueque+="<h3><a href=imagenes_trueque.jsp?id="+rs.getString(1)+" target=\"iframe_a\" class=list-group-item><span class=badge>"
+				+ "<span class=glyphicon glyphicon glyphicon-education aria-hidden=true>"
+				+ "</span></span>";
+			lista_trueque+=rs.getString(2)+"</a></h3>";
+		}
+		
+		}catch(Exception e){
+		System.out.print(e.getMessage());	
+		}
+		lista_trueque+="</div>";
+		
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return lista_trueque;
+	}
+	
+	public void detalles_trueque_especifico(String id){
+		System.out.println("Detalles Trueque");
+		ClsConexion con=new ClsConexion();
+		ResultSet rs=null;
+		String sql="select id_producto_tr, titulo, tb_trueque.descripcion, cantidad, tb_monedas.descripcion" 
+				+" from tb_trueque, tb_monedas where" 
+				+" moneda = id_moneda and"
+				+" id_producto_tr="+id+" and"
+				+" estado =1";
+		try{
+			rs=con.Consulta(sql);
+			while(rs.next()){
+				setId_t(rs.getString(1));
+				setTitulo_t(rs.getString(2));
+				setDescripcion_t(rs.getString(3));
+				setCantidad_t(rs.getString(4));
+				setMoneda_t(rs.getString(5));
+			}
+		
+		}catch(Exception e){
+		}
+		
+		try {
+			rs.close();
+			con.getConexion().close();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		System.out.println(sql);
+	}
+	
+	public boolean trueque_usuario(String id, String cedula){
+		boolean t =false;
+		ClsConexion con=new ClsConexion();
+		String sql="update tb_trueque set estado=2, comprador='"+cedula+"' where id_producto_tr="+id;
+		System.out.println(sql);
+		try {
+			con.Ejecutar(sql);
+			t=true;
+			
+		} catch (Exception e) {
+			t=false;
+			e.printStackTrace();
+		}
+		
+		try {
+			con.getConexion().close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return t;
 	}
 }
