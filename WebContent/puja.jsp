@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,10 +9,12 @@ String error;
 error = request.getParameter("dato");
 if (error != null){
 %>
+
 <div class="alert alert-success" role="alert">
 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 <strong>Estado</strong>.<%=" "+error%>
 </div>
+
 <%}%>
 
 <%
@@ -54,12 +57,17 @@ dato=mes+"/"+dia+"/"+año+" "+hora+":"+minutos;
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>PUJA</title>
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
+
+
+
 
 <script>
 
 var dato1 = '<%=dato%>'
+
+
 
 	function cdtd() {
 	//var xmas = new Date("December 25, 2017 00:01:00");
@@ -68,7 +76,9 @@ var dato1 = '<%=dato%>'
 	var timeDiff = xmas.getTime() - now.getTime();
 	if (timeDiff <= 0) {
     clearTimeout(timer);
-	document.write("Puja Terminada");
+    
+    window.location.replace("Tiempo?dato=<%=id%>");
+	//document.write("Puja Terminada");
 	// Run any code needed for countdown completion here
     }
 	var seconds = Math.floor(timeDiff / 1000);
@@ -112,14 +122,7 @@ out.print(menu);
 </h1>
 </center>
 
-<form class="navbar-form navbar-left" role="search">
-<div class="form-group">
-<input type="text" class="form-control" placeholder="Buscar">
-</div>
-<button type="submit" class="btn btn-success">
-<span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"> BUSCAR</span>
-</button>
-</form>
+
 
 <br>
 <br>
@@ -232,7 +235,7 @@ out.print(puja.Ver_Pujas());
 
 <form action="Pujar" method="post">
 <input type="hidden" class="form-control" name="valor" value=<%out.print(puja.Valor(id)); %>>
-
+<input type="hidden" class="form-control" name="id_puja" value=<%out.print(id); %>>
 <table class="table table-condensed">
 
 <tr style="color:#456789;font-size:150%;">
@@ -258,7 +261,7 @@ out.print(puja.Ver_Pujas());
 <td></td>
 </tr>
 
-<tr style="color:#456789;font-size:150%;">
+<tr style="color:#456789;font-size:140%;">
 <td><span class="label label-success"> OFERTAR VALOR </span></td>
 <td> <input type="text" class="form-control" name="oferta" required> </td>
 </tr>
@@ -272,22 +275,38 @@ out.print(puja.Ver_Pujas());
 
 </div> 
 
-
-<div id="footer">
+<br>
+<br>
+<br>
+<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
+<br>
+Copyright © J3BCompany
+<br><br>
 <div class="container text-center" >
+<div class="col-md-4">
+<center>
+Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
+</center></div><div class="col-md-4">
+<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
+
+</div><div class="col-md-4">
 <br>
-Copyright © JB3Company<br>
-Desarrollado por: JCastillo,JValles, JFlores, BTorres
+Contacto:
+<br>098 346 6689<br>
+
+</div>
 <br>
-jcastillor1@est.ups.edu.ec, jvallesc@est.ups.edu.ec, jfloresg1@est.ups.edu.ec, blarat@est.ups.edu.ec 
+
+
+
+<br>
+<br>
+
 </div>
-</div>
-
-
-
-
-
-
+SistemasUPS - AmbientalUPS 2016
+<br>
+<br>
+</div>  
 
 
 

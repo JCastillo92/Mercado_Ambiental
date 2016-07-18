@@ -65,7 +65,8 @@ public class Ingreso_Puja extends HttpServlet {
 		valor=request.getParameter("valor");
 		categorias=request.getParameter("categorias");
 		
-		año = request.getParameter("año");
+		año = request.getParameter("anio");
+		System.out.println("*********************************>>>>>>>>>>>>>>>"+año);
 		mes = request.getParameter("mes");
 		dia = request.getParameter("dia");
 		hora = request.getParameter("hora");
@@ -101,6 +102,8 @@ public class Ingreso_Puja extends HttpServlet {
 		int id;
 		puja.Ingresar_Puja(nombre, descripcion, can, mon, val, cat);
 		id=puja.Obtener_ID(nombre, descripcion, can, mon, val, cat);
+		
+		System.out.println("*********************************>>>>>>>>>>>>>>>"+año);
 		puja.Ingresar_Tiempo(id, dia, mes, año, hora, minuto);
 		
 		try {
@@ -119,9 +122,10 @@ public class Ingreso_Puja extends HttpServlet {
 		else{
 		response.sendRedirect("Crear_Puja.jsp?dato=Las imágenes deben ser únicamente en formato jpg");
 		System.out.println("BORRAR DATOS");
+		puja.Eliminar_Tiempo(id);
 		puja.Eiminar_Puja(id);
 		puja.Eiminar_Imagen_Puja(id);
-		puja.Eliminar_Tiempo(id);
+		
 		}
 		
 		

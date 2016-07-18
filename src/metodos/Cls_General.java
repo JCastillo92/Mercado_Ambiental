@@ -99,7 +99,7 @@ public class Cls_General {
 			
 	      	menu +="<form class=\"navbar-form navbar-left\" role=\"search\" action=\"logueame\">"+
 	      			"<div class=\"form-group\">"+
-	      			"<input type=\"text\" class=\"form-control\" name=\"txtuser\" placeholder=\"Usuario\"></div>"+
+	      			"<input type=\"text\" class=\"form-control\" name=\"txtuser\"autofocus placeholder=\"Usuario\"></div>"+
 	      			"<div class=\"form-group\">"+
 	      			"<input type=\"password\" class=\"form-control\" name=\"txtpassword\" placeholder=\"Password\"></div>"+
 	      			"<button type=\"submit\" class=\"btn btn-default\">Login</button></form>"+
@@ -208,7 +208,7 @@ public class Cls_General {
 					titulos.get(0);
 					cantidades.get(0);
 					monedas.get(0); */
-					c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(0)+"</span>" ;
+					c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(0)+"</span>" ;
 					c +="</span></h3></center>";
 					c +="<div id=\"carrusel-1\" class=\"carousel slide\" data-ride=\"carousel\">";
 					c +="<ol class=\"carousel-indicators\">";
@@ -261,7 +261,7 @@ public class Cls_General {
 					for (int i = 0; i < titulos.size(); i++) {
 						c +="<div class=\"col-md-6\">";
 						c += "<center><h3><span class=\"label label-info\">";
-						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
 						c +="</span></h3></center>";
 						c +="<div id=\"carrusel-"+i+"\" class=\"carousel slide\" data-ride=\"carousel\">";
 						c +="<ol class=\"carousel-indicators\">";
@@ -313,7 +313,7 @@ public class Cls_General {
 					for (int i = 0; i < titulos.size(); i++) {
 						c +="<div class=\"col-md-4\">";
 						c += "<center><h3><span class=\"label label-info\">";
-						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
 						c +="</span></h3></center>";
 						c +="<div id=\"carrusel-"+i+"\" class=\"carousel slide\" data-ride=\"carousel\">";
 						c +="<ol class=\"carousel-indicators\">";
@@ -367,7 +367,7 @@ public class Cls_General {
 					for (int i = 0; i < titulos.size(); i++) {
 						c +="<div class=\"col-md-3\">";
 						c += "<center><h3><span class=\"label label-info\">";
-						c +="<span class=\"glyphicon glyphicon glyphicon-education\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
+						c +="<span class=\"glyphicon glyphicon glyphicon-grain\" aria-hidden=\"true\">"+titulos.get(i)+"</span>" ;
 						c +="</span></h3></center>";
 						c +="<div id=\"carrusel-"+i+"\" class=\"carousel slide\" data-ride=\"carousel\">";
 						c +="<ol class=\"carousel-indicators\">";
@@ -379,19 +379,19 @@ public class Cls_General {
 						c +="<div class=\"item active\">";
 						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=1&i_tipo=1\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
 						c +="<div class=\"carousel-caption\"></div>";
-						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<center><h6><span class=\"badge\"><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></span></h6></center></div>";
 						c +="<div class=\"item\">";
 						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=2&i_tipo=1\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
 						c +="<div class=\"carousel-caption\"></div>";
-						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<center><h6><span class=\"badge\"><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></span></h6></center></div>";
 						c +="<div class=\"item\">";
 						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=3&i_tipo=1\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
 						c +="<div class=\"carousel-caption\"></div>";
-						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<center><h6><span class=\"badge\"><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></span></h6></center></div>";
 						c +="<div class=\"item\">";
 						c +="<img src=\"imagen?prod="+id_producto_trs.get(i)+"&place=4&i_tipo=1\" alt=\"...\"  style=\"width:175px;height:150px;border:0\" class=\"center-block\" class=\"img-thumbnail\">";
 						c +="<div class=\"carousel-caption\"></div>";
-						c +="<center><h6><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></h6></center></div>";
+						c +="<center><h6><span class=\"badge\"><font color=\"white\">"+cantidades.get(i)+" "+monedas.get(i)+"</font></span></h6></center></div>";
 						c +="</div></div>";
 						c +="<a class=\"left carousel-control\" href=\"#carrusel-"+i+"\" role=\"button\" data-slide=\"prev\">";
 						c +="<span class=\"glyphicon glyphicon-chevron-left\"></span></a>";

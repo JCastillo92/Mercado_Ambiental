@@ -62,16 +62,15 @@ if (error != null && error.equals("true")){
   <div>
   <h1>IMPORTANTE:</h1><p>Para efectuar los cambios debe <mark>ingresar su misma clave primero</mark>.</p>
   </div>
-  
 <span class="input-group-addon" id="basic-addon1"> Clave Antigua: </span>
-  <input type="password" class="form-control" name="txtClaveN" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+  <input type="password" id="password"  class="form-control" name="txtClaveN" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 <span class="input-group-addon" id="basic-addon1"> Nueva Clave: </span>
-  <input type="password" class="form-control" name="txtClave1" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+  <input type="password" id="password" class="form-control" name="txtClave1" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 
 <span class="input-group-addon" id="basic-addon1"> Confirme la clave:</span>
-  <input type="password" class="form-control" name="txtClave2" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
+  <input type="password" id="password" class="form-control" name="txtClave2" placeholder="ejem. 1234ups" aria-describedby="basic-addon1" required/>
 
 <center>  
  <input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="ACTUALIZAR">
@@ -87,6 +86,38 @@ if (error != null && error.equals("true")){
 </div>  <!-- FIN CONTAINER -->
 </div> <!-- FIN WRAP  -->
 
+<br>
+<br>
+<br>
+<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
+<br>
+Copyright © J3BCompany
+<br><br>
+<div class="container text-center" >
+<div class="col-md-4">
+<center>
+Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
+</center></div><div class="col-md-4">
+<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
+
+</div><div class="col-md-4">
+<br>
+Contacto:
+<br>098 346 6689<br>
+
+</div>
+<br>
+
+
+
+<br>
+<br>
+
+</div>
+SistemasUPS - AmbientalUPS 2016
+<br>
+<br>
+</div> 
 
 
 

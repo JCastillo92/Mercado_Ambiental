@@ -97,7 +97,6 @@ if (error != null){
 String menu;
 menu = obj.desplegarmenus(perf);
 out.print(menu);
-out.print(dato);
 %>
 
 <!--Encabezado**************************************************************************************-->
@@ -110,22 +109,21 @@ out.print(dato);
 <!--Carousel****************************************************************************************-->
 
 <div class="row">
-<div class="col-md-7">
 
-	<center><h1><span class="label label-success"> LO MAS NUEVO </span></h1></center>
-	</div>
 
+	<center>
+	
+<table>
+<tr>
+<td><h1 ><span style="color: white" class="label label-default" > LO M&Aacute;S NUEVO </span></h1></td>
+</tr>
+
+</table>
+</center>
+</div>
 <div class="col-md-3">
 
-	<form class="navbar-form navbar-right" role="search">
-	<div class="form-group">
-	<input type="text" class="form-control" placeholder="Buscar">
-    </div>
-    <button type="submit" class="btn btn-success">
-    <span class="glyphicon glyphicon glyphicon-search" aria-hidden="true"> BUSCAR</span>
-    
-    </button>
-    </form>
+	
 
 </div>
 
@@ -149,13 +147,13 @@ out.print(carrusel);
 <!--Carouseles****************************************************************************************-->
 <!--Carouseles****************************************************************************************-->
 
-
-
+<br>
+<br>
 <div class="row">
 
 <!-- top 5 usuarios que compran -->
 <div class="col-md-3">
-<center><br>
+<center>
 <h3><span class="label label-default">TOP 5 RANKING DE NUESTROS USUARIOS</span></h3>
 <br></center>
 <div class="col-md-1">
@@ -188,10 +186,10 @@ out.print(x1.top_5_user_index());
 
 <h1>
 
-<span class="label label-info" id="daysBox"></span> Días 
-<span class="label label-info" id="hoursBox"> </span> Horas
-<span class="label label-info" id="minsBox">  </span>min.
-<span class="label label-info" id="secsBox"></span> seg.
+<span class="label label-info" id="daysBox"></span> <span class="badge">D&iacute;as</span> 
+<span class="label label-info" id="hoursBox"> </span> <span class="badge">Horas</span>
+<span class="label label-info" id="minsBox">  </span><span class="badge">min.</span>
+<span class="label label-info" id="secsBox"></span> <span class="badge"> seg.</span>
 
 <script>cdtd();</script>
 
@@ -278,13 +276,17 @@ out.print(x1.top_5_user_index());
 
 <td> 
 <center>
-<h2><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h2>
+<h1><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h1>
  </center>
+<h3>
 <span style="color: blue;">
-  <%
- ClsAdmin metodos =new ClsAdmin();
-  out.print(metodos.devuelvo_Informacion());
- %> </span></td>
+
+<%
+ClsAdmin metodos =new ClsAdmin();
+out.print(metodos.devuelvo_Informacion());
+ %> 
+ 
+ </span></h3></td>
 </tr>
 </table>
 </div>
@@ -295,24 +297,38 @@ out.print(x1.top_5_user_index());
 </div>
 </div>
 
-
-<div id="footer">
+<br>
+<br>
+<br>
+<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
+<br>
+Copyright © J3BCompany
+<br><br>
 <div class="container text-center" >
+<div class="col-md-4">
+<center>
+Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
+</center></div><div class="col-md-4">
+<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
+
+</div><div class="col-md-4">
 <br>
-Copyright © JB3Company<br>
-Desarrollado por: JCastillo,JValles, JFlores, BTorres
-<br>
-jcastillor1@est.ups.edu.ec, jvallesc@est.ups.edu.ec, jfloresg1@est.ups.edu.ec, blarat@est.ups.edu.ec 
+Contacto:
+<br>098 346 6689<br>
+
 </div>
-</div> 
+<br>
 
 
 
+<br>
+<br>
 
-
-
-
-
+</div>
+SistemasUPS - AmbientalUPS 2016
+<br>
+<br>
+</div>  
 
 <script src="css/jquery-2.1.4.min.js"></script>
 <script src="css/bootstrap.min.js"></script>
