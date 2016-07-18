@@ -64,6 +64,18 @@ dato=mes+" "+dia+", "+año+" "+hora+":"+minutos;
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 
 
+<script language="JavaScript">
+function mensaje() {
+if (!confirm("Esta Seguro que desea realizar la oferta"))
+{
+history.back();
+}
+}
+
+</script>
+
+
+
 
 
 <script>
@@ -147,9 +159,11 @@ else{
 <br>
 <br>
 
+<div style="height: 415px; overflow-y: scroll;">
 <%
 out.print(puja.Ver_Pujas());
 %>
+</div>
 </div>
 
 <div class="col-md-6">
@@ -301,7 +315,7 @@ if(id==null){
 
 </table>
 
-<button type="submit" class="btn btn-info"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">PUJAR</span></button>
+<button type="submit" class="btn btn-info" onclick ="mensaje()"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">PUJAR</span></button>
 </form>
 
 </div>
