@@ -61,11 +61,20 @@ out.print(menu);
 
 
 <img src="imagenes/telefono.jpg" alt="..."  style="width:250px;height:250px;border: 5px solid #A8A59C;" class="img-thumbnail">
-<br><br><br>
-<A HREF="https://www.facebook.com/Club-Ecol%C3%B3gico-UPS-540043556165585/?fref=ts" style="font-size:25px"; TITLE="CLUB ECOLÓGICO">FACEBOOK</A>
-
 <br>
-<h2 style="color:#FF0000;"> Gmail:</h2> clubecologicoups@gmail.com
+<br>
+<br>
+<br>
+<A HREF="https://www.facebook.com/Club-Ecol%C3%B3gico-UPS-540043556165585/?fref=ts" style="font-size:25px"; TITLE="CLUB ECOLÓGICO">FACEBOOK</A>
+<br>
+<br>
+<h2 style="color:#FF0000;"> Gmail: clubecologicoups@gmail.com </h2> 
+<br>
+<br>
+<br>
+<A HREF="https://maps.here.com/directions/mix/mylocation/Club-Ecol%C3%B3gico-UPS:-0.28087,-78.54854?map=-0.28087,-78.54854,15,normal&fb_locale=es_LA" style="font-size:25px; color:#298A08;"  TITLE="
+Av. Rumichaca y Morán Valverde s/n., Quito">DIRECCI&Oacute;N</A>
+
 <br>
 </div> 
 <div class="col-md-3">
