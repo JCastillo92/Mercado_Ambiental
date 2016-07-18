@@ -227,7 +227,7 @@ public int Categoria_id(String categoria){
 		pujas+="<th> VALOR ACTUAL </th>";
 		pujas+="</tr>";
 		ResultSet rs=null;
-		String sql="select id_prod_pj, tb_pujas.titulo, tb_pujas.cantidad, tb_monedas.descripcion, tb_pujas.valor_minimo from tb_pujas, tb_monedas where tb_pujas.moneda=tb_monedas.id_moneda and tb_pujas.estado="+estado+";";
+		String sql="select id_prod_pj, tb_pujas.titulo, tb_pujas.cantidad, tb_monedas.descripcion, tb_pujas.valor_minimo from tb_pujas, tb_monedas where tb_pujas.moneda=tb_monedas.id_moneda and tb_pujas.estado="+estado+" order by id_prod_pj desc; ";
 		System.out.println(sql);
 		try{
 		rs=con.Consulta(sql);
@@ -361,7 +361,7 @@ public String Pujas_Terminadas(int estado){
 	pujas+="<th> APELLIDO </th>";
 	pujas+="</tr>";
 	ResultSet rs=null;
-	String sql="select id_prod_pj, tb_pujas.titulo, tb_monedas.descripcion, tb_pujas.valor_minimo, comprador, tb_usuarios.nombre, tb_usuarios.apellido  from tb_pujas, tb_monedas, tb_usuarios where tb_pujas.moneda=tb_monedas.id_moneda and tb_pujas.comprador= tb_usuarios.id_usuario and tb_pujas.estado="+estado+";";
+	String sql="select id_prod_pj, tb_pujas.titulo, tb_monedas.descripcion, tb_pujas.valor_minimo, comprador, tb_usuarios.nombre, tb_usuarios.apellido  from tb_pujas, tb_monedas, tb_usuarios where tb_pujas.moneda=tb_monedas.id_moneda and tb_pujas.comprador= tb_usuarios.id_usuario and tb_pujas.estado="+estado+" order by id_prod_pj desc;";
 	System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
@@ -432,6 +432,63 @@ public void Pujas_Historico(String id){
 	e.printStackTrace();
 	}
 	}
+//********************************************************************************************************
+public void Actualizar_Valor_Actual(String id, String valor){
+	String sql="update tb_pujas set anterior="+valor+" where id_prod_pj="+id+";";
+	//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
+	try {
+	con.Ejecutar(sql);
+	}catch (Exception e) {
+	e.printStackTrace();
+	}
+	}
+//********************************************************************************************************
+public String Pujas_Valor_Anterior(int estado){
+	String pujas="<table class=table table-condensed>";
+	pujas+="<tr style=color:#456789;font-size:150%;>";
+	pujas+="<th> VALOR ANTERIOR </th>";
+	pujas+="<th> PUJA </th>";
+	pujas+="<th> MONEDA </th>";
+	pujas+="<th> V. ACTUAL </th>";
+	pujas+="<th> V. ANTERIOR </th>";
+	pujas+="<th> CEDULA</th>";
+	pujas+="<th> NOMBRE </th>";
+	pujas+="<th> APELLIDO </th>";
+	pujas+="</tr>";
+	ResultSet rs=null;
+	String sql="select id_prod_pj, tb_pujas.titulo, tb_monedas.descripcion, tb_pujas.valor_minimo, tb_pujas.anterior, comprador, tb_usuarios.nombre, tb_usuarios.apellido  from tb_pujas, tb_monedas, tb_usuarios where tb_pujas.moneda=tb_monedas.id_moneda and tb_pujas.comprador= tb_usuarios.id_usuario and tb_pujas.estado="+estado+" order by id_prod_pj desc;";
+	System.out.println(sql);
+	try{
+	rs=con.Consulta(sql);
+	while(rs.next()){
+	pujas+="<tr style=color:#456789;font-size:100%;>";
+	pujas+="<td><A HREF=Administar_Pujas.jsp?dato="+rs.getString(1)+"&tipo=3>VOLVER A VALOR ANTERIOR</A></td>";
+	pujas+="<td>"+rs.getString(2)+"</td>";
+	pujas+="<td>"+rs.getString(3)+"</td>";
+	pujas+="<td>"+rs.getString(4)+"</td>";
+	pujas+="<td>"+rs.getString(5)+"</td>";
+	pujas+="<td>"+rs.getString(6)+"</td>";
+	pujas+="<td>"+rs.getString(7)+"</td>";
+	pujas+="<td>"+rs.getString(8)+"</td>";
+	pujas+="</tr>";
+	}
+	rs.close();
+	}catch(Exception e){
+	System.out.print(e.getMessage());	
+	}
+	pujas+="</table>";
+	return pujas;
+}
 
+//********************************************************************************************************
+public void Actualizar_Valor_Anterior(String id){
+	String sql="update tb_pujas set valor_minimo=anterior where id_prod_pj="+id+";";
+	//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
+	try {
+	con.Ejecutar(sql);
+	}catch (Exception e) {
+	e.printStackTrace();
+	}
+	}
 }//fin de TODA LA LASE
 

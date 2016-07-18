@@ -29,6 +29,11 @@ puja.Eliminar_Tiempo(Integer.parseInt(principal));
 puja.Eiminar_Puja(Integer.parseInt(principal));
 puja.Eiminar_Imagen_Puja(Integer.parseInt(principal));
 }
+
+if(principal != null && tipo.equals("3")){
+//out.print(principal);
+puja.Actualizar_Valor_Anterior(principal);
+}
 %>
 <span class="label label-success"> <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true">OFERTAS ACTUALES</span> </span> 
 <% 
@@ -37,6 +42,10 @@ out.print(puja.Todas_Pujas(1));
 <span class="label label-success"> <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true">OFERTAS TERMINADAS</span> </span> 
 <%
 out.print(puja.Pujas_Terminadas(2));
+%>
+<span class="label label-success"> <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true">OFERTAS PARA VOLVER A VALOR ANTERIOR</span> </span> 
+<%
+out.print(puja.Pujas_Valor_Anterior(1));
 %>
 
 

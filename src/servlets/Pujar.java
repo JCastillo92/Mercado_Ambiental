@@ -63,6 +63,9 @@ public class Pujar extends HttpServlet {
 		response.sendRedirect("puja.jsp?dato=Error ingrese una oferta mayor al Actual");	
 		}
 		else{
+		
+		obj.Actualizar_Valor_Actual(id, obj.Valor(id));
+		
 		obj.Actualizar_Comprador_Valor(cedula, oferta, Integer.parseInt(id));
 		response.sendRedirect("puja.jsp?dato=Oferta Realizada&id="+id);
 		}
