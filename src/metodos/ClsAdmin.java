@@ -26,7 +26,7 @@ public String consulta_monedas(){
 		ClsConexion con = new datos.ClsConexion();
 		ResultSet rs=null;
 		String acumulada="<table class=\"table table-striped\"> ";
-		acumulada+=" <thead><tr><th>Descripción Moneda</th><th>Acción</th></tr></thead><tbody> ";
+		acumulada+=" <thead><tr><th>Descripci&oacute;n Moneda</th><th>Acci&oacute;n</th></tr></thead><tbody> ";
 		try{
 			rs=con.Consulta(sql);
 			while(rs.next()){
