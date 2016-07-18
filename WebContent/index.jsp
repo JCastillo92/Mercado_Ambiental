@@ -298,7 +298,7 @@ else{
 <h1><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h1>
  </center>
 <h3>
-<span style="color: blue;">
+<span style="color:#151515;">
 
 <%
 ClsAdmin metodos =new ClsAdmin();
