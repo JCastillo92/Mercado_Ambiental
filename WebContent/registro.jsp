@@ -69,7 +69,7 @@ if (error != null){%>
 
 <table class="table table-hover">
 <tr>
-<td> <span class="input-group-addon" id="basic-addon1">Usuario el cu&aacute; ser&aacute; tu n&uacute;mero de C&Eacute;DULA* </span>
+<td> <span class="input-group-addon" id="basic-addon1">Usuario el cu&aacute;l ser&aacute; tu n&uacute;mero de C&Eacute;DULA* </span>
   <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números(10 números)" required></td>
 </tr>
 
