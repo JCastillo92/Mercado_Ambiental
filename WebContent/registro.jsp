@@ -70,8 +70,13 @@ if (error != null){%>
 <table class="table table-hover">
 <tr>
 
+<<<<<<< HEAD
 <td> <span class="input-group-addon" id="basic-addon1">Usuario el cu&aacute; ser&aacute; tu n&uacute;mero de C&Eacute;DULA* </span>
   <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
+=======
+<td> <span class="input-group-addon" id="basic-addon1">C&eacute;dula* </span>
+  <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números(10 números)" required></td>
+>>>>>>> 5c3a5ae3fa13bff83ab7e5e54da52b1e46612fe5
 </tr>
 
 <tr>
@@ -131,8 +136,8 @@ if (error != null){%>
 </div><!--Container -->
 </div><!--Wrap-->
 <br>
-<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:white;background-color:#060504">
-
+<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
+<br>
 Copyright © J3BCompany
 <br><br>
 <div class="container text-center" >
@@ -143,10 +148,10 @@ Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo 
 <br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
 
 </div><div class="col-md-4">
-<br>099 505 8655<br>
-098 998 8557<br>
-098 590 0618<br>
-098 355 2126<br>
+<br>
+Contacto:
+<br>098 346 6689<br>
+
 </div>
 <br>
 
