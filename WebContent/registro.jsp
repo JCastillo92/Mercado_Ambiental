@@ -60,7 +60,7 @@ if (error != null){%>
 
 <form action="ingreso" method="post">
 <center>
-<h3><span class="badge">*Todos los campos son obligatorios</span></h3>
+<h3><span class="badge">*Todos los campos son obligatorios, revisa tu correo institucional una vez te hayas registrado.</span></h3>
 </center>
 <div class="col-md-4">
 </div>
@@ -70,7 +70,7 @@ if (error != null){%>
 <table class="table table-hover">
 <tr>
 
-<td> <span class="input-group-addon" id="basic-addon1">C&eacute;dula* </span>
+<td> <span class="input-group-addon" id="basic-addon1">Usuario el cu&aacute; ser&aacute; tu n&uacute;mero de C&Eacute;DULA* </span>
   <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
 </tr>
 
@@ -85,12 +85,12 @@ if (error != null){%>
 </tr>
 
 <tr>
-<td> <span class="input-group-addon" id="basic-addon1"> Correo Universitario:* </span>
+<td> <span class="input-group-addon" id="basic-addon1"> Correo UNIVERSITARIO: (obligatorio @est.ups.edu.ec)* </span>
   <input type="email" class="form-control" name="txtCorreo" e placeholder="ejem. bsuarez@est.ups.edu.ec" pattern="^[a-zA-Z-0-1000]+@est+.ups+.edu+.ec" aria-describedby="basic-addon1" title="el correo debe coincidir con el ejemplo.  ejem: estudiante@est.ups.edu.ec" required></td>
 </tr>
 
 <tr>
-<td> <span class="input-group-addon" id="basic-addon1">Direcci&oaute;n Domiliciliaria:* </span>
+<td> <span class="input-group-addon" id="basic-addon1">Direcci&oacute;n domiliciliaria:* </span>
   <input type="text" class="form-control" name="txtDireccion" placeholder="ejem. La Magdalena" aria-describedby="basic-addon1" style="text-transform:uppercase" required></td>
 </tr>
 
