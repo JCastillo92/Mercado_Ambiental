@@ -26,9 +26,8 @@ if(sessionok.getAttribute("log")==null){
 <div class="container-fluid">
 <div class="container">
 
-
 <center><br>
-<h3><span class="label label-default">HIST&Oacute;RICO DE TRUEQUES.</span></h3>
+<h3><span class="label label-default">HIST&Oacute;RICO DE TRUEQUES Y PUJAS.</span></h3>
 <br></center>
 <!-- ----------------------------------------------------------------------------------------------- -->
 <%
@@ -39,21 +38,8 @@ out.print(print_user_data);
 %>
 
 <!-- -------------------------------------------------------------------------------------- -->
-</div>
-<div class="container">
+
 <br>
-<center><br>
-<h3><span class="label label-default">HIST&Oacute;RICO DE PUJAS.</span></h3>
-<br></center>
-<!-- ----------------------------------------------------------------------------------------------- -->
-<%
-String print_user_data2;
-print_user_data2=obj.lista_trueques_vendidos_puja();
-out.print(print_user_data);
-%>
-
-<!-- -------------------------------------------------------------------------------------- -->
-
 
 </div><!-- FIN CONTAINER-->
 </div>  <!-- FIN CONTAINER  FLUID-->

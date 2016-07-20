@@ -53,7 +53,7 @@ out.print(menu);
 <br>
 <div class="row">
 <div class="col-md-3">
-<h3><span class="label label-info" id="demo"></span></h3>
+<h3><span class="label label-info" id="demo">LA HORA ES</span></h3>
 <script>
 var myVar = setInterval(myTimer, 1000);
 function myTimer() {
