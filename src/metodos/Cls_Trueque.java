@@ -326,7 +326,7 @@ public class Cls_Trueque {
 		rs=con.Consulta(sql);
 		while(rs.next()){
 			//href="imagenes_trueque.jsp?id=<%=id%>&lug=3
-			lista_trueque+="<h3><a href=imagenes_trueque.jsp?id="+rs.getString(1)+" target=\"iframe_a\" class=list-group-item><span class=badge>"
+			lista_trueque+="<h3><a href=trueque.jsp?id="+rs.getString(1)+" class=list-group-item><span class=badge>"
 				+ "<span class=glyphicon glyphicon glyphicon-education aria-hidden=true>"
 				+ "</span></span>";
 			lista_trueque+=rs.getString(2)+"</a></h3>";
