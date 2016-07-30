@@ -34,16 +34,16 @@ String menu;
 menu = obj.desplegarmenus(perf);
 out.print(menu);
 %>
-
 <%
 String error;
 error = request.getParameter("error");
-if (error != null){%>
-	<div class="alert alert-warning alert-dismissible" role="alert">
+if (error != null){
+%>
+	<div class="alert alert-success" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Error!</strong>.<%=error%>
+	  <strong>Estado</strong>.<%=" "+error%>
 	</div>
-	<%
+<%
 }
 %>
 <!--Encabezado**************************************************************************************-->
@@ -142,7 +142,6 @@ Universidad Politécnica Salesiana
 Sistemas - Ambiental
 <br>
 Quito - Ecuador 2016
-<br>
 <br>
 <br>
 </div>  
