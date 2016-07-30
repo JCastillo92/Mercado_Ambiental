@@ -56,12 +56,5 @@ public class Sr_actualiza_user_personal extends HttpServlet {
 		}else{
 			response.sendRedirect("Edit_tel_dir.jsp?dato=false");		
 		}
-	
-	
-				
-			
-				///////////////////////////////////////////////////////////
-			
-		
 	}}//fin
 
