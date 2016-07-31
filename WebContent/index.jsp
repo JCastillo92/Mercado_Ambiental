@@ -78,17 +78,27 @@ var dato1 = '<%=dato%>'
 <body background="imagenes/fondo3.PNG" >
 
 <%
-String error;
+//<!--FIN MENSAJE DEL SERVLET -->
+String error,msg;
 error = request.getParameter("error");
-if (error != null){
+msg = request.getParameter("msg");
+if (error != null && error.equals("true")){
 %>
 	<div class="alert alert-success" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Estado</strong>.<%=" "+error%>
+	  <strong>ESTADO</strong>.<%=" "+msg%>
+	</div>
+<%
+}if(error != null && error.equals("false")){
+	%>
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>ESTADO</strong>.<%=" "+msg%>
 	</div>
 <%
 }
 %>
+<!--FIN MENSAJE DEL SERVLET -->
 
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
@@ -321,30 +331,17 @@ out.print(metodos.devuelvo_Informacion());
 <br>
 <div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
 <br>
-Copyright © J3BCompany
-<br><br>
-<div class="container text-center" >
-<div class="col-md-4">
-<center>
-Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
-</center></div><div class="col-md-4">
-<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
 
-</div><div class="col-md-4">
+Desarrollado por la Carrera: Ingeniería de Sistemas
 <br>
-Contacto:
-<br>098 346 6689<br>
-
-</div>
+Universidad Politécnica Salesiana
 <br>
-
-
-
+      Sede Quito - Campus Sur
 <br>
+Sistemas - Ambiental
 <br>
-
-</div>
-SistemasUPS - AmbientalUPS 2016
+Quito - Ecuador 2016
+<br>
 <br>
 <br>
 </div>  

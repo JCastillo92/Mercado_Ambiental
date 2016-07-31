@@ -37,19 +37,11 @@ public class Tiempo extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
-		
-		
-		
 		ClsPujas puja = new ClsPujas();
 		String id = request.getParameter("dato");
 		puja.Actualizar_Estado(id);
 		System.out.println("************************************");
-		
 		response.sendRedirect("puja.jsp?dato=Lo sentimos la Puja ha expirado");
-		
-		
-		
 	}
 
 }

@@ -144,14 +144,21 @@ out.print(menu);
 
 </div> <!-- FIN ROW -->
 
-<div id="footer">
-<div class="container text-center" >
+<div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
 <br>
-Copyright © JB3Company<br>
-Desarrollado por: JCastillo,JValles, JFlores, BTorres
+
+Desarrollado por la Carrera: Ingeniería de Sistemas
 <br>
-jcastillor1@est.ups.edu.ec, jvallesc@est.ups.edu.ec, jfloresg1@est.ups.edu.ec, blarat@est.ups.edu.ec 
-</div>
+Universidad Politécnica Salesiana
+<br>
+      Sede Quito - Campus Sur
+<br>
+Sistemas - Ambiental
+<br>
+Quito - Ecuador 2016
+<br>
+<br>
+<br>
 </div>  
 
 <script src="css/jquery-2.1.4.min.js"></script>

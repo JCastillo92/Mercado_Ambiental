@@ -44,9 +44,6 @@ public class IngresoMoneda extends HttpServlet {
 		String descripcion; 
 		ClsAdmin obj = new ClsAdmin();
 		descripcion = request.getParameter("txtMoneda");
-		
-		
-			 
 			if(obj.agregarmoneda(descripcion)){
 				response.sendRedirect("AgregarMoneda.jsp?msg=true");
 			}else{

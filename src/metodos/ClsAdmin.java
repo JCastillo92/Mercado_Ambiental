@@ -28,7 +28,7 @@ public class ClsAdmin {
 	}
 	//******************************************************************************************************************************************
 public String consulta_monedas(){
-		String sql="select id_moneda, descripcion from tb_monedas;";
+		String sql="select id_moneda, descripcion, estado from tb_monedas;";
 		ClsConexion con = new datos.ClsConexion();
 		ResultSet rs=null;
 		String acumulada="<table class=\"table table-striped\"> ";
@@ -36,7 +36,13 @@ public String consulta_monedas(){
 		try{
 			rs=con.Consulta(sql);
 			while(rs.next()){
-				acumulada+="<tr><td>"+rs.getString(2)+"</td><td><a class=\"btn btn-danger\" href=\"Se_elimina_moneda?dato="+rs.getInt(1)+"\" role=\"button\">Eliminar</a></td></tr>";
+				acumulada+="<tr><td>"+rs.getString(2)+"</td> ";
+				if(rs.getBoolean(3)){
+					acumulada+="<td><a class=\"btn btn-warning\" href=\"Se_elimina_moneda?dato="+rs.getInt(1)+"&dato1=2\" role=\"button\">Deshabilitar</a></td></tr> ";
+				}else{
+					acumulada+="<td><a class=\"btn btn-success\" href=\"Se_elimina_moneda?dato="+rs.getInt(1)+"&dato1=1\" role=\"button\">Habilitar</a></td></tr> ";
+				}
+				
 			}
 			acumulada+="</tbody></table>";
 			}catch(Exception e){
@@ -52,9 +58,9 @@ public String consulta_monedas(){
 			return acumulada;
 	}	
 
-public boolean elimina_moneda(int id){
+public boolean habilitar_moneda(int id){
 	boolean hh=false;
-	String sentencia="delete from tb_monedas where id_moneda="+id;
+	String sentencia="update tb_monedas set estado=TRUE  where id_moneda="+id;
 	ClsConexion con = new datos.ClsConexion();
 	try {
 		
@@ -70,7 +76,25 @@ public boolean elimina_moneda(int id){
 	} catch (Exception e) {
 		// TODO: handle exception
 	}
-	
+	return hh;
+}
+public boolean deshabilitar_moneda(int id){
+	boolean hh=false;
+	String sentencia="update tb_monedas set estado=FALSE  where id_moneda="+id;
+	ClsConexion con = new datos.ClsConexion();
+	try {
+		con.Ejecutar(sentencia);
+		hh=true;
+		con.getConexion().close();
+	} catch (Exception e) {
+		e.getMessage();
+	}
+	//nuevo codigo cerrar sesion
+	try {
+		con.getConexion().close();
+	} catch (Exception e) {
+		// TODO: handle exception
+	}
 	return hh;
 }
 	//******************************************************************************************************************************************
@@ -281,7 +305,7 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			datos.ClsConexion obj = new datos.ClsConexion();
 			ResultSet rs=null;
 			
-			String sql="Select descripcion from tb_monedas;";
+			String sql="Select descripcion from tb_monedas where estado=TRUE;";
 			try{
 			rs=obj.Consulta(sql);
 			while(rs.next()){

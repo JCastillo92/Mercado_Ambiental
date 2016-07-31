@@ -39,7 +39,7 @@ public class cerrando extends HttpServlet {
 		
 		HttpSession sessionok = request.getSession();
 		sessionok.invalidate(); //metodo para cerrar
-		response.sendRedirect("index.jsp?error=Sesion Cerrada");
+		response.sendRedirect("index.jsp?error=false&msg=Sesion Cerrada");
 		
 	}
 

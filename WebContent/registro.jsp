@@ -34,18 +34,27 @@ String menu;
 menu = obj.desplegarmenus(perf);
 out.print(menu);
 %>
-
 <%
-String error;
+String error,msg;
 error = request.getParameter("error");
-if (error != null){%>
-	<div class="alert alert-warning alert-dismissible" role="alert">
+msg= request.getParameter("msg");
+if (error != null && error.equals("true")){
+%>
+	<div class="alert alert-success" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Error!</strong>.<%=error%>
+	  <strong>ESTADO</strong>.<%=" "+msg%>
 	</div>
-	<%
+<%
+}if(error != null && error.equals("false")){
+	%>
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>ESTADO</strong>.<%=" "+msg%>
+	</div>
+<%
 }
 %>
+<!--FIN MENSAJE DEL SERVLET -->
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
 <div id="wrap">
@@ -69,14 +78,8 @@ if (error != null){%>
 
 <table class="table table-hover">
 <tr>
-
-<<<<<<< HEAD
-<td> <span class="input-group-addon" id="basic-addon1">Usuario el cu&aacute; ser&aacute; tu n&uacute;mero de C&Eacute;DULA* </span>
-  <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números" required></td>
-=======
-<td> <span class="input-group-addon" id="basic-addon1">C&eacute;dula* </span>
+<td> <span class="input-group-addon" id="basic-addon1">Usuario el cu&aacute;l ser&aacute; tu n&uacute;mero de C&Eacute;DULA* </span>
   <input type="text" class="form-control"name="txtCedula" pattern="[0-9]{10}" placeholder="ejem. 1723230237" aria-describedby="basic-addon1" title="ingrese solo números(10 números)" required></td>
->>>>>>> 5c3a5ae3fa13bff83ab7e5e54da52b1e46612fe5
 </tr>
 
 <tr>
@@ -120,7 +123,7 @@ if (error != null){%>
 <h3><span class="badge">NOTA: Recibir&aacute;s un mensaje de confirmaci&oacute;n, recuerda que el usuario es tu n&uacute;mero de C&eacute;dula </span></h3>
 <br><br>
 <center>
-<input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Registarse">
+<input type="submit" name="btnRegistar" class="btn btn-success" role="button" value="Registarse">
 <a class="btn btn-danger" href="index.jsp" role="button">Cancelar</a>
 
 
@@ -138,30 +141,17 @@ if (error != null){%>
 <br>
 <div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
 <br>
-Copyright © J3BCompany
-<br><br>
-<div class="container text-center" >
-<div class="col-md-4">
-<center>
-Desarrollado por:<br> Castillo Reimundo Jhon Alexander<br>Flores Gallegos Jairo Daniel <br>Torres Lara Bryan Andr&eacute;s <br>Valles Cruz Jonathan Mauricio <br>---------
-</center></div><div class="col-md-4">
-<br>jcastillor1@est.ups.edu.ec<br>jairdean@hotmail.com<br> blarat@est.ups.edu.ec<br> jvallesc@est.ups.edu.ec<br>
 
-</div><div class="col-md-4">
+Desarrollado por la Carrera: Ingeniería de Sistemas
 <br>
-Contacto:
-<br>098 346 6689<br>
-
-</div>
+Universidad Politécnica Salesiana
 <br>
-
-
-
+      Sede Quito - Campus Sur
 <br>
+Sistemas - Ambiental
 <br>
-
-</div>
-SistemasUPS - AmbientalUPS 2016
+Quito - Ecuador 2016
+<br>
 <br>
 </div>  
 

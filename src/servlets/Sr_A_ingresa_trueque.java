@@ -43,7 +43,10 @@ public class Sr_A_ingresa_trueque extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 ClsAdmin trueque = new ClsAdmin();
-		
+
+Cls_Trueque objeto=new Cls_Trueque();
+int saber_id_ingreso_trueque=0;
+
 		String descripcion, titulo, moneda,categoria; int cantidad,estado; 
 		
 		titulo = request.getParameter("txtProducto");
@@ -54,13 +57,14 @@ ClsAdmin trueque = new ClsAdmin();
 		cantidad=Integer.parseInt(request.getParameter("txtCantidad"));
 		estado=1;
 		System.out.println(titulo+" "+descripcion+" "+moneda+" "+cantidad+" "+estado);
+	
 		
 		if(descripcion != null  && titulo != null && moneda != null &&  cantidad!= 0 ){
 			if(trueque.agregarTrueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,trueque.Categoria_id(categoria),estado)){
 ///////////////////////I M A G E N S ////////////////////////////
 	String pathimg1,pathimg2,pathimg3,pathimg4;
-	int saber_id_ingreso_trueque=0;
-	Cls_Trueque objeto=new Cls_Trueque();
+	
+	
 	saber_id_ingreso_trueque=objeto.saber_id_nuevo_producto_trueque(descripcion,cantidad,trueque.Moneda_id(moneda),titulo,estado);
 	
 	/*
@@ -119,6 +123,7 @@ ClsAdmin trueque = new ClsAdmin();
 		response.sendRedirect("A_subir_trueque.jsp?msg=false");
 	}//fin else jairo
 		}else{//fin if de ingreso del bryan
+			objeto.borrar_imagen_y_dato_en_caso_de_error_trueque(saber_id_ingreso_trueque);
 			response.sendRedirect("A_subir_trueque.jsp?msg=false");
 		}
 	}else{

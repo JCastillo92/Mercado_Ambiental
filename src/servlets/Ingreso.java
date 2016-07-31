@@ -60,20 +60,21 @@ public class Ingreso extends HttpServlet {
 		estado= false;
 		
 		boolean contaseñas=false;
-		contaseñas=objpasss.check_password(clave, clave2);
+		contaseñas=objpasss.check_password(clave,clave2);
+		
+		
 		
 		if(nombre != null && cedula != null  && direccion != null  && apellido != null && correo != null && telefono != null &&  contaseñas==true ){
 			 
 			if(obj.agregarusuario(cedula,nombre,apellido,clave,correo,direccion,telefono,perfil)){
-				obj.agregarusuario_activo(cedula, estado);
-				response.sendRedirect("index.jsp?error=Datos Ingresados Correctamente");
+				obj.agregarusuario_activo(cedula,estado);
+				response.sendRedirect("index.jsp?error=true&msg=Datos Ingresados Correctamente");
 			}else{
-				response.sendRedirect("index.jsp?error=Datos Ingresados Equivocos");
+				response.sendRedirect("index.jsp?error=false&msg=Datos Ingresados Equivocos");
 			}
 		}else{
-			response.sendRedirect("registro.jsp?error=Datos Ingresados Equivocos Verifique que las claves sean iguales");
-			JOptionPane.showMessageDialog(null,"Datos Ingresados Equivocos Verifique que las claves sean iguales");
-		}
+			response.sendRedirect("registro.jsp?error=false&msg=Datos Ingresados Equivocos Verifique que las claves sean iguales");
+			}
 		
 		
 	}

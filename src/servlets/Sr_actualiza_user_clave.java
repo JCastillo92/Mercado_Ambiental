@@ -64,17 +64,6 @@ public class Sr_actualiza_user_clave extends HttpServlet {
 			obj.actualuza_clave(clave, cedula);
 					response.sendRedirect("Usuario_peronal.jsp?dato=true");
 			}else{
-				
 			response.sendRedirect("Edit_claves.jsp?dato=false");
 			}
-				
-				
-				
-				
-				
-				
-				
-				///////////////////////////////////////////////////////////
-			
-		
 	}}//fin
