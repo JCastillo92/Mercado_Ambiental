@@ -218,15 +218,15 @@ public class Cls_Trueque {
 		ClsConexion con = new ClsConexion();
 		ResultSet rs=null;
 		String acum_jsp="<table class=\"table table-striped\"> ";
-		acum_jsp+=" <thead><tr><th>PRODUCTO</th><th>Cant.</th><th>MONEDA</th><th>CATEGOR&Iacute;A</th><th>FECHA</th><th>COMPRADOR</th></tr></thead>";
+		acum_jsp+=" <thead><tr><th>PRODUCTO</th><th>Cant.</th><th>MONEDA</th><th>CATEGOR&Iacute;A</th><th>FECHA</th><th>COMPRADOR</th><th>TIPO</th></tr></thead>";
 		try{
 			rs=con.Consulta(sql);
 			while(rs.next()){
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getInt(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td><td>"+rs.getString(6)+"</td>";
 						if(rs.getInt(7)==1){
-							acum_jsp=acum_jsp+ "<td><span class=\"badge\">Trueque</span></td></tr>";
+							acum_jsp=acum_jsp+ "<td><span class=\"label label-primary\">Trueque</span></td></tr>";
 						}else{
-							acum_jsp=acum_jsp+ "<td><span class=\"badge\">Puja</span></td></tr>";
+							acum_jsp=acum_jsp+ "<td><span class=\"label label-warning\">Puja</span></td></tr>";
 						}
 			}
 			acum_jsp+="</table>";

@@ -93,6 +93,15 @@ out.print(menu);
 		<span class="label label-info"> 
 		<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> TRUEQUES </span> 
 		</span>
+		<%
+		if(perf==2){	
+		%>	
+		<a class="btn btn-warning btn-lg" href="admin.jsp?id=6" role="button">
+		  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		</a>
+		<% 
+		}
+		%>
 		</h1></center>
 		
 		<br><br>

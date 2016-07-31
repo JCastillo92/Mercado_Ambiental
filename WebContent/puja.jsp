@@ -151,6 +151,15 @@ else{
 <span class="label label-info"> 
 <span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> OTRAS PUJAS</span> 
 </span>
+<%
+if(perf==2){	
+%>	
+<a class="btn btn-warning btn-lg" href="admin.jsp?id=2" role="button">
+  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+</a>
+<% 
+}
+%>
 </h1>
 </center>
 

@@ -317,7 +317,18 @@ else{
 	
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title"><center><b>INFORMACI&Oacute;N</b></center></h3>
+    <h3 class="panel-title"><center><b>INFORMACI&Oacute;N </b>
+    <%
+		if(perf==2){	
+		%>	
+		<a class="btn btn-warning" href="admin.jsp?id=7" role="button">
+		  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+		</a>
+		<% 
+		}
+		%>
+		</center>
+    </h3>
   </div>
   <div class="panel-body">
     <% 
