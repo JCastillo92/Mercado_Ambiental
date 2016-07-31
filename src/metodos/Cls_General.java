@@ -177,7 +177,6 @@ public class Cls_General {
 	
 	public String carruseles(){
 		String c = "";
-		
 		//Saco cuantos trueques existen
 		int numero_trueques;
 		numero_trueques = conteo_trueques();
@@ -189,16 +188,14 @@ public class Cls_General {
 		ArrayList<String> monedas= new ArrayList<String>();
 		String sql ="select id_producto_tr, titulo, cantidad, tb_monedas.descripcion " 
 					+"from tb_trueque,tb_monedas "
-					+"where moneda = id_moneda and estado = 1 "
+					+"where moneda = id_moneda and tb_trueque.estado = 1 "
 					+"order by fecha_trueque DESC "
 					+"limit 4";
-		
 		try {
 			rs=obj.Consulta(sql);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
 		switch(numero_trueques){
 			case 0:
 				// NO HAY TRUEQUES
@@ -260,7 +257,6 @@ public class Cls_General {
 				break;
 			case 2:
 				//AQUI EMPIEZA EL 1ER
-				
 				try {
 					while(rs.next()){
 						id_producto_trs.add(rs.getString(1));
@@ -364,7 +360,6 @@ public class Cls_General {
 				break;
 			
 			default:
-				
 				try {
 					while(rs.next()){
 						id_producto_trs.add(rs.getString(1));
@@ -372,7 +367,6 @@ public class Cls_General {
 						cantidades.add(rs.getString(3));
 						monedas.add(rs.getString(4));
 					}
-					
 					for (int i = 0; i < titulos.size(); i++) {
 						c +="<div class=\"col-md-3\">";
 						c += "<center><h3><span class=\"label label-info\">";
@@ -415,7 +409,6 @@ public class Cls_General {
 				break;
 		} // fin switch
 
-		
 		try {
 			rs.close();
 			obj.getConexion().close();

@@ -162,17 +162,23 @@ out.print(carrusel);
 
 <!-- top 5 usuarios que compran -->
 <div class="col-md-3">
-<center>
-<h3><span class="label label-default">TOP 5 RANKING DE NUESTROS USUARIOS</span></h3>
-<br></center>
+
 <div class="col-md-1">
 <!-- SIEMPRE VACIO  -->
 </div>
 <div class="col-md-10">
-<%
-Cls_index_components x1= new Cls_index_components();
-out.print(x1.top_5_user_index());
-%>
+<!-- CODIGO JHON TOP -->
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading"><center><b>TOP5 USUARIOS TRUEQUES/PUJAS</b></center></div>
+
+  <!-- Table -->
+  <%
+	Cls_index_components x2= new Cls_index_components();
+	out.print(x2.top_5_user_index());
+	%>
+</div>
+<!-- FIN COD JHON -->
 </div>
 <div class="col-md-1">
 <!-- SIEMPRE VACIO  -->
@@ -300,24 +306,21 @@ else{
 <!--  AQUI NO PONER NADA -->
 </div>
 <div class="col-md-10">
-<table class="table table-hover">
-<tr>
 
-<td> 
-<center>
-<h1><span class="label label-info" id="basic-addon1">INFORMACI&Oacute;N</span></h1>
- </center>
-<h3>
-<span style="color:#151515;">
+<!-- CODIGO JHON -->
 
-<%
-ClsAdmin metodos =new ClsAdmin();
-out.print(metodos.devuelvo_Informacion());
- %> 
- 
- </span></h3></td>
-</tr>
-</table>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><center><b>INFORMACI&Oacute;N</b></center></h3>
+  </div>
+  <div class="panel-body">
+    <% 
+    ClsAdmin metodos =new ClsAdmin();
+    out.print(metodos.devuelvo_Informacion());%>
+  </div>
+</div>
+
+<!-- FIN CODIGO JHON -->
 </div>
 <div class="col-md-1">
 <!--  AQUI NO PONER NADA -->

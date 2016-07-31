@@ -48,6 +48,11 @@ if (error != null && error.equals("true")){
 
 <div id="wrap">
 <div class="container-fluid">
+<%
+String menu;
+menu = obj.desplegarmenus(perf);
+out.print(menu);
+%>
 <div class="row">
 <br><br>
 <div class="col-md-2">

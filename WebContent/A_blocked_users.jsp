@@ -1,3 +1,4 @@
+<%@ page session="true" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" import="metodos.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,9 +16,12 @@ int perf;
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
-	response.sendRedirect("index.jsp");
 }else{
 	perf=(Integer)sessionok.getAttribute("log");
+}
+
+if(perf !=2){
+	response.sendRedirect("index.jsp?error=No tiene privilegios para acceder a esa pagina");
 }
 //<!--FIN MENSAJE DEL SERVLET -->
 String error;

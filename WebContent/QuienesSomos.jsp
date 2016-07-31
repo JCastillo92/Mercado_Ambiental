@@ -53,14 +53,7 @@ out.print(menu);
 <br>
 <div class="row">
 <div class="col-md-3">
-<h3><span class="label label-info" id="demo">LA HORA ES</span></h3>
-<script>
-var myVar = setInterval(myTimer, 1000);
-function myTimer() {
-    var d = new Date();
-    document.getElementById("demo").innerHTML = d.toLocaleTimeString();
-}
-</script>
+
 </div>
 <div class="col-md-6" >
 

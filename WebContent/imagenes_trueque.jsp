@@ -11,7 +11,7 @@ int perf;
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
-	//response.sendRedirect("index.jsp");
+	response.sendRedirect("index.jsp");
 }else{
 	perf = (Integer)sessionok.getAttribute("log");
 
