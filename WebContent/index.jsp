@@ -78,17 +78,26 @@ var dato1 = '<%=dato%>'
 <body background="imagenes/fondo3.PNG" >
 
 <%
-String error;
-error = request.getParameter("error");
-if (error != null){
+String error,msg;
+error=request.getParameter("error");
+msg=request.getParameter("msg");
+if (error != null && error.equals("true")){
 %>
 	<div class="alert alert-success" role="alert">
 	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	  <strong>Estado</strong>.<%=" "+error%>
+	  <strong>ESTADO</strong>.<%=" "+msg%>
+	</div>
+<%
+}if(error != null && error.equals("false")){
+	%>
+	<div class="alert alert-danger" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <strong>ESTADO</strong>.<%=" "+msg%>
 	</div>
 <%
 }
 %>
+<!--FIN MENSAJE DEL SERVLET -->
 
 <!--Encabezado**************************************************************************************-->
 <!--Encabezado**************************************************************************************-->
