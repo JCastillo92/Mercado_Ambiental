@@ -231,25 +231,25 @@ if(id==null){
  	<div class="carousel-inner">
     
     <div class="item active">
-    <img src="imagen?prod=<%=id%>&place=<%=1%>&i_tipo=<%=2%>" alt="..."  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <img id="zoom_01" src="imagen?prod=<%=id%>&place=<%=1%>&i_tipo=<%=2%>" alt="..."  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     </div>
     
     <div class="item">
-    <img src="imagen?prod=<%=id%>&place=<%=2%>&i_tipo=<%=2%>" alt="..." style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <img id="zoom_02" src="imagen?prod=<%=id%>&place=<%=2%>&i_tipo=<%=2%>" alt="..." style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     </div>
     
     <div class="item">
-    <img src="imagen?prod=<%=id%>&place=<%=3%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <img id="zoom_03" src="imagen?prod=<%=id%>&place=<%=3%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     </div>
     
     <div class="item">
-    <img src="imagen?prod=<%=id%>&place=<%=4%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
+    <img id="zoom_04" src="imagen?prod=<%=id%>&place=<%=4%>&i_tipo=<%=2%>"  style="width:500px;height:400px;border:0" class="center-block" class="img-thumbnail">
     <div class="carousel-caption">
     </div>
     </div>
@@ -366,5 +366,6 @@ Quito - Ecuador 2016
 
 <script src="css/jquery-2.1.4.min.js"></script>
 <script src="css/bootstrap.min.js"></script>
+
 </body>
 </html>
