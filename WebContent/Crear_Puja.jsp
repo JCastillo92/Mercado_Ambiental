@@ -14,7 +14,7 @@ if(sessionok.getAttribute("log")==null){
 }
 
 if(perf !=2){
-	response.sendRedirect("index.jsp?error=No tiene privilegios para acceder a esa pagina");
+	response.sendRedirect("index.jsp?error=false&msg=No tiene privilegios para acceder a este lugar");
 }
 ClsPujas puja = new ClsPujas(); 
 %>

@@ -100,14 +100,6 @@ Quito - Ecuador 2016
 <br>
 </div>  
 
-
-
-
-
-
-
-
-
 <script src="css/jquery-2.1.4.min.js"></script>
 <script src="css/bootstrap.min.js"></script>
 </body>

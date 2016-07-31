@@ -12,7 +12,7 @@ int perf;
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
-	response.sendRedirect("index.jsp?Para acceder a esta pagina, debe iniciar sesión");
+	response.sendRedirect("index.jsp?error=false&msg=Para acceder a este sitio, debe loguearse con su cuenta");
 }else{
 	perf = (Integer)sessionok.getAttribute("log");
 
@@ -31,7 +31,7 @@ String id="0",lugardelaimagen;
 int trueques_num;
 trueques_num=obj.conteo_trueques();
 if(trueques_num == 0){
-	response.sendRedirect("index.jsp?error=No hay trueques disponibles");
+	response.sendRedirect("index.jsp?error=false&msg=No hay trueques disponibles");
 }else{
 	//INTENTARA OBTENER EL ID DE LA URL
 	try{

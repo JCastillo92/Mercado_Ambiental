@@ -12,7 +12,7 @@ String ced="";
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("index.jsp?error=false&msg=Para acceder a este sitio, debe loguearse con su cuenta");
 }else{
 	perf = (Integer)sessionok.getAttribute("log");
 	ced=(String)sessionok.getAttribute("cedula");

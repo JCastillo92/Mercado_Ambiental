@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
-<title>Uusario personal</title>
+<title>Usuario personal</title>
 </head>
 <body>
 
@@ -18,7 +18,7 @@ String ced="";
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("index.jsp?error=false&msg=Para acceder a esta sitio, debe loguearse con su cuenta");
 }else{
 	perf=(Integer)sessionok.getAttribute("log");
 	ced=(String)sessionok.getAttribute("cedula");
