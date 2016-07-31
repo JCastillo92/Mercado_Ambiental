@@ -68,9 +68,9 @@ public class Ingreso extends HttpServlet {
 			 
 			if(obj.agregarusuario(cedula,nombre,apellido,clave,correo,direccion,telefono,perfil)){
 				obj.agregarusuario_activo(cedula,estado);
-				response.sendRedirect("index.jsp?error=true&msg=Datos Ingresados Correctamente");
+				response.sendRedirect("index.jsp?error=Datos Ingresados Correctamente");
 			}else{
-				response.sendRedirect("index.jsp?error=false&msg=Datos Ingresados Equivocos");
+				response.sendRedirect("index.jsp?error=Datos Ingresados Equivocos");
 			}
 		}else{
 			response.sendRedirect("registro.jsp?error=false&msg=Datos Ingresados Equivocos Verifique que las claves sean iguales");
