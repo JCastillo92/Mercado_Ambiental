@@ -53,33 +53,28 @@ out.print(menu);
 <center><h1><span class="label label-default">Cont&aacute;ctanos</span></h1></center>
 <br>
 <div class="row">
-<div class="col-md-3">
+<div class="col-md-1">
 
 </div>
-<div class="col-md-6" >
-
-
+<div class="col-md-3" >
 
 <img src="imagenes/telefono.jpg" alt="..."  style="width:250px;height:250px;border: 5px solid #A8A59C;" class="img-thumbnail">
-<br>
-<br>
-<br>
-<br>
-<A HREF="https://www.facebook.com/Club-Ecol%C3%B3gico-UPS-540043556165585/?fref=ts" style="font-size:25px"; TITLE="CLUB ECOLÓGICO">FACEBOOK</A>
-<br>
-<br>
-<h2 style="color:#FF0000;"> Gmail: clubecologicoups@gmail.com </h2> 
-<br>
-<br>
-<br>
-<A HREF="https://maps.here.com/directions/mix/mylocation/Club-Ecol%C3%B3gico-UPS:-0.28087,-78.54854?map=-0.28087,-78.54854,15,normal&fb_locale=es_LA" style="font-size:25px; color:#298A08;"  TITLE="
-Av. Rumichaca y Morán Valverde s/n., Quito">DIRECCI&Oacute;N</A>
 
-<br>
 </div> 
-<div class="col-md-3">
+<div class="col-md-7">
+<br>
+<h2 style="color:#81BEF7;">FACEBOOK: <A HREF="https://www.facebook.com/Club-Ecol%C3%B3gico-UPS-540043556165585/?fref=ts" style="color:#81BEF7;" TITLE="CLUB ECOLÓGICO">CLUB ECOL&Oacute;GICO (IR)</A></h2>
+<br>
+<h2 style="color:#FF0000;"> GMAIL: clubecologicoups@gmail.com </h2> 
+<br>
+<h2 style="color:#298A08;">DIRECCI&Oacute;N: <A HREF="https://maps.here.com/directions/mix/mylocation/Club-Ecol%C3%B3gico-UPS:-0.28087,-78.54854?map=-0.28087,-78.54854,15,normal&fb_locale=es_LA" style="color:#298A08;" TITLE="
+Av. Rumichaca y Morán Valverde s/n., Quito">Av. Rumichaca y Morán Valverde (MAPA)</A></h2>
 
 </div>
+<div class="col-md-1">
+
+</div>
+
 </div>
 
 </div><!--Container -->
