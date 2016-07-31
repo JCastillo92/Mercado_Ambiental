@@ -9,9 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import metodos.ClsAdmin;
-
-
-
 /**
  * Servlet implementation class Se_elimina_moneda
  */
@@ -42,15 +39,28 @@ public class Se_elimina_moneda extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		ClsAdmin obj =new ClsAdmin();
-		String id_a_eliminar=request.getParameter("dato");
-		Integer id=Integer.parseInt(id_a_eliminar);
+		String id_recibo=request.getParameter("dato");
+		String estado=request.getParameter("dato1");
 		
-		boolean borra=obj.elimina_moneda(id);
-		if(borra){
-			response.sendRedirect("AgregarMoneda.jsp?msg=true");
-		}else{
-			response.sendRedirect("AgregarMoneda.jsp?msg=false");
+		Integer id=Integer.parseInt(id_recibo);
+		Integer estatus=Integer.parseInt(estado);
+		
+		if(estatus==1){//1 habilitar
+			boolean habilitar=obj.habilitar_moneda(id);
+			if(habilitar){
+				response.sendRedirect("AgregarMoneda.jsp?msg=true");
+			}else{
+				response.sendRedirect("AgregarMoneda.jsp?msg=false");
+			}
+		}else{//2 deshabilitar
+			boolean habilitar=obj.deshabilitar_moneda(id);
+			if(habilitar){
+				response.sendRedirect("AgregarMoneda.jsp?msg=true");
+			}else{
+				response.sendRedirect("AgregarMoneda.jsp?msg=false");
+			}
 		}
+		
 		
 	}
 

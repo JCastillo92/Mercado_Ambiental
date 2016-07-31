@@ -50,20 +50,18 @@ if (error != null && error.equals("true")){
 </center> 
 
 <form action="ingresoMoneda" method="post">
-
-
-
-
 <table class="table table-hover"><tr>
 <td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n de la moneda * </span>
   <input type="text" class="form-control"name="txtMoneda"  placeholder="ejem. Botellas Plasticas" aria-describedby="basic-addon1"  style="text-transform:uppercase" required></td>
 </tr></table>
-<hr>
+
 
 <center>
-<input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Registar Moneda">
+<input type="submit" name="btnRegistar" class="btn btn-success" role="button" value="Registar Moneda">
 <a class="btn btn-danger" href="index.jsp" role="button">Cancelar</a>
+</center>
 </form>
+<hr>
 </div>
 <div class="col-md-2">
 </div>

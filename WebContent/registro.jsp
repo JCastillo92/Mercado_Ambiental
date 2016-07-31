@@ -123,7 +123,7 @@ if (error != null && error.equals("true")){
 <h3><span class="badge">NOTA: Recibir&aacute;s un mensaje de confirmaci&oacute;n, recuerda que el usuario es tu n&uacute;mero de C&eacute;dula </span></h3>
 <br><br>
 <center>
-<input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Registarse">
+<input type="submit" name="btnRegistar" class="btn btn-success" role="button" value="Registarse">
 <a class="btn btn-danger" href="index.jsp" role="button">Cancelar</a>
 
 
