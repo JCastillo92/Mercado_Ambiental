@@ -284,11 +284,17 @@ else{
     <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
     
-    <center><h5><font color="white"><%out.print(puja.Descripcion(String.valueOf(id)));%></font></h5></center>
-
-
-
-
+    <!-- NEW COD -->
+    <br>
+	<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <center><h3 class="panel-title"><b><%out.print(puja.Titulo(id));%></b></h3></center>
+			  </div>
+			  <div class="panel-body">
+			    <%out.print(puja.Descripcion(id));%>
+			  </div>
+			</div>	
+	<!-- FIN -->
 
 <center><a href="puja.jsp?id=<%=id%>"><button class="btn btn-info" type="button" >
 <span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"> PUJAR </span> 
@@ -307,7 +313,7 @@ else{
 <div class="col-md-10">
 
 <!-- CODIGO JHON -->
-
+	
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title"><center><b>INFORMACI&Oacute;N</b></center></h3>

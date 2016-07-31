@@ -32,7 +32,7 @@ lugardelaimagen = request.getParameter("lug");
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 
 </head>
-<body background="imagenes/fondo.jpg">
+<body background="imagenes/jh1.jpg">
 
 <div id="wrap">
 

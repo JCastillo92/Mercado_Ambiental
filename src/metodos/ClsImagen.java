@@ -7,6 +7,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.Part;
+
 import datos.ClsConexion;
 
 public class ClsImagen {
@@ -87,32 +89,33 @@ public class ClsImagen {
 	}
 	
 //*******************************************************************************************************
-	public boolean insertarimagen_puja(String path, int id){
-	
+	public boolean insertarimagen_puja(Part archivo, int id){
+			
+			//new img
+		String fileName = archivo.getSubmittedFileName(); //aca agarro el nombre
+	    int img_size = (int)archivo.getSize();
+			//
 			//System.out.println("Ya Entro "+path);
 			boolean t = false;
 			ClsConexion obj = new ClsConexion();
 			try {
-			File file = new File(path);
-			FileInputStream fis = new FileInputStream(file);
+			InputStream fileContent = archivo.getInputStream(); //aca agarro el contenido
+			//File file = new File(path);
+			//FileInputStream fis = new FileInputStream(file);
 			//PreparedStatement ps = obj.getConexion().prepareStatement("insert into tb_usuario (nombre_im,img) values (?,?) where id_us="+cedula);
-			//insert into tb_imagenes ("id_producto_fk,tipo,nombre_img,imagen_bit) values(?,?,?,?)"
-			String nombrearchivo = file.getName();
+			String nombrearchivo = fileName;
 			nombrearchivo = nombrearchivo.substring(nombrearchivo.length() -4, nombrearchivo.length());
-			if (nombrearchivo.equals(".jpg")){
+			if (nombrearchivo.equals(".jpg")|| nombrearchivo.equals(".JPG")){
 			PreparedStatement ps = obj.getConexion().prepareStatement("insert into tb_imagenes (id_producto_fk,tipo,nombre_img,imagen_bit) values(?,?,?,?)" );
-			//PreparedStatement ps = obj.getConexion().prepareStatement("update tb_usuario set nombre_im = ?, img = ?" );
 			ps.setInt(1, id);
 			ps.setInt(2, 2);
-			ps.setString(3, file.getName());
-			ps.setBinaryStream(4, fis, (int)file.length());
+			ps.setString(3, fileName);
+			ps.setBinaryStream(4, fileContent, img_size);
 			System.out.println(ps);
 			ps.executeUpdate();
 			ps.close();
-			fis.close();
 			t = true;
 			}else{
-			fis.close();
 			System.out.println("archivo incorrecto");
 			}
 				

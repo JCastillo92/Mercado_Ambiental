@@ -50,7 +50,7 @@ public class logueame extends HttpServlet {
 			sesionok.setAttribute("log", obj.getLog());
 			sesionok.setAttribute("nom", obj.getNombre());
 			sesionok.setAttribute("cedula", obj.getCedula());
-			response.sendRedirect("index.jsp?error=true&msg=Login acceptado");
+			response.sendRedirect("index.jsp");
 		}else{
 			
 			response.sendRedirect("index.jsp?error=false&msg=Usuario o clave incorrectos / Usuario inactivo");

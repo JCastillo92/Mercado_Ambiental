@@ -41,7 +41,7 @@ int perf;
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 perf = 0;
-response.sendRedirect("index.jsp");
+response.sendRedirect("index.jsp?error=false&msg=Para acceder a esta pagina, debe iniciar sesión");
 }else{
 perf = (Integer)sessionok.getAttribute("log");
 }
@@ -257,8 +257,17 @@ if(id==null){
     <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
     
-    <center><h5><font color="white"><%out.print(puja.Descripcion(id));%></font></h5></center>
-
+    <!-- NEW COD -->
+    <br>
+	<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <center><h3 class="panel-title"><b><%out.print(puja.Titulo(id));%></b></h3></center>
+			  </div>
+			  <div class="panel-body">
+			    <%out.print(puja.Descripcion(id));%>
+			  </div>
+			</div>	
+	<!-- FIN -->
 <%} %>
 </div>
 
@@ -268,55 +277,58 @@ if(id==null){
 <center>
 <h1>
 <span class="label label-info"> 
-<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> INFORMACIÓN</span> 
+<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> INFORMACI&Oacute;N</span> 
 </span>
 </h1>
 </center>
 <br>
 <br>
-<br>
-<br>
-
-
-
-
-<form action="Pujar" method="post">
-<input type="hidden" class="form-control" name="valor" value=<%out.print(puja.Valor(id)); %>>
-<input type="hidden" class="form-control" name="id_puja" value=<%out.print(id); %>>
-<table class="table table-condensed">
-
-<tr style="color:#456789;font-size:150%;">
-
-
-<td><span class="label label-success"> TIPO DE MONEDA </span></td>
-<td><span class="label label-success"> <%out.print(puja.Moneda(id)); %> </span></td>
-
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-
-<tr style="color:#456789;font-size:150%;">
-<td><span class="label label-info"> OFERTA ATUAL </span></td>
-<td><span class="label label-success"> <%out.print(puja.Valor(id)); %> </span></td>
-</tr>
-
-
-<tr>
-<td></td>
-<td></td>
-</tr>
-
-<tr style="color:#456789;font-size:140%;">
-<td><span class="label label-success"> OFERTAR VALOR </span></td>
-<td> <input type="text" class="form-control" name="oferta" required> </td>
-</tr>
-
-</table>
-
-<button type="submit" class="btn btn-info" onclick ="mensaje()"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">PUJAR</span></button>
-</form>
+<!-- NUEVO CODIGO -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <center><h3 class="panel-title"><b>SUBASTA</b></h3></center>
+  </div>
+  <div class="panel-body">
+  	 <form action="Pujar" method="post">
+		<input type="hidden" class="form-control" name="valor" value=<%out.print(puja.Valor(id)); %>>
+		<input type="hidden" class="form-control" name="id_puja" value=<%out.print(id); %>>
+		<table class="table table-condensed">
+		
+		<tr style="color:#456789;font-size:100%;">
+		
+		
+		<td><p class="text-info"><b>TIPO DE MONEDA:</b></p></td>
+		<td><p><%out.print(puja.Moneda(id)); %></p></td>
+		
+		</tr>
+		<tr>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr style="color:#456789;font-size:100%;">
+		<td><p class="text-info"><b>OFERTA ACTUAL:</b></p></td>
+		<td><p><%out.print(puja.Valor(id)); %></p></td>
+		</tr>
+		
+		
+		<tr>
+		<td></td>
+		<td></td>
+		</tr>
+		
+		<tr style="color:#456789;font-size:100%;">
+		<td><p class="text-info"><b>OFERTAR VALOR:</b></p></td>
+		<td> <input type="text" class="form-control" name="oferta" required> </td>
+		</tr>
+		
+		</table>
+		
+		<center><button type="submit" class="btn btn-primary btn-lg" onclick ="mensaje()"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">PUJAR</span></button></center>
+		</form>
+  </div>
+</div>
+<!-- FIN NUEVO CODIGO -->
 
 </div>
 
@@ -342,9 +354,6 @@ Quito - Ecuador 2016
 <br>
 <br>
 </div>  
-
-
-
 
 <script src="css/jquery-2.1.4.min.js"></script>
 <script src="css/bootstrap.min.js"></script>

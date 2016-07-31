@@ -3,10 +3,12 @@ package servlets;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 import metodos.ClsImagen;
 import metodos.ClsPujas;
@@ -15,6 +17,7 @@ import metodos.ClsPujas;
  * Servlet implementation class Ingreso_Puja
  */
 @WebServlet("/Ingreso_Puja")
+@MultipartConfig
 public class Ingreso_Puja extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -51,13 +54,20 @@ public class Ingreso_Puja extends HttpServlet {
 		double val = 0;
 		int can = 0;
 		boolean a=true;
-		
+		/*
 		pathimg1 = request.getParameter("path_imagen1");
 		System.out.println("------------------------------"+pathimg1);
 		pathimg2 = request.getParameter("path_imagen2");
 		pathimg3 = request.getParameter("path_imagen3");
 		pathimg4 = request.getParameter("path_imagen4");
+		*/
 		
+		//CHANGE IMG IMG
+		Part filePart1 = request.getPart("img1");
+		Part filePart2 = request.getPart("img2"); 
+		Part filePart3 = request.getPart("img3"); 
+		Part filePart4 = request.getPart("img4"); 
+		//
 		nombre = request.getParameter("nombre");
 		descripcion = request.getParameter("descripcion");
 		moneda = request.getParameter("moneda");
@@ -107,10 +117,10 @@ public class Ingreso_Puja extends HttpServlet {
 		puja.Ingresar_Tiempo(id, dia, mes, año, hora, minuto);
 		
 		try {
-		t1=obj.insertarimagen_puja(pathimg1, id);
-		t2=obj.insertarimagen_puja(pathimg2, id);
-		t3=obj.insertarimagen_puja(pathimg3, id);
-		t4=obj.insertarimagen_puja(pathimg4, id);
+		t1=obj.insertarimagen_puja(filePart1, id);
+		t2=obj.insertarimagen_puja(filePart2, id);
+		t3=obj.insertarimagen_puja(filePart3, id);
+		t4=obj.insertarimagen_puja(filePart4, id);
 		} catch (Exception e) {
 		t1=false;t2=false;t3=false;t4=false;
 		}

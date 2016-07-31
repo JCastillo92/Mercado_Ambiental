@@ -63,6 +63,32 @@ public class ClsPujas {
 	return descripcion;
 	}
 	
+	public String Titulo(String id){
+		
+		ClsConexion con=new ClsConexion();
+		String descripcion="";
+		ResultSet rs=null;
+		String sql="Select titulo from tb_pujas where id_prod_pj="+id+";";
+		try{
+		rs=con.Consulta(sql);
+		while(rs.next()){
+		descripcion=rs.getString(1);
+		}
+		//rs.close();
+		}catch(Exception e){
+		System.out.print(e.getMessage());	
+		}
+		
+		try {
+		rs.close();
+		con.getConexion().close();
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		}
+		
+		
+		return descripcion;
+		}
 	
 	public String Moneda(String id){
 	

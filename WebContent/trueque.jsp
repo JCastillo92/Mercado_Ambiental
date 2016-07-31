@@ -12,7 +12,7 @@ int perf;
 double ag,lz,tel,inte,tot;
 if(sessionok.getAttribute("log")==null){
 	perf = 0;
-	response.sendRedirect("index.jsp");
+	response.sendRedirect("index.jsp?Para acceder a esta pagina, debe iniciar sesión");
 }else{
 	perf = (Integer)sessionok.getAttribute("log");
 
@@ -62,7 +62,7 @@ try{
 <link rel="stylesheet" type="text/css" href="Estilos/bootstrap.min.css">
 
 </head>
-<body background="imagenes/fondo.jpg">
+<body background="imagenes/fondo3.PNG">
 
 <%
 String error;
@@ -109,30 +109,48 @@ out.print(menu);
 		<div class="row">
 			<iframe height="415px" width="100%" src="imagenes_trueque.jsp?id=<%=id%>&lug=1" name="iframe_a"></iframe>
 		</div><!-- fin row -->
+		<br>
 		<div class="row">
 		
 			<div class="col-md-1">
 			</div>
 			<div class="col-md-5">
 				
-				<center><h1><span class="label label-success"> DESCRIPCIÓN </span></h1></center>
-				<br><pre><%=obj2.getDescripcion_t()%></pre>
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <center><h3 class="panel-title"><b>DESCRIPCI&Oacute;N</b></h3></center>
+				  </div>
+				  <div class="panel-body">
+				    <p><%=obj2.getDescripcion_t()%></p>
+				  </div>
+				</div>
+				
 			
 			</div>
 			<div class="col-md-5">
-			<center><h1><span class="label label-success"> TRUEQUE </span></h1></center>
-				
-				<div class="col-md-6">
-					<h2 class="text-right"><span class="label label-primary">Ofertado por:</span></h2>
+			<!-- NEW COD -->
+			
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <center><h3 class="panel-title"><b>TRUEQUE</b></h3></center>
+			  </div>
+			  <div class="panel-body">
+			    <div class="col-md-6">
+					<!-- <h3 class="text-right">OFERTADO POR:</h3> -->
+					<p class="text-info"><b>OFERTADO POR:</b></p>
 				</div>
 					
 				<div class="col-md-6">
-					<h2><span class="label label-primary"><%=obj2.getCantidad_t() %> <%=obj2.getMoneda_t() %></span></h2>
+					<!--  <h3></h3> -->
+					<p><%=obj2.getCantidad_t() %> <%=obj2.getMoneda_t() %></p>
 				</div>
-					<br><br><br>
+					
 				<form action="check_trueque?id=<%=id%>" method="post" >	
-				<center><button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon glyphicon-plus-sign" aria-hidden="true">ACEPTAR TRUEQUE</span></button></center>
+				<center><button type="submit" class="btn btn-primary btn-lg" onclick="mensaje();"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true">COMPRAR</span></button></center>
 				</form>
+			  </div>
+			</div>	
+			<!-- FIN COD -->	
 			</div>
 			<div class="col-md-1">
 			</div>
@@ -163,6 +181,13 @@ Quito - Ecuador 2016
 
 <script src="css/jquery-2.1.4.min.js"></script>
 <script src="css/bootstrap.min.js"></script>
-
+<script type="text/javascript">
+function mensaje() {
+	if (!confirm("Esta Seguro que desea realizar la oferta"))
+	{
+	history.back();
+	}
+	}
+</script>
 </body>
 </html>
