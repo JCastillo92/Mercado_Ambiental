@@ -28,7 +28,7 @@ public class ClsAdmin {
 	}
 	//******************************************************************************************************************************************
 public String consulta_monedas(){
-		String sql="select id_moneda, descripcion, estado from tb_monedas;";
+		String sql="select id_moneda, descripcion, estadotf from tb_monedas;";
 		ClsConexion con = new datos.ClsConexion();
 		ResultSet rs=null;
 		String acumulada="<table class=\"table table-striped\"> ";
@@ -60,7 +60,7 @@ public String consulta_monedas(){
 
 public boolean habilitar_moneda(int id){
 	boolean hh=false;
-	String sentencia="update tb_monedas set estado=TRUE  where id_moneda="+id;
+	String sentencia="update tb_monedas set estadotf=TRUE  where id_moneda="+id;
 	ClsConexion con = new datos.ClsConexion();
 	try {
 		
@@ -80,7 +80,7 @@ public boolean habilitar_moneda(int id){
 }
 public boolean deshabilitar_moneda(int id){
 	boolean hh=false;
-	String sentencia="update tb_monedas set estado=FALSE  where id_moneda="+id;
+	String sentencia="update tb_monedas set estadotf=FALSE  where id_moneda="+id;
 	ClsConexion con = new datos.ClsConexion();
 	try {
 		con.Ejecutar(sentencia);
@@ -305,7 +305,7 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 			datos.ClsConexion obj = new datos.ClsConexion();
 			ResultSet rs=null;
 			
-			String sql="Select descripcion from tb_monedas where estado=TRUE;";
+			String sql="Select descripcion from tb_monedas where estadotf=TRUE;";
 			try{
 			rs=obj.Consulta(sql);
 			while(rs.next()){
