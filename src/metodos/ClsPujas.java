@@ -126,7 +126,7 @@ public class ClsPujas {
 	+ "<option> </option>";
 	ResultSet rs=null;
 	
-	String sql="Select descripcion from tb_monedas order by descripcion asc;";
+	String sql="Select descripcion from tb_monedas where estadotf=TRUE order by descripcion asc;";
 	//System.out.println(sql);
 	try{
 	rs=con.Consulta(sql);
