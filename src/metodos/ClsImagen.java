@@ -2,6 +2,7 @@ package metodos;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -129,29 +130,27 @@ public class ClsImagen {
 		}
 	
 //*******************************************************************************************************
-	public boolean insertarimagen_trueque(String path, int tipo_trueque_o_puja, int saber_id_ingreso_trueque){
+	public boolean insertarimagen_trueque(String namefile, InputStream content,int tam, int tipo_trueque_o_puja, int saber_id_ingreso_trueque){
 		boolean t = false;
 		ClsConexion obj = new ClsConexion();
+		
 		try {
-			File file = new File(path);
-			
-			FileInputStream fis = new FileInputStream(file);
-			String nombrearchivo = file.getName();
-			nombrearchivo = nombrearchivo.substring(nombrearchivo.length() -4, nombrearchivo.length());
-			if (nombrearchivo.equals(".jpg")){
+			//File file = new File(path);			
+			//FileInputStream fis = new FileInputStream(file);
+			//String nombrearchivo = file.getName();
+			String nombrearchivo= namefile.substring(namefile.length() -4, namefile.length());
+			if (nombrearchivo.equals(".jpg") || nombrearchivo.equals(".JPG") ){
 				PreparedStatement ps = obj.getConexion().prepareStatement("insert into tb_imagenes (id_producto_fk,tipo,nombre_img,imagen_bit) values(?,?,?,?)" );
 				ps.setInt(1, saber_id_ingreso_trueque);//id_producto_tr
 				ps.setInt(2, tipo_trueque_o_puja);//tipo trueque=1 puja=2
-				ps.setString(3, file.getName());
-				ps.setBinaryStream(4, fis, (int)file.length());
+				ps.setString(3, namefile);
+				ps.setBinaryStream(4, content,tam);
 				System.out.println(ps);
 				ps.executeUpdate();
 				ps.close();
-				fis.close();
 				t = true;
 			}else{
 				t=false;
-				fis.close();
 				System.out.println("archivo incorrecto o saber_id_nuevo_producto es <1");
 			}
 			

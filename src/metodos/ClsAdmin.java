@@ -254,7 +254,8 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 	        SimpleDateFormat fecha_sys = new SimpleDateFormat("yyyy-MM-dd");
 			boolean t=false;
 			ClsConexion obj = new ClsConexion();
-			String sql="INSERT INTO tb_trueque (descripcion,cantidad,moneda,titulo,fk_categoria,estado,fecha_trueque) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"',"+categoria+",'"+estado+"','"+fecha_sys.format(date)+"');";
+			String sql="insert into tb_trueque (descripcion,cantidad,moneda,titulo,fk_categoria,estado,fecha_trueque) values ('"+descripcion+"',"+cantidad+","+moneda+",'"+titulo+"',"+categoria+",'"+estado+"','"+fecha_sys.format(date)+"');";
+			System.out.println(sql);
 			try {
 				obj.Ejecutar(sql);
 				t=true;

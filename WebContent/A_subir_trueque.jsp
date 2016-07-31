@@ -53,7 +53,7 @@ if (error != null && error.equals("true")){
 </div>
 
 <div class="col-md-8">
-<form action="Sr_A_ingresa_trueque" method="post">
+<form action="Sr_A_ingresa_trueque" method="post" enctype="multipart/form-data">
 
 <!-- /////////////////////////////////////////////////////////////////////////////// -->
 <center>
@@ -124,13 +124,8 @@ if (error != null && error.equals("true")){
     <span class="fileupload-preview"></span>
   </div>
   <br>
-  		<!-- PATH IMAGENES INVISIBLES -->
-  		<input type="hidden" id="input01" name="path_imagen1">
-  		<input type="hidden" id="input02" name="path_imagen2">
-  		<input type="hidden" id="input03" name="path_imagen3">
-  		<input type="hidden" id="input04" name="path_imagen4">
   		
-        <input type="submit" name="btnRegistar" class="btn btn-success" onclick="detectarnav();" role="button" value="AGREGAR TRUEQUE">
+        <input type="submit" name="btnRegistar" class="btn btn-success" role="button" value="AGREGAR TRUEQUE">
         </center>
         <br>
 </form>
@@ -147,103 +142,6 @@ if (error != null && error.equals("true")){
 
 	<script src="Estilos/jquery-2.1.3.min.js"></script>
     <script src="Estilos/bootstrap.min.js"></script>
-    
-    <!-- SCRIPT PARA SACAR PATH DE LAS IMAGENES -->
-    <script type="text/javascript">
-
-	function detectarnav(){
-		var version = detectIE();
-		var antiguo,antiguo2,antiguo3,antiguo4;
-		antiguo=document.getElementById('inputfoto1').value;
-		antiguo2=document.getElementById('inputfoto2').value;
-		antiguo3=document.getElementById('inputfoto3').value;
-		antiguo4=document.getElementById('inputfoto4').value;
-		if (version === false) {
-		  var path; 
-		  var nAgt = navigator.userAgent;
-		  var verOffset;
-		  path = "C:/Imagenes/";
-		  if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
-			  document.getElementById('input01').value = path+antiguo;
-			  document.getElementById('input02').value = path+antiguo2;
-			  document.getElementById('input03').value = path+antiguo3;
-			  document.getElementById('input04').value = path+antiguo4;
-			 }else{
-				 var longitud_nombre = antiguo.length;
-				 var longitud_nombre2 = antiguo2.length;
-				 var longitud_nombre3 = antiguo3.length;
-				 var longitud_nombre4 = antiguo4.length;
-				 var imagen_nombre = antiguo.substring(12, longitud_nombre);
-				 var imagen_nombre2 = antiguo2.substring(12, longitud_nombre2);
-				 var imagen_nombre3 = antiguo3.substring(12, longitud_nombre3);
-				 var imagen_nombre4 = antiguo4.substring(12, longitud_nombre4);
-				 document.getElementById('input01').value = path+imagen_nombre;
-				 document.getElementById('input02').value = path+imagen_nombre2;
-				 document.getElementById('input03').value = path+imagen_nombre3;
-				 document.getElementById('input04').value = path+imagen_nombre4;
-			 }
-		  
-		} else if (version >= 12) {
-		  document.getElementById('input01').value = antiguo;
-		  document.getElementById('input02').value = antiguo2;
-		  document.getElementById('input03').value = antiguo3;
-		  document.getElementById('input04').value = antiguo4;
-		} else {
-		  document.getElementById('input01').value = antiguo;
-		  document.getElementById('input02').value = antiguo2;
-		  document.getElementById('input03').value = antiguo3;
-		  document.getElementById('input04').value = antiguo4;
-		}
-	}
-	
-	/**
-	 * detect IE
-	 * returns version of IE or false, if browser is not Internet Explorer
-	 */
-	function detectIE() {
-		 
-		 
-	  var ua = window.navigator.userAgent;
-	
-	  // Test values; Uncomment to check result …
-	
-	  // IE 10
-	  // ua = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
-	  
-	  // IE 11
-	  // ua = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv:11.0) like Gecko';
-	  
-	  // Edge 12 (Spartan)
-	  // ua = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
-	  
-	  // Edge 13
-	  // ua = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2486.0 Safari/537.36 Edge/13.10586';
-	
-	  var msie = ua.indexOf('MSIE ');
-	  if (msie > 0) {
-	    // IE 10 or older => return version number
-	    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-	  }
-	
-	  var trident = ua.indexOf('Trident/');
-	  if (trident > 0) {
-	    // IE 11 => return version number
-	    var rv = ua.indexOf('rv:');
-	    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
-	  }
-	
-	  var edge = ua.indexOf('Edge/');
-	  if (edge > 0) {
-	    // Edge (IE 12+) => return version number
-	    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
-	  }
-	
-	  // other browser
-	  return false;
-	}
-	
-	</script>
-    <!-- FIN DEL SCRIPT -->
     
 </body>
 </html>
