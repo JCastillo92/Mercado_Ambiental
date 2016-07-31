@@ -208,9 +208,10 @@ if(control == 0){
 else{
 %>
 <center>
+
 <h1>
 <span class="label label-success"> 
-<span class="glyphicon glyphicon glyphicon-shopping-cart" aria-hidden="true"> TERMINA EN:</span> 
+<span class="glyphicon glyphicon-star" aria-hidden="true"> PUJA ESTELAR</span> 
 </span>
 </h1>
 </center>
@@ -294,10 +295,10 @@ else{
 			    <%out.print(puja.Descripcion(id));%>
 			  </div>
 			</div>	
-	<!-- FIN -->
+	<!-- FIN NEW COD-->
 
-<center><a href="puja.jsp?id=<%=id%>"><button class="btn btn-info" type="button" >
-<span class="glyphicon glyphicon glyphicon-info-sign" aria-hidden="true"> PUJAR </span> 
+<center><a href="puja.jsp?id=<%=id%>"><button class="btn btn-primary btn-lg" type="button" >
+<span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"> PUJAR </span> 
 
 </button></a></center>
 
