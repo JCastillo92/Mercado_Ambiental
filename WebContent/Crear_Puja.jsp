@@ -45,7 +45,7 @@ if (error != null){
  	<form action="Ingreso_Puja" method="post" enctype="multipart/form-data">
   	<div class="form-group">
   	<h4><label for="nombre">Nombre del Producto</label></h4>
-  	<input type="text" class="form-control" name="nombre" required>
+  	<input type="text" class="form-control" name="nombre" maxlength="25" required>
 	</div>
 	
 	<div class="form-group">

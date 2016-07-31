@@ -71,7 +71,7 @@ if (error != null && error.equals("true")){
 
 <tr>
 <td> <span class="input-group-addon" id="basic-addon1">Nombre del Producto: </span>
-  <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" style="text-transform:uppercase" required></td>
+  <input type="text" class="form-control" name="txtProducto" placeholder="ejem. Nokia Lumia 520" aria-describedby="basic-addon1" style="text-transform:uppercase" maxlength="25" required></td>
 </tr>
 </table>
 
