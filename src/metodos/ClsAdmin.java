@@ -404,8 +404,7 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 		
 		public String Categoria(){
 
-			String categoria="<select class=form-control name=categoria>"
-			+ "<option> </option>";
+			String categoria="<select class=form-control name=categoria>";
 		  
 			datos.ClsConexion obj = new datos.ClsConexion();
 			ResultSet rs=null;
