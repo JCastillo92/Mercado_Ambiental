@@ -62,7 +62,7 @@ if (error != null && error.equals("true")){
 <!-- /////////////////////////////////////////////////////////////////////////////// -->
 <center>
 <br>
-        <h2><span class="label label-default" id="gridSystemModalLabel">Ingresar los datos y moneda del producto</span></h2>
+        <h2><span class="label label-default" id="gridSystemModalLabel">Ingresar los datos del producto o art&iacute;culo</span></h2>
   <!-- PONER LO DEL BRYAN AQUI -->
   <table class="table table-hover"><tr>
 <td> <span class="input-group-addon" id="basic-addon1">Descripci&oacute;n del producto: </span>
