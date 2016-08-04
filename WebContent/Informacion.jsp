@@ -67,7 +67,7 @@ if (error != null && error.equals("true")){
 <br> 
 </center>
       <center>
-<input type="submit" name="btnRegistar" class="btn btn-primary" role="button" value="Agregar Información">
+<input type="submit" name="btnRegistar" class="btn btn-success" role="button" value="Agregar Información">
 <a class="btn btn-danger" href="index.jsp" role="button">Cancelar</a>
 
 </center>

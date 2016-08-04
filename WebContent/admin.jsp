@@ -91,7 +91,7 @@ out.print(menu);
   <h3>
   <a href="admin.jsp?id=4" class="list-group-item">
   <span class="badge">  <span class="glyphicon glyphicon glyphicon-education" aria-hidden="true"></span></span>
-  ACEPTAR / RECHAZAR DE USUARIOS
+  ACEPTAR / RECHAZAR USUARIOS
   </a>
   </h3>
   

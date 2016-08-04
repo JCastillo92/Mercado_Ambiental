@@ -110,7 +110,7 @@ public boolean deshabilitar_moneda(int id){
 			rs=con.Consulta(sql);
 			while(rs.next()){
 				acum_jsp=acum_jsp+"<tr><td>"+rs.getString(1)+"</td><td>"+rs.getString(2)+"</td><td>"+rs.getString(3)+"</td><td>"+rs.getString(4)+"</td><td>"+rs.getString(5)+"</td>"
-						+ "<td><a class=\"btn btn-primary\" href=\"Sr_A_accept_user?dato="+rs.getString(6)+"\" role=\"button\">Aceptar</a></td>"
+						+ "<td><a class=\"btn btn-success\" href=\"Sr_A_accept_user?dato="+rs.getString(6)+"\" role=\"button\">Aceptar</a></td>"
 						+ "<td><a class=\"btn btn-danger\" href=\"Sr_A_deny_user?dato2="+rs.getString(6)+"\" role=\"button\">Eliminar</a></td></tr>";
 			}
 			acum_jsp+="</tbody></table>";
@@ -404,8 +404,7 @@ public boolean desbloquear_usuario(String recibo_dato_aceptar){
 		
 		public String Categoria(){
 
-			String categoria="<select class=form-control name=categoria>"
-			+ "<option> </option>";
+			String categoria="<select class=form-control name=categoria>";
 		  
 			datos.ClsConexion obj = new datos.ClsConexion();
 			ResultSet rs=null;
