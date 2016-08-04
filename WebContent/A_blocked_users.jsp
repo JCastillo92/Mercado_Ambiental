@@ -61,9 +61,8 @@ out.print(control);
 </div><!--Container -->
 </div><!--Wrap-->
 
-
  	<script src="Estilos/jquery-2.1.3.min.js"></script>
-    <script src="Estilos/bootstrap.min.js"></script>
+    <script src="Estilos/bootstrap.min.js"></script>    
 
 </body>
 </html>
