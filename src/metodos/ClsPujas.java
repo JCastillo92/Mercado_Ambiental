@@ -148,8 +148,7 @@ public class ClsPujas {
 
 	public String Moneda(){
 	ClsConexion con=new ClsConexion();
-	String moneda="<select class=form-control name=moneda>"
-	+ "<option> </option>";
+	String moneda="<select class=form-control name=moneda>";
 	ResultSet rs=null;
 	
 	String sql="Select descripcion from tb_monedas where estadotf=TRUE order by descripcion asc;";
