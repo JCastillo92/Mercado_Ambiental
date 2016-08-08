@@ -132,11 +132,15 @@ public class Cls_mailing {
 		switch (CodOperation) {
 		case 1://a client clicked on COMPRAR TRUEQUE
 			LibraryPredeterminated="\nHola, ADMIN.\n Tenemos notificaciónes "
-					+ "de que un usuario está interesado en un artículo\n "
+					+ "de un usuario que está interesado en un artículo\n "
 					+ "para el TRUEQUE, ingresa a la plataforma a revisar las novedades.";
 			break;
+		case 2://a client clicked on PUJAR
+			LibraryPredeterminated="\nHola, ADMIN.\n Tenemos notificaciónes "
+					+ "de un usuario que está interesado en un artículo\n "
+					+ "para la PUJA, ingresa a la plataforma a revisar las novedades.";
+			break;
 		default:
-			
 			break;
 		}//fin switch
 	    try {

@@ -498,12 +498,12 @@ public void Hacer_Principal(String id){
 public void Actualizar_Comprador_Valor(String id_comprador, int valor, int id){
 	ClsConexion con=new ClsConexion();
 	String sql="update tb_pujas set valor_minimo="+valor+", comprador="+id_comprador+"  where id_prod_pj="+id+";";
-	//System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+sql);
 	
 	try {
 	con.Ejecutar(sql);
 	Cls_mailing mailto=new Cls_mailing();
 	mailto.deliver(8, id_comprador);
+	mailto.auto_mail_to_CEUPS(2);//aqui aviso al CLUB de que alguien compro la puja
 	}catch (Exception e) {
 	e.printStackTrace();
 	}

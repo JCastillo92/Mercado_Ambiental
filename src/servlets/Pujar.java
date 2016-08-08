@@ -60,12 +60,10 @@ public class Pujar extends HttpServlet {
 		//System.out.println(valor+" ********************");
 		
 		if(Integer.parseInt(valor)>=oferta){
-		response.sendRedirect("puja.jsp?dato=Error ingrese una oferta mayor al Actual");	
+		response.sendRedirect("puja.jsp?dato=Error ingrese una oferta mayor a la actual");	
 		}
 		else{
-		
 		obj.Actualizar_Valor_Actual(id, obj.Valor(id));
-		
 		obj.Actualizar_Comprador_Valor(cedula, oferta, Integer.parseInt(id));
 		response.sendRedirect("puja.jsp?dato=Oferta Realizada&id="+id);
 		}

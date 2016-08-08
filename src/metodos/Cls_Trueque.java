@@ -354,11 +354,12 @@ public class Cls_Trueque {
 	public boolean trueque_usuario(String id, String cedula){
 		boolean t =false;
 		ClsConexion con=new ClsConexion();
+		Cls_mailing mailto=new Cls_mailing();
 		String sql="update tb_trueque set estado=2, comprador='"+cedula+"' where id_producto_tr="+id;
 		try {
 			con.Ejecutar(sql);
 			t=true;
-			
+			mailto.auto_mail_to_CEUPS(1);//aqui aviso al CLUB de que alguien compro el trueque
 		} catch (Exception e) {
 			t=false;
 			e.printStackTrace();
