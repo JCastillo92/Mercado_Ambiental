@@ -180,10 +180,7 @@ Universidad Politécnica Salesiana
 <br>
       Sede Quito - Campus Sur
 <br>
-Sistemas - Ambiental
-<br>
 Quito - Ecuador 2016
-<br>
 <br>
 <br>
 </div>  

@@ -83,6 +83,12 @@ Av. Rumichaca y Morán Valverde s/n., Quito">Av. Rumichaca y Morán Valverde (MAPA
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div id="footer" style="text-align: center; font-size: 15px; border: 5px solid #A8A59C; color:#6E6E6E;background-color:#F2F2F2">
 <br>
 
@@ -92,10 +98,7 @@ Universidad Politécnica Salesiana
 <br>
       Sede Quito - Campus Sur
 <br>
-Sistemas - Ambiental
-<br>
 Quito - Ecuador 2016
-<br>
 <br>
 <br>
 </div>  
